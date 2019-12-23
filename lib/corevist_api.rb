@@ -1,5 +1,5 @@
-require "corevist_api/railtie"
+# require "corevist_api/railtie"
+require "corevist_api/engine"
 
-module CorevistApi
-  # Your code goes here...
+module CorevistAPI
 end

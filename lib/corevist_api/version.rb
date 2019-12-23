@@ -1,3 +1,3 @@
-module CorevistApi
+module CorevistAPI
   VERSION = '0.1.0'
 end

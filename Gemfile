@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+ruby '2.4.6'
 # Declare your gem's dependencies in corevist_api.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
@@ -13,3 +14,21 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+
+gem 'sapnwrfc',                          git: 'git@github.com:b2b2dot0/sapnwrfc.git'
+
+# Pull in extra gems to run specs against the gem.
+group :test do
+  gem 'rspec-rails'
+  gem 'rspec-html-matchers'
+  gem 'shoulda',            require: false
+  gem 'factory_bot_rails'
+  gem 'forgery'
+  gem 'timecop'
+  gem 'database_cleaner'
+  gem 'simplecov', require: false
+end
+
+group :test, :development do
+  gem 'thin'
+end
