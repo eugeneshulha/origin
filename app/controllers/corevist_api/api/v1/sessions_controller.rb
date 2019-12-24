@@ -1,14 +1,21 @@
 module CorevistAPI
-  class Api::V1::SessionsController < Api::V1::ApplicationController
-    def create
-    end
+  module Api::V1
+    class SessionsController < Devise::SessionsController
 
-    def destroy
-    end
+      def create
+        self.resource = warden.authenticate!(auth_options)
+        api_response.success!
+        api_response.add(account_id: resource.uuid)
+        api_response.set_message(:devise, :sessions, :signed_in)
+        sign_in(resource_name, resource)
+        respond_with resource
+      end
 
-    private
+      private
 
-    def find_session
+        def respond_with(resource, _opts = {})
+          render json: api_response
+        end
     end
   end
 end
