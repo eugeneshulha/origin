@@ -1,8 +1,8 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.string :uuid,                    null: false, default: SecureRandom.uuid, index: true, unique: true
-      t.string :username,                null: false, limit: 50, index: true, unique: true
+      t.string :uuid,                    null: false, index: { unique: true }
+      t.string :username,                null: false, limit: 50, index: { unique: true }
       t.string :encrypted_password,      null: false
       t.string :last_name,               null: false, limit: 50
       t.string :first_name,              null: false, limit: 50
@@ -35,7 +35,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
 
 
       ## Recoverable
-      t.string   :reset_password_token,  index: true, unique: true
+      t.string   :reset_password_token, index: { unique: true }
       t.datetime :reset_password_sent_at
 
 

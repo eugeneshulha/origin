@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_151414) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "uuid", default: "b763aed0-203e-4b9b-b2ba-b5e1b5911ce6", null: false
+    t.string "uuid", null: false
     t.string "username", limit: 50, null: false
     t.string "encrypted_password", null: false
     t.string "last_name", limit: 50, null: false
@@ -47,9 +47,9 @@ ActiveRecord::Schema.define(version: 2019_12_23_151414) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
-    t.index ["username"], name: "index_users_on_username"
-    t.index ["uuid"], name: "index_users_on_uuid"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
+    t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
 end
