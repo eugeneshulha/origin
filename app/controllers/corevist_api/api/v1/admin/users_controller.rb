@@ -1,4 +1,4 @@
 module CorevistAPI
-  class Api::V1::Admin::UsersController < Api::V1::Admin::ApplicationController
+  class API::V1::Admin::UsersController < API::V1::Admin::BaseController
   end
 end

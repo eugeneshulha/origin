@@ -1,4 +1,4 @@
 module CorevistAPI
-  class Api::V1::SummaryController < Api::V1::ApplicationController
+  class API::V1::SummaryController < API::V1::BaseController
   end
 end

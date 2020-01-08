@@ -1,5 +1,5 @@
 module CorevistAPI
-  module Api::V1
+  module API::V1
     class SessionsController < Devise::SessionsController
 
       def create

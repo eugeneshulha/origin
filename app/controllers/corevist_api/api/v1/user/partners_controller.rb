@@ -1,4 +1,4 @@
 module CorevistAPI
-  class Api::V1::PartnersController < Api::V1::ApplicationController
+  class API::V1::PartnersController < API::V1::BaseController
   end
 end

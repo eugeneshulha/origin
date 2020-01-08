@@ -1,4 +1,4 @@
 module CorevistAPI
-  class Api::V1::User::SavedCardsController < Api::V1::ApplicationController
+  class API::V1::User::SavedCardsController < API::V1::BaseController
   end
 end

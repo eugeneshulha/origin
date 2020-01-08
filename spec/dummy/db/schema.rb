@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_151414) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "uuid", default: "537e651a-74c7-44a1-a5d9-865d6e7f6610", null: false
+    t.string "uuid", default: "b763aed0-203e-4b9b-b2ba-b5e1b5911ce6", null: false
     t.string "username", limit: 50, null: false
     t.string "encrypted_password", null: false
     t.string "last_name", limit: 50, null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_12_23_151414) do
     t.string "microsite", limit: 50, null: false
     t.string "user_type", limit: 30
     t.string "phone", limit: 30
+    t.string "type", limit: 30
     t.string "date_format", limit: 20
     t.string "number_format", limit: 2
     t.string "time_format", limit: 20

@@ -1,4 +1,4 @@
 module CorevistAPI
-  class Api::V1::InvoicesController < Api::V1::ApplicationController
+  class API::V1::InvoicesController < API::V1::BaseController
   end
 end

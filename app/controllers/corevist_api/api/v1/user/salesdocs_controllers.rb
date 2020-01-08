@@ -1,4 +1,4 @@
 module CorevistAPI
-  class Api::V1::SalesdocsController < Api::V1::ApplicationController
+  class API::V1::SalesdocsController < API::V1::BaseController
   end
 end

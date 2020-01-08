@@ -1,4 +1,6 @@
 module CorevistAPI
-  class Api::V1::UsersController < Api::V1::ApplicationController
+  class API::V1::UsersController < API::V1::BaseController
+    def index
+    end
   end
 end

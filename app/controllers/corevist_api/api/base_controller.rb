@@ -1,11 +1,11 @@
-module CorevistAPI
-  class ApplicationController < ActionController::API
+module CorevistAPI::API
+  class BaseController < ActionController::API
+    before_action :prepare_response!
+
     include ActionController::MimeResponds
     include ActionController::Helpers
 
     respond_to :json
-
-    before_action :prepare_response!
 
     helper_method :api_response
 

@@ -14,18 +14,21 @@ Devise.setup do |config|
 
   config.jwt do |jwt|
     jwt.secret = 'eeeb57e96254175aef7eaa9169e0afedc1882e370a296f8c73afd9e7c7fc1d1803933d06259f629d216e9b8e2c99331a9aafaac3270a844dbcc459ea56063534'
+    jwt.expiration_time = 1.day.to_i
+    jwt.request_formats = { user: [:json] }
+
     jwt.dispatch_requests = [
-        ['POST', %r{ ^/api/v1/auth$}]
+        ['POST', %r{^/api/v1/auth$}]
     ]
     jwt.revocation_requests = [
-        ['DELETE', %r{^/logout$}]
+        ['DELETE', %r{^/api/v1/logout$}]
     ]
-    jwt.expiration_time = 1.day.to_i
   end
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  config.parent_controller = 'CorevistAPI::ApplicationController'
+  config.parent_controller = 'CorevistAPI::Devise::BaseController'
+  config.router_name = :corevist_api
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -264,7 +267,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  config.navigational_formats = []
+  #config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete

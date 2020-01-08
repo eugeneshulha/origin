@@ -1,5 +1,5 @@
 module CorevistAPI
-  class Api::V1::Admin::ApplicationController < ApplicationController
+  class API::V1::Admin::BaseController < API::BaseController
     before_action :authenticate_admin!
 
 
