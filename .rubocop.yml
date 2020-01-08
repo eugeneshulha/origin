@@ -1,0 +1,62 @@
+AllCops:
+  TargetRubyVersion: 2.4.6
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Style/RaiseArgs:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 70
+
+Style/TrivialAccessors:
+  ExactNameMatch: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
