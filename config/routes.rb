@@ -9,16 +9,6 @@ CorevistAPI::Engine.routes.draw do
     end
   end
 
-  scope :web, defaults: { format: :html } do
-    devise_for :users, class_name: "CorevistAPI::User", module: :devise, singular: :web_user,
-               path: '',
-               path_names: { sign_in: :sign_in, sign_out: :logout },
-               controllers: { sessions: 'corevist_api/web/sessions' }
-
-
-    root to: 'web/admin/dashboards#index'
-  end
-
   namespace :web do
     namespace :admin do
       get 'dashboard', to: 'dashboards#index'

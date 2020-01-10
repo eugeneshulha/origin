@@ -27,7 +27,7 @@ Devise.setup do |config|
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  config.parent_controller = 'CorevistAPI::Devise::BaseController'
+  config.parent_controller = 'CorevistAPI::API::BaseController'
   config.router_name = :corevist_api
 
   # ==> Mailer Configuration

@@ -10,7 +10,7 @@ module CorevistAPI::API
     helper_method :api_response
 
     def api_response
-      @api_response ||= ApiResponse.new
+      @api_response ||= CorevistAPI::ApiResponse.new
     end
 
     private
