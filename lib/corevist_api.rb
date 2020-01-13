@@ -1,5 +1,5 @@
 # require "corevist_api/railtie"
-require 'haml'
+require 'jbuilder'
 require 'devise'
 require 'devise/jwt'
 require "corevist_api/engine"

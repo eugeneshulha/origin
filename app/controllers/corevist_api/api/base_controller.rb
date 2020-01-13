@@ -1,5 +1,6 @@
 module CorevistAPI::API
   class BaseController < ActionController::API
+    before_action :authenticate_user!
     before_action :prepare_response!
 
     include ActionController::MimeResponds
