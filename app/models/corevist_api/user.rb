@@ -6,6 +6,10 @@ module CorevistAPI
 
     self.table_name = 'users'
 
+    def self.policy_class
+      API::V1::Admin::UserPolicy
+    end
+
     private
 
     def set_uuid

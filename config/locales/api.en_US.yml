@@ -1,0 +1,3 @@
+en_US:
+  api:
+    unauthorized: 'The server understood the request, but is refusing to authorize it.'

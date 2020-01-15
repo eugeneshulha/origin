@@ -3,7 +3,8 @@ require 'jbuilder'
 require 'haml'
 require 'devise'
 require 'devise/jwt'
-require "corevist_api/engine"
+require 'pundit'
+require 'corevist_api/engine'
 
 module CorevistAPI
 end

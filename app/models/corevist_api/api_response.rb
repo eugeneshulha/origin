@@ -30,6 +30,10 @@ module CorevistAPI
       @body[:status] = 200
     end
 
+    def unauthorized!
+      @body[:status] = 403
+    end
+
     def to_json(*)
       @body.to_json
     end
