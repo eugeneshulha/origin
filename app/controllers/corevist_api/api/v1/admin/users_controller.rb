@@ -1,28 +1,30 @@
 module CorevistAPI
   class API::V1::Admin::UsersController < API::V1::Admin::BaseController
-    before_action :find_user, only: [:destroy, :update, :show]
+    before_action :find_user, only: %i[show update destroy]
 
     def index
-      @users = CorevistAPI::User.all
+      authorize(User, :index?)
+      @users = policy_scope(User)
     end
 
-    def show
-    end
+    def show; end
 
     def new
+      authorize(User, :new?)
       step = "admin_users_step_#{params[:step]}".to_sym
-      @step = CorevistAPI::FormsFactory.instance.for(step).validate!
+      @step = FormsFactory.instance.for(step).validate!
     end
 
     def create
-      @user = CorevistAPI::ServicesFactory.instance.for(:create_user).call
+      authorize(User, :create?)
+      @user = ServicesFactory.instance.for(:create_user).call
     end
 
     def edit
+      authorize(User, :edit?)
     end
 
-    def update
-    end
+    def update; end
 
     def destroy
       @user.destroy
@@ -31,7 +33,7 @@ module CorevistAPI
     private
 
     def find_user
-      @user = CorevistAPI::User.find_by(uuid: params[:id])
+      @user = authorize(User.find_by(uuid: params[:id]))
     end
   end
 end
