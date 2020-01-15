@@ -24,6 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'devise-jwt',     '~> 0.5.9'
   spec.add_dependency 'rack-cors',      '~> 1.1.0'
   spec.add_dependency 'jbuilder',       '~> 2.9.1'
+  spec.add_dependency 'haml-rails',     '~> 2.0'
 
   spec.add_development_dependency 'pry-byebug'
 end
