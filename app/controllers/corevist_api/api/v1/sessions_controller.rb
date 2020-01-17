@@ -1,5 +1,6 @@
 module CorevistAPI
   class API::V1::SessionsController < Devise::SessionsController
+    include Configurable
 
     def create
       self.resource = warden.authenticate!(auth_options)
@@ -12,8 +13,12 @@ module CorevistAPI
 
     private
 
-      def respond_with(resource, _opts = {})
-        render json: api_response
-      end
+    def respond_with(resource, _opts = {})
+      render json: api_response
+    end
+
+    def self.config_file_name
+      'login'
+    end
   end
 end

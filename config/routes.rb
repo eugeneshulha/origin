@@ -16,10 +16,16 @@ CorevistAPI::Engine.routes.draw do
     end
   end
 
-
   namespace :api do
     namespace :v1 do
-      resources :registrations, only: [:new, :create]
+      devise_scope :user do
+        get 'auth/configs', to: 'sessions#configs'
+        get 'passwords/configs', to: 'passwords#configs'
+      end
+
+      resources :registrations, only: [:new, :create] do
+        get :configs, to: 'registrations#configs', on: :collection
+      end
 
       namespace :admin do
         resources :users

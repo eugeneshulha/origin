@@ -1,5 +1,7 @@
 module CorevistAPI
   class API::V1::PasswordsController < Devise::PasswordsController
+    include Configurable
+
     respond_to :json
 
     def create
@@ -8,5 +10,11 @@ module CorevistAPI
     end
 
     def edit; end
+
+    private
+
+    def self.config_file_name
+      'forgot_password'
+    end
   end
 end
