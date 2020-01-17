@@ -31,7 +31,11 @@ module Dummy
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.secret_key_base = '2c4adbadd9c8ca85fc18e8cf6917ce7f106441b98634586b79f048a039e2c1694f357a0eba4c4f71e4cf251942a2fa5f541f62ae6ded404412d6b68f81ff6d4f8bdf373b2756559bd86020824b15358039e7d4902432584fa1f86cb7800f08f01062f35755276158ef036ce68846a5b953b581e4629634d810ac3c4958b3fcaa'
+    config.secret_key_base = '2c4adbadd9c8ca85fc18e8cf6917ce7f106441b98634586b79f048a039e2c1694f357a0eba4c4f71e4cf2519'\
+    '42a2fa5f541f62ae6ded404412d6b68f81ff6d4f8bdf373b2756559bd86020824b15358039e7d4902432584fa1f86cb7800f08f01062f3575'\
+    '5276158ef036ce68846a5b953b581e4629634d810ac3c4958b3fcaa'
+
+    config.paths['config/database'] = "#{CorevistAPI::Engine.root}/spec/dummy/config/database.yml"
   end
 end
 
