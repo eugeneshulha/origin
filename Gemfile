@@ -16,7 +16,7 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 gem 'sapnwrfc',                          git: 'git@github.com:b2b2dot0/sapnwrfc.git'
-
+gem 'puma'
 # Pull in extra gems to run specs against the gem.
 group :test do
   gem 'rspec-rails'
@@ -27,8 +27,4 @@ group :test do
   gem 'timecop'
   gem 'database_cleaner'
   gem 'simplecov', require: false
-end
-
-group :test, :development do
-  gem 'thin'
 end

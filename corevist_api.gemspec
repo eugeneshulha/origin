@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'pundit',         '~> 2.1'
   spec.add_dependency 'rack-cors',      '~> 1.1.0'
   spec.add_dependency 'rails',          '~> 5.2.4'
-  spec.add_dependency 'unicorn',        '~> 5.5.1'
+  spec.add_dependency 'puma',           '~> 4.3.0'
 
   spec.add_development_dependency 'pry-byebug'
 end
