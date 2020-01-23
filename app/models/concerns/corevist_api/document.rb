@@ -18,6 +18,10 @@ module CorevistAPI
         include CorevistAPI::Document::Config
       end
 
+      class self::PaymentTerms
+        include CorevistAPI::Document::PaymentTerms
+      end
+
       def initialize
         @items = []
         @partners = []
