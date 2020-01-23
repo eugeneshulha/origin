@@ -23,10 +23,16 @@ CorevistAPI::Engine.routes.draw do
         get 'passwords/configs', to: 'passwords#configs'
       end
 
+      # registrations
       resources :registrations, only: [:new, :create] do
         get :configs, to: 'registrations#configs', on: :collection
       end
 
+      resource :invoices, only: :show do
+        get :search, to: 'invoices#index'
+      end
+
+      # admin panel
       namespace :admin do
         resources :users
       end
