@@ -7,7 +7,7 @@ module CorevistAPI
     end
 
     def for(name, *args)
-      @storage[name].safe_constantize.new(*args)
+      @storage.with_indifferent_access[name].safe_constantize.new(*args)
     end
   end
 end

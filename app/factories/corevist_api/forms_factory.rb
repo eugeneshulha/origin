@@ -9,7 +9,8 @@ module CorevistAPI
           admin_user_step_5: 'CorevistAPI::Admin::User::Step5',
           admin_user_step_6: 'CorevistAPI::Admin::User::Step6',
           user_registration: 'CorevistAPI::User::RegistrationForm',
-          search_invoices: 'CorevistAPI::Invoice::SearchForm'
+          search_invoices:'CorevistAPI::Forms::Invoice::Search',
+          search_salesdoc: 'CorevistAPI::Forms::Salesdoc::Search'
       }
     end
   end

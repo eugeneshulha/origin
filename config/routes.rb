@@ -28,8 +28,12 @@ CorevistAPI::Engine.routes.draw do
         get :configs, to: 'registrations#configs', on: :collection
       end
 
-      resource :invoices, only: :show do
+      resources :invoices, only: :show do
         get :search, to: 'invoices#index'
+      end
+
+      resources :salesdocs, only: :show do
+        get :search, to: 'salesdocs#index'
       end
 
       # admin panel
