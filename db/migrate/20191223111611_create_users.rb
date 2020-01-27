@@ -12,7 +12,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone,                   limit: 30
 
 
-      t.string :type,                    limit: 30 ## STI
+      # t.string :type,                    limit: 30 ## STI
 
 
       t.string :date_format,             limit: 20

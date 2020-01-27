@@ -266,12 +266,14 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails
   forgery
+  pry
   pry-byebug
   puma
   rspec-html-matchers
   rspec-rails
   sapnwrfc!
   shoulda
+  shoulda-matchers
   simplecov
   timecop
 

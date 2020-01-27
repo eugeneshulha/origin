@@ -19,12 +19,14 @@ gem 'sapnwrfc',                          git: 'git@github.com:b2b2dot0/sapnwrfc.
 gem 'puma'
 # Pull in extra gems to run specs against the gem.
 group :test do
-  gem 'rspec-rails'
-  gem 'rspec-html-matchers'
-  gem 'shoulda',            require: false
+  gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'forgery'
-  gem 'timecop'
-  gem 'database_cleaner'
+  gem 'pry'
+  gem 'rspec-html-matchers'
+  gem 'rspec-rails'
+  gem 'shoulda', require: false
+  gem 'shoulda-matchers'
   gem 'simplecov', require: false
+  gem 'timecop'
 end
