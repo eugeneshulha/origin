@@ -10,11 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_23_151414) do
+ActiveRecord::Schema.define(version: 2020_01_20_143559) do
+
+  create_table "assigned_partners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "number", limit: 10
+    t.string "name", limit: 100
+    t.string "sales_area", limit: 8
+    t.boolean "enabled"
+    t.string "function", limit: 2
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_assigned_partners_on_user_id"
+  end
 
   create_table "jwt_blacklist", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "jti", null: false
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
+  end
+
+  create_table "microsites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+  end
+
+  create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", limit: 50
+    t.string "created_by", limit: 50
+    t.string "updated_by", limit: 50
+    t.boolean "active"
+    t.boolean "complete"
+    t.boolean "admin_role"
+    t.string "assignments", limit: 1020
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_roles_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -27,7 +57,6 @@ ActiveRecord::Schema.define(version: 2019_12_23_151414) do
     t.string "microsite", limit: 50, null: false
     t.string "user_type", limit: 30
     t.string "phone", limit: 30
-    t.string "type", limit: 30
     t.string "date_format", limit: 20
     t.string "number_format", limit: 2
     t.string "time_format", limit: 20

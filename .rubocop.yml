@@ -46,9 +46,6 @@ Style/DoubleNegation:
 Naming/AccessorMethodName:
   Enabled: false
 
-Rails/HasAndBelongsToMany:
-  Enabled: false
-
 Style/RescueModifier:
   Enabled: false
 

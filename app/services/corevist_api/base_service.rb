@@ -9,5 +9,9 @@ module CorevistAPI
     def call
       raise NotImplementedError
     end
+
+    def result(data)
+      @result ||= ServiceResult.new(data)
+    end
   end
 end
