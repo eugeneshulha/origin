@@ -39,6 +39,7 @@ CorevistAPI::Engine.routes.draw do
       # admin panel
       namespace :admin do
         resources :users
+        resources :roles
       end
     end
   end
