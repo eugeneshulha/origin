@@ -34,17 +34,19 @@ ActiveRecord::Schema.define(version: 2020_01_20_143559) do
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", limit: 50
-    t.string "created_by", limit: 50
-    t.string "updated_by", limit: 50
-    t.boolean "active"
-    t.boolean "complete"
-    t.boolean "admin_role"
-    t.string "assignments", limit: 1020
-    t.bigint "user_id"
+    t.string "name"
+    t.string "created_by"
+    t.string "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_roles_on_user_id"
+    t.boolean "active"
+  end
+
+  create_table "roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "roles_id"
+    t.integer "users_id"
+    t.index ["roles_id"], name: "index_roles_users_on_roles_id"
+    t.index ["users_id"], name: "index_roles_users_on_users_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
