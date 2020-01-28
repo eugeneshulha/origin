@@ -27,8 +27,6 @@ module CorevistAPI
       raise_sap_error(exc)
     rescue => exc
       raise_rfc_exception(exc)
-    ensure
-      execution_log
     end
   end
 

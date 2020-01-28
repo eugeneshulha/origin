@@ -47,11 +47,11 @@ module CorevistAPI
     end
 
     def set_connection
-      @connection = RFCManager.instance.connection
+      @connection = CorevistAPI::BaseRFC::Connection.instance.open
     end
 
     def set_function
-      @function = @connection.function(@func_name)
+      @function = CorevistAPI::BaseRFC::Connection.instance.function(@func_name)
     end
 
     def result

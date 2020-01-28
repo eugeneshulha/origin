@@ -103,31 +103,5 @@ module CorevistAPI
         end
       end
     end
-
-    def execution_log
-      execution_results = {
-          rfc_func: @func_name,
-          start_time: @measures[:start_time].to_s(:db),
-          conn_time: @measures[:conn_time],
-          discovery_time: @measures[:disc_time],
-          process_in: @measures[:inp_time],
-          call_time: @measures[:call_time],
-          standard_time: @measures[:standard_time],
-          sap_time: @measures[:sap_time],
-          process_out: @measures[:outp_time],
-          sap_total: Time.now - @measures[:start_time],
-          session_id: Const::App.session_id,
-          port_server: "#{Const::App.port}-#{Const::App.server}",
-          additional_data: additional_data,
-          error: @error
-      }
-
-      with_tagged_logging(EXECUTION_RESULTS_TAG) do
-        @logger.debug { execution_results.inspect }
-      end
-
-      service_for(:rfc_log_save, RfcLog.new, function: @function, results: execution_results).call
-    end
   end
-
 end

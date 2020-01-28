@@ -9,7 +9,7 @@ module CorevistAPI
       private
 
       def perform!
-        RFCServicesFactory.instance.for(:find_salesdoc, @object, :get_salesdoc, @params)
+        RFCServicesFactory.instance.for(:find_salesdoc, @object, :get_salesdoc, @params).call
       end
     end
   end

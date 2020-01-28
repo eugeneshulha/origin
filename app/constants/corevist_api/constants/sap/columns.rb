@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module CorevistAPI
-  module Constants::Sap::Columns
+  module Constants::SAP::Columns
     ITEM_NR = 'ITEM_NR'
     MAT = 'MAT'
     CSTIC = 'CSTIC'

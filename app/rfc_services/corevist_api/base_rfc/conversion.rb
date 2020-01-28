@@ -1,7 +1,7 @@
 module CorevistAPI
   module BaseRFC::Conversion
-    include CorevistAPI::Constants::Sap::Tables
-    include CorevistAPI::Constants::Sap::Columns
+    include CorevistAPI::Constants::SAP::Tables
+    include CorevistAPI::Constants::SAP::Columns
 
     protected
 
@@ -46,43 +46,43 @@ module CorevistAPI
               FI => user.fi_authorizations.to_s, # to_s to prevent nil for web services
               TYPE => user.db_user.user_type.first.upcase # C: customer and customer-admin, I: internal employee, S: system admin
           },
-          ASSIGNED_SOLD_TOS => hash_to_rfc(user.assigned_sold_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
-          ASSIGNED_SHIP_TOS => hash_to_rfc(user.assigned_ship_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
-          ASSIGNED_PAYERS => hash_to_rfc(user.assigned_payers, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
-          ASSIGNED_TERRITORIES => hash_to_rfc(user.assigned_territories, rfc_key: NR, rfc_value: SA)
+          #ASSIGNED_SOLD_TOS => hash_to_rfc(user.assigned_sold_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
+          #ASSIGNED_SHIP_TOS => hash_to_rfc(user.assigned_ship_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
+          #ASSIGNED_PAYERS => hash_to_rfc(user.assigned_payers, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
+          #ASSIGNED_TERRITORIES => hash_to_rfc(user.assigned_territories, rfc_key: NR, rfc_value: SA)
       }
 
-      if microsite?
-        rfc_user[USER_DATA][MICROSITE] = user.db_user.microsite.to_s.upcase
-      end
+      #if microsite?
+      #  rfc_user[USER_DATA][MICROSITE] = user.db_user.microsite.to_s.upcase
+      #end
 
-      if user.user_type == UserB2b::B2C
-        rfc_user[ASSIGNED_SALES_AREAS] = array_to_rfc(
-            user.assigned_sales_areas,
-            rfc_key: SA,
-            rfc_value: DOC_CAT,
-            assign_value: ABCIH
-        )
-        return compact_hash(rfc_user)
-      end
+      #if user.user_type == UserB2b::B2C
+      #  rfc_user[ASSIGNED_SALES_AREAS] = array_to_rfc(
+      #      user.assigned_sales_areas,
+      #      rfc_key: SA,
+      #      rfc_value: DOC_CAT,
+      #      assign_value: ABCIH
+      #  )
+      #  return compact_hash(rfc_user)
+      #end
 
-      if user.master_role.blank?
-        rfc_user[ASSIGNED_SALES_AREAS] = array_to_rfc(
-            user.assigned_sales_areas,
-            rfc_key: SA,
-            rfc_value: DOC_CAT,
-            assign_value: ABCIH
-        )
-      else
-        rfc_user[ASSIGNED_SALES_AREAS] = array_to_rfc(
-            user.assigned_sales_areas,
-            rfc_key: SA,
-            rfc_value: DOC_CAT,
-            assign_value: lambda do |sales_area|
-              user.master_role.sales_areas[sales_area.drop_leading_zeros].display_doc_categories
-            end
-        )
-      end
+      #if user.master_role.blank?
+      #  rfc_user[ASSIGNED_SALES_AREAS] = array_to_rfc(
+      #      user.assigned_sales_areas,
+      #      rfc_key: SA,
+      #      rfc_value: DOC_CAT,
+      #      assign_value: ABCIH
+      #  )
+      #else
+      #  rfc_user[ASSIGNED_SALES_AREAS] = array_to_rfc(
+      #      user.assigned_sales_areas,
+      #      rfc_key: SA,
+      #      rfc_value: DOC_CAT,
+      #      assign_value: lambda do |sales_area|
+      #        user.master_role.sales_areas[sales_area.drop_leading_zeros].display_doc_categories
+      #      end
+      #  )
+      #end
 
       compact_hash(rfc_user)
     end

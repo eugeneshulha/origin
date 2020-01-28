@@ -4,10 +4,25 @@ require 'haml'
 require 'devise'
 require 'devise/jwt'
 require 'pundit'
+require 'sapnwrfc'
 require 'corevist_api/engine'
 
 module CorevistAPI
   extend ActiveSupport::Autoload
+
+  module Services; end
+  module RFCServices; end
+  module Forms
+    module Admin; end
+    module Invoice; end
+    module Salesdoc; end
+    module User; end
+  end
+  module Constants
+    module SAP; end
+  end
+
+
   module API
     module V1
       extend ActiveSupport::Autoload

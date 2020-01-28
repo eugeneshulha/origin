@@ -14,8 +14,13 @@
 ActiveSupport::Inflector.inflections(:en) do |inflect|
    inflect.acronym 'API'
    inflect.acronym 'APIs'
+
    inflect.acronym 'CRUD'
    inflect.acronym 'CRUDs'
+
    inflect.acronym 'RFC'
    inflect.acronym 'RFCs'
+
+   inflect.acronym 'SAP'
+   inflect.acronym 'SAPs'
 end

@@ -14,7 +14,7 @@ module CorevistAPI
       end
 
       def object_to_rfc
-
+        { DOC_NR => @oarams[:doc_nr] }
       end
 
       def output

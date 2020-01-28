@@ -1,5 +1,5 @@
 module CorevistAPI
-  module Constants::Sap::Tables
+  module Constants::SAP::Tables
     CUSTOM_TABLES = 'CUSTOM_TABLES'.freeze
     USER_DATA = 'USER_DATA'.freeze
     ASSIGNED_SOLD_TOS = 'ASSIGNED_SOLD_TOS'.freeze

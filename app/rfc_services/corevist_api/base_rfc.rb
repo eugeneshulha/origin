@@ -3,8 +3,8 @@ require 'new_relic/agent/method_tracer'
 module CorevistAPI
   class BaseRFC
     include NewRelic::Agent::MethodTracer
-    include CorevistAPI::Constants::Sap::Tables
-    include CorevistAPI::Constants::Sap::Columns
+    include CorevistAPI::Constants::SAP::Tables
+    include CorevistAPI::Constants::SAP::Columns
     include CorevistAPI::BaseRFC::DumpData
     include CorevistAPI::BaseRFC::Conversion
     include CorevistAPI::BaseRFC::LifeCycle
@@ -20,7 +20,7 @@ module CorevistAPI
       @sap_return = CorevistAPI::BaseRFC::Return.new
       @retry_attempts = 0
       @max_retries = MAX_RETRIES
-      @retry_condition = options.fetch(:retry_cond, RFCManager.instance.execute_retry_condition)
+      @retry_condition = nil
       @error = false
       @data = {}
       @converters = {}
@@ -71,7 +71,7 @@ module CorevistAPI
 
     def raise_rfc_exception(exc)
       @error = true
-      raise RfcException, exc
+      raise CorevistAPI::RfcException, exc
     end
 
     def raise_sap_error(exc)
@@ -87,5 +87,4 @@ module CorevistAPI
       value
     end
   end
-
 end
