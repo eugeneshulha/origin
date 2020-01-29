@@ -3,6 +3,7 @@ module CorevistAPI
     isolate_namespace CorevistAPI
 
     config.railties_order = [CorevistAPI::Engine, :main_app, :all]
+    config.active_job.queue_adapter = :sidekiq
 
     initializer 'corevist.assets.precompile' do |app|
       %w[stylesheets javascripts fonts images].each do |sub|

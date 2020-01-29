@@ -5,6 +5,7 @@ require 'devise'
 require 'devise/jwt'
 require 'pundit'
 require 'sapnwrfc'
+require 'sidekiq'
 require 'corevist_api/engine'
 
 module CorevistAPI
