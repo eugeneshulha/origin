@@ -1,8 +1,8 @@
-describe CorevistAPI::API::V1::Filters::Links::AssignedPartnerLink, type: :filter do
+describe CorevistAPI::Filters::Links::AssignedPartnerLink, type: :filter do
   let(:instance) { build(:api_v1_filters_links_assigned_partner_link) }
 
   it { is_expected.to_not be_nil }
-  it { expect(described_class.ancestors).to include(CorevistAPI::API::V1::Filters::Common) }
+  it { expect(described_class.ancestors).to include(CorevistAPI::Filters::Common) }
 
   describe '#perform' do
     subject { instance.perform(data) }

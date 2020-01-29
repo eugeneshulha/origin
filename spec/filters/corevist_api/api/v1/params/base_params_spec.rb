@@ -1,4 +1,4 @@
-describe CorevistAPI::API::V1::Filters::Params::BaseParams, type: :model do
+describe CorevistAPI::Filters::Params::BaseParams, type: :model do
   let(:instance) { build(:api_v1_filters_params_base_params) }
 
   describe '#initialize' do

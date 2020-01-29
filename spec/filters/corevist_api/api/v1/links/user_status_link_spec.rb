@@ -1,4 +1,4 @@
-describe CorevistAPI::API::V1::Filters::Links::UserStatusLink, type: :filter do
+describe CorevistAPI::Filters::Links::UserStatusLink, type: :filter do
   let(:instance) { build(:api_v1_filters_links_user_status_link) }
 
   it { is_expected.to_not be_nil }

@@ -1,4 +1,4 @@
-describe CorevistAPI::API::V1::Filters::Results::BaseResult do
+describe CorevistAPI::Filters::Results::BaseResult do
   let(:instance) { build(:api_v1_filters_results_base_result) }
 
   describe '#data' do

@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :api_v1_filters_results_base_result, class: 'CorevistAPI::API::V1::Filters::Results::BaseResult' do
+  factory :api_v1_filters_results_base_result, class: 'CorevistAPI::Filters::Results::BaseResult' do
     object { create(:api_v1_user) }
     params { {} }
     query { CorevistAPI::API::V1::User }
@@ -7,7 +7,7 @@ FactoryBot.define do
     skip_create
   end
 
-  factory :api_v1_filters_results_user_result, class: 'CorevistAPI::API::V1::Filters::Results::UserResult' do
+  factory :api_v1_filters_results_user_result, class: 'CorevistAPI::Filters::Results::UserResult' do
     object { create(:api_v1_user) }
     params { {} }
     query { CorevistAPI::API::V1::User }

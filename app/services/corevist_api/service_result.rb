@@ -1,5 +1,5 @@
 module CorevistAPI
-  class ServiceResult
+  class Services::ServiceResult
     attr_reader :data
 
     def initialize(data)

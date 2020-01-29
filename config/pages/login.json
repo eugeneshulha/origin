@@ -1,18 +1,27 @@
 {
-  "username": {
-    "type": "text",
-    "value": "",
-    "label": "User ID *",
-    "name": "username",
-    "placeholder": "Enter user ID",
-    "required": "Hi TEAM, i came from backend to tell you that login field is required"
-  },
-  "password": {
-    "type": "password",
-    "value": "",
-    "label": "Password *",
-    "name": "password",
-    "placeholder": "Enter password",
-    "required": "This is required message for password"
+  "forgot_password_form": {
+    "path": "/api/v1/forgot_password",
+    "type": "POST",
+    "title": "Forgot your password",
+    "description": "",
+
+    "fields": [
+      {
+        "type": "text",
+        "value": "",
+        "label": "User ID *",
+        "name": "username",
+        "placeholder": "Enter user ID",
+        "required": "Hi TEAM, i came from backend to tell you that login field is required"
+      },
+      {
+        "type": "password",
+        "value": "",
+        "label": "Password *",
+        "name": "password",
+        "placeholder": "Enter password",
+        "required": "This is required message for password"
+      }
+    ]
   }
 }

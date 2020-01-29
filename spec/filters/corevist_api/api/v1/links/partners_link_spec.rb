@@ -1,4 +1,4 @@
-describe CorevistAPI::API::V1::Filters::Links::PartnersLink, type: :filter do
+describe CorevistAPI::Filters::Links::PartnersLink, type: :filter do
   let(:instance) { build(:api_v1_filters_links_partners_link) }
 
   it { is_expected.to_not be_nil }

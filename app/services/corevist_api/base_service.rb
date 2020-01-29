@@ -1,5 +1,5 @@
 module CorevistAPI
-  class BaseService
+  class Services::BaseService
     def initialize(object, params)
       @object = object
       @params = params&.dup

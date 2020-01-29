@@ -1,14 +1,14 @@
-describe CorevistAPI::API::V1::Filters::BaseFilter, type: :model do
+describe CorevistAPI::Filters::BaseFilter, type: :model do
   let(:instance) { build(:api_v1_filters_base_filter) }
 
   it do
-    expect(instance.instance_variable_get(:@result)).to be_a_kind_of(CorevistAPI::API::V1::Filters::Results::BaseResult)
+    expect(instance.instance_variable_get(:@result)).to be_a_kind_of(CorevistAPI::Filters::Results::BaseResult)
   end
 
   describe '#chain' do
     subject { described_class.chain }
 
-    it { is_expected.to be_a_kind_of(CorevistAPI::API::V1::Filters::Chains::BaseChain) }
+    it { is_expected.to be_a_kind_of(CorevistAPI::Filters::Chains::BaseChain) }
   end
 
   describe '#chain_links' do

@@ -1,5 +1,5 @@
 module CorevistAPI
-  class Mailer < ApplicationMailer
+  class Mailer < BaseMailer
     def user_registration(form)
       @form = form
       mail to: form.email

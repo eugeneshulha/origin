@@ -1,4 +1,4 @@
-describe CorevistAPI::API::V1::Filters::Links::MaintainedByUserLink, type: :filter do
+describe CorevistAPI::Filters::Links::MaintainedByUserLink, type: :filter do
   let(:instance) { build(:api_v1_filters_links_maintained_by_user_link) }
 
   it { is_expected.to_not be_nil }

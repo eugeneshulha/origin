@@ -5,6 +5,7 @@ module CorevistAPI
     respond_to :json
 
     def create
+      binding.pry
       self.resource = resource_class.send_reset_password_instructions(resource_params)
       @is_sent = successfully_sent?(resource)
     end
