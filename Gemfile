@@ -16,13 +16,18 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 
 gem 'sapnwrfc',                          git: 'git@github.com:b2b2dot0/sapnwrfc.git'
-gem 'puma'
 # Pull in extra gems to run specs against the gem.
+#
+
+group :test, :development do
+  gem 'thin'
+  gem 'pry-byebug'
+end
+
 group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'forgery'
-  gem 'pry'
   gem 'rspec-html-matchers'
   gem 'rspec-rails'
   gem 'shoulda', require: false
