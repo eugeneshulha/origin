@@ -17,5 +17,9 @@ module CorevistAPI
     def perform
       raise NotImplementedError
     end
+
+    def to_json
+
+    end
   end
 end
