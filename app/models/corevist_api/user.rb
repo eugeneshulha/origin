@@ -2,12 +2,13 @@ module CorevistAPI
   class User < ApplicationRecord
     devise :database_authenticatable, :recoverable, :jwt_authenticatable, jwt_revocation_strategy: JWTBlacklist
 
+    self.table_name = 'users'
+
     has_many :assigned_partners
-    has_many :roles
+    has_and_belongs_to_many :roles
 
     before_create :set_uuid
 
-    self.table_name = 'users'
 
     TYPE_CUSTOMER_ADMIN = 'customer_admin'.freeze
     TYPE_SYSTEM_ADMIN = 'system_admin'.freeze

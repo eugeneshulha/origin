@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_143559) do
+ActiveRecord::Schema.define(version: 2020_01_29_142239) do
 
   create_table "assigned_partners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "number", limit: 10
@@ -24,6 +24,39 @@ ActiveRecord::Schema.define(version: 2020_01_20_143559) do
     t.index ["user_id"], name: "index_assigned_partners_on_user_id"
   end
 
+  create_table "doc_categories", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "created_by"
+    t.string "updated_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "doc_categories_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "doc_category_id"
+    t.bigint "sales_area_id"
+    t.index ["doc_category_id"], name: "index_doc_categories_sales_areas_on_doc_category_id"
+    t.index ["sales_area_id"], name: "index_doc_categories_sales_areas_on_sales_area_id"
+  end
+
+  create_table "doc_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "data"
+    t.string "created_by"
+    t.string "updated_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "doc_types_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "doc_type_id"
+    t.bigint "sales_area_id"
+    t.index ["doc_type_id"], name: "index_doc_types_sales_areas_on_doc_type_id"
+    t.index ["sales_area_id"], name: "index_doc_types_sales_areas_on_sales_area_id"
+  end
+
   create_table "jwt_blacklist", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "jti", null: false
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
@@ -34,19 +67,37 @@ ActiveRecord::Schema.define(version: 2020_01_20_143559) do
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.string "created_by"
-    t.string "updated_by"
+    t.string "title", limit: 50
+    t.string "created_by", limit: 50
+    t.string "updated_by", limit: 50
+    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "active"
+    t.text "description"
+  end
+
+  create_table "roles_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "sales_area_id"
+    t.index ["role_id"], name: "index_roles_sales_areas_on_role_id"
+    t.index ["sales_area_id"], name: "index_roles_sales_areas_on_sales_area_id"
   end
 
   create_table "roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "roles_id"
-    t.integer "users_id"
-    t.index ["roles_id"], name: "index_roles_users_on_roles_id"
-    t.index ["users_id"], name: "index_roles_users_on_users_id"
+    t.bigint "role_id"
+    t.bigint "user_id"
+    t.index ["role_id"], name: "index_roles_users_on_role_id"
+    t.index ["user_id"], name: "index_roles_users_on_user_id"
+  end
+
+  create_table "sales_areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "created_by"
+    t.string "updated_by"
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
