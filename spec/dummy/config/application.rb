@@ -35,6 +35,19 @@ module Dummy
     '42a2fa5f541f62ae6ded404412d6b68f81ff6d4f8bdf373b2756559bd86020824b15358039e7d4902432584fa1f86cb7800f08f01062f3575'\
     '5276158ef036ce68846a5b953b581e4629634d810ac3c4958b3fcaa'
 
+
+    # Rack CORS configuration
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :options], expose: ['Authorization']
+      end
+    end
+
+    config.action_dispatch.default_headers = {
+        'Access-Control-Allow-Origin' => '*'
+    }
+
     config.paths['config/database'] = "#{CorevistAPI::Engine.root}/spec/dummy/config/database.yml"
   end
 end

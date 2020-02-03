@@ -1,6 +1,12 @@
 module CorevistAPI
-  class Partner < CorevistAPI::BasicPartner
-    attr_accessor :postal_address, :street_address, :sales_data, :sap_return, :functions, :state, :country,
-                  :address_number, :language, :texts, :email_address, :ptype
+  class Partner < ApplicationRecord
+    self.table_name = 'partners'
+
+    belongs_to :user
+    belongs_to :sales_area
+
+    # self association
+    has_many :associated_partners, class_name: 'Partner', foreign_key: 'parent_id'
+    belongs_to :parent_partner, class_name: 'Partner', optional: true
   end
 end

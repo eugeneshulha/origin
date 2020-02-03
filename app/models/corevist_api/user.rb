@@ -4,7 +4,7 @@ module CorevistAPI
 
     self.table_name = 'users'
 
-    has_many :assigned_partners
+    has_many :partners
     has_and_belongs_to_many :roles
 
     before_create :set_uuid

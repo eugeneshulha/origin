@@ -10,19 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_142239) do
-
-  create_table "assigned_partners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "number", limit: 10
-    t.string "name", limit: 100
-    t.string "sales_area", limit: 8
-    t.boolean "enabled"
-    t.string "function", limit: 2
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_assigned_partners_on_user_id"
-  end
+ActiveRecord::Schema.define(version: 2020_02_03_155214) do
 
   create_table "doc_categories", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -66,6 +54,36 @@ ActiveRecord::Schema.define(version: 2020_01_29_142239) do
     t.string "name", null: false
   end
 
+  create_table "partners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "parent_partner_id"
+    t.bigint "sales_area_id"
+    t.bigint "user_id"
+    t.string "number", default: "", null: false
+    t.string "function"
+    t.string "name"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "email"
+    t.string "partner_type"
+    t.string "language"
+    t.string "payment_terms"
+    t.string "postal_address_1"
+    t.string "postal_address_2"
+    t.string "postal_address_3"
+    t.string "street_address_1"
+    t.string "street_address_2"
+    t.string "street_address_3"
+    t.boolean "deleted", default: false, null: false
+    t.boolean "assigned", default: false, null: false
+    t.boolean "default", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parent_partner_id"], name: "index_partners_on_parent_partner_id"
+    t.index ["sales_area_id"], name: "index_partners_on_sales_area_id"
+    t.index ["user_id"], name: "index_partners_on_user_id"
+  end
+
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", limit: 50
     t.string "created_by", limit: 50
@@ -101,7 +119,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_142239) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "uuid", null: false
+    t.string "uuid", default: "b763aed0-203e-4b9b-b2ba-b5e1b5911ce6", null: false
     t.string "username", limit: 50, null: false
     t.string "encrypted_password", null: false
     t.string "last_name", limit: 50, null: false
@@ -110,6 +128,7 @@ ActiveRecord::Schema.define(version: 2020_01_29_142239) do
     t.string "microsite", limit: 50, null: false
     t.string "user_type", limit: 30
     t.string "phone", limit: 30
+    t.string "type", limit: 30
     t.string "date_format", limit: 20
     t.string "number_format", limit: 2
     t.string "time_format", limit: 20
@@ -129,9 +148,9 @@ ActiveRecord::Schema.define(version: 2020_01_29_142239) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
-    t.index ["uuid"], name: "index_users_on_uuid", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
+    t.index ["username"], name: "index_users_on_username"
+    t.index ["uuid"], name: "index_users_on_uuid"
   end
 
 end
