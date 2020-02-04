@@ -1,5 +1,5 @@
 describe CorevistAPI::Filters::Links::CriteriaLink, type: :filter do
-  let(:instance) { build(:api_v1_filters_links_criteria_link) }
+  let(:instance) { build(:links_criteria_link) }
 
   it { is_expected.to_not be_nil }
 
@@ -7,7 +7,7 @@ describe CorevistAPI::Filters::Links::CriteriaLink, type: :filter do
     subject { instance.perform(data) }
 
     context 'when params include valid criteria' do
-      let(:data) { build(:api_v1_filters_results_user_result, :with_valid_criteria) }
+      let(:data) { build(:results_user_result, :with_valid_criteria) }
 
       it do
         expect(data.query).to receive(:where).with(any_args)
@@ -16,7 +16,7 @@ describe CorevistAPI::Filters::Links::CriteriaLink, type: :filter do
     end
 
     context 'when params include valid criteria' do
-      let(:data) { build(:api_v1_filters_results_user_result, :with_invalid_criteria) }
+      let(:data) { build(:results_user_result, :with_invalid_criteria) }
 
       it do
         expect(data.query).to_not receive(:where).with(any_args)

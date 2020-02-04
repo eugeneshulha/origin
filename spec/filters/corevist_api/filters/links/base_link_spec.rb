@@ -1,5 +1,5 @@
 describe CorevistAPI::Filters::Links::BaseLink, type: :filter do
-  let(:instance) { build(:api_v1_filters_links_base_link) }
+  let(:instance) { build(:links_base_link) }
 
   it { is_expected.to_not be_nil }
 

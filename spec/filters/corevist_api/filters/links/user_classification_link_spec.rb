@@ -1,5 +1,5 @@
 describe CorevistAPI::Filters::Links::UserClassificationLink, type: :filter do
-  let(:instance) { build(:api_v1_filters_links_user_classification_link) }
+  let(:instance) { build(:links_user_classification_link) }
 
   it { is_expected.to_not be_nil }
 
@@ -7,7 +7,7 @@ describe CorevistAPI::Filters::Links::UserClassificationLink, type: :filter do
     subject { instance.perform(data) }
 
     context 'when params exclude classification' do
-      let(:data) { build(:api_v1_filters_results_user_result, :without_classification) }
+      let(:data) { build(:results_user_result, :without_classification) }
 
       it { is_expected.to be_nil }
       it do
@@ -17,7 +17,7 @@ describe CorevistAPI::Filters::Links::UserClassificationLink, type: :filter do
     end
 
     context 'when params include classification' do
-      let(:data) { build(:api_v1_filters_results_user_result, :with_classification) }
+      let(:data) { build(:results_user_result, :with_classification) }
 
       it { is_expected.to_not be_nil }
       it do

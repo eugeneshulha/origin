@@ -18,11 +18,11 @@ module CorevistAPI
     SHIP_TO_FUNCTION = 'WE'.freeze
 
     def sold_tos
-      assigned_partners.where(function: SOLD_TO_FUNCTION)
+      partners.where(function: SOLD_TO_FUNCTION)
     end
 
     def ship_tos
-      assigned_partners.where(function: SHIP_TO_FUNCTION)
+      partners.where(function: SHIP_TO_FUNCTION)
     end
 
     alias assigned_sold_tos sold_tos

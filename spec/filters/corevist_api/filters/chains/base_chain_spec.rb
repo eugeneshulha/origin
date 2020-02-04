@@ -1,5 +1,5 @@
 describe CorevistAPI::Filters::Chains::BaseChain, type: :filter do
-  let(:instance) { build(:api_v1_filters_chains_base_chain) }
+  let(:instance) { build(:chains_base_chain) }
 
   it { is_expected.to be_a_kind_of(Array) }
 

@@ -1,5 +1,5 @@
 describe CorevistAPI::Filters::BaseFilter, type: :model do
-  let(:instance) { build(:api_v1_filters_base_filter) }
+  let(:instance) { build(:base_filter) }
 
   it do
     expect(instance.instance_variable_get(:@result)).to be_a_kind_of(CorevistAPI::Filters::Results::BaseResult)

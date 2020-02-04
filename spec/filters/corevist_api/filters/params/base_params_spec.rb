@@ -1,5 +1,5 @@
 describe CorevistAPI::Filters::Params::BaseParams, type: :model do
-  let(:instance) { build(:api_v1_filters_params_base_params) }
+  let(:instance) { build(:params_base_params) }
 
   describe '#initialize' do
     it { expect(instance.instance_variable_get(:@data)).to_not be_nil }

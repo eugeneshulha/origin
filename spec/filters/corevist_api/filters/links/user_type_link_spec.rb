@@ -1,5 +1,5 @@
 describe CorevistAPI::Filters::Links::UserTypeLink, type: :filter do
-  let(:instance) { build(:api_v1_filters_links_user_type_link) }
+  let(:instance) { build(:links_user_type_link) }
 
   it { is_expected.to_not be_nil }
 
@@ -7,7 +7,7 @@ describe CorevistAPI::Filters::Links::UserTypeLink, type: :filter do
     subject { instance.perform(data) }
 
     context 'when object is not customer admin' do
-      let(:data) { build(:api_v1_filters_results_user_result) }
+      let(:data) { build(:results_user_result) }
 
       before { allow(data.object).to receive(:customer_admin?).and_return(false) }
 
@@ -19,7 +19,7 @@ describe CorevistAPI::Filters::Links::UserTypeLink, type: :filter do
     end
 
     context 'when object is customer admin' do
-      let(:data) { build(:api_v1_filters_results_user_result) }
+      let(:data) { build(:results_user_result) }
 
       before { allow(data.object).to receive(:customer_admin?).and_return(true) }
 

@@ -1,5 +1,5 @@
 describe CorevistAPI::Filters::Links::MicrositeLink, type: :filter do
-  let(:instance) { build(:api_v1_filters_links_microsite_link) }
+  let(:instance) { build(:links_microsite_link) }
 
   it { is_expected.to_not be_nil }
 
@@ -7,7 +7,7 @@ describe CorevistAPI::Filters::Links::MicrositeLink, type: :filter do
     subject { instance.perform(data) }
 
     context 'when object is system admin' do
-      let(:data) { build(:api_v1_filters_results_user_result) }
+      let(:data) { build(:results_user_result) }
       before { allow(data.object).to receive(:system_admin?).and_return(true) }
 
       it { is_expected.to be_nil }
@@ -28,7 +28,7 @@ describe CorevistAPI::Filters::Links::MicrositeLink, type: :filter do
     end
 
     context 'when object is not system admin' do
-      let(:data) { build(:api_v1_filters_results_user_result) }
+      let(:data) { build(:results_user_result) }
       before { allow(data.object).to receive(:system_admin?).and_return(false) }
 
       it { is_expected.to be_nil }
