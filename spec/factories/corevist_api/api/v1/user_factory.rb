@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :api_v1_user, class: 'CorevistAPI::API::V1::User' do
+  factory :api_v1_user, class: 'CorevistAPI::User' do
     email { Forgery(:internet).email_address }
     username { Forgery(:internet).user_name }
     password { Forgery(:basic).password }

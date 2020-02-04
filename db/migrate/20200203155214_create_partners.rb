@@ -10,9 +10,11 @@ class CreatePartners < ActiveRecord::Migration[5.2]
       t.string :number,   null: false, default: ''
       t.string :function
       t.string :name
-      t.string :city
       t.string :state
       t.string :country
+      t.string :city
+      t.string :house
+      t.string :postal_code
       t.string :email
       t.string :partner_type
       t.string :language

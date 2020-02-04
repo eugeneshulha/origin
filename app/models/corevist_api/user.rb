@@ -6,15 +6,16 @@ module CorevistAPI
 
     has_many :partners
     has_and_belongs_to_many :roles
+    belongs_to :user_type
+    belongs_to :user_classification
+    belongs_to :microsite
 
     before_create :set_uuid
-
 
     TYPE_CUSTOMER_ADMIN = 'customer_admin'.freeze
     TYPE_SYSTEM_ADMIN = 'system_admin'.freeze
     SOLD_TO_FUNCTION = 'AG'.freeze
     SHIP_TO_FUNCTION = 'WE'.freeze
-
 
     def sold_tos
       assigned_partners.where(function: SOLD_TO_FUNCTION)

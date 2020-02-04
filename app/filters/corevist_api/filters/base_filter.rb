@@ -1,5 +1,5 @@
 module CorevistAPI
-  module API::V1::Filters
+  module Filters
     class BaseFilter
       class EmptyFilterChainError < StandardError; end
 

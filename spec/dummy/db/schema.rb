@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_03_155214) do
+ActiveRecord::Schema.define(version: 2020_02_04_095018) do
 
   create_table "doc_categories", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -61,9 +61,11 @@ ActiveRecord::Schema.define(version: 2020_02_03_155214) do
     t.string "number", default: "", null: false
     t.string "function"
     t.string "name"
-    t.string "city"
     t.string "state"
     t.string "country"
+    t.string "city"
+    t.string "house"
+    t.string "postal_code"
     t.string "email"
     t.string "partner_type"
     t.string "language"
@@ -86,12 +88,14 @@ ActiveRecord::Schema.define(version: 2020_02_03_155214) do
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", limit: 50
+    t.text "description"
     t.string "created_by", limit: 50
     t.string "updated_by", limit: 50
-    t.boolean "active"
+    t.boolean "active", default: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "description"
+    t.index ["user_id"], name: "index_roles_on_user_id"
   end
 
   create_table "roles_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -113,26 +117,39 @@ ActiveRecord::Schema.define(version: 2020_02_03_155214) do
     t.text "description"
     t.string "created_by"
     t.string "updated_by"
-    t.boolean "active"
+    t.boolean "active", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_classifications", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", default: "", null: false
+  end
+
+  create_table "user_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "value"
+    t.string "created_by"
+    t.string "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "uuid", default: "b763aed0-203e-4b9b-b2ba-b5e1b5911ce6", null: false
+    t.string "uuid", null: false
     t.string "username", limit: 50, null: false
     t.string "encrypted_password", null: false
     t.string "last_name", limit: 50, null: false
     t.string "first_name", limit: 50, null: false
     t.string "email", limit: 100, null: false
-    t.string "microsite", limit: 50, null: false
     t.string "user_type", limit: 30
     t.string "phone", limit: 30
-    t.string "type", limit: 30
     t.string "date_format", limit: 20
     t.string "number_format", limit: 2
     t.string "time_format", limit: 20
+    t.string "time_zone"
     t.string "language", limit: 5
+    t.boolean "active", default: false
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
@@ -143,14 +160,20 @@ ActiveRecord::Schema.define(version: 2020_02_03_155214) do
     t.datetime "locked_at"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.bigint "microsite_id"
+    t.bigint "user_type_id"
+    t.bigint "user_classification_id"
     t.string "created_by", limit: 50
     t.string "updated_by", limit: 50
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
-    t.index ["username"], name: "index_users_on_username"
-    t.index ["uuid"], name: "index_users_on_uuid"
+    t.index ["microsite_id"], name: "index_users_on_microsite_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["user_classification_id"], name: "index_users_on_user_classification_id"
+    t.index ["user_type_id"], name: "index_users_on_user_type_id"
+    t.index ["username"], name: "index_users_on_username", unique: true
+    t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
 end

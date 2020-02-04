@@ -34,14 +34,14 @@ module CorevistAPI
   module Filters
     extend ActiveSupport::Autoload
 
-    autoload :Common, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'common')
-    autoload :BaseFilter, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'base_filter')
-    autoload :UserFilter, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'user_filter')
+    autoload :Common, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'common')
+    autoload :BaseFilter, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'base_filter')
+    autoload :UserFilter, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'user_filter')
 
     module Links
       extend ActiveSupport::Autoload
 
-      links_path = CorevistAPI::Engine.root.join('app/filters/corevist_api/api/v1/links')
+      links_path = CorevistAPI::Engine.root.join('app/filters/corevist_api/filters/links')
 
       autoload :BaseLink, links_path.join('base_link')
       autoload :AssignedPartnerLink, links_path.join('assigned_partner_link')
@@ -60,20 +60,20 @@ module CorevistAPI
     module Params
       extend ActiveSupport::Autoload
 
-      autoload :BaseParams, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'params', 'base_params')
+      autoload :BaseParams, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'params', 'base_params')
     end
 
     module Results
       extend ActiveSupport::Autoload
 
-      autoload :BaseResult, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'results', 'base_result')
-      autoload :UserResult, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'results', 'user_result')
+      autoload :BaseResult, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'results', 'base_result')
+      autoload :UserResult, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'results', 'user_result')
     end
 
     module Chains
       extend ActiveSupport::Autoload
 
-      autoload :BaseChain, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'chains', 'base_chain')
+      autoload :BaseChain, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'chains', 'base_chain')
     end
   end
 end
