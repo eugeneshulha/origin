@@ -1,6 +1,6 @@
 module CorevistAPI
   module Services::Invoice
-    class Display < CorevistAPI::BaseService
+    class Display < CorevistAPI::Services::BaseService
 
     end
   end

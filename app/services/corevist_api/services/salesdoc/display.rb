@@ -1,6 +1,6 @@
 module CorevistAPI
   module Services::Salesdoc
-    class Display < CorevistAPI::BaseService
+    class Display < CorevistAPI::Services::BaseService
 
       def call
         perform!

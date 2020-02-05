@@ -1,4 +1,6 @@
 module CorevistAPI
-  class Admin::CreateUserService < CorevistAPI::BaseService
+  module Services::Admin
+    class CreateUserService < CorevistAPI::Services::BaseService
+    end
   end
 end
