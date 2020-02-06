@@ -22,9 +22,7 @@ CorevistAPI::Engine.routes.draw do
       end
 
       # registrations
-      resources :registrations, only: [:new, :create] do
-        get :configs, to: 'registrations#configs', on: :collection
-      end
+      resources :registrations, only: [:new, :create]
 
       resources :invoices, only: :show do
         get :search, to: 'invoices#index'
