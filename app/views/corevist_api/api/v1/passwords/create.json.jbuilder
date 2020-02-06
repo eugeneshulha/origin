@@ -1,7 +1,7 @@
 if @is_sent
-  json.status :success
+  json.status 200
   json.message 'Rest password instructions successfully sent'
 else
-  json.status :error
-  json.message 'Something went wrong with sending an email'
+  json.status 500
+  json.message 'Error. Email was not sent. Please contact your administrator.'
 end
