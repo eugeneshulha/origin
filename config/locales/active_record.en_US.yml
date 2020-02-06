@@ -1,0 +1,8 @@
+en_US:
+  activerecord:
+    errors:
+      models:
+        corevist_api/user:
+          attributes:
+            reset_password_token:
+              invalid: 'Token is invalid'

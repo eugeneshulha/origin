@@ -6,8 +6,7 @@ CorevistAPI::Engine.routes.draw do
                  path: '',
                  path_names: {
                      sign_in: :auth,
-                     sign_out: :logout,
-                     password: :forgot_password
+                     sign_out: :logout
                  },
                  controllers: {
                      sessions: 'corevist_api/api/v1/sessions',
@@ -20,7 +19,6 @@ CorevistAPI::Engine.routes.draw do
     namespace :v1 do
       devise_scope :user do
         get 'auth/configs', to: 'sessions#configs'
-        get 'passwords/configs', to: 'passwords#configs'
       end
 
       # registrations

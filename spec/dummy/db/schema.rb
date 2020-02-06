@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_095018) do
+ActiveRecord::Schema.define(version: 2020_02_06_132815) do
 
   create_table "doc_categories", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -162,15 +162,14 @@ ActiveRecord::Schema.define(version: 2020_02_04_095018) do
     t.datetime "reset_password_sent_at"
     t.bigint "microsite_id"
     t.bigint "user_type_id"
-    t.bigint "user_classification_id"
     t.string "created_by", limit: 50
     t.string "updated_by", limit: 50
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "user_classification_id"
     t.index ["email"], name: "index_users_on_email"
     t.index ["microsite_id"], name: "index_users_on_microsite_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["user_classification_id"], name: "index_users_on_user_classification_id"
     t.index ["user_type_id"], name: "index_users_on_user_type_id"
     t.index ["username"], name: "index_users_on_username", unique: true
     t.index ["uuid"], name: "index_users_on_uuid", unique: true

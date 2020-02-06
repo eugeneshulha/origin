@@ -1,6 +1,6 @@
 {
   "forgot_password_form": {
-    "path": "/api/v1/forgot_password",
+    "path": "/api/v1/passwords",
     "type": "POST",
     "title": "Forgot your password",
     "description": "",
