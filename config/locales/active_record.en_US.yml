@@ -5,4 +5,21 @@ en_US:
         corevist_api/user:
           attributes:
             reset_password_token:
-              invalid: 'Token is invalid'
+              invalid: "Token is invalid"
+
+        corevist_api/forms/user/registration:
+          attributes:
+            email:
+              blank: "Email field can not be blank"
+            language:
+              blank: "Language field can not be blank"
+
+  activemodel:
+    errors:
+      models:
+        corevist_api/forms/user/registration:
+          attributes:
+            email:
+              blank: "Email field can not be blank"
+            language:
+              blank: "Language field can not be blank"

@@ -1,9 +1,11 @@
 module CorevistAPI
   class Services::BaseServiceWithForm
+    attr_accessor :errors
+
     def initialize(object, params)
       @form = object
       @params = params&.dup
-      @errors = {}
+      @errors = []
     end
 
     def call
@@ -16,6 +18,17 @@ module CorevistAPI
 
     def perform
       raise NotImplementedError
+    end
+
+    def successful?
+      @errors.empty?
+    end
+
+    private
+
+    def invalid_object_error
+      self.errors = @form.errors
+      self
     end
   end
 end
