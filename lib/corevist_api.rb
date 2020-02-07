@@ -19,20 +19,22 @@ module CorevistAPI
     module Admin; end
     module Invoice; end
     module Salesdoc; end
-
-    autoload :BaseServiceWithForm, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'base_service_with_form')
   end
+
   module RFCServices; end
+
   module Forms
     module Admin; end
     module Invoice; end
     module Salesdoc; end
     module User; end
   end
+
   module Constants
     module SAP; end
   end
-  module Factories;end
+
+  module Factories; end
 
   module API
     module V1

@@ -1,5 +1,5 @@
 module CorevistAPI
-  class Services::BaseServiceWithForm
+  class Services::BaseServiceWithForm < CorevistAPI::Services::BaseService
     attr_accessor :errors
 
     def initialize(object, params)
@@ -18,10 +18,6 @@ module CorevistAPI
       self
     end
 
-    def successful?
-      @errors.empty?
-    end
-
     def perform
       raise NotImplementedError
     end
@@ -30,7 +26,6 @@ module CorevistAPI
 
     def invalid_object_error
       self.errors = @form.errors
-      self
     end
   end
 end
