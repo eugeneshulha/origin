@@ -1,0 +1,19 @@
+first_name:
+  presence: true
+  length:
+    minimum: 2
+    maximum: 10
+
+last_name:
+  presence: true
+
+microsite:
+  presence: true
+
+email:
+  presence: true
+
+phone:
+  presence: true
+  numericality: true
+
