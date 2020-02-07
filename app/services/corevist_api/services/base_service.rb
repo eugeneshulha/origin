@@ -10,6 +10,10 @@ module CorevistAPI
       raise NotImplementedError
     end
 
+    def successful?
+      @errors.empty?
+    end
+
     def result(data)
       @result ||= ServiceResult.new(data)
     end

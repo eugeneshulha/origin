@@ -14,14 +14,16 @@ module CorevistAPI
       else
         invalid_object_error
       end
-    end
 
-    def perform
-      raise NotImplementedError
+      self
     end
 
     def successful?
       @errors.empty?
+    end
+
+    def perform
+      raise NotImplementedError
     end
 
     private
