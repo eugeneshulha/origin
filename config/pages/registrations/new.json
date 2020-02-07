@@ -1,64 +1,116 @@
 {
-  "registration_form": {
-
-    "title": "Registration",
-    "path": "/api/v1/registrations",
-    "method": "POST",
-
-    "fields": [
-      {
-        "type": "text",
-        "value": "",
-        "label": "Last Name *",
-        "name": "first_name",
-        "placeholder": "Enter first name",
-        "required": "Hi TEAM, i came from backend to tell you that first name is required"
-      },
-      {
-        "type": "text",
-        "value": "",
-        "label": "Last Name *",
-        "name": "last_name",
-        "placeholder": "Enter last name",
-        "required": "This is required message for last name"
-      },
-      {
-        "type": "select",
-        "options": ["microsite 1", "microsite 2", "microsite 3"],
-        "label": "Microsite  *",
-        "name": "microsite",
-        "placeholder": "Please select",
-        "required": "This is required message for microsite"
-      },
-      {
-        "type": "text",
-        "label": "Country",
-        "name": "country",
-        "placeholder": "Enter country",
-        "max_length": 4,
-        "min_length": 2
-      },
-      {
-        "type": "text",
-        "label": "Street",
-        "name": "street",
-        "placeholder": "Enter street",
-        "min_length": {
-          "value": 3,
-          "message": "Can not be shorter than 3"
+  "translations": {
+    "title": "Request for Registration",
+    "description": {
+      "text": "Please enter as much information as possible. Fields with an asterisk (*) are mandatory."
+    },
+    "LinkBackLoginPage": true
+  },
+  "fields": [
+    {
+      "name": "firstName",
+      "type": "text",
+      "label": "First Name",
+      "placeholder": "Enter First Name",
+      "validationType": "string",
+      "validations": [
+        {"type":"required","params":["First Name field is required"]},
+        {"type":"min","params":[1,"First Name cannot be less than 1 characters"]},
+        {"type":"max","params":[10,"First Name cannot be more than 10 characters"]}
+      ]
+    },
+    {
+      "name": "lastName",
+      "type": "text",
+      "label": "Last Name",
+      "placeholder": "Enter Last Name",
+      "validationType": "string",
+      "validations": [
+        {"type":"required","params":["Last Name field is required"]},
+        {"type":"min","params":[1,"Last Name cannot be less than 1 characters"]},
+        {"type":"max","params":[10,"Last Name cannot be more than 10 characters"]}
+      ]
+    },
+    {
+      "name": "email",
+      "type": "text",
+      "label": "Email Address",
+      "placeholder": "Enter Email Address",
+      "validationType": "string",
+      "validations": [
+        {
+          "type": "required",
+          "params": [
+            "Email Address field is required"
+          ]
+        },
+        {
+          "type": "email",
+          "params": [
+            "Please enter a valid Email Address"
+          ]
         }
-      },
-      {
-        "type": "password",
-        "label": "Password",
-        "name": "password",
-        "placeholder": "Enter street",
-        "min_length": {
-          "value": 3,
-          "message": "Can not be shorter than 3"
-        }
-      }
-    ]
+      ]
+    },
+    {
+      "name": "customer_number",
+      "type": "text",
+      "label": "Customer Number",
+      "placeholder": "Enter Customer Number"
+    },
+    {
+      "name": "microsite",
+      "type": "select",
+      "options": [
+        { "name": "Corevist Default", "value": "0" },
+        { "name": "Client", "value": "1" }
+      ],
+      "label": "Microsite description for external users",
+      "placeholder": "Select Microsite"
+    },
+    {
+      "name": "language",
+      "type": "select",
+      "options": [
+        { "name": "English (US)", "value": "en_US" },
+        { "name": "German", "value": "de_DE" }
+      ],
+      "label": "Language",
+      "placeholder": "Select Microsite",
+      "validationType": "string",
+      "validations": [
+        {"type":"required","params":["Language field is required"]}
+      ]
+    },
+    {
+      "name": "company_name",
+      "type": "text",
+      "label": "Company Name",
+      "placeholder": "Enter Company Name"
+    },
+    {
+      "name": "street",
+      "type": "text",
+      "label": "Street",
+      "placeholder": "Enter Street"
+    },
+    {
+      "name": "phone",
+      "type": "text",
+      "label": "Phone",
+      "placeholder": "Enter Phone"
+    },
+    {
+      "name": "city",
+      "type": "text",
+      "label": "City",
+      "placeholder": "Enter City"
+    }
+  ],
+
+  "buttonsData": {
+    "submit": {
+      "label": "Send Email"
+    }
   }
 }
-
