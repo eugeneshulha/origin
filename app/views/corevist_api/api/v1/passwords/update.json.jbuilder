@@ -9,7 +9,7 @@ if resource.errors.empty?
 else
   h = {
       status: 500,
-      errors: resource.errors
+      errors: resource.errors.full_messages
   }
 
   json.merge!(h)

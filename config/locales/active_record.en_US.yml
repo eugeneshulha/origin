@@ -23,3 +23,11 @@ en_US:
               blank: "Email field can not be blank"
             language:
               blank: "Language field can not be blank"
+            first_name:
+              too_short: "First name is too short"
+              too_long: "First name is too long"
+            microsite:
+              blank: "Microsite field can not be blank"
+            phone:
+              blank: "Phone field can not be blank"
+              not_a_number: "Phone field should be numeric"

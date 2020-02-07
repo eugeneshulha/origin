@@ -6,7 +6,7 @@ if @result.successful?
 else
   json.status 400
   json.errors [
-                @result.errors
+                @result.errors.full_messages
               ]
 end
 
