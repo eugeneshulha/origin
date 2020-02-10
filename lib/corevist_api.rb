@@ -12,18 +12,76 @@ require 'corevist_api/engine'
 module CorevistAPI
   extend ActiveSupport::Autoload
 
-  module Services; end
-  module RFCServices; end
+  module Constants
+    module SAP; end
+  end
+
+  module RFCServices
+    extend ActiveSupport::Autoload
+
+    autoload :BaseRFCService, CorevistAPI::Engine.root.join('app', 'rfc_services', 'corevist_api', 'rfc_services', 'base_rfc_service')
+
+    module BaseRFC
+      extend ActiveSupport::Autoload
+
+      autoload :Result, CorevistAPI::Engine.root.join('app', 'rfc_services', 'corevist_api', 'rfc_services', 'base_rfc', 'rfc_service_result')
+    end
+
+    module Truncations
+      extend ActiveSupport::Autoload
+
+      autoload :RfcService, CorevistAPI::Engine.root.join('app', 'rfc_services', 'corevist_api', 'rfc_services', 'truncations', 'rfc_service')
+      autoload :StructService, CorevistAPI::Engine.root.join('app', 'rfc_services', 'corevist_api', 'rfc_services', 'truncations', 'struct_service')
+    end
+  end
+
+  module Services
+    extend ActiveSupport::Autoload
+
+    autoload :ServiceResult, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'service_result')
+    autoload :BaseService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'base_service')
+    autoload :BaseServiceWithForm, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'base_service_with_form')
+
+    module Admin
+      module Partners
+        extend ActiveSupport::Autoload
+
+        autoload :SearchService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'partners', 'search_service')
+        autoload :CreateService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'partners', 'create_service')
+      end
+    end
+  end
+
+  module Validators
+    extend ActiveSupport::Autoload
+
+    autoload :AtLeastOneParamValidator, CorevistAPI::Engine.root.join('app', 'validators', 'corevist_api', 'validators', 'at_least_one_param_validator')
+  end
+
   module Forms
-    module Admin; end
+    extend ActiveSupport::Autoload
+
+    autoload :VariablesNames, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'concerns', 'variables_names')
+
+    module Admin
+      module Partners
+        extend ActiveSupport::Autoload
+
+        autoload :SearchForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'partners', 'search_form')
+        autoload :CreateForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'partners', 'create_form')
+      end
+    end
     module Invoice; end
     module Salesdoc; end
     module User; end
   end
-  module Constants
-    module SAP; end
+
+  module Factories
+    extend ActiveSupport::Autoload
+
+    autoload :FormsFactory, CorevistAPI::Engine.root.join('app', 'factories', 'corevist_api', 'factories', 'forms_factory')
+    autoload :ServicesFactory, CorevistAPI::Engine.root.join('app', 'factories', 'corevist_api', 'factories', 'services_factory')
   end
-  module Factories;end
 
   module API
     module V1

@@ -1,5 +1,5 @@
 module CorevistAPI
-  class RFCServices::OpenItemsRFC < CorevistAPI::RFCServices::BaseRFC
+  class RFCServices::OpenItemsRFC < CorevistAPI::RFCServices::BaseRFCService
 
   end
 end

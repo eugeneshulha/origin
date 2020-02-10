@@ -2,11 +2,13 @@ module CorevistAPI
   class Forms::BaseForm
     include ActiveModel::Validations
 
+    KEY_ID = 0
+    VAL_ID = 1
+
     def initialize(params = {})
       prepare_params(params).each do |name, value|
-        next unless respond_to?(name)
-
         instance_variable_set("@#{name}", value)
+        class_eval { attr_reader name.to_sym }
       end
     end
 
@@ -14,13 +16,20 @@ module CorevistAPI
       raise NotImplementedError
     end
 
+    def self.permitted_params
+      %w[current_user_id]
+    end
+
+    def self.validation_params
+      permitted_params - %w[current_user_id]
+    end
+
     private
 
     # to modify incoming params from a webservice
     def prepare_params(params)
-      params.permit!.to_hash.inject({}) do |memo, param|
-        memo[param[0].underscore] = param[1]
-        memo
+      params.permit(*self.class.permitted_params).to_hash.each_with_object({}) do |param, memo|
+        memo[param[KEY_ID].underscore] = param[VAL_ID]
       end
     end
   end

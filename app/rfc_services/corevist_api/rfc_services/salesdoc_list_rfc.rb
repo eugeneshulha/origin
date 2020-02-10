@@ -1,5 +1,5 @@
 module CorevistAPI
-  class RFCServices::SalesdocListRFC < CorevistAPI::RFCServices::BaseRFC
+  class RFCServices::SalesdocListRFC < CorevistAPI::RFCServices::BaseRFCService
     def input
       super
     end

@@ -4,27 +4,27 @@ module CorevistAPI
       before_action :find_user, only: %i[show update destroy]
 
       def index
-        authorize(User, :index?)
+        authorize(User)
         @users = filter_users(policy_scope(User))
       end
 
       def show; end
 
       def new
-        authorize(User, :new?)
+        authorize(User)
         step = "admin_users_step_#{params[:step]}".to_sym
         @result = FormsFactory.instance.for(step).validate!
       end
 
       def create
-        authorize(User, :create?)
+        authorize(User)
         step = "admin_users_step_#{params[:step]}".to_sym
         @result = FormsFactory.instance.for(step).validate!
         @user = ServicesFactory.instance.for(:create_user).call
       end
 
       def edit
-        authorize(User, :edit?)
+        authorize(User)
       end
 
       def update; end
@@ -36,7 +36,9 @@ module CorevistAPI
       private
 
       def find_user
-        @user = authorize(User.find_by(uuid: params[:id]))
+        return entry_not_found(:user) if (user = User.find_by_uuid(params[:uuid])).blank?
+
+        @user = authorize(user)
       end
 
       def filter_users(users_scope)

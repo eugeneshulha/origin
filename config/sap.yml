@@ -1,0 +1,106 @@
+sap:
+  trackable_tables:
+    - ITEMS
+    - OPEN_ITEMS
+    - SUMMARIZED_SALESDOCS
+    - SUMMARIZED_INVOICES
+    - SUMMARIZED_DELIVERIES
+    - PAYMENTS
+    - PAID_ITEMS
+    - PAY_ITEMS_IN
+    - PARTNERS_SALES_DATA
+    - PARTNER_LIST
+    - MATERIALS
+  tables:
+    user:
+      name: USER_DATA
+      id: USER_ID
+      microsite: MICROSITE
+    sap_return:
+      name: SAP_RETURN
+      type: TYPE
+    item_errors:
+      name: ITEM_ERRORS
+
+  truncations:
+    header_in:
+      doc_type: 4
+      sa: 8
+      rdd: 8
+      po_nr: 35
+      po_type: 4
+      del_block: 2
+      flags: 10
+      cm: 1
+      pr: 1
+      phone: 16
+      valid_from: 8
+      valid_to: 8
+      ref_doc_nr: 10
+      ref_doc_cat: 1
+      text_ids: 50
+      item_text_ids: 50
+      net_value: 15
+      shipping_cond: 2
+    drop_ships_in:
+      item_nr: 6
+      name1: 40
+      name2: 40
+      street: 40
+      city: 40
+      postal_code: 10
+      state: 3
+      country: 3
+      tr_zone: 10
+      txjcd: 15
+      phone: 30
+      vat_nr: 20
+      street2: 35
+      cell_phone: 16
+    items_in:
+      item_nr: 6
+      mat: 18
+      qty: 15
+      rdd: 8
+      cust_mat: 35
+      ext_item_nr: 6
+      reference: 35
+      plant: 4
+      rej_reason: 2
+      change_status: 1
+      ref_doc_nr: 10
+      ref_doc_cat: 1
+      ref_item_nr: 6
+      parent_item_nr: 6
+      uom: 3
+      special_pricing: 2
+    user_data:
+      user_id: 50
+      first_name: 35
+      last_name: 35
+      phone: 30
+      lang: 1
+      fi: 1
+      type: 1
+      flags: 10
+      email: 100
+    credit_cards_in:
+      card_type: 4
+      card_nr: 25
+      valid_to: 8
+      name_on_card: 40
+      auth_amount: 15
+      curr: 5
+      auth_date: 8
+      auth_time: 6
+      auth_nr: 10
+      auth_ref_nr: 15
+      gl_account: 10
+      merchant: 15
+      reaction: 1
+      text: 40
+      save_in_sap: 1
+      save_as_default: 1
+      last4: 10
+      is_default: 1
+      nickname: 40

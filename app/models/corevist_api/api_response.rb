@@ -34,6 +34,10 @@ module CorevistAPI
       @body[:status] = 403
     end
 
+    def not_found!
+      @body[:status] = 404
+    end
+
     def to_json(*)
       @body.to_json
     end

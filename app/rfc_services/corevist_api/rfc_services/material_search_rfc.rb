@@ -1,5 +1,5 @@
 module CorevistAPI
-  class RFCServices::MaterialSearchRFC < CorevistAPI::RFCServices::BaseRFC
+  class RFCServices::MaterialSearchRFC < CorevistAPI::RFCServices::BaseRFCService
 
   end
 end
