@@ -231,6 +231,8 @@ class String
       true
     elsif self == 'F'
       false
+    elsif self == ''
+      false
     else
       '!'   # don't display
     end

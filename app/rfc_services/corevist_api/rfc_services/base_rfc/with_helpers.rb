@@ -19,8 +19,8 @@ module CorevistAPI
     def with_exception_handling
       yield
     rescue SAPNW::RFC::FunctionCallException, SAPNW::RFC::ConnectionException => exc
-      @connection&.close
-      @retry_condition.call(exc) and retry
+      # @connection&.close
+      # @retry_condition.call(exc) and retry
       log_rfc_exception(exc)
       raise_rfc_exception(exc)
     rescue CorevistAPI::RFCServices::BaseRFC::Error => exc

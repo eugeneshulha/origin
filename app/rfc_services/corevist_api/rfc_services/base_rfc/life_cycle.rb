@@ -1,5 +1,7 @@
 module CorevistAPI
   module RFCServices::BaseRFC::LifeCycle
+    SETTINGS = YAML.load_file(File.open(CorevistAPI::Engine.root.join('config', 'sap.yml'))).with_indifferent_access
+
     protected
 
     def input
@@ -33,7 +35,7 @@ module CorevistAPI
     end
 
     def truncate_input
-      service_for(:truncate_rfc, @function.parameters, Settings.sap.truncations).call
+      CorevistAPI::Factories::RFCServicesFactory.instance.for(:truncate_rfc, @function.parameters, truncations).call
     end
 
     def additional_data
@@ -55,8 +57,13 @@ module CorevistAPI
     end
 
     def result
-      BaseRFC::Result.new(@sap_return, @data)
+      CorevistAPI::RFCServices::BaseRFC::Result.new(@sap_return, @data)
+    end
+
+    private
+
+    def truncations
+      SETTINGS.dig(:sap, :truncations)
     end
   end
-
 end

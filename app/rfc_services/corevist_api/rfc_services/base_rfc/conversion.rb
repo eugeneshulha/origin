@@ -36,20 +36,20 @@ module CorevistAPI
 
     def user_to_rfc(user)
       rfc_user = {
-          USER_DATA => {
-              USER_ID => user.user_id.to_s,
-              FIRST_NAME => user.first_name.to_s,
-              LAST_NAME => user.last_name.to_s,
-              PHONE => user.db_user.phone.to_s,
-              EMAIL => user.db_user.email_address.to_s,
-              LANG => user.db_user.language.locale_to_sap,
-              FI => user.fi_authorizations.to_s, # to_s to prevent nil for web services
-              TYPE => user.db_user.user_type.first.upcase # C: customer and customer-admin, I: internal employee, S: system admin
-          },
-          #ASSIGNED_SOLD_TOS => hash_to_rfc(user.assigned_sold_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
-          #ASSIGNED_SHIP_TOS => hash_to_rfc(user.assigned_ship_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
-          #ASSIGNED_PAYERS => hash_to_rfc(user.assigned_payers, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
-          #ASSIGNED_TERRITORIES => hash_to_rfc(user.assigned_territories, rfc_key: NR, rfc_value: SA)
+        USER_DATA => {
+          USER_ID => user.username.to_s,
+          FIRST_NAME => user.first_name.to_s,
+          LAST_NAME => user.last_name.to_s,
+          PHONE => user.phone.to_s,
+          EMAIL => user.email.to_s,
+          LANG => user.language.to_s.locale_to_sap,
+          FI => user.fi_authorizations.to_s, # to_s to prevent nil for web services
+          TYPE => user.user_type.value # C: customer and customer-admin, I: internal employee, S: system admin
+        },
+        # ASSIGNED_SOLD_TOS => hash_to_rfc(user.assigned_sold_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
+        # ASSIGNED_SHIP_TOS => hash_to_rfc(user.assigned_ship_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
+        # ASSIGNED_PAYERS => hash_to_rfc(user.assigned_payers, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
+        # ASSIGNED_TERRITORIES => hash_to_rfc(user.assigned_territories, rfc_key: NR, rfc_value: SA)
       }
 
       #if microsite?
@@ -74,13 +74,12 @@ module CorevistAPI
       #      assign_value: ABCIH
       #  )
       #else
-      #  rfc_user[ASSIGNED_SALES_AREAS] = array_to_rfc(
-      #      user.assigned_sales_areas,
-      #      rfc_key: SA,
-      #      rfc_value: DOC_CAT,
-      #      assign_value: lambda do |sales_area|
-      #        user.master_role.sales_areas[sales_area.drop_leading_zeros].display_doc_categories
-      #      end
+      rfc_user[ASSIGNED_SALES_AREAS] = array_to_rfc(
+        user.sales_areas_titles,
+        rfc_key: SA,
+        rfc_value: DOC_CAT,
+        assign_value: ->(sales_area) { user.doc_categories_by_sales_area(sales_area.drop_leading_zeros).join }
+      )
       #  )
       #end
 
@@ -108,40 +107,39 @@ module CorevistAPI
     def set_params(params)
       params.each do |param, value|
         next if @function.parameters[param].blank?
+
         @function.parameters[param].value = encode_struct(value, Encoding::ASCII_8BIT)
       end
     end
 
     def get_function_param(param_name)
-      if @function.parameters[param_name].blank?
-        return Hash.new
-      end
+      return Hash.new if @function.parameters[param_name].blank?
 
       @function.parameters[param_name].value
     end
 
     def set_function_param(param_name, value)
       return if @function.parameters[param_name].blank?
+
       @function.parameters[param_name].value = value
     end
 
     def encode_function(encoding)
       @function.parameters.each_value do |value|
         next if value.value.blank?
+
         value.value = encode_struct(value.value, encoding)
       end
     end
 
     def encode_struct(struct, encoding)
       send("encode_#{struct.class.name.underscore}", struct, encoding)
-    rescue
+    rescue StandardError
       struct
     end
 
     def encode_hash(hash, encoding)
-      hash.each do |k, v|
-        [k ,encode_struct(v, encoding)]
-      end.to_h
+      hash.each { |k, v| hash[k] = encode_struct(v, encoding) }
     end
 
     def encode_array(array, encoding)
@@ -154,5 +152,4 @@ module CorevistAPI
       string.force_encoding(encoding)
     end
   end
-
 end

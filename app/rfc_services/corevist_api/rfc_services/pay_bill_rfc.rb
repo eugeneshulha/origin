@@ -1,5 +1,5 @@
 module CorevistAPI
-  class RFCServices::PayBillRFC < CorevistAPI::RFCServices::BaseRFC
+  class RFCServices::PayBillRFC < CorevistAPI::RFCServices::BaseRFCService
 
   end
 end

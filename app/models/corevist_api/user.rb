@@ -36,6 +36,19 @@ module CorevistAPI
       user_type == TYPE_SYSTEM_ADMIN
     end
 
+    # FI-authorization flag: N = none, I = invoices, O = open items, B = both invoices and open items
+    def fi_authorizations
+      'B'
+    end
+
+    def sales_areas_titles
+      roles.flat_map { |role| role.sales_areas.pluck(:title) }
+    end
+
+    def doc_categories_by_sales_area(sales_area)
+      roles.flat_map { |role| role.sales_areas.find_by_title(sales_area).doc_categories.uniq.pluck(:id) }
+    end
+
     private
 
     def set_uuid

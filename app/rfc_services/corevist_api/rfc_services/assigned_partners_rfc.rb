@@ -1,5 +1,5 @@
 module CorevistAPI
-  class RFCServices::AssignedPartnersRFC < CorevistAPI::RFCServices::BaseRFC
+  class RFCServices::AssignedPartnersRFC < CorevistAPI::RFCServices::BaseRFCService
 
   end
 end

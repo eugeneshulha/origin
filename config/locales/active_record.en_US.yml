@@ -31,3 +31,7 @@ en_US:
             phone:
               blank: "Phone field can not be blank"
               not_a_number: "Phone field should be numeric"
+        corevist_api/forms/admin/partners/create_form:
+          attributes:
+            function:
+              inclusion: 'Function is absent or excluded'

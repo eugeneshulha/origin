@@ -20,14 +20,14 @@ gem 'sapnwrfc',                          git: 'git@github.com:b2b2dot0/sapnwrfc.
 #
 
 group :test, :development do
-  gem 'thin'
+  gem 'forgery'
   gem 'pry-byebug'
+  gem 'thin'
 end
 
 group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
-  gem 'forgery'
   gem 'rspec-html-matchers'
   gem 'rspec-rails'
   gem 'shoulda', require: false

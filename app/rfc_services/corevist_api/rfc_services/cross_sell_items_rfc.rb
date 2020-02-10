@@ -1,5 +1,5 @@
 module CorevistAPI
-  class RFCServices::CrossSellItemsRFC < CorevistAPI::RFCServices::BaseRFC
+  class RFCServices::CrossSellItemsRFC < CorevistAPI::RFCServices::BaseRFCService
 
   end
 end

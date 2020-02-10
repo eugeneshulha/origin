@@ -14,7 +14,7 @@ ActiveRecord::Base.transaction do
   CorevistAPI::Microsite.find_or_create_by(name: 'microsite_1')
 
   sales_area = CorevistAPI::SalesArea.find_or_create_by(
-      title: '3000',
+      title: '30001000',
       created_by: 'seeds',
       )
 
@@ -46,6 +46,19 @@ ActiveRecord::Base.transaction do
       microsite: CorevistAPI::Microsite.first,
       created_by: 'seeds'
   ) unless CorevistAPI::User.find_by(username: 'user_1')
+
+  CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |dummy_user|
+    dummy_user.password = '123123123'
+    dummy_user.email = Forgery('email').address
+    dummy_user.first_name = Forgery('name').first_name
+    dummy_user.last_name = Forgery('name').last_name
+    dummy_user.user_type = CorevistAPI::UserType.first
+    dummy_user.user_classification = CorevistAPI::UserClassification.first
+    dummy_user.microsite = CorevistAPI::Microsite.first
+    dummy_user.created_by = 'seeds'
+    dummy_user.phone = '123456789'
+    dummy_user.roles << role
+  end.save
 
   role.sales_areas << sales_area
   doc_type.sales_areas << sales_area

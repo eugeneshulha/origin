@@ -1,5 +1,5 @@
 module CorevistAPI
-  class RFCServices::SalesdocDisplayRFC < CorevistAPI::RFCServices::BaseRFC
+  class RFCServices::SalesdocDisplayRFC < CorevistAPI::RFCServices::BaseRFCService
     def initialize(*)
       super
     end
