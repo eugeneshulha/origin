@@ -16,11 +16,11 @@ module CorevistAPI
       raise NotImplementedError
     end
 
-    def self.permitted_params
+    def permitted_params
       %w[current_user_id]
     end
 
-    def self.validation_params
+    def validation_params
       permitted_params - %w[current_user_id]
     end
 
@@ -28,7 +28,7 @@ module CorevistAPI
 
     # to modify incoming params from a webservice
     def prepare_params(params)
-      params.permit(*self.class.permitted_params).to_hash.each_with_object({}) do |param, memo|
+      params.permit(*permitted_params).to_hash.each_with_object({}) do |param, memo|
         memo[param[KEY_ID].underscore] = param[VAL_ID]
       end
     end

@@ -1,10 +1,12 @@
 module CorevistAPI
   module Services
-    class BaseServiceWithForm
+    class BaseServiceWithForm < BaseService
+      attr_accessor :errors
+
       def initialize(object, params)
         @form = object
         @params = params&.dup
-        @errors = {}
+        @errors = []
       end
 
       def call
@@ -17,17 +19,15 @@ module CorevistAPI
         raise NotImplementedError
       end
 
-      def invalid_object_error
-        raise NotImplementedError
-      end
-
-      def to_json(obj = nil); end
-
       def result(data = nil)
         @result ||= ServiceResult.new(data)
       end
 
       private
+
+      def invalid_object_error
+        result.fail!(@form.errors.full_messages)
+      end
 
       def rfc_service_for(type)
         CorevistAPI::Factories::RFCServicesFactory.instance.for(type, @form, type, @params)

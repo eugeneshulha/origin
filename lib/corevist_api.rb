@@ -12,10 +12,6 @@ require 'corevist_api/engine'
 module CorevistAPI
   extend ActiveSupport::Autoload
 
-  module Constants
-    module SAP; end
-  end
-
   module RFCServices
     extend ActiveSupport::Autoload
 
@@ -55,17 +51,15 @@ module CorevistAPI
   module Validators
     extend ActiveSupport::Autoload
 
-    autoload :AtLeastOneParamValidator, CorevistAPI::Engine.root.join('app', 'validators', 'corevist_api', 'validators', 'at_least_one_param_validator')
+    autoload :OneOutOfValidator, CorevistAPI::Engine.root.join('app', 'validators', 'corevist_api', 'validators', 'one_out_of_validator')
   end
 
   module Forms
-    extend ActiveSupport::Autoload
-
-    autoload :VariablesNames, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'concerns', 'variables_names')
-
     module Admin
       module Partners
         extend ActiveSupport::Autoload
+
+        # autoload FormValidations, CorevistAPI::Engine.root.join('app', 'forms', 'concerns', 'corevist_api', 'form_validations')
 
         autoload :SearchForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'partners', 'search_form')
         autoload :CreateForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'partners', 'create_form')
@@ -81,6 +75,10 @@ module CorevistAPI
 
     autoload :FormsFactory, CorevistAPI::Engine.root.join('app', 'factories', 'corevist_api', 'factories', 'forms_factory')
     autoload :ServicesFactory, CorevistAPI::Engine.root.join('app', 'factories', 'corevist_api', 'factories', 'services_factory')
+  end
+
+  module Constants
+    module SAP; end
   end
 
   module API

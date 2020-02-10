@@ -1,6 +1,6 @@
 module CorevistAPI
-  module API::V1::Admin::Users
-    class UserPolicy < ApplicationPolicy
+  module API::V1::Admin
+    class Users::UserPolicy < ApplicationPolicy
     end
   end
 end

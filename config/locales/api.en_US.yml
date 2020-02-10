@@ -2,7 +2,13 @@ en_US:
   api:
     unauthorized: 'The server understood the request, but is refusing to authorize it.'
     forms:
-      no_param: 'At least one have to be presented'
+      no_param: 'at least one have to be presented'
+      create:
+        partner_number:
+          presence: 'is absent'
+        function:
+          presence: 'is absent'
+
     services:
       no_uuid: 'UUID is required to perform this operation'
     user:

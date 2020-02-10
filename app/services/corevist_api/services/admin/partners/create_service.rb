@@ -1,8 +1,14 @@
 module CorevistAPI
   module Services::Admin::Partners
     class CreateService < CorevistAPI::Services::BaseServiceWithForm
+      FUNCTIONS_MAP = {
+        sp: :AG,
+        sh: :WE,
+        py: :RG
+      }.freeze
+
       def perform
-        uuid = @form.try(:user_uuid)
+        uuid = @form.user_uuid
         return result.fail!([I18n.t('api.services.no_uuid')]) if (user = CorevistAPI::User.find_by_uuid(uuid)).blank?
 
         rfc_result = rfc_service_for(:get_partner).call
@@ -14,20 +20,17 @@ module CorevistAPI
         sales_areas = @partner_sales_data.collect(&:sa)
         sales_areas.each do |sales_area|
           %i[sp sh py].each do |function|
+            next if function != reverse_function_name(@form.function)
+
             fetch_sales_data(sales_area).each do |sales_data|
               next unless sales_data.send(function).sap_to_boolean
 
               sales_area_entry = CorevistAPI::SalesArea.find_by_title(sales_area)
-              function_name = get_function_name(function)
-              upsert_partner(sales_area_entry, function_name, sales_data, user)
+              upsert_partner(sales_area_entry, function_name(function), sales_data, user)
             end
           end
         end
         result(partners: user.partners)
-      end
-
-      def invalid_object_error
-        result.fail!(@form.errors.full_messages)
       end
 
       private
@@ -35,12 +38,12 @@ module CorevistAPI
       # sp - sold-to
       # sh - ship-to
       # py - payer
-      def get_function_name(function)
-        {
-          sp: :AG,
-          sh: :WE,
-          py: :RG
-        }[function]
+      def function_name(function)
+        FUNCTIONS_MAP.dig(function)
+      end
+
+      def reverse_function_name(function)
+        FUNCTIONS_MAP.find { |_, app_function| app_function == function.upcase.to_sym }.first
       end
 
       def upsert_partner(sales_area, function, sales_data, user)
@@ -57,6 +60,7 @@ module CorevistAPI
           partner.email = @rfc_partner.email
           partner.language = @rfc_partner.lang
           partner.deleted = @rfc_partner.del.sap_to_boolean
+          partner.assigned = true
 
           @postal_addresses.each_with_index do |postal_address, index|
             partner.send("postal_address_#{index + 1}=", postal_address.line)

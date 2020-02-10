@@ -7,7 +7,7 @@ module CorevistAPI
     has_many :partners
     has_and_belongs_to_many :roles
     belongs_to :user_type
-    belongs_to :user_classification
+    belongs_to :user_classification, optional: true
     belongs_to :microsite
 
     before_create :set_uuid

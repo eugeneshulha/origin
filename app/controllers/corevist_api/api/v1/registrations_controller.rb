@@ -3,16 +3,14 @@ module CorevistAPI
     include CorevistAPI::Configurable
     skip_before_action :authenticate_user!
 
+    def new
+      configs('registrations/new')
+    end
+
     def create
       form = CorevistAPI::Factories::FormsFactory.instance.for(:user_registration, params[:user])
       service = CorevistAPI::Factories::ServicesFactory.instance.for(:user_registration, form, params)
       @result = service.call
-    end
-
-    private
-
-    def self.config_file_name
-      'registrations'
     end
   end
 end

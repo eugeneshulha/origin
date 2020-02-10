@@ -1,6 +1,6 @@
 module CorevistAPI
-  module API::V1
-    class Admin::Users::Partners::UserPolicy < ApplicationPolicy
+  module API::V1::Admin
+    class Users::Partners::UserPolicy < ApplicationPolicy
       def index?
         true
       end
