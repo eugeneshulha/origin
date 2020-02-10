@@ -13,7 +13,6 @@ SimpleCov.start 'rails' do
   add_group 'Controllers', 'app/controllers'
   add_group 'Helpers', 'app/helpers'
   add_group 'Models', 'app/models'
-  add_group 'WS', 'app/apis'
   add_group 'Jobs', 'app/jobs'
   add_group 'Mailers', 'app/mailers'
   add_group 'RFC', 'app/rfc_services'
@@ -53,6 +52,7 @@ rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
