@@ -29,6 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'unicorn'
   spec.add_dependency 'newrelic_rpm',   '~> 6.8.0.360'
   spec.add_dependency 'sidekiq',        '~> 5.2.7'
+  spec.add_dependency 'config',         '~> 2.2.1'
 
   spec.add_development_dependency 'pry-byebug'
 end
