@@ -29,11 +29,11 @@ module CorevistAPI
     alias assigned_ship_tos ship_tos
 
     def customer_admin?
-      user_type == TYPE_CUSTOMER_ADMIN
+      user_type.title == TYPE_CUSTOMER_ADMIN
     end
 
     def system_admin?
-      user_type == TYPE_SYSTEM_ADMIN
+      user_type.value == 'S'
     end
 
     # FI-authorization flag: N = none, I = invoices, O = open items, B = both invoices and open items

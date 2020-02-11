@@ -14,7 +14,7 @@ module CorevistAPI
       self
     end
 
-    def success?
+    def successful?
       @success && @errors.blank?
     end
   end

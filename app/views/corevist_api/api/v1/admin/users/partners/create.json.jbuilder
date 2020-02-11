@@ -1,4 +1,4 @@
-if @result.success?
+if @result.successful?
   json.partners @result.data[:partners].each do |partner|
     json.number partner.number
     json.function partner.function

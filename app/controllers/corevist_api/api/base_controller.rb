@@ -2,6 +2,7 @@ module CorevistAPI::API
   class BaseController < ActionController::API
     before_action :authenticate_user!
     before_action :prepare_response!
+    before_action :set_context
 
     include ActionController::MimeResponds
     include ActionController::Helpers
@@ -25,6 +26,10 @@ module CorevistAPI::API
     end
 
     private
+
+    def set_context
+      CorevistAPI::Context.current_user= current_user if current_user
+    end
 
     def prepare_response!
       api_response
