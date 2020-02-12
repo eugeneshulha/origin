@@ -35,17 +35,26 @@ ActiveRecord::Base.transaction do
     dc.sales_areas << sales_area
   end
 
-  user = CorevistAPI::User.create!(
-      username: 'user_1',
-      password: '123123123',
-      email: 'yury.matusevich@corevist.com',
-      first_name: 'First',
-      last_name: 'Last',
-      user_type: CorevistAPI::UserType.first,
-      user_classification: CorevistAPI::UserClassification.first,
-      microsite: CorevistAPI::Microsite.first,
-      created_by: 'seeds'
-  ) unless CorevistAPI::User.find_by(username: 'user_1')
+  %w(no_pricing atp_check request_orders).each do |title|
+    CorevistAPI::Privilege.create!(title: title)
+  end
+
+  role.sales_areas << sales_area
+  doc_type.sales_areas << sales_area
+  role.privileges << CorevistAPI::Privilege.all
+
+  CorevistAPI::User.find_or_initialize_by(username: 'user_1') do |u|
+      u.password = '123123123'
+      u.email = 'yury.matusevich@corevist.com'
+      u.first_name = 'First'
+      u.last_name = 'Last'
+      u.phone = '987654321'
+      u.user_type = CorevistAPI::UserType.first
+      u.user_classification = CorevistAPI::UserClassification.first
+      u.microsite = CorevistAPI::Microsite.first
+      u.created_by = 'seeds'
+      u.roles << role
+    end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |dummy_user|
     dummy_user.password = '123123123'
@@ -59,8 +68,4 @@ ActiveRecord::Base.transaction do
     dummy_user.phone = '123456789'
     dummy_user.roles << role
   end.save
-
-  role.sales_areas << sales_area
-  doc_type.sales_areas << sales_area
-  user.roles << role
 end

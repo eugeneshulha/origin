@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_03_121357) do
+ActiveRecord::Schema.define(version: 2020_02_12_133658) do
 
   create_table "doc_categories", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 2020_07_03_121357) do
   create_table "doc_categories_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "sales_area_id"
     t.string "doc_category_id"
-    t.index ["sales_area_id"], name: "index_doc_categories_sales_areas_on_sales_area_id"
   end
 
   create_table "doc_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -93,11 +92,11 @@ ActiveRecord::Schema.define(version: 2020_07_03_121357) do
     t.index ["title"], name: "index_privileges_on_title"
   end
 
-  create_table "privileges_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "privileges_roles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
     t.bigint "privilege_id"
-    t.index ["privilege_id"], name: "index_privileges_users_on_privilege_id"
-    t.index ["role_id"], name: "index_privileges_users_on_role_id"
+    t.index ["privilege_id"], name: "index_privileges_roles_on_privilege_id"
+    t.index ["role_id"], name: "index_privileges_roles_on_role_id"
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
