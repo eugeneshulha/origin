@@ -11,7 +11,7 @@ module CorevistAPI
         user_registration: 'CorevistAPI::Forms::User::Registration',
         search_invoices: 'CorevistAPI::Forms::Invoice::Search',
         search_salesdoc: 'CorevistAPI::Forms::Salesdoc::Search',
-        admin_partners_search: 'CorevistAPI::Forms::Admin::Partners::SearchForm'
+        partners_search: 'CorevistAPI::Forms::Admin::Partners::SearchForm'
       }
     end
   end

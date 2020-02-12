@@ -1,6 +1,6 @@
 module CorevistAPI
   module API::V1
-    class Admin::PartnersController < Admin::BaseController
+    class PartnersController < BaseController
       def index
         perform_action(:search)
       end

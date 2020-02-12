@@ -14,7 +14,7 @@ module CorevistAPI
         find_salesdoc: 'CorevistAPI::Services::Salesdoc::Display',
         search_invoices: 'CorevistAPI::Services::Invoice::Search',
         search_salesdocs: 'CorevistAPI::Services::Salesdoc::Search',
-        admin_partners_search: 'CorevistAPI::Services::Admin::Partners::SearchService'
+        partners_search: 'CorevistAPI::Services::Admin::Partners::SearchService'
       }
     end
   end

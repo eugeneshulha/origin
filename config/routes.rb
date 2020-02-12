@@ -41,9 +41,9 @@ CorevistAPI::Engine.routes.draw do
         end
 
         resources :roles
-
-        resources :partners, only: %i[index]
       end
+
+      resources :partners, only: %i[index]
     end
   end
 end
