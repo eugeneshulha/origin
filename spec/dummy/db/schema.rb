@@ -85,6 +85,21 @@ ActiveRecord::Schema.define(version: 2020_07_03_121357) do
     t.index ["user_id"], name: "index_partners_on_user_id"
   end
 
+  create_table "privileges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_privileges_on_title"
+  end
+
+  create_table "privileges_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "privilege_id"
+    t.index ["privilege_id"], name: "index_privileges_users_on_privilege_id"
+    t.index ["role_id"], name: "index_privileges_users_on_role_id"
+  end
+
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", limit: 50
     t.text "description"
