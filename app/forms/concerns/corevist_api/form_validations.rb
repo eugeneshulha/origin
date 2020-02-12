@@ -1,5 +1,6 @@
 module CorevistAPI
   module FormValidations
+    ARRAY_KEY = 'array'.freeze
 
     def self.included(base)
       base.define_singleton_method :validate_form do
@@ -8,11 +9,11 @@ module CorevistAPI
 
         attr_accessor(*configs.keys)
 
-        define_method(:permitted_params) { |*args| super(*args) + prepared_keys(configs) }
+        define_method(:permitted_params) { prepared_keys(configs) }
 
         configs.each do |field, validations|
           validations.each do |options|
-            next if options[0] == 'array'
+            next if options[0] == ARRAY_KEY
 
             validation = Hash[*options]
             validation = validation.deep_symbolize_keys if options.second.is_a?(Hash)
@@ -24,7 +25,7 @@ module CorevistAPI
     end
 
     def prepared_keys(configs)
-      array_keys = configs.select { |_, v| v['array'] }.keys
+      array_keys = configs.select { |_, v| v[ARRAY_KEY] }.keys
       configs.keys.tap do |configs_keys|
         array_keys.each { |array_key| configs_keys[configs_keys.index(array_key)] = { array_key => [] } }
       end

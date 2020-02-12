@@ -13,8 +13,6 @@ module CorevistAPI::API
 
     helper_method :api_response
 
-    CURRENT_USER_ID_KEY = 'current_user_id'.freeze
-
     def api_response
       @api_response ||= CorevistAPI::ApiResponse.new
     end
@@ -22,7 +20,7 @@ module CorevistAPI::API
     private
 
     def set_context
-      CorevistAPI::Context.current_user= current_user if current_user
+      CorevistAPI::Context.current_user = current_user if current_user
     end
 
     def prepare_response!

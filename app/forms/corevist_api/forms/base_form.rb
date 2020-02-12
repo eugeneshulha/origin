@@ -19,11 +19,7 @@ module CorevistAPI
     end
 
     def permitted_params
-      %w[current_user_id]
-    end
-
-    def validation_params
-      permitted_params - %w[current_user_id]
+      raise NotImplementedError
     end
 
     private

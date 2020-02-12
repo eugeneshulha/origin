@@ -40,12 +40,6 @@ module CorevistAPI
         @user.destroy
       end
 
-      def params
-        return super if current_user.blank? || super[:user].blank?
-
-        super.tap { |params| params[:user][CURRENT_USER_ID_KEY] = current_user.id }
-      end
-
       private
 
       def find_user

@@ -4,7 +4,7 @@ module CorevistAPI
       AT_SIGN = '@'.freeze
 
       def validate(record)
-        return if (variables_names(record) & record.validation_params).present?
+        return if (variables_names(record) & record.permitted_params).present?
 
         record.errors.add(:parameter, I18n.t('api.forms.no_param'))
       end
