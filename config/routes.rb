@@ -35,7 +35,7 @@ CorevistAPI::Engine.routes.draw do
       # admin panel
       namespace :admin do
         resources :users, param: :uuid do
-          resources :partners, only: %i[index create], controller: 'users/partners'
+          resources :partners, only: %i[index], controller: 'users/partners'
         end
 
         resources :roles

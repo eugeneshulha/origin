@@ -5,12 +5,18 @@ module CorevistAPI
     self.table_name = 'users'
 
     has_many :partners
-    has_and_belongs_to_many :roles
+    has_and_belongs_to_many :roles, before_add: :check_roles
+    has_and_belongs_to_many :assignable_roles,
+                            before_add: :check_assignable_roles,
+                            join_table: 'assignable_roles_users',
+                            association_foreign_key: 'role_id'
     belongs_to :user_type
     belongs_to :user_classification, optional: true
     belongs_to :microsite
 
     before_create :set_uuid
+
+    validates_uniqueness_of :username
 
     TYPE_CUSTOMER_ADMIN = 'customer_admin'.freeze
     TYPE_SYSTEM_ADMIN = 'system_admin'.freeze
@@ -49,10 +55,22 @@ module CorevistAPI
       roles.flat_map { |role| role.sales_areas.find_by_title(sales_area).doc_categories.uniq.pluck(:id) }
     end
 
+    def self.extra_column_names
+      super << 'password'
+    end
+
     private
 
     def set_uuid
       self.uuid = SecureRandom.uuid
+    end
+
+    def check_roles(role)
+      raise ActiveRecord::Rollback if roles.include?(role)
+    end
+
+    def check_assignable_roles(role)
+      raise ActiveRecord::Rollback if assignable_roles.include?(role)
     end
   end
 end

@@ -15,3 +15,12 @@ en_US:
       not_found: 'User not found'
     partner:
       not_found: 'Partner not found'
+    errors:
+      step: 'Invalid step parameter'
+      unauthorized: 'You are not authorised to access this resource.'
+      unexpected_exception: 'An unknown error has occurred, please report this.'
+      user_not_found: 'The user was not found'
+      role_not_found:  'The role was not found'
+      assignable_role_not_found: 'The assignable role was not found'
+      one_function: 'Only one sold-to or ship-to can be assigned'
+      territory_not_found: 'The territory was not found'

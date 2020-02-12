@@ -43,7 +43,17 @@ module CorevistAPI
         extend ActiveSupport::Autoload
 
         autoload :SearchService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'partners', 'search_service')
-        autoload :CreateService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'partners', 'create_service')
+      end
+
+      module Users
+        extend ActiveSupport::Autoload
+
+        autoload :Step1CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_1_creation_service')
+        autoload :Step2CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_2_creation_service')
+        autoload :Step3CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_3_creation_service')
+        autoload :Step4CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_4_creation_service')
+        autoload :Step5CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_5_creation_service')
+        autoload :Step6CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_6_creation_service')
       end
     end
   end
@@ -62,7 +72,17 @@ module CorevistAPI
         # autoload FormValidations, CorevistAPI::Engine.root.join('app', 'forms', 'concerns', 'corevist_api', 'form_validations')
 
         autoload :SearchForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'partners', 'search_form')
-        autoload :CreateForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'partners', 'create_form')
+      end
+
+      module Users
+        extend ActiveSupport::Autoload
+
+        autoload :Step1, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_1')
+        autoload :Step2, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_2')
+        autoload :Step3, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_3')
+        autoload :Step4, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_4')
+        autoload :Step5, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_5')
+        autoload :Step6, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_6')
       end
     end
     module Invoice; end
@@ -75,6 +95,7 @@ module CorevistAPI
 
     autoload :FormsFactory, CorevistAPI::Engine.root.join('app', 'factories', 'corevist_api', 'factories', 'forms_factory')
     autoload :ServicesFactory, CorevistAPI::Engine.root.join('app', 'factories', 'corevist_api', 'factories', 'services_factory')
+    autoload :BuildersFactory, CorevistAPI::Engine.root.join('app', 'factories', 'corevist_api', 'factories', 'builders_factory')
   end
 
   module Constants
@@ -130,6 +151,18 @@ module CorevistAPI
       extend ActiveSupport::Autoload
 
       autoload :BaseChain, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'chains', 'base_chain')
+    end
+  end
+
+  module Builders
+    extend ActiveSupport::Autoload
+
+    autoload :BaseBuilder, CorevistAPI::Engine.root.join('app', 'builders', 'corevist_api', 'builders', 'base_builder')
+
+    module Partners
+      extend ActiveSupport::Autoload
+
+      autoload :Builder, CorevistAPI::Engine.root.join('app', 'builders', 'corevist_api', 'builders', 'partners', 'builder')
     end
   end
 end

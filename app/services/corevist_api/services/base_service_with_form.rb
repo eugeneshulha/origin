@@ -20,7 +20,12 @@ module CorevistAPI
       end
 
       def result(data = nil)
-        @result ||= ServiceResult.new(data)
+        if @result.present?
+          @result.data = data
+          return @result
+        end
+
+        @result = ServiceResult.new(data)
       end
 
       private
@@ -31,6 +36,18 @@ module CorevistAPI
 
       def rfc_service_for(type)
         CorevistAPI::Factories::RFCServicesFactory.instance.for(type, @form, type, @params)
+      end
+
+      def builder_for(type, *params)
+        CorevistAPI::Factories::BuildersFactory.instance.for(type, *params)
+      end
+
+      def fields(object)
+        (@form.instance_variable_names.map(&:unatify) & object.class.extra_column_names) - @form.rejected_keys
+      end
+
+      def user
+        CorevistAPI::User.find_by_uuid(@form.uuid)
       end
     end
   end

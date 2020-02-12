@@ -13,21 +13,26 @@ ActiveRecord::Base.transaction do
   # populate microsites
   CorevistAPI::Microsite.find_or_create_by(name: 'microsite_1')
 
+  # populate territories
+  CorevistAPI::Territory.find_or_create_by(title: 'US blue chips, North West', territory: :W01) do |territory|
+    territory.microsites << CorevistAPI::Microsite.first
+  end.save
+
   sales_area = CorevistAPI::SalesArea.find_or_create_by(
-      title: '30001000',
-      created_by: 'seeds',
-      )
+    title: '30001000',
+    created_by: 'seeds'
+  )
 
   role = CorevistAPI::Role.find_or_create_by!(
-      title: 'Create Roles',
-      description: 'That role lets you create roles',
-      created_by: 'seeds',
-      )
+    title: 'Create Roles',
+    description: 'That role lets you create roles',
+    created_by: 'seeds'
+  )
 
   doc_type = CorevistAPI::DocType.find_or_create_by!(
-      title: 'TA',
-      data: '',
-      created_by: 'seeds',
+    title: 'TA',
+    data: '',
+    created_by: 'seeds'
   )
 
   %w[C I H M O P U B A].each do |c|
@@ -35,32 +40,33 @@ ActiveRecord::Base.transaction do
     dc.sales_areas << sales_area
   end
 
-  user = CorevistAPI::User.create!(
-      username: 'user_1',
-      password: '123123123',
-      email: 'yury.matusevich@corevist.com',
-      first_name: 'First',
-      last_name: 'Last',
-      user_type: CorevistAPI::UserType.first,
-      user_classification: CorevistAPI::UserClassification.first,
-      microsite: CorevistAPI::Microsite.first,
-      created_by: 'seeds'
-  ) unless CorevistAPI::User.find_by(username: 'user_1')
+  CorevistAPI::User.find_or_initialize_by(username: 'user_1') do |user|
+    user.username = 'user_1'
+    user.password = '123123123'
+    user.email = 'yury.matusevich@corevist.com'
+    user.first_name = 'First'
+    user.last_name = 'Last'
+    user.user_type = CorevistAPI::UserType.first
+    user.user_classification = CorevistAPI::UserClassification.first
+    user.microsite = CorevistAPI::Microsite.first
+    user.created_by = 'seeds'
+  end.save
 
-  CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |dummy_user|
-    dummy_user.password = '123123123'
-    dummy_user.email = Forgery('email').address
-    dummy_user.first_name = Forgery('name').first_name
-    dummy_user.last_name = Forgery('name').last_name
-    dummy_user.user_type = CorevistAPI::UserType.first
-    dummy_user.user_classification = CorevistAPI::UserClassification.first
-    dummy_user.microsite = CorevistAPI::Microsite.first
-    dummy_user.created_by = 'seeds'
-    dummy_user.phone = '123456789'
-    dummy_user.roles << role
+  CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |user|
+    user.password = '123123123'
+    user.email = Forgery('email').address
+    user.first_name = Forgery('name').first_name
+    user.last_name = Forgery('name').last_name
+    user.user_type = CorevistAPI::UserType.first
+    user.user_classification = CorevistAPI::UserClassification.first
+    user.microsite = CorevistAPI::Microsite.first
+    user.created_by = 'seeds'
+    user.phone = '123456789'
+    user.roles << role
   end.save
 
   role.sales_areas << sales_area
   doc_type.sales_areas << sales_area
-  user.roles << role
+
+  CorevistAPI::User.find_by_username('user_1').roles << role
 end

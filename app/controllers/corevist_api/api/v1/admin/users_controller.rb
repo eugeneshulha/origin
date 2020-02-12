@@ -1,7 +1,11 @@
 module CorevistAPI
   module API::V1
     class Admin::UsersController < Admin::BaseController
+      include CorevistAPI::ActionPerformer
+
       before_action :find_user, only: %i[show update destroy]
+
+      STEPS = %w[1 2 3 4 5 6].freeze
 
       def index
         authorize(User)
@@ -17,10 +21,13 @@ module CorevistAPI
       end
 
       def create
+        return error('api.errors.step') if STEPS.exclude?(params[:step])
+
         authorize(User)
-        step = "admin_users_step_#{params[:step]}".to_sym
-        @result = FormsFactory.instance.for(step).validate!
-        @user = ServicesFactory.instance.for(:create_user).call
+        type = "#{action_prefix}_step_#{params[:step]}".to_sym
+        form = form_for(type, params)
+        @result = service_for(type, form, params).call
+        error(@result.errors) if @result.failed?
       end
 
       def edit
@@ -31,6 +38,12 @@ module CorevistAPI
 
       def destroy
         @user.destroy
+      end
+
+      def params
+        return super if current_user.blank? || super[:user].blank?
+
+        super.tap { |params| params[:user][CURRENT_USER_ID_KEY] = current_user.id }
       end
 
       private

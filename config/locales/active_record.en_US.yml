@@ -6,6 +6,8 @@ en_US:
           attributes:
             reset_password_token:
               invalid: "Token is invalid"
+            username:
+              taken: "already in use"
 
         corevist_api/forms/user/registration:
           attributes:
@@ -31,7 +33,67 @@ en_US:
             phone:
               blank: "Phone field can not be blank"
               not_a_number: "Phone field should be numeric"
-        corevist_api/forms/admin/partners/create_form:
+        corevist_api/forms/admin/users/step1:
+          attributes:
+            number_format:
+              blank: 'field cannot be blank'
+            username:
+              blank: 'field cannot be blank'
+            phone:
+              blank: 'field cannot be blank'
+            first_name:
+              blank: 'field cannot be blank'
+            last_name:
+              blank: 'field cannot be blank'
+            email:
+              blank: 'field cannot be blank'
+            password:
+              blank: 'field cannot be blank'
+            confirm_password:
+              blank: 'field cannot be blank'
+            microsite_id:
+              blank: 'field cannot be blank'
+            user_type_id:
+              blank: 'field cannot be blank'
+            language:
+              blank: 'field cannot be blank'
+            time_zone:
+              blank: 'field cannot be blank'
+            user_classification_id:
+              blank: 'field cannot be blank'
+            date_format:
+              blank: 'field cannot be blank'
+            time_format:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step2:
+          attributes:
+            role_ids:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step3:
+          attributes:
+            assignable_role_ids:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step4:
           attributes:
             function:
-              inclusion: 'Function is absent or excluded'
+              inclusion: 'is not included in the list'
+              blank: 'field cannot be blank'
+            uuid:
+              blank: 'field cannot be blank'
+            partner_number:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step5:
+          attributes:
+            function:
+              inclusion: 'is not included in the list'
+              blank: 'field cannot be blank'
+            uuid:
+              blank: 'field cannot be blank'
+            partner_number:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step6:
+          attributes:
+            uuid:
+              blank: 'field cannot be blank'
+            territories_ids:
+              blank: 'field cannot be blank'

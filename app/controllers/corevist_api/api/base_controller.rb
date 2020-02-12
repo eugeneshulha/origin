@@ -18,20 +18,26 @@ module CorevistAPI::API
       @api_response ||= CorevistAPI::ApiResponse.new
     end
 
-    def params
-      return super if current_user.blank?
-
-      super.merge(CURRENT_USER_ID_KEY => current_user.id)
-    end
-
     private
 
     def prepare_response!
       api_response
     end
 
-    def handle_exception
-      render partial: 'corevist_api/api/common/errors', locals: { errors: ['Unexpected exception'] }, status: 500
+    def handle_exception(exception)
+      error("api.errors.#{exception}")
+    end
+
+    def error(error_or_errors)
+      error_or_errors.respond_to?(:each) ? json_array(error_or_errors, 500) : json(error_or_errors, 500)
+    end
+
+    def json(message, status)
+      render(json: { status: status, errors: [I18n.t(message)] }, status: status)
+    end
+
+    def json_array(array, status)
+      render(json: { status: status, errors: array }, status: status)
     end
   end
 end

@@ -9,9 +9,7 @@ module CorevistAPI
       private
 
       def user_not_authorized
-        api_response.unauthorized!
-        api_response.set_message(:api, :unauthorized)
-        render(json: api_response)
+        error('api.errors.unauthorized')
       end
 
       def entry_not_found(type)
