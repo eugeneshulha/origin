@@ -1,4 +1,6 @@
 class String
+  AT_SIGN = '@'.freeze
+
   def utf8_hex_to_string
     result = ''
     # the string has to be in groups of 4 hex digits
@@ -249,5 +251,9 @@ class String
       end
     end
     s
+  end
+
+  def unatify
+    remove(AT_SIGN)
   end
 end

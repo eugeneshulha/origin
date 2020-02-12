@@ -1,6 +1,7 @@
 module CorevistAPI
   class Services::ServiceResult
-    attr_reader :data, :errors
+    attr_reader :errors
+    attr_accessor :data
 
     def initialize(data)
       @data = data
@@ -8,14 +9,18 @@ module CorevistAPI
       @errors = []
     end
 
-    def fail!(errors = [])
+    def fail!(reason)
       @success = false
-      errors.each(&@errors.method(:<<))
+      reason.respond_to?(:each) ? reason.each(&@errors.method(:<<)) : @errors << I18n.t(reason)
       self
     end
 
     def successful?
       @success && @errors.blank?
+    end
+
+    def failed?
+      !@success
     end
   end
 end

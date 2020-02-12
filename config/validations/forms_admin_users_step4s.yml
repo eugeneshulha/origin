@@ -1,0 +1,8 @@
+uuid:
+  presence: true
+partner_number:
+  presence: true
+function:
+  presence: true
+  inclusion:
+    in: ['AG', 'ag']

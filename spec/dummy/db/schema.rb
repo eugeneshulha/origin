@@ -12,6 +12,13 @@
 
 ActiveRecord::Schema.define(version: 2020_02_12_133658) do
 
+  create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "user_id"
+    t.index ["role_id"], name: "index_assignable_roles_users_on_role_id"
+    t.index ["user_id"], name: "index_assignable_roles_users_on_user_id"
+  end
+
   create_table "doc_categories", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -24,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_12_133658) do
   create_table "doc_categories_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "sales_area_id"
     t.string "doc_category_id"
+    t.index ["sales_area_id"], name: "index_doc_categories_sales_areas_on_sales_area_id"
   end
 
   create_table "doc_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,6 +58,13 @@ ActiveRecord::Schema.define(version: 2020_02_12_133658) do
 
   create_table "microsites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+  end
+
+  create_table "microsites_territories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "territory_id"
+    t.bigint "microsite_id"
+    t.index ["microsite_id"], name: "index_microsites_territories_on_microsite_id"
+    t.index ["territory_id"], name: "index_microsites_territories_on_territory_id"
   end
 
   create_table "partners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -131,6 +146,14 @@ ActiveRecord::Schema.define(version: 2020_02_12_133658) do
     t.string "created_by"
     t.string "updated_by"
     t.boolean "active", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "territories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "territory", null: false
+    t.string "title", null: false
+    t.boolean "selected", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
