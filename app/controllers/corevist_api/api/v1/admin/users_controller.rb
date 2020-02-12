@@ -58,7 +58,7 @@ module CorevistAPI
         return users_scope unless params[:filters].present?
 
         result = ServicesFactory.instance.for(:filter_user, current_user, params[:filters], users_scope).call
-        result.success? ? result.data : []
+        result.successful? ? result.data : []
       end
     end
   end

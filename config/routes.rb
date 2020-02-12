@@ -32,6 +32,8 @@ CorevistAPI::Engine.routes.draw do
         get :search, to: 'salesdocs#index'
       end
 
+      get 'status', to: 'statuses#status'
+
       # admin panel
       namespace :admin do
         resources :users, param: :uuid do

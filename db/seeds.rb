@@ -52,6 +52,10 @@ ActiveRecord::Base.transaction do
     user.created_by = 'seeds'
   end.save
 
+  %w[no_pricing atp_check request_orders].each do |title|
+    CorevistAPI::Privilege.create!(title: title)
+  end
+
   CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |user|
     user.password = '123123123'
     user.email = Forgery('email').address
@@ -67,6 +71,7 @@ ActiveRecord::Base.transaction do
 
   role.sales_areas << sales_area
   doc_type.sales_areas << sales_area
+  role.privileges << CorevistAPI::Privilege.all
 
   CorevistAPI::User.find_by_username('user_1').roles << role
 end

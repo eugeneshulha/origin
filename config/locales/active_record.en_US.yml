@@ -12,9 +12,9 @@ en_US:
         corevist_api/forms/user/registration:
           attributes:
             email:
-              blank: "Email field can not be blank"
+              blank: "field can not be blank"
             language:
-              blank: "Language field can not be blank"
+              blank: "field can not be blank"
 
   activemodel:
     errors:
@@ -22,17 +22,20 @@ en_US:
         corevist_api/forms/user/registration:
           attributes:
             email:
-              blank: "Email field can not be blank"
+              blank: "field can not be blank"
             language:
-              blank: "Language field can not be blank"
+              blank: "field can not be blank"
             first_name:
-              too_short: "First name is too short"
-              too_long: "First name is too long"
+              blank: "field can not be blank"
+              too_short: "is too short"
+              too_long: "is too long"
+            last_name:
+              blank: "field can not be blank"
             microsite:
-              blank: "Microsite field can not be blank"
+              blank: "field can not be blank"
             phone:
-              blank: "Phone field can not be blank"
-              not_a_number: "Phone field should be numeric"
+              blank: "field can not be blank"
+              not_a_number: "field should be numeric"
         corevist_api/forms/admin/users/step1:
           attributes:
             number_format:

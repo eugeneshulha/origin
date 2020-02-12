@@ -6,6 +6,7 @@ require 'devise/jwt'
 require 'pundit'
 require 'sapnwrfc'
 require 'sidekiq'
+require 'config'
 require 'rack/cors'
 require 'corevist_api/engine'
 

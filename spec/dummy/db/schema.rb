@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_113048) do
+ActiveRecord::Schema.define(version: 2020_02_12_133658) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -97,6 +97,21 @@ ActiveRecord::Schema.define(version: 2020_02_12_113048) do
     t.index ["parent_partner_id"], name: "index_partners_on_parent_partner_id"
     t.index ["sales_area_id"], name: "index_partners_on_sales_area_id"
     t.index ["user_id"], name: "index_partners_on_user_id"
+  end
+
+  create_table "privileges", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["title"], name: "index_privileges_on_title"
+  end
+
+  create_table "privileges_roles", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "role_id"
+    t.bigint "privilege_id"
+    t.index ["privilege_id"], name: "index_privileges_roles_on_privilege_id"
+    t.index ["role_id"], name: "index_privileges_roles_on_role_id"
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

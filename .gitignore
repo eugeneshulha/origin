@@ -10,6 +10,6 @@ spec/dummy/config/database.yml
 spec/dummy/config/redis.yml
 spec/dummy/.sass-cache
 config/database.yml
-config/unicorn.rb
+spec/dummy/config/unicorn.rb
 .idea/*
 coverage
