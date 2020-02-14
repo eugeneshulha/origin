@@ -5,9 +5,12 @@ en_US:
         corevist_api/user:
           attributes:
             reset_password_token:
-              invalid: "Token is invalid"
+              invalid: "is invalid"
+              blank: "is blank"
             username:
               taken: "already in use"
+            password:
+              blank: "can not be blank"
 
         corevist_api/forms/user/registration:
           attributes:
