@@ -1,0 +1,41 @@
+{
+  "translations": {
+    "title": "Login",
+    "description": {
+      "text": "Please enter as much information as possible. Fields with an asterisk (*) are mandatory."
+    }
+  },
+
+  "fields": [
+    {
+      "name":"username",
+      "type":"text",
+      "label":"Username",
+      "placeholder":"Enter username",
+      "validationType":"string",
+      "validations":[
+        {"type":"required","params":["First Name field is required"]},
+        {"type":"min","params":[3,"First Name cannot be less than 3 characters"]},
+        {"type":"max","params":[20,"First Name cannot be more than 20 characters"]}
+      ]
+    },
+    {
+      "name":"password",
+      "type":"password",
+      "label":"Password",
+      "placeholder":"Enter password",
+      "validationType":"string",
+      "validations":[
+        {"type":"required","params":["Password field is required"]},
+        {"type":"min","params":[5,"Password cannot be less than 5 characters"]},
+        {"type":"max","params":[10,"Password cannot be more than 10 characters"]}
+      ]
+    }
+  ],
+
+  "buttonsData": {
+    "submit": {
+      "label": "Login"
+    }
+  }
+}
