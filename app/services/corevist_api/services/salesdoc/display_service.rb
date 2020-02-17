@@ -1,6 +1,6 @@
 module CorevistAPI
   module Services::Salesdoc
-    class Display < CorevistAPI::Services::BaseService
+    class DisplayService < CorevistAPI::Services::BaseService
 
       def call
         perform!
@@ -9,7 +9,8 @@ module CorevistAPI
       private
 
       def perform!
-        RFCServicesFactory.instance.for(:find_salesdoc, @object, :get_salesdoc, @params).call
+        @rfc_result = rfc_service_for(:salesdoc_display).call
+        result(@rfc_result)
       end
     end
   end

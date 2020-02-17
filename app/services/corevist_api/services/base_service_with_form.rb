@@ -35,11 +35,7 @@ module CorevistAPI
       end
 
       def rfc_service_for(type)
-        CorevistAPI::Factories::RFCServicesFactory.instance.for(type, @form, type, @params)
-      end
-
-      def builder_for(type, *params)
-        CorevistAPI::Factories::BuildersFactory.instance.for(type, *params)
+        CorevistAPI::Factories::RFCServicesFactory.instance.for(type, @form, @params)
       end
 
       def fields(object)

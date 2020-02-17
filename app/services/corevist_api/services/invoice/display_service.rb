@@ -1,6 +1,6 @@
 module CorevistAPI
   module Services::Invoice
-    class Search < CorevistAPI::Services::BaseServiceWithForm
+    class DisplayService < CorevistAPI::Services::BaseService
 
     end
   end

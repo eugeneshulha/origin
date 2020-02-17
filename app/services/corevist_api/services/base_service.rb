@@ -11,7 +11,17 @@ module CorevistAPI
     end
 
     def result(data)
-      @result ||= ServiceResult.new(data)
+      @result ||= CorevistAPI::Services::ServiceResult.new(data)
+    end
+
+    private
+
+    def rfc_service_for(type)
+      CorevistAPI::Factories::RFCServicesFactory.instance.for(type, @object, @params)
+    end
+
+    def builder_for(type, *params)
+      CorevistAPI::Factories::BuildersFactory.instance.for(type, *params)
     end
   end
 end

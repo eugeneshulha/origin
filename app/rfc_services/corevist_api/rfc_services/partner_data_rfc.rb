@@ -2,6 +2,10 @@ module CorevistAPI
   class RFCServices::PartnerDataRFC < CorevistAPI::RFCServices::BaseRFCService
     protected
 
+    def function_name
+      :get_partner
+    end
+
     def input
       rfc_object = object_to_rfc
       rfc_user = user_to_rfc(User.find_by_id(CorevistAPI::Context.current_user.id))

@@ -43,8 +43,8 @@ module CorevistAPI
 
       def api_names
         {
-            find: "find_#{self.model_name.element}",
-            search: "search_#{self.model_name.element.pluralize}"
+            display: "#{self.model_name.element}_display",
+            list: "#{self.model_name.element}_list"
         }
       end
     end

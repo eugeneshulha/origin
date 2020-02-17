@@ -13,7 +13,7 @@ module CorevistAPI
       def perform
         return result.fail!('api.errors.user_not_found') unless user
 
-        assigned_partners = user.partners.where(function: function_name(excluded_function), assigned: true)
+        assigned_partners = user.assigned_partners.where(function: function_name(excluded_function))
         return result.fail!('api.errors.one_function') if assigned_partners.present?
 
         @rfc_result = rfc_service_for(:get_partner).call
@@ -51,7 +51,7 @@ module CorevistAPI
           street_addresses: @rfc_result.data[:street_addresses]
         }
 
-        partner = builder_for(:partner_builder, partner_params).build do |builder|
+        partner = builder_for(:partner, partner_params).build do |builder|
           builder.with_base_params
           builder.with_assigned_param
           builder.with_postal_addresses

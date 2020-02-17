@@ -1,6 +1,6 @@
 module CorevistAPI
   module Builders
-    class Partners::Builder < BaseBuilder
+    class PartnerBuilder < BaseBuilder
       MAX_ADDRESSES_COUNT = 3
 
       def build

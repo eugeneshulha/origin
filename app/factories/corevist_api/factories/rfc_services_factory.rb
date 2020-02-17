@@ -2,9 +2,9 @@ module CorevistAPI
   class Factories::RFCServicesFactory < Factories::BaseFactory
     def initialize
       @storage = {
-        find_salesdoc: 'CorevistAPI::RFCServices::Salesdoc::DisplayRFC',
+        salesdoc_display: 'CorevistAPI::RFCServices::SalesdocDisplayRFC',
         get_partner: 'CorevistAPI::RFCServices::PartnerDataRFC',
-        search_partner: 'CorevistAPI::RFCServices::PartnerSearchRFC',
+        partner_search: 'CorevistAPI::RFCServices::PartnerSearchRFC',
         truncate_rfc: 'CorevistAPI::RFCServices::Truncations::RfcService'
       }
     end

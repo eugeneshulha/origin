@@ -11,6 +11,10 @@ module CorevistAPI
 
     protected
 
+    def function_name
+      :partner_list
+    end
+
     def input
       rfc_object = object_to_rfc
       rfc_user = user_to_rfc(User.find_by_id(CorevistAPI::Context.current_user.id))

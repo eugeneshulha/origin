@@ -8,7 +8,7 @@ module CorevistAPI::API
     include CorevistAPI::ActionPerformer
     include CorevistAPI::JsonResponse
 
-    # rescue_from StandardError, with: :handle_exception
+     rescue_from StandardError, with: :handle_exception
 
     respond_to :json
 
@@ -20,6 +20,11 @@ module CorevistAPI::API
 
     def handle_exception(exception)
       error("api.errors.#{exception}")
+
+      Rails.logger.error do
+        exception.message
+        exception.backtrace.join("\n")
+      end
     end
   end
 end

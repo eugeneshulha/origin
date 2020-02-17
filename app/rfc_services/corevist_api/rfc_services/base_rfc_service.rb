@@ -13,9 +13,10 @@ module CorevistAPI
 
       MAX_RETRIES = 1
 
-      def initialize(object, method, options = {})
+      def initialize(object, params = {})
         @object = object
-        @func_name = func_name(method)
+        @params = params&.dup
+        @func_name = get_function_name(function_name)
         @logger = Rails.logger
         @measures = Hash.new(0.0)
         @sap_return = CorevistAPI::RFCServices::BaseRFC::Return.new
@@ -66,8 +67,8 @@ module CorevistAPI
 
       private
 
-      def func_name(method)
-        get_function_name(method)
+      def function_name
+        raise NotImplementedError
       end
 
       def raise_rfc_exception(exc)
@@ -90,9 +91,9 @@ module CorevistAPI
 
       def get_function_name(method)
         {
-          find_salesdoc: '/COREVIST/SALESDOC_DISPLAY',
-          search_partner: '/COREVIST/PARTNER_SEARCH',
-          get_partner: '/COREVIST/PARTNER_DATA'
+            salesdoc_display: '/COREVIST/SALESDOC_DISPLAY',
+            partner_search: '/COREVIST/PARTNER_SEARCH',
+            get_partner: '/COREVIST/PARTNER_DATA'
         }[method]
       end
     end

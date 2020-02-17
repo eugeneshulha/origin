@@ -3,7 +3,8 @@ module CorevistAPI
     class BuildersFactory < BaseFactory
       def initialize
         @storage = {
-          partner_builder: 'CorevistAPI::Builders::Partners::Builder'
+          partner: 'CorevistAPI::Builders::PartnerBuilder',
+          salesdoc: 'CorevistAPI::Builders::SalesdocBuilder'
         }
       end
     end

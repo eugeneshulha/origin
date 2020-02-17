@@ -1,0 +1,86 @@
+dashboard:
+  title: "Dashboard"
+  components:
+    recent_orders:
+      type: "table"
+      url: "/api/v1/salesdocs"
+      method: "GET"
+      title: "Recently placed orders"
+
+
+    shipped_orders:
+    billing_information:
+    open_items:
+    atp_check:
+    twitter:
+
+
+    login_form:
+      type: "form"
+      url: "/api/v1/auth"
+      method: "POST"
+      title: "Login"
+      desciption: "Please enter username and password"
+      elements:
+
+        group_1:
+          -
+            atom: "text"
+            label: "Username"
+            placeholder: "Username"
+            name: "user[username]"
+            value: ""
+            validation_type: "string"
+            validations:
+              -
+                type: "required"
+                value: ""
+                message: "First Name field is required"
+              -
+                type: "min"
+                value: "3"
+                message: "First Name cannot be less than 3 characters"
+              -
+                type: "max"
+                value: "20"
+                message: "First Name cannot be more than 20 characters"
+
+        group_2:
+          -
+            atom: "password"
+            label: "Password"
+            placeholder: "Password"
+            name: "user[password]"
+            value: ""
+            validation_type: "string"
+            validations:
+              -
+                type: "required"
+                value: ""
+                message: "First Name field is required"
+              -
+                type: "min"
+                value: "3"
+                message: "First Name cannot be less than 3 characters"
+              -
+                type: "max"
+                value: "20"
+                message: "First Name cannot be more than 20 characters"
+
+        group_3:
+          -
+            atom: "button"
+            type: "submit" # reset, submit, button
+            text: "Login"
+          -
+            atom: "link"
+            button_like: "false"
+            text: "Forgot your password?"
+            path: "/forgot_password"
+
+        group_4:
+          -
+            atom: "link"
+            button_like: "true"
+            text: "Create an account"
+            path: "/registration"

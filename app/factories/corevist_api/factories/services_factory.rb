@@ -10,10 +10,10 @@ module CorevistAPI
         admin_users_step_6: 'CorevistAPI::Services::Admin::Users::Step6CreationService',
         filter_user: 'CorevistAPI::Admin::FilterUserService',
         user_registration: 'CorevistAPI::Services::User::RegistrationService',
-        find_invoice: 'CorevistAPI::Services::Invoice::Display',
-        find_salesdoc: 'CorevistAPI::Services::Salesdoc::Display',
-        search_invoices: 'CorevistAPI::Services::Invoice::Search',
-        search_salesdocs: 'CorevistAPI::Services::Salesdoc::Search',
+        invoice_display: 'CorevistAPI::Services::Invoice::DisplayService',
+        salesdoc_display: 'CorevistAPI::Services::Salesdoc::DisplayService',
+        invoice_list: 'CorevistAPI::Services::Invoice::ListService',
+        salesdoc_list: 'CorevistAPI::Services::Salesdoc::ListService',
         partners_search: 'CorevistAPI::Services::Admin::Partners::SearchService'
       }
     end

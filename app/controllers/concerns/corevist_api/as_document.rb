@@ -7,13 +7,13 @@ module CorevistAPI
       before_action :dispatch_object
 
       def index
-        form = FormsFactory.instance.for(@obj.api_names[:search], params)
-        service = ServicesFactory.instance.for(@obj.api_names[:search], form)
+        form = Factories::FormsFactory.instance.for(@obj.api_names[:list], params)
+        service = Factories::ServicesFactory.instance.for(@obj.api_names[:list], form)
         @result = service.call
       end
 
       def show
-        service = ServicesFactory.instance.for(@obj.api_names[:find], @obj, params)
+        service = Factories::ServicesFactory.instance.for(@obj.api_names[:display], @obj, params)
         @result = service.call
       end
 

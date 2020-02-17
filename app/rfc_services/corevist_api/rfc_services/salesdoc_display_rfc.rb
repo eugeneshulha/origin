@@ -6,40 +6,34 @@ module CorevistAPI
 
     private
 
+    def function_name
+      :salesdoc_display
+    end
+
     def input
       rfc_object = object_to_rfc
-      rfc_user = user_to_rfc(@object.user)
+      rfc_user = user_to_rfc(CorevistAPI::Context.current_user)
       set_params(rfc_object.merge(rfc_user))
     end
 
     def object_to_rfc
-      { DOC_NR => @oarams[:doc_nr] }
+      { DOC_NR => @params[:doc_number].add_leading_zeros }
     end
 
     def output
       super
 
-      get_function_param(SALES_DOCUMENTS).each do |doc|
-        document = Salesdocs::SalesDocument.new
-        set_salesdoc(document, doc)
-        @data[:sales_documents] << document
+      @function.parameters.each_key do |key|
+        value = @function.parameters[key].value
+        next if value.blank?
+        value = { key => value } if value.is_a?(String)
+
+        @data[key.downcase] = value.map do |data|
+          data = Hash[*data] if data.is_a?(Array)
+
+          RfcResultEntry.new(self.class.name.demodulize.underscore, data)
+        end
       end
-
-      set_salesdocs_order
-      get_function_param(SHIPMENTS).each do |row|
-        shipment = Salesdocs::Shipment.new
-        set_shipment(shipment, row)
-        @data[:shipments] << shipment
-      end
-
-      doc_ref = @data[:sales_documents].any? { |doc| doc.reference.present? }
-      ship_ref = @data[:shipments].any? { |ship| ship.reference.present? }
-
-      if doc_ref || ship_ref
-        @data[:has_item_references] = true
-      end
-
-      @data[:item_list] = get_function_param(ITEM_LIST)
     end
   end
 end
