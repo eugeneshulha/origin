@@ -26,7 +26,7 @@ module CorevistAPI
       @function.parameters.each_key do |key|
         value = @function.parameters[key].value
         next if value.blank?
-        value = { key => value } if value.is_a?(String)
+        (@data[key.downcase] = value) and next if value.is_a?(String)
 
         @data[key.downcase] = value.map do |data|
           data = Hash[*data] if data.is_a?(Array)
