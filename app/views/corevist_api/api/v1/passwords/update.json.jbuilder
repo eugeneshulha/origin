@@ -1,4 +1,4 @@
-if resource.errors.empty?
+if @form.errors.empty?
   h = {
       status: 200,
       messages: [
@@ -9,7 +9,7 @@ if resource.errors.empty?
 else
   h = {
       status: 500,
-      errors: resource.errors.full_messages
+      errors: @form.errors.full_messages
   }
 
   json.merge!(h)

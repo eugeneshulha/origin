@@ -39,6 +39,13 @@ en_US:
             phone:
               blank: "field can not be blank"
               not_a_number: "field should be numeric"
+        corevist_api/forms/user/set_new_password:
+          attributes:
+            password:
+              blank: 'field can not be blank'
+            password_confirmation:
+              blank: 'field can not be blank'
+              confirmation: 'does not match'
         corevist_api/forms/admin/users/step1:
           attributes:
             number_format:

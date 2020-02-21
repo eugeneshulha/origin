@@ -18,8 +18,17 @@ module CorevistAPI
     end
 
     def update
-      self.resource = resource_class.reset_password_by_token(resource_params)
-      resource.unlock_access! if unlockable?(resource) if resource.errors.empty?
+      @form = CorevistAPI::Factories::FormsFactory.instance.for(:set_new_password, params)
+
+      if @form.valid?
+        self.resource = resource_class.reset_password_by_token(resource_params)
+        if resource.errors.empty?
+          resource.unlock_access! if unlockable?(resource)
+        else
+          @form = resource
+        end
+      end
+
       render action: :update
     end
   end

@@ -1,0 +1,11 @@
+module CorevistAPI
+  class Forms::User::SetNewPassword < CorevistAPI::Forms::BaseForm
+    include CorevistAPI::FormValidations
+    validate_form
+
+
+    def params_key
+      :user
+    end
+  end
+end
