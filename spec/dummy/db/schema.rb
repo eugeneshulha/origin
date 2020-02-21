@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 2020_02_12_133658) do
   create_table "doc_categories_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "sales_area_id"
     t.string "doc_category_id"
-    t.index ["sales_area_id"], name: "index_doc_categories_sales_areas_on_sales_area_id"
   end
 
   create_table "doc_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
