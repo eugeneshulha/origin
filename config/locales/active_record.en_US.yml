@@ -43,6 +43,8 @@ en_US:
           attributes:
             password:
               blank: 'field can not be blank'
+              too_short: 'value is too short'
+              too_long: 'value is too long'
             password_confirmation:
               blank: 'field can not be blank'
               confirmation: 'does not match'
