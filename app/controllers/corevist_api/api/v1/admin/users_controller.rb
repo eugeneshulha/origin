@@ -8,14 +8,14 @@ module CorevistAPI
       STEPS = %w[1 2 3 4 5 6].freeze
 
       def index
-        authorize(User)
+        authorize(CorevistAPI::User)
         @users = filter_users(policy_scope(User))
       end
 
       def show; end
 
       def new
-        authorize(User)
+        authorize(CorevistAPI::User)
         step = "admin_users_step_#{params[:step]}".to_sym
         @result = FormsFactory.instance.for(step).validate!
       end
@@ -23,7 +23,7 @@ module CorevistAPI
       def create
         return error('api.errors.step') if STEPS.exclude?(params[:step])
 
-        authorize(User)
+        authorize(CorevistAPI::User)
         type = "#{action_prefix}_step_#{params[:step]}".to_sym
         form = form_for(type, params)
         @result = service_for(type, form, params).call
@@ -31,7 +31,7 @@ module CorevistAPI
       end
 
       def edit
-        authorize(User)
+        authorize(CorevistAPI::User)
       end
 
       def update; end
