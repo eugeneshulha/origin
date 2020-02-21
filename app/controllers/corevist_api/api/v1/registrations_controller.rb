@@ -8,7 +8,7 @@ module CorevistAPI
     end
 
     def create
-      form = CorevistAPI::Factories::FormsFactory.instance.for(:user_registration, params[:user])
+      form = CorevistAPI::Factories::FormsFactory.instance.for(:user_registration, params)
       service = CorevistAPI::Factories::ServicesFactory.instance.for(:user_registration, form, params)
       @result = service.call
     end

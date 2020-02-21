@@ -3,23 +3,25 @@ module CorevistAPI
     ARRAY_KEY = 'array'.freeze
 
     def self.included(base)
-      base.define_singleton_method :validate_form do
-        path = CorevistAPI::Engine.root.join('config', 'validations', model_name.route_key + '.yml').to_s
-        configs = YAML.load_file(path)
+      validate_me!(base)
+    end
 
-        attr_accessor(*configs.keys)
+    def self.validate_me!(base)
+      path = CorevistAPI::Engine.root.join('config', 'validations', base.model_name.route_key + '.yml').to_s
+      configs = YAML.load_file(path)
 
-        define_method(:permitted_params) { prepared_keys(configs) }
+      attr_accessor(*configs.keys)
 
-        configs.each do |field, validations|
-          validations.each do |options|
-            next if options[0] == ARRAY_KEY
+      define_method(:permitted_params) { prepared_keys(configs) }
 
-            validation = Hash[*options]
-            validation = validation.deep_symbolize_keys if options.second.is_a?(Hash)
+      configs.each do |field, validations|
+        validations.each do |options|
+          next if options[0] == ARRAY_KEY
 
-            base.validates field, validation
-          end
+          validation = Hash[*options]
+          validation = validation.deep_symbolize_keys if options.second.is_a?(Hash)
+
+          base.validates field, validation
         end
       end
     end
