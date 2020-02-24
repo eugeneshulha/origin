@@ -12,7 +12,7 @@ module CorevistAPI
 
     def input
       rfc_object = object_to_rfc
-      rfc_user = user_to_rfc(CorevistAPI::Context.current_user)
+      rfc_user = user_to_rfc(user)
       set_params(rfc_object.merge(rfc_user))
     end
 

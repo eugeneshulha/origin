@@ -35,7 +35,7 @@ module CorevistAPI
     end
 
     def user_to_rfc(user)
-      rfc_user = {
+      rfc_user =  {
         USER_DATA => {
           USER_ID => user.username.to_s,
           FIRST_NAME => user.first_name.to_s,
@@ -47,6 +47,8 @@ module CorevistAPI
           TYPE => user.user_type.value, # C: customer and customer-admin, I: internal employee, S: system admin
           MICROSITE => 'B2B_MICROSITE1'
         },
+        ASSIGNED_SOLD_TOS => user.assigned_sold_tos.map { |sold_to| { NR => sold_to.number, SA => sold_to.sales_area.title } },
+        ASSIGNED_PAYERS => user.assigned_payers.map { |payer| { NR => payer.number, SA => payer.sales_area.title } }
         # ASSIGNED_SOLD_TOS => hash_to_rfc(user.assigned_sold_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
         # ASSIGNED_SHIP_TOS => hash_to_rfc(user.assigned_ship_tos, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),
         # ASSIGNED_PAYERS => hash_to_rfc(user.assigned_payers, rfc_key: NR, rfc_value: SA, key_modifier: :add_leading_zeros),

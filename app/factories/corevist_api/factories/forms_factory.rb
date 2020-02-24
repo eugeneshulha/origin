@@ -13,7 +13,9 @@ module CorevistAPI
         search_invoices: 'CorevistAPI::Forms::Invoice::Search',
         search_salesdoc: 'CorevistAPI::Forms::Salesdoc::Search',
         partners_search: 'CorevistAPI::Forms::Admin::Partners::SearchForm',
-        login: 'CorevistAPI::Forms::User::Login'
+        login: 'CorevistAPI::Forms::User::Login',
+        openitems_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
+        summaries_salesdocs_index: 'CorevistAPI::Forms::Summaries::SalesdocIndexForm'
       }
     end
   end

@@ -41,6 +41,12 @@ CorevistAPI::Engine.routes.draw do
       end
 
       resources :partners, only: %i[index]
+      resources :summaries, only: [] do
+        collection do
+          get :salesdocs, to: 'summaries/salesdocs#index'
+        end
+      end
+      resources :open_items, only: :index
     end
   end
 end

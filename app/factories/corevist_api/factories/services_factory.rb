@@ -15,7 +15,9 @@ module CorevistAPI
         invoice_list: 'CorevistAPI::Services::Invoice::ListService',
         salesdoc_list: 'CorevistAPI::Services::Salesdoc::ListService',
         partners_search: 'CorevistAPI::Services::Admin::Partners::SearchService',
-        page_configs_read: 'CorevistAPI::Services::PageConfigs::Read'
+        page_configs_read: 'CorevistAPI::Services::PageConfigs::Read',
+        openitems_index: 'CorevistAPI::Services::OpenItems::SearchService',
+        summaries_salesdocs_index: 'CorevistAPI::Services::Summaries::Salesdocs::SearchService'
       }
     end
   end
