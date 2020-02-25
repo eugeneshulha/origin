@@ -79,7 +79,7 @@ registration:
           -
             atom: select
             label: Microsite
-            name: "user[microsite]"
+            name: "user[microsite_id]"
             placeholder: Select Microsite
             validation_type: string
             value: ""

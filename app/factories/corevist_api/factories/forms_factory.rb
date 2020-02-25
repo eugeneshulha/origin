@@ -12,7 +12,8 @@ module CorevistAPI
         set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',
         search_invoices: 'CorevistAPI::Forms::Invoice::Search',
         search_salesdoc: 'CorevistAPI::Forms::Salesdoc::Search',
-        partners_search: 'CorevistAPI::Forms::Admin::Partners::SearchForm'
+        partners_search: 'CorevistAPI::Forms::Admin::Partners::SearchForm',
+        login: 'CorevistAPI::Forms::User::Login'
       }
     end
   end

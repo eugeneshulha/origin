@@ -1,11 +1,9 @@
 class AuthFailureApp < Devise::FailureApp
   def http_auth_body
     {
+        status: 401,
         errors: [
-            {
-                status: 401,
-                message: i18n_message
-            }
+            i18n_message
         ]
     }.to_json
   end

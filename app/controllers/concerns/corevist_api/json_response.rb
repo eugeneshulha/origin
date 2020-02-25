@@ -27,7 +27,7 @@ module CorevistAPI
         response = msg.respond_to?(:each) ? msg : I18n.t(msg)
         payload = { status: _status, status(_status).to_s.pluralize => Array.wrap(response) }
         payload.merge!(data: data) if data.present?
-        render json: payload, status: status(_status)
+        render json: payload, status: _status
       end
 
       def status(type)
