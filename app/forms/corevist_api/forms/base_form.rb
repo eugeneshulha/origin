@@ -1,6 +1,7 @@
 module CorevistAPI
   class Forms::BaseForm
     include ActiveModel::Validations
+    include CorevistAPI::Factories::FactoryInterface
 
     KEY_ID = 0
     VAL_ID = 1

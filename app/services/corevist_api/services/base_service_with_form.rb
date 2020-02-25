@@ -34,10 +34,6 @@ module CorevistAPI
         result.fail!(@form.errors.full_messages)
       end
 
-      def rfc_service_for(type)
-        CorevistAPI::Factories::RFCServicesFactory.instance.for(type, @form, @params)
-      end
-
       def fields(object)
         (@form.instance_variable_names.map(&:unatify) & object.class.extra_column_names) - @form.rejected_keys
       end

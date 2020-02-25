@@ -16,7 +16,7 @@ module CorevistAPI
         assigned_partners = user.assigned_partners.where(function: function_name(excluded_function))
         return result.fail!('api.errors.one_function') if assigned_partners.present?
 
-        @rfc_result = rfc_service_for(:get_partner).call
+        @rfc_result = rfc_service_for(:get_partner, @form, @params).call
         @rfc_partner = @rfc_result.data[:partner]
         @partner_sales_data = @rfc_result.data[:partner_sales_data]
 

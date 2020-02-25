@@ -29,6 +29,8 @@ CorevistAPI::Engine.routes.draw do
 
       get 'status', to: 'statuses#status'
 
+      resources :page_configs, only: :show, param: :page_id
+
       # admin panel
       namespace :admin do
         resources :users, param: :uuid do
