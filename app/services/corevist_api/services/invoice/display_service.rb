@@ -9,7 +9,7 @@ module CorevistAPI
       private
 
       def perform!
-        @rfc_result = rfc_service_for(:invoice_display).call
+        @rfc_result = rfc_service_for(:invoice_display, @object, @params).call
         result(@rfc_result)
       end
     end

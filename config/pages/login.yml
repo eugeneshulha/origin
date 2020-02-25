@@ -1,74 +1,65 @@
 login:
+  title: "Login page"
   components:
     -
       login_form:
-        -
-          description: "Please enter username and password"
-          elements:
+        description: "Please enter username and password"
+        method: POST
+        title: Login
+        type: form
+        url: "/api/v1/auth"
+        elements:
+          -
             -
-              group_1:
+              atom: text
+              label: Username
+              name: "user[username]"
+              placeholder: Username
+              validation_type: string
+              validations:
                 -
-                  atom: text
-                  label: Username
-                  name: "user[username]"
-                  placeholder: Username
-                  validation_type: string
-                  validations:
-                    -
-                      message: "<%= I18n.t('my_message') %>"
-                      type: required
-                      value: ""
-                    -
-                      message: "First Name cannot be less than 3 characters"
-                      type: min
-                      value: "3"
-                    -
-                      message: "First Name cannot be more than 20 characters"
-                      type: max
-                      value: "20"
-                  value: ""
+                  message: "<%= I18n.t('my_message') %>"
+                  type: required
+                -
+                  message: "First Name cannot be less than 3 characters"
+                  type: min
+                  value: "3"
+                -
+                  message: "First Name cannot be more than 20 characters"
+                  type: max
+                  value: "20"
+          -
             -
-              group_2:
+              atom: password
+              label: Password
+              name: "user[password]"
+              placeholder: Password
+              validation_type: string
+              validations:
                 -
-                  atom: password
-                  label: Password
-                  name: "user[password]"
-                  placeholder: Password
-                  validation_type: string
-                  validations:
-                    -
-                      message: "First Name field is required"
-                      type: required
-                      value: ""
-                    -
-                      message: "First Name cannot be less than 3 characters"
-                      type: min
-                      value: "3"
-                    -
-                      message: "First Name cannot be more than 20 characters"
-                      type: max
-                      value: "20"
-                  value: ""
+                  message: "First Name field is required"
+                  type: required
+                -
+                  message: "First Name cannot be less than 3 characters"
+                  type: min
+                  value: "3"
+                -
+                  message: "First Name cannot be more than 20 characters"
+                  type: max
+                  value: "20"
+          -
             -
-              group_3:
-                -
-                  atom: button
-                  text: Login
-                  type: submit
-                -
-                  atom: link
-                  button_like: "false"
-                  path: /forgot_password
-                  text: "Forgot your password?"
+              atom: button
+              text: Login
+              type: submit
             -
-              group_4:
-                -
-                  atom: link
-                  button_like: "true"
-                  path: /registration
-                  text: "Create an account"
-          method: POST
-          title: Login
-          type: form
-          url: "/api/v1/auth"
-  title: "Login page"
+              atom: link
+              button_like: "false"
+              path: /forgot_password
+              text: "Forgot your password?"
+          -
+            -
+              atom: link
+              button_like: "true"
+              path: /registration
+              text: "Create an account"

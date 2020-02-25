@@ -3,26 +3,31 @@ module CorevistAPI
     extend ActiveSupport::Concern
 
     STATUSES = {
-      info: 200,
-      error: 500
+      200 => :info,
+      401 => :error,
+      500 => :error
     }.freeze
 
     included do
       def error(error_or_errors, data = nil)
-        json(error_or_errors, :error, data)
+        json(error_or_errors, 500, data)
+      end
+
+      def unauthenticated(error_or_errors, data = nil)
+        json(error_or_errors, 401, data)
       end
 
       def success(info_or_infos, data = nil)
-        json(info_or_infos, :info, data)
+        json(info_or_infos, 200, data)
       end
 
       private
 
-      def json(msg, type, data = nil)
+      def json(msg, _status, data = nil)
         response = msg.respond_to?(:each) ? msg : I18n.t(msg)
-        payload = { status: status(type), type.to_s.pluralize => Array.wrap(response) }
+        payload = { status: _status, status(_status).to_s.pluralize => Array.wrap(response) }
         payload.merge!(data: data) if data.present?
-        render(json: payload, status: status(type))
+        render json: payload, status: status(_status)
       end
 
       def status(type)
