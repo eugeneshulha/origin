@@ -1,159 +1,162 @@
 registration:
   title: "Registration"
   components:
-    registration_form:
-      description: "Fields with an asterisk (*) are mandatory."
-      method: POST
-      title: Registration
-      type: form
-      url: "/api/v1/registrations"
-      elements:
-        -
+    -
+      registration_form:
+        description: "Fields with an asterisk (*) are mandatory."
+        method: POST
+        title: Registration
+        type: form
+        url: "/v1/registrations"
+        elements:
           -
-            atom: text
-            label: First name
-            name: "user[first_name]"
-            placeholder: First name
-            validation_type: string
-            value: ""
-            validations:
-              -
-                message: "<%= I18n.t('my_message') %>"
-                type: required
-                value: ""
-              -
-                message: "First Name cannot be less than 3 characters"
-                type: min
-                value: "3"
-              -
-                message: "First Name cannot be more than 20 characters"
-                type: max
-                value: "20"
+            -
+              atom: text
+              label: First name
+              name: "first_name"
+              placeholder: First name
+              validation_type: string
+              value: ""
+              validations:
+                -
+                  message: "<%= I18n.t('my_message') %>"
+                  type: required
+                  value: ""
+                -
+                  message: "First Name cannot be less than 3 characters"
+                  type: min
+                  value: "3"
+                -
+                  message: "First Name cannot be more than 20 characters"
+                  type: max
+                  value: "20"
 
-        -
           -
-            atom: text
-            label: Last name
-            name: "user[last_name]"
-            placeholder: Last name
-            validation_type: string
-            value: ""
-            validations:
-              -
-                message: "<%= I18n.t('my_message') %>"
-                type: required
-                value: ""
-              -
-                message: "Last name cannot be less than 3 characters"
-                type: min
-                value: "3"
-              -
-                message: "Last name cannot be more than 20 characters"
-                type: max
-                value: "20"
+            -
+              atom: text
+              label: Last name
+              name: "last_name"
+              placeholder: Last name
+              validation_type: string
+              value: ""
+              validations:
+                -
+                  message: "<%= I18n.t('my_message') %>"
+                  type: required
+                  value: ""
+                -
+                  message: "Last name cannot be less than 3 characters"
+                  type: min
+                  value: "3"
+                -
+                  message: "Last name cannot be more than 20 characters"
+                  type: max
+                  value: "20"
 
-        -
           -
-            atom: text
-            label: Email address
-            name: "user[email]"
-            placeholder: Email address
-            validation_type: string
-            value: ""
-            validations:
-              -
-                message: "<%= I18n.t('my_message') %>"
-                type: required
-                value: ""
+            -
+              atom: text
+              label: Email address
+              name: "email"
+              placeholder: Email address
+              validation_type: string
+              value: ""
+              validations:
+                -
+                  message: "<%= I18n.t('my_message') %>"
+                  type: required
+                  value: ""
 
-        -
           -
-            atom: text
-            label: Customer Number
-            name: "user[customer_number]"
-            placeholder: Customer Number
-            validation_type: string
-            value: ""
+            -
+              atom: text
+              label: Customer Number
+              name: "customer_number"
+              placeholder: Customer Number
+              validation_type: string
+              value: ""
 
-        -
           -
-            atom: select
-            label: Microsite
-            name: "user[microsite_id]"
-            placeholder: Select Microsite
-            validation_type: string
-            value: ""
-            options:
-              -
-                name: Microsite 1
-                value: 0
-              -
-                name: Microsite 2
-                value: 1
-            validations:
-              -
-                message: "<%= I18n.t('my_message') %>"
-                type: required
-                value: ""
+            -
+              atom: select
+              label: Microsite
+              name: "microsite"
+              placeholder: Select Microsite
+              validation_type: string
+              value: ""
+              options:
+                -
+                  name: Microsite 1
+                  value: 'b2b_microsite1'
+                -
+                  name: Microsite 2
+                  value: 'b2b_client'
+              validations:
+                -
+                  message: "<%= I18n.t('my_message') %>"
+                  type: required
+                  value: ""
 
-        -
           -
-            atom: select
-            label: Language
-            name: "user[language]"
-            placeholder: Select Language
-            validation_type: string
-            value: ""
-            options:
-              -
-                name: English
-                value: en_US
-              -
-                name: Polish
-                value: pl_PL
-            validations:
-              -
-                message: "<%= I18n.t('my_message') %>"
-                type: required
-                value: ""
+            -
+              atom: select
+              label: Language
+              name: "language"
+              placeholder: Select Language
+              validation_type: string
+              value: ""
+              options:
+                -
+                  name: English
+                  value: en_US
+                -
+                  name: Polish
+                  value: pl_PL
+              validations:
+                -
+                  message: "<%= I18n.t('my_message') %>"
+                  type: required
+                  value: ""
 
-        -
           -
-            atom: text
-            label: Company Name
-            name: "user[company_name]"
-            placeholder: Company Name
-            validation_type: string
-            value: ""
+            -
+              atom: text
+              label: Company Name
+              name: "company_name"
+              placeholder: Company Name
+              validation_type: string
+              value: ""
 
-        -
           -
-            atom: text
-            label: Street
-            name: "user[street]"
-            placeholder: Street
-            validation_type: string
-            value: ""
+            -
+              atom: text
+              label: Street
+              name: "street"
+              placeholder: Street
+              validation_type: string
+              value: ""
 
-        -
           -
-            atom: text
-            label: Phone
-            name: "user[phone]"
-            placeholder: Phone
-            validation_type: string
-            value: ""
+            -
+              atom: text
+              label: Phone
+              name: "phone"
+              placeholder: Phone
+              validation_type: string
+              value: ""
 
-        -
           -
-            atom: text
-            label: City
-            name: "user[city]"
-            placeholder: City
-            validation_type: string
-            value: ""
-        -
+            -
+              atom: text
+              label: City
+              name: "city"
+              placeholder: City
+              validation_type: string
+              value: ""
           -
-            atom: button
-            text: Submit
-            type: submit
+            -
+              atom: button
+              text: Submit
+              type: primary
+              actionType: submit
+              name: "Submit"
