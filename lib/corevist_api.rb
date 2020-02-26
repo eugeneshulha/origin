@@ -57,6 +57,20 @@ module CorevistAPI
         autoload :Step6CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_6_creation_service')
       end
     end
+
+    module OpenItems
+      extend ActiveSupport::Autoload
+
+      autoload :SearchService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'open_items', 'search_service')
+    end
+
+    module Summaries
+      module Salesdocs
+        extend ActiveSupport::Autoload
+
+        autoload :SearchService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'summaries', 'salesdocs', 'search_service')
+      end
+    end
   end
 
   module Validators
@@ -89,6 +103,17 @@ module CorevistAPI
     module Invoice; end
     module Salesdoc; end
     module User; end
+    module Summaries
+      extend ActiveSupport::Autoload
+
+      autoload :SalesdocsForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'summaries', 'salesdocs_index_form')
+    end
+
+    module OpenItems
+      extend ActiveSupport::Autoload
+
+      autoload :IndexForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'open_items', 'index_form')
+    end
   end
 
   module Factories

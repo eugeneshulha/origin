@@ -22,6 +22,7 @@ module CorevistAPI
     TYPE_SYSTEM_ADMIN = 'system_admin'.freeze
     SOLD_TO_FUNCTION = 'AG'.freeze
     SHIP_TO_FUNCTION = 'WE'.freeze
+    PAYER_FUNCTION = 'RG'.freeze
 
     def assigned_partners
       partners.where(assigned: true)
@@ -35,8 +36,13 @@ module CorevistAPI
       partners.where(function: SHIP_TO_FUNCTION, assigned: true)
     end
 
+    def payers
+      partners.where(function: PAYER_FUNCTION, assigned: true)
+    end
+
     alias assigned_sold_tos sold_tos
     alias assigned_ship_tos ship_tos
+    alias assigned_payers payers
 
 
     def customer_admin?

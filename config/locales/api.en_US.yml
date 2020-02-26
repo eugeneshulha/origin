@@ -24,3 +24,8 @@ en_US:
       assignable_role_not_found: 'The assignable role was not found'
       one_function: 'Only one sold-to or ship-to can be assigned'
       territory_not_found: 'The territory was not found'
+    open_items:
+      success: 'Open items have been loaded successfully'
+    summaries:
+      salesdocs:
+        success: 'Salesdocs have been loaded successfully'

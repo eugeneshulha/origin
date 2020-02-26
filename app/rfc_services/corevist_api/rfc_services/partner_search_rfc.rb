@@ -17,7 +17,7 @@ module CorevistAPI
 
     def input
       rfc_object = object_to_rfc
-      rfc_user = user_to_rfc(User.find_by_id(CorevistAPI::Context.current_user.id))
+      rfc_user = user_to_rfc(user)
       set_params(rfc_object.merge(rfc_user))
     end
 

@@ -69,6 +69,39 @@ ActiveRecord::Base.transaction do
     user.roles << role
   end.save
 
+  CorevistAPI::Partner.new.tap do |payer|
+    payer.user = CorevistAPI::User.find_by_username('dummy_user')
+    payer.sales_area = sales_area
+    payer.number = '0000003000'
+    payer.function = 'RG'
+    payer.state = 'NE'
+    payer.country = 'US'
+    payer.city = 'New York'
+    payer.assigned = true
+  end.save
+
+  CorevistAPI::Partner.new.tap do |payer|
+    payer.user = CorevistAPI::User.find_by_username('dummy_user')
+    payer.sales_area = sales_area
+    payer.number = '0000003050'
+    payer.function = 'RG'
+    payer.state = 'NE'
+    payer.country = 'US'
+    payer.city = 'New York'
+    payer.assigned = true
+  end.save
+
+  CorevistAPI::Partner.new.tap do |sold_to|
+    sold_to.user = CorevistAPI::User.find_by_username('dummy_user')
+    sold_to.sales_area = sales_area
+    sold_to.number = '0000003000'
+    sold_to.function = 'AG'
+    sold_to.state = 'NE'
+    sold_to.country = 'US'
+    sold_to.city = 'New York'
+    sold_to.assigned = true
+  end.save
+
   role.sales_areas << sales_area
   doc_type.sales_areas << sales_area
   role.privileges << CorevistAPI::Privilege.all

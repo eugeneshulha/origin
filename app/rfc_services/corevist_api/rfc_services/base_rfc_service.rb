@@ -91,11 +91,17 @@ module CorevistAPI
 
       def get_function_name(method)
         {
-            salesdoc_display: '/COREVIST/SALESDOC_DISPLAY',
-            invoice_display: '/COREVIST/INVOICE_DISPLAY',
-            partner_search: '/COREVIST/PARTNER_SEARCH',
-            get_partner: '/COREVIST/PARTNER_DATA'
+          salesdoc_display: '/COREVIST/SALESDOC_DISPLAY',
+          invoice_display: '/COREVIST/INVOICE_DISPLAY',
+          partner_search: '/COREVIST/PARTNER_SEARCH',
+          get_partner: '/COREVIST/PARTNER_DATA',
+          open_items: '/COREVIST/OPEN_ITEMS',
+          summary: '/COREVIST/SUMMARY'
         }[method]
+      end
+
+      def user
+        CorevistAPI::Context.current_user
       end
     end
   end
