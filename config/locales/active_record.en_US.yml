@@ -18,6 +18,10 @@ en_US:
               blank: "field can not be blank"
             language:
               blank: "field can not be blank"
+        corevist_api/role:
+          attributes:
+            title:
+              taken: "already in use"
 
   activemodel:
     errors:
@@ -111,4 +115,18 @@ en_US:
             uuid:
               blank: 'field cannot be blank'
             territories_ids:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/roles/create_form:
+          attributes:
+            title:
+              blank: 'field cannot be blank'
+            description:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/roles/show_form:
+          attributes:
+            id:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/roles/update_form:
+          attributes:
+            id:
               blank: 'field cannot be blank'

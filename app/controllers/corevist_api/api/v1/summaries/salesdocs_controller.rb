@@ -1,14 +1,9 @@
 module CorevistAPI
   class API::V1::Summaries::SalesdocsController < API::V1::BaseController
     before_action :authorize_user, only: :index
+    before_action :perform_action, only: %i[index]
 
-    MSG_SALESDOCS_LOADED = 'api.summaries.salesdocs'.freeze
-
-    def index
-      @result = service_result
-      error(@result.errors) if @result.failed?
-      success(MSG_SALESDOCS_LOADED, @result.data)
-    end
+    def index; end
 
     private
 

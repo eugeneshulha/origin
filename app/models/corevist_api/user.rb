@@ -70,6 +70,11 @@ module CorevistAPI
       super << 'password'
     end
 
+    def as_json(options = nil)
+      relations = self.class.reflections.keys.each_with_object({}) { |relation, memo| memo[relation] = send(relation) }
+      attributes.merge(relations)
+    end
+
     private
 
     def set_uuid

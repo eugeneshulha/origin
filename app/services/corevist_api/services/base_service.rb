@@ -15,5 +15,11 @@ module CorevistAPI
     def result(data)
       @result ||= CorevistAPI::Services::ServiceResult.new(data)
     end
+
+    private
+
+    def current_user
+      CorevistAPI::Context.current_user
+    end
   end
 end

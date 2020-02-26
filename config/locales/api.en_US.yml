@@ -24,8 +24,15 @@ en_US:
       assignable_role_not_found: 'The assignable role was not found'
       one_function: 'Only one sold-to or ship-to can be assigned'
       territory_not_found: 'The territory was not found'
-    open_items:
-      success: 'Open items have been loaded successfully'
-    summaries:
-      salesdocs:
-        success: 'Salesdocs have been loaded successfully'
+    infos:
+      admin_roles_show: 'Role has been successfully loaded'
+      admin_roles_create: 'Role has been successfully created'
+      admin_roles_update: 'Role has been successfully updated'
+      admin_roles_destroy: 'Role has been successfully destroyed'
+      openitems_index: 'Open items have been loaded successfully'
+      summaries_salesdocs_index: 'Salesdocs have been loaded successfully'
+      admin_roles_index: 'Roles have been successfully loaded'
+    roles:
+      not_found: 'The role has not been found'
+      not_destroyed: 'Role has NOT been destroyed'
+

@@ -2,7 +2,7 @@ module CorevistAPI
   module Filters::Params
     class BaseParams
       def initialize(data)
-        @data = data
+        @data = data.presence || {}
       end
 
       def extract!(param)

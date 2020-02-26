@@ -1,14 +1,9 @@
 module CorevistAPI
   class API::V1::OpenItemsController < API::V1::BaseController
     before_action :authorize_user, only: :index
+    before_action :perform_action, only: %i[index]
 
-    MSG_OPEN_ITEMS_LOADED = 'api.open_items.success'.freeze
-
-    def index
-      @result = service_result
-      error(@result.errors) if @result.failed?
-      success(MSG_OPEN_ITEMS_LOADED, @result.data)
-    end
+    def index; end
 
     private
 
