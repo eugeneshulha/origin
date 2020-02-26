@@ -55,6 +55,19 @@ module CorevistAPI
         autoload :Step4CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_4_creation_service')
         autoload :Step5CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_5_creation_service')
         autoload :Step6CreationService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'step_6_creation_service')
+        autoload :IndexService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'index_service')
+        autoload :FilterService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'filter_service')
+      end
+
+      module Roles
+        extend ActiveSupport::Autoload
+
+        autoload :CreateService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'create_service')
+        autoload :DestroyService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'destroy_service')
+        autoload :FilterService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'filter_service')
+        autoload :IndexService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'index_service')
+        autoload :ShowService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'show_service')
+        autoload :UpdateService, CorevistAPI::Engine.root.join('app', 'services', 'corevist_api', 'services', 'admin', 'users', 'update_service')
       end
     end
 
@@ -98,6 +111,17 @@ module CorevistAPI
         autoload :Step4, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_4')
         autoload :Step5, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_5')
         autoload :Step6, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'step_6')
+        autoload :IndexForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'users', 'index_form')
+      end
+
+      module Roles
+        extend ActiveSupport::Autoload
+
+        autoload :CreateForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'roles', 'create_form')
+        autoload :DestroyForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'roles', 'destroy_form')
+        autoload :IndexForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'roles', 'index_form')
+        autoload :ShowForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'roles', 'show_form')
+        autoload :UpdateForm, CorevistAPI::Engine.root.join('app', 'forms', 'corevist_api', 'forms', 'admin', 'roles', 'update_form')
       end
     end
     module Invoice; end
@@ -140,6 +164,7 @@ module CorevistAPI
     autoload :Common, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'common')
     autoload :BaseFilter, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'base_filter')
     autoload :UserFilter, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'user_filter')
+    autoload :RoleFilter, CorevistAPI::Engine.root.join('app', 'filters', 'corevist_api', 'filters', 'role_filter')
 
     module Links
       extend ActiveSupport::Autoload

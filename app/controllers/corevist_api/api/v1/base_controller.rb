@@ -28,18 +28,6 @@ module CorevistAPI
       super(record, query, policy_class: policy_class || policy_class(record.model_name))
     end
 
-    def form
-      form_for(type, params)
-    end
-
-    def type
-      raise NotImplementedError
-    end
-
-    def service_result
-      @result = service_for(type, form, params).call
-    end
-
     def authorize_user
       authorize(User)
     end

@@ -2,7 +2,7 @@ module CorevistAPI
   module Services
     class OpenItems::SearchService < BaseServiceWithForm
       def perform
-        rfc_result = rfc_service_for(:open_items).call
+        rfc_result = rfc_service_for(:open_items, @form, @params).call
         result(rfc_result.data[:open_items])
       end
     end

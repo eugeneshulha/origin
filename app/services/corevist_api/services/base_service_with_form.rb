@@ -41,6 +41,10 @@ module CorevistAPI
       def user
         CorevistAPI::User.find_by_uuid(@form.uuid)
       end
+
+      def service_for(type, *params)
+        CorevistAPI::Factories::ServicesFactory.instance.for(type, *params)
+      end
     end
   end
 end

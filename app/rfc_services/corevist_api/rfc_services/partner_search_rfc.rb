@@ -12,7 +12,7 @@ module CorevistAPI
     protected
 
     def function_name
-      :partner_list
+      :partner_search
     end
 
     def input

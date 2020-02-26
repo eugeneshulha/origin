@@ -1,16 +1,14 @@
 module CorevistAPI
   module API::V1
     class Admin::UsersController < Admin::BaseController
-      include CorevistAPI::ActionPerformer
-
       before_action :find_user, only: %i[show update destroy]
       before_action :authorize_user, only: %i[index new create edit]
+      before_action :check_step, only: :create
+      before_action :perform_action, only: %i[index create]
 
       STEPS = %w[1 2 3 4 5 6].freeze
 
-      def index
-        @users = filter_users(policy_scope(User))
-      end
+      def index; end
 
       def show; end
 
@@ -19,12 +17,7 @@ module CorevistAPI
         @result = FormsFactory.instance.for(step).validate!
       end
 
-      def create
-        return error('api.errors.step') if STEPS.exclude?(params[:step])
-
-        @result = service_result
-        error(@result.errors) if @result.failed?
-      end
+      def create; end
 
       def edit; end
 
@@ -42,15 +35,18 @@ module CorevistAPI
         @user = authorize(user)
       end
 
-      def filter_users(users_scope)
-        return users_scope unless params[:filters].present?
+      def type
+        return "#{action_prefix}_#{action_name}".to_sym if params[:step].blank?
 
-        result = ServicesFactory.instance.for(:filter_user, current_user, params[:filters], users_scope).call
-        result.successful? ? result.data : []
+        "#{action_prefix}_step_#{params[:step]}".to_sym
       end
 
-      def type
-        "#{action_prefix}_step_#{params[:step]}".to_sym
+      def check_step
+        error('api.errors.step') if STEPS.exclude?(params[:step])
+      end
+
+      def scope_model
+        User
       end
     end
   end
