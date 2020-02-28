@@ -1,157 +1,241 @@
-# require File.join(Rails.root, './../rails_helper.rb')
-# require File.join(Rails.root, './../spec_helper.rb')
-describe 'Passwords', type: :request do
-  describe 'restore' do
-    describe 'get configs for registration page' do
-      before{get '/api/v1/password/new'}
-      # has translations, fields, buttonsData; Q: or just equal to json from /config/pages/passwords/new.json
-      it 'return status code 200' do
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["status"]).to eq 200
+describe 'Password', type: :request do
+
+  describe 'get configs for registration page' do
+    before{get '/api/v1/page_configs/forgot_password_1'}
+    # has translations, fields, buttonsData; Q: or just equal to json from /config/pages/passwords/new.json
+    it 'return status code 200' do
+      assert_request_status_is(:success)
+      expect(status).to eq 200
+      # TODO expect "translations", "fields", "buttonsData" in response
+    end
+  end
+
+
+  context 'restore' do
+    let!(:valid_password) {'123123123'}
+    let!(:short_password) {'1'}
+    let!(:long_password) {'12345678901234567890123456789012345678901234567890'}
+    let!(:empty_password) {nil}
+
+    def request_password_restore(input_data_hash)
+      post '/api/v1/password', params: {format: :json, user: {username: input_data_hash[:username]}}
+      assert_request_status_is(:success)
+      expect(body_message).to eq 'Reset password instructions successfully sent'
+    end
+
+    def update_token(input, token)
+      input[:params][:user][:reset_password_token] = token
+    end
+
+    def set_new_password(input_data_hash)
+      patch '/api/v1/password', params: input_data_hash[:params]
+      expect(response).to have_http_status(:success)
+    end
+
+    def manage_expectations(output)
+      expect(body_status).to eq output[:status]
+      expect(body_messages).to include output[:message] unless output[:message].empty?
+      expect(body_errors).to include output[:error] unless output[:error].empty?
+    end
+
+    # DATA
+    valid_input = {
+        username: 'dummy_user',
+        params:
+            {
+                format: :json,
+                user:
+                    {
+                        password: '123123123', # valid_password,
+                        password_confirmation: '123123123', # valid_password,
+                        reset_password_token: ''
+                    }
+            }
+    }
+    valid_output = {
+        status: 200,
+        message: 'New password successfully set',
+        error: ''
+    }
+
+    invalid_token_input = {
+        username: 'dummy_user',
+        params:
+            {
+                format: :json,
+                user:
+                    {
+                        password: '123123123',
+                        password_confirmation: '123123123',
+                        reset_password_token: ''
+                    }
+            }
+    }
+    invalid_token_output = {
+        status: 500,
+        message: '',
+        error: 'Reset password token is invalid'
+    }
+
+    not_matching_passowrds_input = {
+        username: 'dummy_user',
+        params:
+            {
+                format: :json,
+                user:
+                    {
+                        password: '123123123',
+                        password_confirmation: '123123123123',
+                        reset_password_token: ''
+                    }
+            }
+    }
+    not_matching_passowrds_output = {
+        status: 500,
+        message: '',
+        error: 'Password confirmation does not match'
+    }
+
+    empty_token_input = {
+        username: 'dummy_user',
+        params:
+            {
+                format: :json,
+                user:
+                    {
+                        password: '123123123',
+                        password_confirmation: '123123123',
+                        reset_password_token: ''
+                    }
+            }
+    }
+    empty_token_output = {
+        status: 500,
+        message: '',
+        error: 'Reset password token is blank'
+    }
+
+    short_password_input = {
+        username: 'dummy_user',
+        params:
+            {
+                format: :json,
+                user:
+                    {
+                        password: '123',
+                        password_confirmation: '123',
+                        reset_password_token: ''
+                    }
+            }
+    }
+    short_password_output = {
+        status: 500,
+        message: '',
+        error: 'Password value is too short'
+    }
+
+    long_password_input = {
+        username: 'dummy_user',
+        params:
+            {
+                format: :json,
+                user:
+                    {
+                        password: '12345678901234567890123456789012345678901234567890',
+                        password_confirmation: '12345678901234567890123456789012345678901234567890',
+                        reset_password_token: ''
+                    }
+            }
+    }
+    long_password_output = {
+        status: 500,
+        message: '',
+        error: 'Password value is too long'
+    }
+
+    empty_password_input = {
+        username: 'dummy_user',
+        params:
+            {
+                format: :json,
+                user:
+                    {
+                        password: '',
+                        password_confirmation: '',
+                        reset_password_token: ''
+                    }
+            }
+    }
+    empty_password_output = {
+        status: 500,
+        message: '',
+        error: 'Password field can not be blank'
+    }
+
+    describe 'with valid data' do
+      it 'returns valid code and message' do
+        request_password_restore(valid_input)
+        update_token(valid_input, reset_password_token)
+        set_new_password(valid_input)
+        manage_expectations(valid_output)
       end
     end
 
-    describe 'with valid data' do
-      test_username = 'dummy_user'
-      password = '123123123'
-      password_confirmation = '123123123'
-      before {post '/api/v1/password', params: {format: :json, user: {username: test_username}}}
-      it 'returns valid code and message' do
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["message"]).to eq "Reset password instructions successfully sent"
-        last_email_body = ActionMailer::Base.deliveries.last.body.to_s
-        reset_password_token = last_email_body.match(/token=(.*)\">/)[1]
-        patch '/api/v1/password', params:
-            {format: :json, user:
-              {password: password,
-               password_confirmation: password_confirmation,
-               reset_password_token: reset_password_token}}
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["status"]).to eq 200
-        expect(response_hash["messages"]).to include "New password successfully set"
+    describe 'with invalid token' do
+      it 'returns invalid token error message' do
+        request_password_restore(invalid_token_input)
+        update_token(invalid_token_input, 'invalid_token')
+        set_new_password(invalid_token_input)
+        manage_expectations(invalid_token_output)
       end
     end
 
     describe 'with not matching passwords' do
-      test_username = 'dummy_user'
-      password = '123123123'
-      password_confirmation = '123123123'
-      before {post '/api/v1/password', params: {format: :json, user: {username: test_username}}}
-      it 'returns invalid token error message' do
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["message"]).to eq "Reset password instructions successfully sent"
-        last_email_body = ActionMailer::Base.deliveries.last.body.to_s
-        reset_password_token = last_email_body.match(/token=(.*)\">/)[1]
-        patch '/api/v1/password', params:
-            {format: :json, user:
-                {password: password,
-                 password_confirmation: password_confirmation,
-                 reset_password_token: reset_password_token}}
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["status"]).to eq 200
-        expect(response_hash["errors"]).to include "Reset password token is invalid"
+      it 'returns not matching passwords error message' do
+        request_password_restore(not_matching_passowrds_input)
+        update_token(not_matching_passowrds_input, reset_password_token)
+        set_new_password(not_matching_passowrds_input)
+        manage_expectations(not_matching_passowrds_output)
       end
     end
 
-    describe 'with wrong token' do
-      test_username = 'dummy_user'
-      password = '123123123'
-      password_confirmation = '123123123'
-      before {post '/api/v1/password', params: {format: :json, user: {username: test_username}}}
+    describe 'with empty token' do
       it 'returns blank token error message' do
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["message"]).to eq "Reset password instructions successfully sent"
-        # last_email_body = ActionMailer::Base.deliveries.last.body.to_s
-        reset_password_token = ''
-        patch '/api/v1/password', params:
-            {format: :json, user:
-                {password: password,
-                 password_confirmation: password_confirmation,
-                 reset_password_token: reset_password_token}}
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["status"]).to eq 500
-        expect(response_hash["errors"]).to include "Reset password token is blank"
+        request_password_restore(empty_token_input)
+        update_token(empty_token_input, '')
+        set_new_password(empty_token_input)
+        manage_expectations(empty_token_output)
       end
     end
 
     describe 'with empty password' do
-      test_username = 'dummy_user'
-      password = ''
-      password_confirmation = '123123123'
-      before {post '/api/v1/password', params: {format: :json, user: {username: test_username}}}
       it 'returns blank password error message' do
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["message"]).to eq "Reset password instructions successfully sent"
-        last_email_body = ActionMailer::Base.deliveries.last.body.to_s
-        reset_password_token = last_email_body.match(/token=(.*)\">/)[1]
-        patch '/api/v1/password', params:
-            {format: :json, user:
-                {password: password,
-                 password_confirmation: password_confirmation,
-                 reset_password_token: reset_password_token}}
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["status"]).to eq 500
-        expect(response_hash["errors"]).to include "Password cannot be blank"
+        request_password_restore(empty_password_input)
+        update_token(empty_password_input, reset_password_token)
+        set_new_password(empty_password_input)
+        manage_expectations(empty_password_output)
       end
     end
 
     describe 'with short password' do
-      test_username = 'dummy_user'
-      password = '1'
-      password_confirmation = '123123123'
-      before {post '/api/v1/password', params: {format: :json, user: {username: test_username}}}
       it 'returns short password error message' do
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["message"]).to eq "Reset password instructions successfully sent"
-        last_email_body = ActionMailer::Base.deliveries.last.body.to_s
-        reset_password_token = last_email_body.match(/token=(.*)\">/)[1]
-        patch '/api/v1/password', params:
-            {format: :json, user:
-                {password: password,
-                 password_confirmation: password_confirmation,
-                 reset_password_token: reset_password_token}}
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["status"]).to eq 500
-        # TODO find out the right error message
-        # expect(response_hash["errors"]).to include "Password cannot be blank"
+        request_password_restore(short_password_input)
+        update_token(short_password_input, reset_password_token)
+        set_new_password(short_password_input)
+        manage_expectations(short_password_output)
       end
     end
 
     describe 'with long password' do
-      test_username = 'dummy_user'
-      password = '1234567890123456789012345678901234567890'
-      password_confirmation = '123123123'
-      before {post '/api/v1/password', params: {format: :json, user: {username: test_username}}}
       it 'returns long password error message' do
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["message"]).to eq "Reset password instructions successfully sent"
-        last_email_body = ActionMailer::Base.deliveries.last.body.to_s
-        reset_password_token = last_email_body.match(/token=(.*)\">/)[1]
-        patch '/api/v1/password', params:
-            {format: :json, user:
-                {password: password,
-                 password_confirmation: password_confirmation,
-                 reset_password_token: reset_password_token}}
-        expect(response).to have_http_status(:success)
-        response_hash = JSON.parse response.body
-        expect(response_hash["status"]).to eq 500
-        # TODO find out the right error message
-        # expect(response_hash["errors"]).to include "Password cannot be blank"
+        request_password_restore(long_password_input)
+        update_token(long_password_input, reset_password_token)
+        set_new_password(long_password_input)
+        manage_expectations(long_password_output)
       end
     end
 
+    # case: password confirmation can't be empty
     # case: get forgot password 2 configs
   end
 end
