@@ -1,13 +1,13 @@
 describe 'Admin list users request', type: :request do
   describe 'without sign in' do
-    before{get '/api/v1/admin/users', params: {format: :json}}
+    before {get '/api/v1/admin/users', params: {format: :json}}
     it 'return status code 401' do
-      expect(response).to have_http_status(:unauthorized)
+      assert_request_status_is(:unauthorized)
+      # expect(response).to have_http_status(:unauthorized)
     end
 
     it 'shows message valid error message' do
-      response_hash = JSON.parse response.body
-      expect(response_hash["errors"].first["message"]).to eq "You need to sign in or sign up before continuing."
+      expect(body_errors).to include "You are not authorised to access this resource."
     end
   end
 

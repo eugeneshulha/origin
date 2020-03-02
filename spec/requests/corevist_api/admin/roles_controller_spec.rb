@@ -6,8 +6,7 @@ describe 'Admin list roles request', type: :request do
     end
 
     it 'shows message valid error message' do
-      response_hash = JSON.parse response.body
-      expect(response_hash["errors"].first["message"]).to eq "You need to sign in or sign up before continuing."
+      expect(body_errors).to include "You are not authorised to access this resource."
     end
   end
 
