@@ -4,14 +4,15 @@ CorevistAPI::Engine.routes.draw do
     scope :v1 do
       devise_for :users, class_name: "CorevistAPI::User", module: :devise, singular: :user,
                  path: '',
-                 path_names: {
-                     sign_in: :auth,
-                     sign_out: :logout
-                 },
                  controllers: {
                      sessions: 'corevist_api/api/v1/sessions',
                      passwords: 'corevist_api/api/v1/passwords'
                  }
+      as :user do
+        post 'auth',    to: 'api/v1/sessions#create'
+        get 'auth/new', to: 'api/v1/sessions#new'
+        delete 'logout',       to: 'api/v1/sessions#destroy'
+      end
     end
   end
 
@@ -28,8 +29,6 @@ CorevistAPI::Engine.routes.draw do
       resources :salesdocs, only: [:show, :index], param: :doc_number
 
       get 'status', to: 'statuses#status'
-
-      resources :page_configs, only: :show, param: :page_id
 
       # admin panel
       namespace :admin do

@@ -1,39 +1,40 @@
 module CorevistAPI
   module FormValidations
     ARRAY_KEY = 'array'.freeze
-    ARRAY_OF_HASHES_KEY = 'array_of_hashes'.freeze
-    FIELDS_KEY = 'fields'.freeze
 
     def self.included(base)
-      validate_me!(base)
+      base.extend(ClassMethods)
+      base.include(InstanceMethods)
     end
 
-    def self.validate_me!(base)
-      path = CorevistAPI::Engine.root.join('config', 'validations', base.model_name.route_key + '.yml').to_s
-      configs = YAML.load_file(path)
+    module ClassMethods
+      include CorevistAPI::Factories::FactoryInterface
 
-      attr_accessor(*configs.keys)
+      def validate_component(component_id, on_page:, on_step: nil)
+        result = service_for(:page_configs_read, on_page).call
+        raise StandardError, 'page configs not found' unless result.data
 
-      configs.each do |field, validations|
-        validations.each do |options|
-          next if options[0] == ARRAY_KEY || options[0] == ARRAY_OF_HASHES_KEY
+        page = result.data.to_configuration
 
-          validation = Hash[*options]
-          validation = validation.deep_symbolize_keys if options.second.is_a?(Hash)
+        component = if on_step
+                      page.multiform_search_for(on_step, component_id)
+                    else
+                      page.components&.find_one_by(uuid: component_id.to_s)
+                    end
 
-          base.validates field, validation
-        end
+        raise StandardError, 'component configs not found' unless component
+
+        # convert basic structure to objects with getters and setters
+        elements = component.elements.flatten
+
+        elements.each { |element| element.transform(self) }
       end
     end
 
-    def prepared_keys(configs)
-      array_keys = configs.select { |_, v| v[ARRAY_KEY] }.keys
-      array_of_hashes_keys = configs.select { |_, v| v[ARRAY_OF_HASHES_KEY] }.keys
-      configs.keys.tap do |configs_keys|
-        array_keys.each { |array_key| configs_keys[configs_keys.index(array_key)] = { array_key => [] } }
-        array_of_hashes_keys.each do |key|
-          configs_keys[configs_keys.index(key)] = { key => configs[key][ARRAY_OF_HASHES_KEY][FIELDS_KEY] }
-        end
+    module InstanceMethods
+
+      def validate_component(component_id, on_page:)
+        self.class.validate_component(component_id, on_page: on_page)
       end
     end
   end

@@ -1,9 +1,8 @@
-dashboard:
-  title: "Dashboard"
-  components:
-    -
-      uuid: "recent_orders"
-      type: "table"
-      url: "/api/v1/salesdocs"
-      method: "GET"
-      title: "Recently placed orders"
+title: "Dashboard"
+components:
+  -
+    uuid: "recent_orders"
+    type: "table"
+    url: "/api/v1/salesdocs"
+    method: "GET"
+    title: "Recently placed orders"

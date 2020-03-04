@@ -1,11 +1,11 @@
 module CorevistAPI
   class API::V1::PasswordsController < Devise::PasswordsController
-    include Configurable
+    include CorevistAPI::Factories::FactoryInterface
 
     respond_to :json
 
     def new
-      configs('passwords/new')
+      @result = service_for(:page_configs_read, :forgot_password_1).call
     end
 
     def create
@@ -14,7 +14,8 @@ module CorevistAPI
     end
 
     def edit
-      configs('passwords/edit')
+      @obj = Struct.new(:reset_password_token).new(params[:reset_password_token])
+      @result = service_for(:page_configs_read, :forgot_password_2, @obj).call
     end
 
     def update

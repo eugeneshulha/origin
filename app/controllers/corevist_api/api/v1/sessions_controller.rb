@@ -1,11 +1,10 @@
 module CorevistAPI
   class API::V1::SessionsController < Devise::SessionsController
     include CorevistAPI::Factories::FactoryInterface
-    include Configurable
     include JsonResponse
 
-    def self.config_file_name
-      'login'
+    def new
+      @result = service_for(:page_configs_read, :login).call
     end
 
     def create

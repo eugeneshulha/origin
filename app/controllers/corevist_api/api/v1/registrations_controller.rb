@@ -1,6 +1,5 @@
 module CorevistAPI
   class API::V1::RegistrationsController < CorevistAPI::API::V1::BaseController
-    include CorevistAPI::Configurable
     skip_before_action :authenticate_user!
 
     def new

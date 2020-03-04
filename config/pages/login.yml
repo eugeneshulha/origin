@@ -1,74 +1,73 @@
-login:
-  title: "Login page"
-  components:
-    -
-      uuid: "login_form"
-      description: "Please enter username and password"
-      method: POST
-      title: Login
-      type: form
-      url: "/v1/auth"
-      elements:
+title: "Login page"
+components:
+  -
+    uuid: "login_form"
+    description: "Please enter username and password"
+    method: POST
+    title: Login
+    type: form
+    url: "/v1/auth"
+    elements:
+      -
         -
-          -
-            atom: text
-            label: Username
-            name: "username"
-            placeholder: Username
-            value: ""
-            validation_type: string
-            validations:
-              -
-                message: "<%= I18n.t('my_message') %>"
-                type: required
-                value: ""
-              -
-                message: "First Name cannot be less than 3 characters"
-                type: min
-                value: "3"
-              -
-                message: "First Name cannot be more than 20 characters"
-                type: max
-                value: "20"
+          atom: text
+          label: Username
+          name: "username"
+          placeholder: Username
+          value: ""
+          validation_type: string
+          validations:
+            -
+              message: "<%= I18n.t('my_message') %>"
+              type: required
+              value: ""
+            -
+              message: "First Name cannot be less than 3 characters"
+              type: min
+              value: "3"
+            -
+              message: "First Name cannot be more than 20 characters"
+              type: max
+              value: "20"
+      -
         -
-          -
-            atom: password
-            label: Password
-            name: "password"
-            placeholder: Password
-            validation_type: string
-            value: ""
-            validations:
-              -
-                message: "First Name field is required"
-                type: required
-                value: ""
-              -
-                message: "First Name cannot be less than 3 characters"
-                type: min
-                value: "3"
-              -
-                message: "First Name cannot be more than 20 characters"
-                type: max
-                value: "20"
+          atom: password
+          label: Password
+          name: "password"
+          placeholder: Password
+          validation_type: string
+          value: ""
+          validations:
+            - message: "First Name field is required"
+              type: required
+              value: ""
+            - message: "Password should be an array"
+              type: is_a
+              value: "array"
+            - message: "First Name cannot be less than 3 characters"
+              type: min
+              value: "3"
+            - message: "First Name cannot be more than 20 characters"
+              type: max
+              value: "20"
+      -
         -
-          -
-            atom: button
-            text: Login
-            type: primary
-            actionType: submit
-            name: "LoginButton"
-          -
-            atom: link
-            button_like: "false"
-            path: /password/reset
-            text: "Forgot your password?"
-            name: "Forgot your password?"
+          atom: button
+          text: Login
+          type: primary
+          actionType: submit
+          name: "LoginButton"
         -
-          -
-            atom: link
-            button_like: "true"
-            type: "secondary"
-            path: /registration
-            text: "Create an account"
-            name: "Create an account"
+          atom: link
+          button_like: "false"
+          path: /password/reset
+          text: "Forgot your password?"
+          name: "Forgot your password?"
+      -
+        -
+          atom: link
+          button_like: "true"
+          type: "secondary"
+          path: /registration
+          text: "Create an account"
+          name: "Create an account"

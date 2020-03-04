@@ -2,23 +2,24 @@ module CorevistAPI
   class Forms::BaseForm
     include ActiveModel::Validations
     include CorevistAPI::Factories::FactoryInterface
+    include FormValidations
+
+    attr_writer :uuid
 
     KEY_ID = 0
     VAL_ID = 1
 
     def initialize(params = {})
-      prepare_params(params).each do |name, value|
-        instance_variable_set("@#{name}", value)
-        class_eval { attr_reader name.to_sym }
-      end
+      init_params(params)
     end
 
     private
 
-    # to modify incoming params from a webservice
-    def prepare_params(params)
-      params.permit!.to_hash.each_with_object({}) do |param, memo|
-        memo[param[KEY_ID].underscore] = param[VAL_ID]
+    def init_params(_params = {})
+      params = _params[params_key] || _params
+
+      params.each do |k, v|
+        self.send("#{k}=", v)
       end
     end
   end
