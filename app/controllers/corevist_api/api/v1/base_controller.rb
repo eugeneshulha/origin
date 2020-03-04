@@ -13,7 +13,7 @@ module CorevistAPI
     end
 
     def user_not_authorized
-      unauthenticated('api.errors.unauthorized')
+      error_401('api.errors.unauthorized')
     end
 
     def policy_class(klass, scope = false)

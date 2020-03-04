@@ -3,7 +3,7 @@ module CorevistAPI
     skip_before_action :authenticate_user!
 
     def new
-      configs('registrations/new')
+      @result = service_for(:page_configs_read, :registration).call
     end
 
     def create

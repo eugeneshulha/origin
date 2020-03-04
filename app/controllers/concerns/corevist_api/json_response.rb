@@ -5,6 +5,7 @@ module CorevistAPI
     STATUSES = {
       200 => :info,
       401 => :error,
+      404 => :error,
       500 => :error
     }.freeze
 
@@ -13,8 +14,12 @@ module CorevistAPI
         json(error_or_errors, 500, data)
       end
 
-      def unauthenticated(error_or_errors, data = nil)
+      def error_401(error_or_errors, data = nil)
         json(error_or_errors, 401, data)
+      end
+
+      def error_404(error_or_errors, data = nil)
+        json(error_or_errors, 404, data)
       end
 
       def success(info_or_infos, data = nil)

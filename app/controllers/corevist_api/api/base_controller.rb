@@ -1,6 +1,6 @@
 module CorevistAPI::API
   class BaseController < ActionController::API
-    before_action :authenticate_user!
+    before_action :authenticate_user!, except: [:not_found]
     before_action :set_context
 
     include ActionController::MimeResponds
@@ -10,8 +10,13 @@ module CorevistAPI::API
 
     rescue_from StandardError, with: :handle_exception
     rescue_from CorevistAPI::ServiceException, with: :handle_service_exception
+    rescue_from ActionController::RoutingError, with: :not_found
 
     respond_to :json
+
+    def not_found
+      error_404("api.errors.not_found")
+    end
 
     private
 

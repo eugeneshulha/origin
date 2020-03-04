@@ -1,5 +1,4 @@
 CorevistAPI::Engine.routes.draw do
-
   scope :api, defaults: { format: :json } do
     scope :v1 do
       devise_for :users, class_name: "CorevistAPI::User", module: :devise, singular: :user,
@@ -48,4 +47,6 @@ CorevistAPI::Engine.routes.draw do
       resources :open_items, only: :index
     end
   end
+
+  get '*unmatched_route', to: 'api/base#not_found'
 end

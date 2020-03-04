@@ -1,18 +1,15 @@
+require 'misc/find_one_by'
+
 module CorevistAPI
   class PageConfig < OpenStruct
     include CorevistAPI::Factories::FactoryInterface
+    include CorevistAPI::FindOneBy
 
     def transform(base)
       return if skip_config?
 
       define_accessor(base)
       define_validations(base)
-    end
-
-    def find_one_by(options = {})
-      k = options.keys.first
-      v = options.values.first
-      self.find { |component| component.send(k) == v  }
     end
 
     private
