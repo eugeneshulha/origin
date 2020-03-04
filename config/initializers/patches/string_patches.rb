@@ -132,7 +132,7 @@ class String
   def view_amount_to_ruby(f=Const::App.number_format_US, d=2)
     if self.strip.empty?
       nil    # nothing entered
-    elsif (d == 0 && self.index(f[0].chr))
+    elsif d == 0 && self.index(f[0].chr)
       # if it contains decimals for non-decimal currencies: return as-is
       self
     else
@@ -184,7 +184,7 @@ class String
   def view_quantity_to_ruby(f=Const::App.number_format_US, dec=true)
     if self.strip.empty?
       nil   # nothing entered
-    elsif ( !dec && self.index(f[0].chr))
+    elsif !dec && self.index(f[0].chr)
       # if it contains decimals for non-decimal units: return as-is
       self
     else

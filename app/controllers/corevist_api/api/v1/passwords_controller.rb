@@ -19,7 +19,7 @@ module CorevistAPI
     end
 
     def update
-      @form = CorevistAPI::Factories::FormsFactory.instance.for(:set_new_password, params)
+      @form = form_for(:set_new_password, params)
 
       if @form.valid?
         self.resource = resource_class.reset_password_by_token(resource_params)

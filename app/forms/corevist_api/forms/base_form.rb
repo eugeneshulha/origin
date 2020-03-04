@@ -18,9 +18,7 @@ module CorevistAPI
     def init_params(_params = {})
       params = _params[params_key] || _params
 
-      params.each do |k, v|
-        self.send("#{k}=", v)
-      end
+      params.each { |k, v| self.send("#{k}=", v) }
     end
   end
 end

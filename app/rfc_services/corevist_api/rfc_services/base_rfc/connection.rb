@@ -11,14 +11,14 @@ module CorevistAPI
 
     def initialize
       SAPNW::Base.config = {
-          'ashost' => "/H/saprouter.1stbasis.com/H/172.20.3.2",
-          'sysnr' => "00",
-          'client' => "400",
-          'user' => "core_cpic",
-          'passwd' => "b2b4you",
-          'lang' => 'EN',
-          'trace' => 0
-      }
+          :ashost => "/H/saprouter.1stbasis.com/H/172.20.3.2",
+          :sysnr => "00",
+          :client => "400",
+          :user => "core_cpic",
+          :passwd => "b2b4you",
+          :lang => 'EN',
+          :trace => 0
+      }.with_indifferent_access
     end
 
     def open

@@ -15,7 +15,7 @@ module CorevistAPI::API
     respond_to :json
 
     def not_found
-      error_404("api.errors.not_found")
+      error_404('api.errors.not_found')
     end
 
     private
