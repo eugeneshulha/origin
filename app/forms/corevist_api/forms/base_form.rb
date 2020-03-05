@@ -13,22 +13,11 @@ module CorevistAPI
       end
     end
 
-    def params_key; end
-
-    def rejected_keys
-      []
-    end
-
-    def permitted_params
-      raise NotImplementedError
-    end
-
     private
 
     # to modify incoming params from a webservice
     def prepare_params(params)
-      params = params_key.present? ? params.public_send(:require, params_key) : params
-      params.permit(*permitted_params).to_hash.each_with_object({}) do |param, memo|
+      params.permit!.to_hash.each_with_object({}) do |param, memo|
         memo[param[KEY_ID].underscore] = param[VAL_ID]
       end
     end

@@ -33,6 +33,9 @@ en_US:
       summaries_salesdocs_index: 'Salesdocs have been loaded successfully'
       admin_roles_index: 'Roles have been successfully loaded'
     roles:
-      not_found: 'The role has not been found'
+      not_found: 'Role has not been found'
       not_destroyed: 'Role has NOT been destroyed'
+    users:
+      not_found: 'User has not been found'
+      not_destroyed: 'User has NOT been destroyed'
 

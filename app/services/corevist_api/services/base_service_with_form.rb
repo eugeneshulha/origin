@@ -31,19 +31,15 @@ module CorevistAPI
       private
 
       def invalid_object_error
-        result.fail!(@form.errors.full_messages)
+        raise CorevistAPI::ServiceException.new(@form.errors.full_messages)
       end
 
       def fields(object)
-        (@form.instance_variable_names.map(&:unatify) & object.class.extra_column_names) - @form.rejected_keys
+        @form.instance_variable_names.map(&:unatify) & object.class.extra_column_names
       end
 
       def user
-        CorevistAPI::User.find_by_uuid(@form.uuid)
-      end
-
-      def service_for(type, *params)
-        CorevistAPI::Factories::ServicesFactory.instance.for(type, *params)
+        CorevistAPI::User.find_by_id(@form.id)
       end
     end
   end

@@ -2,8 +2,8 @@
 # assigned sold tos
 #
 module CorevistAPI
-  module Forms::Admin::Users
-    class Step4 < BaseStep
+  module Forms
+    class Admin::Users::Step4 < BaseForm
       include CorevistAPI::FormValidations
     end
   end

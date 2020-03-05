@@ -28,5 +28,3 @@ time_format:
   presence: true
 user_classification_id:
   presence: true
-uuid: {}
-

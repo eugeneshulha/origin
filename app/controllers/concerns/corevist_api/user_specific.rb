@@ -7,7 +7,7 @@ module CorevistAPI
     end
 
     def find_user
-      return error('api.errors.user_not_found') unless (user = User.find_by_uuid(params[:user_uuid]))
+      return error('api.errors.user_not_found') unless (user = User.find_by_id(params[:user_id]))
 
       @user = authorize(user)
     end

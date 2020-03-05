@@ -75,6 +75,10 @@ module CorevistAPI
       attributes.merge(relations)
     end
 
+    def self.find_by_id(id)
+      find_by(id: id) || find_by(uuid: id)
+    end
+
     private
 
     def set_uuid

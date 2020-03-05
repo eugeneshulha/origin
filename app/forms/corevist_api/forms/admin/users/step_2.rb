@@ -2,8 +2,8 @@
 # assigned roles
 #
 module CorevistAPI
-  module Forms::Admin::Users
-    class Step2 < BaseStep
+  module Forms
+    class Admin::Users::Step2 < BaseForm
       include CorevistAPI::FormValidations
     end
   end

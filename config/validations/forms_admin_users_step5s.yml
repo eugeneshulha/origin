@@ -1,8 +1,5 @@
-uuid:
+id:
   presence: true
-partner_number:
-  presence: true
-function:
-  presence: true
-  inclusion:
-    in: ['WE', 'we']
+partners:
+  array_of_hashes:
+    fields: ['number', 'function']

@@ -1,14 +1,10 @@
 module CorevistAPI
   module Services
-    class Admin::Roles::ShowService < BaseServiceWithForm
-      MSG_ROLE_NOT_FOUND = 'api.roles.not_found'.freeze
+    class Admin::Roles::ShowService < Base::ShowService
+      private
 
-      def perform
-        object = CorevistAPI::Role.find_by_id(@form.id)
-
-        return result.fail!(MSG_ROLE_NOT_FOUND) unless object
-
-        result(object)
+      def object_class
+        CorevistAPI::Role
       end
     end
   end
