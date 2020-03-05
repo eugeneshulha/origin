@@ -226,3 +226,32 @@ components:
                   type: primary
                   actionType: submit
                   name: "Submit"
+      - uuid: "2"
+        description: ""
+        method: "POST"
+        title: Assigned roles
+        type: step
+        url: "?step=2"
+
+        # Components from one step of multiform.
+        components:
+          - uuid: "assigned_roles"
+            description: "Fields with an asterisk (*) are mandatory."
+            method: POST
+            title: Assign roles to user
+            type: datatable
+            url: "/v1/assigned_roles"
+            elements:
+              thead:
+                - key: true,
+                  name: 'role'
+                  caption: 'Role'
+                  label: null
+                  sortable: true
+                  action: 'expand'
+
+              rows:
+                - "role": "administration"
+                - "role": "all but admin"
+                - "role": "Change Order"
+                - "role": "Create Order"
