@@ -22,31 +22,44 @@ components:
           - uuid: "admin_create_new_user_step_1"
             description: "Fields with an asterisk (*) are mandatory."
             method: POST
-            title: Registration
+            title: Complete user details
             type: form
-            url: "/v1/registrations"
-            # Elements of a component (registration_form in this case)
+            url: "/v1/user_details"
             elements:
-              # row
-              -
-                - atom: text
-                  label: Username
-                  name: "username"
-                  placeholder: Username
-                  value: ""
+              - - atom: text
+                  label: User ID
+                  name: "user_id"
+                  placeholder: User ID
                   validation_type: string
+                  value: "test"
                   validations:
                     - message: "<%= I18n.t('my_message') %>"
                       type: required
                       value: ""
-                    - message: "First Name cannot be less than 3 characters"
+                    - message: "User ID cannot be less than 3 characters"
                       type: min
                       value: "3"
-                    - message: "First Name cannot be more than 20 characters"
+                    - message: "User ID cannot be more than 20 characters"
+                      type: max
+                      value: "20"
+                - atom: text
+                  label: User Status
+                  name: "user_status"
+                  placeholder: User Status
+                  validation_type: string
+                  value: ""
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                    - message: "Last name cannot be less than 3 characters"
+                      type: min
+                      value: "3"
+                    - message: "Last name cannot be more than 20 characters"
                       type: max
                       value: "20"
 
-                - atom: text
+              - - atom: text
                   label: First name
                   name: "first_name"
                   placeholder: First name
@@ -62,7 +75,6 @@ components:
                     - message: "First Name cannot be more than 20 characters"
                       type: max
                       value: "20"
-
                 - atom: text
                   label: Last name
                   name: "last_name"
@@ -80,72 +92,137 @@ components:
                       type: max
                       value: "20"
 
-              # row
-              -
-                - atom: text
-                  label: Username
-                  name: "phone"
-                  placeholder: Username
-                  value: ""
-                  validation_type: string
-                  validations:
-                    - message: "<%= I18n.t('my_message') %>"
-                      type: required
-                      value: ""
-                    - message: "First Name cannot be less than 3 characters"
-                      type: min
-                      value: "3"
-                    - message: "First Name cannot be more than 20 characters"
-                      type: max
-                      value: "20"
-
-                - atom: text
-                  label: Username
+              - - atom: text
+                  label: Email address
                   name: "email"
-                  placeholder: Username
-                  value: ""
+                  placeholder: Email address
                   validation_type: string
+                  value: ""
                   validations:
                     - message: "<%= I18n.t('my_message') %>"
                       type: required
                       value: ""
-                    - message: "First Name cannot be less than 3 characters"
-                      type: min
-                      value: "3"
-                    - message: "First Name cannot be more than 20 characters"
-                      type: max
-                      value: "20"
 
                 - atom: text
-                  label: Username
-                  name: "password"
-                  placeholder: Username
-                  value: ""
+                  label: Phone Number
+                  name: "phone"
+                  placeholder: Phone
                   validation_type: string
-                  validations:
-                    - message: "<%= I18n.t('my_message') %>"
-                      type: required
-                      value: ""
-                    - message: "First Name cannot be less than 3 characters"
-                      type: min
-                      value: "3"
-                    - message: "First Name cannot be more than 20 characters"
-                      type: max
-                      value: "20"
+                  value: ""
 
-                - atom: text
-                  label: Username
-                  name: "password_confirmation"
-                  placeholder: Username
-                  value: ""
+              - - atom: select
+                  label: Microsite
+                  name: "microsite_id"
+                  placeholder: Select Microsite
                   validation_type: string
+                  value: ""
+                  options:
+                    - name: Microsite 1
+                      value: 'b2b_microsite1'
+                    - name: Microsite 2
+                      value: 'b2b_client'
                   validations:
                     - message: "<%= I18n.t('my_message') %>"
                       type: required
                       value: ""
-                    - message: "First Name cannot be less than 3 characters"
-                      type: min
-                      value: "3"
-                    - message: "First Name cannot be more than 20 characters"
-                      type: max
-                      value: "20"
+
+              - - atom: select
+                  label: Customer Type
+                  name: "customer_type"
+                  placeholder: Select Customer Type
+                  validation_type: string
+                  value: ""
+                  options:
+                    - name: CT 1
+                      value: 'customer_type_1'
+                    - name: CT 2
+                      value: 'customer_type_2'
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                - atom: select
+                  label: Language
+                  name: "language"
+                  placeholder: Select Language
+                  validation_type: string
+                  value: "pl_PL"
+                  options:
+                    - name: English
+                      value: en_US
+                    - name: Polish
+                      value: pl_PL
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+
+                - atom: select
+                  label: Timezone
+                  name: "timezone"
+                  placeholder: Select Timezone
+                  validation_type: string
+                  value: ""
+                  options:
+                    - name: Microsite 1
+                      value: 'b2b_microsite1'
+                    - name: Microsite 2
+                      value: 'b2b_client'
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+
+              - - atom: select
+                  label: Number Format
+                  name: "number_format"
+                  placeholder: Select Number Format
+                  validation_type: string
+                  value: ""
+                  options:
+                    - name: Microsite 1
+                      value: 'b2b_microsite1'
+                    - name: Microsite 2
+                      value: 'b2b_client'
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+
+                - atom: select
+                  label: Date Format
+                  name: "date_format"
+                  placeholder: Select Date Format
+                  validation_type: string
+                  value: ""
+                  options:
+                    - name: English
+                      value: en_US
+                    - name: Polish
+                      value: pl_PL
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+
+                - atom: select
+                  label: Time Format
+                  name: "time_format"
+                  placeholder: Select Time Format
+                  validation_type: string
+                  value: ""
+                  options:
+                    - name: Microsite 1
+                      value: 'b2b_microsite1'
+                    - name: Microsite 2
+                      value: 'b2b_client'
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+
+              - - atom: button
+                  text: Submit
+                  type: primary
+                  actionType: submit
+                  name: "Submit"

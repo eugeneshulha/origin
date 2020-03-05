@@ -11,6 +11,10 @@ module CorevistAPI
 
       def show; end
 
+      def new
+        @result = service_for(:page_configs_read, :admin_create_user).call
+      end
+
       def create; end
 
       def update; end

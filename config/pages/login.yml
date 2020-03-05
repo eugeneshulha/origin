@@ -1,37 +1,31 @@
 title: "Login page"
 components:
-  -
-    uuid: "login_form"
+  - uuid: "login_form"
     description: "Please enter username and password"
     method: POST
     title: Login
     type: form
     url: "/v1/auth"
     elements:
-      -
-        -
-          atom: text
+      - - atom: text
+          uuid: 'username'
           label: Username
           name: "username"
           placeholder: Username
           value: ""
           validation_type: string
           validations:
-            -
-              message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('my_message') %>"
               type: required
               value: ""
-            -
-              message: "First Name cannot be less than 3 characters"
+            - message: "First Name cannot be less than 3 characters"
               type: min
               value: "3"
-            -
-              message: "First Name cannot be more than 20 characters"
+            - message: "First Name cannot be more than 20 characters"
               type: max
               value: "20"
-      -
-        -
-          atom: password
+      - - atom: password
+          ггшв: "password"
           label: Password
           name: "password"
           placeholder: Password
@@ -50,24 +44,19 @@ components:
             - message: "First Name cannot be more than 20 characters"
               type: max
               value: "20"
-      -
-        -
-          atom: button
+      - - atom: button
+          uuid: "button_1"
           text: Login
           type: primary
           actionType: submit
-          name: "LoginButton"
-        -
-          atom: link
+      - - atom: link
           button_like: "false"
+          uuid: "link_1"
           path: /password/reset
           text: "Forgot your password?"
-          name: "Forgot your password?"
-      -
-        -
-          atom: link
+      - - atom: link
+          uuid: "link_2"
           button_like: "true"
           type: "secondary"
           path: /registration
           text: "Create an account"
-          name: "Create an account"

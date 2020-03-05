@@ -1,38 +1,30 @@
 title: "Registration"
 components:
-  -
-    uuid: "registration_form"
+  - uuid: "registration_form"
     description: "Fields with an asterisk (*) are mandatory."
     method: POST
     title: Registration
     type: form
     url: "/v1/registrations"
     elements:
-      -
-        -
-          atom: text
+      - - atom: text
           label: First name
           name: "first_name"
           placeholder: First name
           validation_type: string
           value: ""
           validations:
-            -
-              message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('my_message') %>"
               type: required
               value: ""
-            -
-              message: "First Name cannot be less than 3 characters"
+            - message: "First Name cannot be less than 3 characters"
               type: min
               value: "3"
-            -
-              message: "First Name cannot be more than 20 characters"
+            - message: "First Name cannot be more than 20 characters"
               type: max
               value: "20"
 
-      -
-        -
-          atom: text
+      - - atom: text
           label: Last name
           name: "last_name"
           placeholder: Last name
