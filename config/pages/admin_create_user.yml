@@ -44,13 +44,6 @@ components:
                       type: max
                       value: "20"
 
-                - atom: hidden
-                  uuid: "uuid"
-                  label: User ID
-                  name: "uuid"
-                  validation_type: string
-                  value: ""
-
                 - atom: select
                   uuid: "user_classification_id"
                   label: Customer Type
@@ -259,12 +252,19 @@ components:
                       type: required
                       value: ""
 
+              - - atom: hidden
+                  uuid: "uuid"
+                  label: User ID
+                  name: "uuid"
+                  value: ""
+
               - - atom: button
                   uuid: "button_1"
-                  text: Submit
+                  text: Next
                   type: primary
                   action_type: submit
                   name: "Submit"
+
       - uuid: "2"
         description: ""
         method: "POST"

@@ -8,6 +8,7 @@ components:
     url: "/v1/registrations"
     elements:
       - - atom: text
+          uuid: "first_name"
           label: First name
           name: "first_name"
           placeholder: First name
@@ -25,6 +26,7 @@ components:
               value: "20"
 
       - - atom: text
+          uuid: "last_name"
           label: Last name
           name: "last_name"
           placeholder: Last name
@@ -47,6 +49,7 @@ components:
       -
         -
           atom: text
+          uuid: "email"
           label: Email address
           name: "email"
           placeholder: Email address
@@ -61,6 +64,7 @@ components:
       -
         -
           atom: text
+          uuid: "customer_number"
           label: Customer Number
           name: "customer_number"
           placeholder: Customer Number
@@ -70,6 +74,7 @@ components:
       -
         -
           atom: select
+          uuid: "microsite_id"
           label: Microsite
           name: "microsite_id"
           placeholder: Select Microsite
@@ -90,6 +95,7 @@ components:
       -
         -
           atom: select
+          uuid: "language"
           label: Language
           name: "language"
           placeholder: Select Language
@@ -111,6 +117,7 @@ components:
       -
         -
           atom: text
+          uuid: "company_name"
           label: Company Name
           name: "company_name"
           placeholder: Company Name
@@ -120,6 +127,7 @@ components:
       -
         -
           atom: text
+          uuid: "username"
           label: Street
           name: "street"
           placeholder: Street
@@ -129,6 +137,7 @@ components:
       -
         -
           atom: text
+          uuid: "phone"
           label: Phone
           name: "phone"
           placeholder: Phone
@@ -138,6 +147,7 @@ components:
       -
         -
           atom: text
+          uuid: "city"
           label: City
           name: "city"
           placeholder: City
@@ -146,7 +156,8 @@ components:
       -
         -
           atom: button
-          text: Submit
+          uuid: "Submit"
+          text: Send Email
           type: primary
-          actionType: submit
+          action_type: submit
           name: "Submit"

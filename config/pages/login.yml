@@ -25,7 +25,7 @@ components:
               type: max
               value: "20"
       - - atom: password
-          ггшв: "password"
+          uuid: "password"
           label: Password
           name: "password"
           placeholder: Password
@@ -48,10 +48,10 @@ components:
           uuid: "button_1"
           text: Login
           type: primary
-          actionType: submit
-      - - atom: link
-          button_like: "false"
+          action_type: submit
+        - atom: link
           uuid: "link_1"
+          button_like: "false"
           path: /password/reset
           text: "Forgot your password?"
       - - atom: link
