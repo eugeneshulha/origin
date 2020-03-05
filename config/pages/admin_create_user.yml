@@ -27,6 +27,7 @@ components:
             url: "/v1/user_details"
             elements:
               - - atom: text
+                  uuid: "user_id"
                   label: User ID
                   name: "user_id"
                   placeholder: User ID
@@ -43,6 +44,7 @@ components:
                       type: max
                       value: "20"
                 - atom: text
+                  uuid: "user_status"
                   label: User Status
                   name: "user_status"
                   placeholder: User Status
@@ -60,6 +62,7 @@ components:
                       value: "20"
 
               - - atom: text
+                  uuid: "first_name"
                   label: First name
                   name: "first_name"
                   placeholder: First name
@@ -76,6 +79,7 @@ components:
                       type: max
                       value: "20"
                 - atom: text
+                  uuid: "last_name"
                   label: Last name
                   name: "last_name"
                   placeholder: Last name
@@ -93,6 +97,7 @@ components:
                       value: "20"
 
               - - atom: text
+                  uuid: "email"
                   label: Email address
                   name: "email"
                   placeholder: Email address
@@ -104,6 +109,7 @@ components:
                       value: ""
 
                 - atom: text
+                  uuid: "phone"
                   label: Phone Number
                   name: "phone"
                   placeholder: Phone
@@ -111,6 +117,7 @@ components:
                   value: ""
 
               - - atom: select
+                  uuid: "microsite_id"
                   label: Microsite
                   name: "microsite_id"
                   placeholder: Select Microsite
@@ -127,8 +134,9 @@ components:
                       value: ""
 
               - - atom: select
+                  uuid: "customer_type_id"
                   label: Customer Type
-                  name: "customer_type"
+                  name: "customer_type_id"
                   placeholder: Select Customer Type
                   validation_type: string
                   value: ""
@@ -142,6 +150,7 @@ components:
                       type: required
                       value: ""
                 - atom: select
+                  uuid: "language"
                   label: Language
                   name: "language"
                   placeholder: Select Language
@@ -158,6 +167,7 @@ components:
                       value: ""
 
                 - atom: select
+                  uuid: "timezone"
                   label: Timezone
                   name: "timezone"
                   placeholder: Select Timezone
@@ -174,6 +184,7 @@ components:
                       value: ""
 
               - - atom: select
+                  uuid: "number_format"
                   label: Number Format
                   name: "number_format"
                   placeholder: Select Number Format
@@ -190,6 +201,7 @@ components:
                       value: ""
 
                 - atom: select
+                  uuid: "date_format"
                   label: Date Format
                   name: "date_format"
                   placeholder: Select Date Format
@@ -206,6 +218,7 @@ components:
                       value: ""
 
                 - atom: select
+                  uuid: "time_format"
                   label: Time Format
                   name: "time_format"
                   placeholder: Select Time Format
@@ -222,9 +235,10 @@ components:
                       value: ""
 
               - - atom: button
+                  uuid: "button_1"
                   text: Submit
                   type: primary
-                  actionType: submit
+                  action_type: submit
                   name: "Submit"
       - uuid: "2"
         description: ""
