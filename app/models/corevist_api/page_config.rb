@@ -12,6 +12,12 @@ module CorevistAPI
       define_validations(base)
     end
 
+    def multiform_search_for(on_step, comp_id)
+      multiforms = components.where(type: 'multiform')
+      _step = multiforms.collect {|x| x.components.find_one_by(uuid: on_step.to_s) }&.first
+      _step&.components&.find_one_by(uuid: comp_id.to_s)
+    end
+
     private
 
     def skip_config?

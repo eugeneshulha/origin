@@ -1,9 +1,10 @@
 module CorevistAPI
   module Services::PageConfigs
     class Read < CorevistAPI::Services::BaseService
-      def initialize(page_id, obj = nil)
-        @page_id = page_id
-        @object = obj
+      def initialize(page, step: nil, object:  nil)
+        @page_id = page
+        @object = object
+        @step_id = step
         @path = File.join(Rails.root, "./../../config/pages/#{@page_id}.yml")
         raise ActionController::RoutingError.new('configs not found') unless File.exists?(@path)
       end

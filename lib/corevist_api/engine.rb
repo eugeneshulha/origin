@@ -1,6 +1,7 @@
 module CorevistAPI
   class Engine < ::Rails::Engine
     isolate_namespace CorevistAPI
+    engine_name 'corevist_api'
 
     config.railties_order = [CorevistAPI::Engine, :main_app, :all]
     config.active_job.queue_adapter = :sidekiq
@@ -17,3 +18,4 @@ module CorevistAPI
     end
   end
 end
+

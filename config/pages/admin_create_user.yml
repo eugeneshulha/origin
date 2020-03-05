@@ -1,0 +1,151 @@
+title: "Create new user"
+components:
+  # Components for user create page. The entire multiform widget
+  - uuid: "create_new_user_multi_step_form"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: POST
+    title: Create New user
+    type: multiform
+    url: "/v1/admin/users"
+
+    # Components of multiform widget. Steps in the left menu of the widget
+    components:
+      - uuid: "1"
+        description: ""
+        method: "POST"
+        title: User details
+        type: step
+        url: "?step=1"
+
+        # Components from one step of multiform.
+        components:
+          - uuid: "admin_create_new_user_step_1"
+            description: "Fields with an asterisk (*) are mandatory."
+            method: POST
+            title: Registration
+            type: form
+            url: "/v1/registrations"
+            # Elements of a component (registration_form in this case)
+            elements:
+              # row
+              -
+                - atom: text
+                  label: Username
+                  name: "username"
+                  placeholder: Username
+                  value: ""
+                  validation_type: string
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                    - message: "First Name cannot be less than 3 characters"
+                      type: min
+                      value: "3"
+                    - message: "First Name cannot be more than 20 characters"
+                      type: max
+                      value: "20"
+
+                - atom: text
+                  label: First name
+                  name: "first_name"
+                  placeholder: First name
+                  validation_type: string
+                  value: ""
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                    - message: "First Name cannot be less than 3 characters"
+                      type: min
+                      value: "3"
+                    - message: "First Name cannot be more than 20 characters"
+                      type: max
+                      value: "20"
+
+                - atom: text
+                  label: Last name
+                  name: "last_name"
+                  placeholder: Last name
+                  validation_type: string
+                  value: ""
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                    - message: "Last name cannot be less than 3 characters"
+                      type: min
+                      value: "3"
+                    - message: "Last name cannot be more than 20 characters"
+                      type: max
+                      value: "20"
+
+              # row
+              -
+                - atom: text
+                  label: Username
+                  name: "phone"
+                  placeholder: Username
+                  value: ""
+                  validation_type: string
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                    - message: "First Name cannot be less than 3 characters"
+                      type: min
+                      value: "3"
+                    - message: "First Name cannot be more than 20 characters"
+                      type: max
+                      value: "20"
+
+                - atom: text
+                  label: Username
+                  name: "email"
+                  placeholder: Username
+                  value: ""
+                  validation_type: string
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                    - message: "First Name cannot be less than 3 characters"
+                      type: min
+                      value: "3"
+                    - message: "First Name cannot be more than 20 characters"
+                      type: max
+                      value: "20"
+
+                - atom: text
+                  label: Username
+                  name: "password"
+                  placeholder: Username
+                  value: ""
+                  validation_type: string
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                    - message: "First Name cannot be less than 3 characters"
+                      type: min
+                      value: "3"
+                    - message: "First Name cannot be more than 20 characters"
+                      type: max
+                      value: "20"
+
+                - atom: text
+                  label: Username
+                  name: "password_confirmation"
+                  placeholder: Username
+                  value: ""
+                  validation_type: string
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+                      value: ""
+                    - message: "First Name cannot be less than 3 characters"
+                      type: min
+                      value: "3"
+                    - message: "First Name cannot be more than 20 characters"
+                      type: max
+                      value: "20"

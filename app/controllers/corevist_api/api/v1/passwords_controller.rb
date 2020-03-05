@@ -15,7 +15,7 @@ module CorevistAPI
 
     def edit
       obj = Struct.new(:reset_password_token).new(params[:reset_password_token])
-      @result = service_for(:page_configs_read, :forgot_password_2, obj).call
+      @result = service_for(:page_configs_read, :forgot_password_2, object: obj).call
     end
 
     def update

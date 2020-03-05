@@ -106,5 +106,19 @@ ActiveRecord::Base.transaction do
   doc_type.sales_areas << sales_area
   role.privileges << CorevistAPI::Privilege.all
 
-  CorevistAPI::User.find_by_username('user_1').roles << role
+  u = CorevistAPI::User.find_by(username: 'user_1')
+  u.roles << role if u.roles.blank?
+
+  CorevistAPI::User.find_or_initialize_by(username: 'b2b') do |user|
+    user.username = 'b2b'
+    user.password = '123123123'
+    user.email = 'yury.matusevich@corevist.com'
+    user.first_name = 'b2b first name'
+    user.last_name = 'b2b last name'
+    user.user_type = CorevistAPI::UserType.find_by(value: 'S')
+    user.user_classification = CorevistAPI::UserClassification.first
+    user.microsite = CorevistAPI::Microsite.first
+    user.created_by = 'seeds'
+    user.roles = [role]
+  end.save
 end
