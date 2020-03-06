@@ -35,9 +35,6 @@ components:
             - message: "First Name field is required"
               type: required
               value: ""
-            - message: "Password should be an array"
-              type: is_a
-              value: "array"
             - message: "First Name cannot be less than 3 characters"
               type: min
               value: "3"

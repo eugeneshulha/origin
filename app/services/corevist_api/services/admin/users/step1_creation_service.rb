@@ -2,8 +2,8 @@ module CorevistAPI
   module Services
     class Admin::Users::Step1CreationService < BaseServiceWithForm
       def perform
-        object = obtain_object
-        fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)) }
+        object = CorevistAPI::User.find_by(uuid: @form&.uuid) || CorevistAPI::User.new
+        fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)&.strip) }
         raise CorevistAPI::ServiceException.new(object.errors.full_messages) unless object.save
 
         result(object)
