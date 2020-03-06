@@ -5,7 +5,7 @@ module CorevistAPI
           required: 'ActiveModel::Validations::PresenceValidator',
           min: 'ActiveModel::Validations::LengthValidator',
           max: 'ActiveModel::Validations::LengthValidator',
-          is_a: ''
+          confirmation: 'ActiveModel::Validations::ConfirmationValidator'
       }
     end
 
@@ -32,6 +32,10 @@ module CorevistAPI
 
     def max_options(v)
       { maximum: v.value.to_i }
+    end
+
+    def confirmation_options(v)
+      {}
     end
   end
 end

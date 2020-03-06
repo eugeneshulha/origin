@@ -25,15 +25,13 @@ module CorevistAPI
     end
 
     def define_accessor(base)
-      base.send(:attr_accessor, self.name)
+      base.send(:attr_accessor, self.uuid)
     end
 
     def define_validations(base)
       return if self.validations.blank?
 
       self.validations.each do |validation|
-        next if validation.type == 'is_a'
-
         base.validates_with(*validation_for(self.name, validation))
       end
     end

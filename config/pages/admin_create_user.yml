@@ -24,15 +24,15 @@ components:
             method: POST
             title: Complete user details
             type: form
-            url: "/v1/user_details"
+            url: "/v1/admin/users"
             elements:
               - - atom: text
-                  uuid: "user_id"
+                  uuid: "username"
                   label: User ID
-                  name: "user_id"
+                  name: "username"
                   placeholder: User ID
                   validation_type: string
-                  value: "test"
+                  value: ""
                   validations:
                     - message: "<%= I18n.t('my_message') %>"
                       type: required
@@ -43,23 +43,26 @@ components:
                     - message: "User ID cannot be more than 20 characters"
                       type: max
                       value: "20"
-                - atom: text
-                  uuid: "user_status"
-                  label: User Status
-                  name: "user_status"
-                  placeholder: User Status
+
+                - atom: hidden
+                  uuid: "uuid"
+                  label: User ID
+                  name: "uuid"
                   validation_type: string
                   value: ""
-                  validations:
-                    - message: "<%= I18n.t('my_message') %>"
-                      type: required
-                      value: ""
-                    - message: "Last name cannot be less than 3 characters"
-                      type: min
-                      value: "3"
-                    - message: "Last name cannot be more than 20 characters"
-                      type: max
-                      value: "20"
+
+                - atom: select
+                  uuid: "user_classification_id"
+                  label: Customer Type
+                  name: "user_classification_id"
+                  placeholder: Select Customer Type
+                  validation_type: string
+                  value: ""
+                  options:
+                    - name: Dealer
+                      value: 'Dealer'
+                    - name: Distributor
+                      value: 'Distributor'
 
               - - atom: text
                   uuid: "first_name"
@@ -116,6 +119,28 @@ components:
                   validation_type: string
                   value: ""
 
+              - - atom: text
+                  uuid: "password"
+                  label: Password
+                  name: "password"
+                  placeholder: Password
+                  validation_type: string
+                  validations:
+                    - message: " field is required"
+                      type: required
+                    - message: "password should match password confirmation"
+                      type: confirmation
+
+                - atom: text
+                  uuid: "password_confirmation"
+                  label: Password confirmation
+                  name: "password_confirmation"
+                  placeholder: Password confirmation
+                  validation_type: string
+                  validations:
+                    - message: "<%= I18n.t('my_message') %>"
+                      type: required
+
               - - atom: select
                   uuid: "microsite_id"
                   label: Microsite
@@ -134,9 +159,9 @@ components:
                       value: ""
 
               - - atom: select
-                  uuid: "customer_type_id"
+                  uuid: "user_type_id"
                   label: Customer Type
-                  name: "customer_type_id"
+                  name: "user_type_id"
                   placeholder: Select Customer Type
                   validation_type: string
                   value: ""
@@ -167,9 +192,9 @@ components:
                       value: ""
 
                 - atom: select
-                  uuid: "timezone"
+                  uuid: "time_zone"
                   label: Timezone
-                  name: "timezone"
+                  name: "time_zone"
                   placeholder: Select Timezone
                   validation_type: string
                   value: ""

@@ -2,9 +2,9 @@
 # assigned roles
 #
 module CorevistAPI
-  module Forms
-    class Admin::Users::Step2 < BaseForm
-      include CorevistAPI::FormValidations
+  module Forms::Admin::Users
+    class Step2 < BaseStep
+      validate_component :admin_create_new_user_step_2, on_page: :admin_create_user, on_step: 2
     end
   end
 end
