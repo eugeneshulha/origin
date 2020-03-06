@@ -5,6 +5,10 @@ module CorevistAPI
 
       def index; end
 
+      def new
+        @result = service_for(:page_configs_read, :partner_search_modal).call
+      end
+
       private
 
       def type

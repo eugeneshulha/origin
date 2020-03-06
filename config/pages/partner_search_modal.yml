@@ -1,0 +1,40 @@
+title: "Sold-to modal"
+components:
+  - uuid: "admin_user_sold_to_modal_form"
+    description:
+    method: POST
+    title:
+    type: form
+    url: "/v1/admin_user_sold_to_modal_form"
+    elements:
+      - - atom: text
+          label: Payer
+          name: "payer"
+          placeholder: Select Payer
+          validation_type: string
+          value: ""
+
+      - - atom: text
+          label: Timeframe
+          name: "timeframe"
+          placeholder: Select Timeframe
+          value: ""
+
+      - - atom: text
+          label: Status
+          name: "status"
+          placeholder: Select Status
+          value: ""
+
+      - - atom: button
+          text: Cancel
+          type: text
+          actionType: button
+          name: "apply"
+
+        -
+          atom: button
+          text: Apply
+          type: secondary
+          actionType: submit
+          name: "apply"

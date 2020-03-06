@@ -127,7 +127,7 @@ components:
       -
         -
           atom: text
-          uuid: "username"
+          uuid: "street"
           label: Street
           name: "street"
           placeholder: Street
@@ -160,4 +160,3 @@ components:
           text: Send Email
           type: primary
           action_type: submit
-          name: "Submit"
