@@ -30,7 +30,7 @@ module CorevistAPI
       end
 
       def check_step
-        error('api.errors.step') if STEPS.exclude?(params[:step]&.strip)
+        error('api.errors.step') if STEPS.exclude?(params[:step].to_s&.strip)
       end
 
       def scope_model

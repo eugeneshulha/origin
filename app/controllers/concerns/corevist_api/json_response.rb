@@ -3,7 +3,7 @@ module CorevistAPI
     extend ActiveSupport::Concern
 
     STATUSES = {
-      200 => :info,
+      200 => :message,
       401 => :error,
       404 => :error,
       500 => :error

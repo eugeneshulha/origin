@@ -26,6 +26,13 @@ components:
             type: form
             url: "/v1/admin/users"
             elements:
+              - - atom: hidden
+                  uuid: "uuid"
+                  label: User ID
+                  name: "uuid"
+                  validation_type: string
+                  value: ""
+
               - - atom: text
                   uuid: "username"
                   label: User ID
@@ -143,9 +150,9 @@ components:
                   value: ""
                   options:
                     - name: Microsite 1
-                      value: 'b2b_microsite1'
+                      value: "1"
                     - name: Microsite 2
-                      value: 'b2b_client'
+                      value: "2"
                   validations:
                     - message: "<%= I18n.t('my_message') %>"
                       type: required
@@ -160,9 +167,9 @@ components:
                   value: ""
                   options:
                     - name: CT 1
-                      value: 'customer_type_1'
+                      value: "1"
                     - name: CT 2
-                      value: 'customer_type_2'
+                      value: "2"
                   validations:
                     - message: "<%= I18n.t('my_message') %>"
                       type: required
@@ -192,9 +199,9 @@ components:
                   validation_type: string
                   value: ""
                   options:
-                    - name: Microsite 1
+                    - name: UTC
                       value: 'b2b_microsite1'
-                    - name: Microsite 2
+                    - name: EST
                       value: 'b2b_client'
                   validations:
                     - message: "<%= I18n.t('my_message') %>"
@@ -209,10 +216,12 @@ components:
                   validation_type: string
                   value: ""
                   options:
-                    - name: Microsite 1
-                      value: 'b2b_microsite1'
-                    - name: Microsite 2
-                      value: 'b2b_client'
+                    - name: "9,999,999.99"
+                      value: ".,"
+                    - name: "9.999.999,99"
+                      value: ",."
+                    - name: "9'999'999.99"
+                      value: "."
                   validations:
                     - message: "<%= I18n.t('my_message') %>"
                       type: required
@@ -252,18 +261,11 @@ components:
                       type: required
                       value: ""
 
-              - - atom: hidden
-                  uuid: "uuid"
-                  label: User ID
-                  name: "uuid"
-                  value: ""
-
               - - atom: button
                   uuid: "button_1"
                   text: Next
                   type: primary
                   action_type: submit
-                  name: "Submit"
 
       - uuid: "2"
         description: ""
@@ -294,3 +296,37 @@ components:
                 - "role": "all but admin"
                 - "role": "Change Order"
                 - "role": "Create Order"
+
+      - uuid: "3"
+        description: ""
+        method: "POST"
+        title: Roles can be assigned
+        type: step
+        url: "?step=3"
+
+        # Components from one step of multiform.
+        components:
+          - uuid: "roles_can_be_assigned"
+            description: "Fields with an asterisk (*) are mandatory."
+            method: POST
+            title: Assign roles to user
+            type: datatable
+            url: "/v1/assigned_roles"
+            elements:
+              thead:
+                - key: true,
+                  name: 'role'
+                  caption: 'Role'
+                  label: null
+                  sortable: true
+                  action: 'expand'
+
+              rows:
+                - "role": "administration"
+                - "role": "all but admin"
+                - "role": "Change Order"
+                - "role": "Create Order"
+                - "role": "My amazing role"
+                - "role": "Kisses"
+                - "role": "Elton John's role"
+                - "role": "Black eyed peas"
