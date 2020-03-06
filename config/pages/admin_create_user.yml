@@ -332,21 +332,21 @@ components:
                 - "role": "Black eyed peas"
 
       - uuid: "4"
-          description: ""
-          method: "POST"
-          title: Roles can be assigned
-          type: step
-          url: "?step=4"
+        description: ""
+        method: "POST"
+        title: Roles can be assigned
+        type: step
+        url: "?step=4"
 
-          # Components from one step of multiform.
-          components:
-            - uuid: "add_sold_to"
-              method: POST
-              title: Select sold-to`s
-              type: form
-              url: "/v1/add_sold_to"
-              elements:
-                - - atom: button_with_modal
-                    text: Add Sold-to
-                    url: ""
-                    name: "Submit"
+        # Components from one step of multiform.
+        components:
+          - uuid: "add_sold_to"
+            method: POST
+            title: Select sold-to`s
+            type: form
+            url: "/v1/partners/new"
+            elements:
+              - - atom: button_with_modal
+                  text: Add Sold-to
+                  url: "/v1/partners/new"
+                  name: "Submit"
