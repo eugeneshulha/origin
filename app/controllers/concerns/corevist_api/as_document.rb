@@ -6,6 +6,11 @@ module CorevistAPI
 
       before_action :dispatch_object
 
+      def new
+        name = "show_#{@obj.model_name.element}"
+        @result = service_for(:page_configs_read, name).call
+      end
+
       def index
         form = form_for(@obj.api_names[:list], params)
         service = service_for(@obj.api_names[:list], form)

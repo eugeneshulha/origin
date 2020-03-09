@@ -36,7 +36,7 @@ module CorevistAPI
     end
 
     def truncate_input
-      rfc_service_for(:truncate_rfc, @function.parameters, truncations).call
+      CorevistAPI::Factories::RFCServicesFactory.instance.for(:truncate_rfc, @function.parameters, truncations).call
     end
 
     def additional_data

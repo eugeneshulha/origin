@@ -25,7 +25,7 @@ CorevistAPI::Engine.routes.draw do
       resources :registrations, only: [:new, :create]
 
       resources :invoices, only: [:show, :index], param: :doc_number
-      resources :salesdocs, only: [:show, :index], param: :doc_number
+      resources :salesdocs, only: [:new, :show, :index], param: :doc_number
 
       get 'status', to: 'statuses#status'
 

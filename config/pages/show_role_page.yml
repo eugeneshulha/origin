@@ -1,0 +1,35 @@
+title: "Forgot password page"
+components:
+  -
+    uuid: "show_role_form"
+    description: "Please enter your User ID and we will retrieve your Reset Password Question. If you do not remember your User ID, please send an email to :helpdesk."
+    method: POST
+    title: Forgot your password
+    type: form
+    url: "/v1/password"
+    elements:
+      -
+        -
+          atom: text
+          uuid: "id"
+          label: Username
+          name: "id"
+          placeholder: Username
+          validation_type: string
+          validations:
+            -
+              message: "<%= I18n.t('my_message') %>"
+              type: required
+        - atom: hidden
+          uuid: "controller"
+          label: Username
+          name: "controller"
+          placeholder: Username
+          validation_type: string
+
+        - atom: hidden
+          uuid: "action"
+          label: Username
+          name: "action"
+          placeholder: Username
+          validation_type: string

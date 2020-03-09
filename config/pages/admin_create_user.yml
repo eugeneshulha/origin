@@ -281,7 +281,10 @@ components:
             method: POST
             title: Assign roles to user
             type: datatable
+            name: "role_ids"
             url: "/v1/assigned_roles"
+            selected_rows: []
+            data_url: "/v1/"
             elements:
               thead:
                 - key: true,
@@ -290,12 +293,12 @@ components:
                   label: null
                   sortable: true
                   action: 'expand'
-
-              rows:
-                - "role": "administration"
-                - "role": "all but admin"
-                - "role": "Change Order"
-                - "role": "Create Order"
+                - key: true,
+                  name: 'role'
+                  caption: 'Role'
+                  label: null
+                  sortable: true
+                  action: 'expand'
 
       - uuid: "3"
         description: ""
