@@ -42,9 +42,11 @@ module CorevistAPI
       end
 
       def api_names
+        name = self.model_name.element
         {
-            display: "#{self.model_name.element}_display",
-            list: "#{self.model_name.element}_list"
+            display: "#{name}_display",
+            list: "#{name}_list",
+            sort_items: "sort_#{name}_items"
         }
       end
     end

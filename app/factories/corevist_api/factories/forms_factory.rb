@@ -24,7 +24,9 @@ module CorevistAPI
         admin_roles_create: 'CorevistAPI::Forms::Admin::Roles::CreateForm',
         admin_roles_update: 'CorevistAPI::Forms::Admin::Roles::UpdateForm',
         admin_roles_show: 'CorevistAPI::Forms::Admin::Roles::ShowForm',
-        admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm'
+        admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
+        sort_salesdoc_items: 'CorevistAPI::Forms::Salesdoc::SortItemsForm',
+        sort_invoice_items: 'CorevistAPI::Forms::Invoice::SortItemsForm'
       }
     end
   end
