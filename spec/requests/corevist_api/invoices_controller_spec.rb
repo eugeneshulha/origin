@@ -1,4 +1,4 @@
-describe 'Invoices', type: :request do
+describe 'invoices', type: :request do
   describe 'not available' do
     it 'before logged in' do
       invoice_number = "90039831"

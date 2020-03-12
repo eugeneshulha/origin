@@ -8,6 +8,14 @@ module ApiHelpers
     response.headers
   end
 
+  def infos
+    body['infos']
+  end
+
+  def data
+    body['data']
+  end
+
   def authorization_header
     headers["Authorization"]
   end
@@ -50,6 +58,11 @@ module ApiHelpers
 
   def assert_request_status_is(status)
     expect(response).to have_http_status(status)
+  end
+
+  def generate_auth_header(username, password)
+    post '/api/v1/auth', params: {format: :json, user: {username: username, password: password}}
+    { Authorization: authorization_header}
   end
 
 end

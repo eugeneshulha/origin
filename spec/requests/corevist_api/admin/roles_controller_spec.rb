@@ -13,4 +13,23 @@ describe 'Admin list roles request', type: :request do
   describe 'with sign in' do
     skip 'TODO'
   end
+
+  # TODO show roles /api/v1/admin/roles
+  # requires auth
+  #
+  # TODO create role POST /api/v1/admin/roles
+  # requires auth
+  #
+  # TODO update role PATCH /api/v1/admin/roles/2
+  # requires auth
+  #
+  # TODO show role GET /api/v1/admin/roles/1
+  # requires auth
+  #
+  # TODO destroy role /api/v1/admin/roles/2
+  # requires auth
+  #
+  #
+  #
+  #
 end
