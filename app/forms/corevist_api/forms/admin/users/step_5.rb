@@ -2,8 +2,8 @@
 # assigned ship tos
 #
 module CorevistAPI
-  module Forms::Admin::Users
-    class Step5 < BaseStep
+  module Forms
+    class Admin::Users::Step5 < BaseForm
       include CorevistAPI::FormValidations
     end
   end

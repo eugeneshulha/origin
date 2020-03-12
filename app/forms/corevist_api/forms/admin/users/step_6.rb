@@ -2,8 +2,8 @@
 # assigned territories
 #
 module CorevistAPI
-  module Forms::Admin::Users
-    class Step6 < BaseStep
+  module Forms
+    class Admin::Users::Step6 < BaseForm
       include CorevistAPI::FormValidations
     end
   end

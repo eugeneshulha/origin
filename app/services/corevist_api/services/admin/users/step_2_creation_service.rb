@@ -2,16 +2,15 @@ module CorevistAPI
   module Services
     class Admin::Users::Step2CreationService < BaseServiceWithForm
       def perform
-        return result.fail!('api.errors.user_not_found') unless user
+        raise CorevistAPI::ServiceException.new(not_found_msg) unless user
 
-        @form.role_ids.each do |role_id|
+        roles = @form.role_ids.each_with_object([]) do |role_id, memo|
           role = CorevistAPI::Role.find_by_id(role_id)
-          return result.fail!('api.errors.role_not_found') unless role
+          raise CorevistAPI::ServiceException.new("api.#{namespace}.roles.not_found") unless role
 
-          user.roles << role
+          memo << role
         end
-
-        return result.fail!(user.errors.full_messages) unless user.save
+        user.roles = roles
 
         result(user)
       end

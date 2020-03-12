@@ -8,6 +8,14 @@ module CorevistAPI
       def show?
         create?
       end
+
+      def destroy?
+        create?
+      end
+
+      def update?
+        create?
+      end
     end
   end
 end

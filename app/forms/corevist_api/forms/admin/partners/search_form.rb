@@ -3,7 +3,7 @@ module CorevistAPI
     class Admin::Partners::SearchForm < BaseForm
       validates_with CorevistAPI::Validators::OneOutOfValidator
 
-      def permitted_params
+      def one_out_of_params
         %w[number name city postal_code]
       end
     end

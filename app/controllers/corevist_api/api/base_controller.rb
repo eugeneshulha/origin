@@ -8,7 +8,8 @@ module CorevistAPI::API
     include CorevistAPI::ActionPerformer
     include CorevistAPI::JsonResponse
 
-     rescue_from StandardError, with: :handle_exception
+    rescue_from StandardError, with: :handle_exception
+    rescue_from CorevistAPI::ServiceException, with: :handle_service_exception
 
     respond_to :json
 
@@ -25,6 +26,10 @@ module CorevistAPI::API
         exception.message
         exception.backtrace.join("\n")
       end
+    end
+
+    def handle_service_exception(exception)
+      error(exception.messages)
     end
   end
 end

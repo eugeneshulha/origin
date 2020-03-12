@@ -2,8 +2,6 @@ module CorevistAPI
   class RfcResultEntry
     def initialize(_, data)
       data.each do |k, v|
-        next if v.to_s.strip.blank?
-
         instance_variable_set("@#{k.underscore}", v.to_s.strip)
         class_eval { attr_reader k.underscore.to_sym }
       end

@@ -22,6 +22,7 @@ en_US:
           attributes:
             title:
               taken: "already in use"
+              blank: "cannot be blank"
 
   activemodel:
     errors:
