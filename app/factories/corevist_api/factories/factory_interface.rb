@@ -5,14 +5,6 @@ module CorevistAPI
         CorevistAPI::Factories::BuildersFactory.instance.for(type, *args)
       end
 
-      def config_for(type, *args)
-        CorevistAPI::Factories::ConfigsFactory.instance.for(type, *args)
-      end
-
-      def should_authorize_configs_for?(type)
-        CorevistAPI::Factories::ConfigsFactory.instance.unauthorized_config?(type)
-      end
-
       def form_for(type, *args)
         CorevistAPI::Factories::FormsFactory.instance.for(type, *args)
       end
@@ -23,6 +15,10 @@ module CorevistAPI
 
       def rfc_service_for(type, obj, args)
         CorevistAPI::Factories::RFCServicesFactory.instance.for(type, obj, *args)
+      end
+
+      def validation_for(attribute, validation)
+        CorevistAPI::Factories::ValidationsFactory.instance.for(attribute, validation)
       end
     end
   end

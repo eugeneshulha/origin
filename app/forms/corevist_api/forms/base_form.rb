@@ -2,7 +2,7 @@ module CorevistAPI
   class Forms::BaseForm
     include ActiveModel::Validations
     include CorevistAPI::Factories::FactoryInterface
-    include FormValidations
+    include CorevistAPI::FormValidations
 
     attr_writer :uuid
 
@@ -11,6 +11,10 @@ module CorevistAPI
 
     def initialize(params = {})
       init_params(params)
+    end
+
+    def params_key
+      nil
     end
 
     private

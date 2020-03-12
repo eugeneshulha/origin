@@ -25,7 +25,7 @@ module CorevistAPI
           return @result
         end
 
-        @result = ServiceResult.new(data)
+        @result = CorevistAPI::Services::ServiceResult.new(data)
       end
 
       private

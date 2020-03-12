@@ -1,7 +1,9 @@
 module CorevistAPI
-  module Forms::User
-    class Login < CorevistAPI::Forms::BaseForm
-      include FormValidations
+  class Forms::User::Login < CorevistAPI::Forms::BaseForm
+    validate_component :login_form, on_page: :login
+
+    def params_key
+      :user
     end
   end
 end

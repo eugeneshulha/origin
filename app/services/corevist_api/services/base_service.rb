@@ -1,7 +1,7 @@
 module CorevistAPI
   class Services::BaseService
     include CorevistAPI::Factories::FactoryInterface
-    include BaseServiceInterface
+    include CorevistAPI::Services::BaseServiceInterface
 
     def initialize(object, params)
       @object = object
@@ -14,7 +14,7 @@ module CorevistAPI
     end
 
     def result(data)
-      @result ||= ServiceResult.new(data)
+      @result ||= CorevistAPI::Services::ServiceResult.new(data)
     end
 
     private
