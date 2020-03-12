@@ -4,7 +4,7 @@ module CorevistAPI
     include ActiveModel::Model
 
     included do
-      attr_accessor :header, :items, :partners, :payment_terms, :configs, :cond_types, :sap_return
+      attr_accessor :header, :items, :partners, :payment_terms, :config, :cond_types, :sap_return, :price_components
                     :user_id
 
       class self::Header
@@ -23,10 +23,16 @@ module CorevistAPI
         include CorevistAPI::Document::PaymentTerms
       end
 
+      class self::PriceComponent
+        include CorevistAPI::Document::PriceComponent
+      end
+
       def initialize
         @items = []
         @partners = []
-        @header = {}
+        @price_components = []
+        @config = CorevistAPI::Salesdoc::Config.new
+        @header = CorevistAPI::Salesdoc::Header.new
       end
 
       def doc_number

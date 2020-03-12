@@ -8,6 +8,10 @@ module CorevistAPI
 
                     # arrays to parse
                     :price_components, :texts
+
+      def initialize
+        @price_components = []
+      end
     end
   end
 end

@@ -4,9 +4,9 @@ module CorevistAPI
       def initialize(params = {})
         @params = params.with_indifferent_access
         begin
-          @object = obtain_object(params)
+          @object = obtain_object
         rescue StandardError => e
-          raise "Class not provided for builder. #{e.message}"
+          raise e.message
         end
       end
 
@@ -26,7 +26,7 @@ module CorevistAPI
 
       private
 
-      def obtain_object(klass)
+      def obtain_object
         raise NotImplementedError
       end
     end

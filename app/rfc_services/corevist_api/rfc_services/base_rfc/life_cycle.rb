@@ -58,7 +58,7 @@ module CorevistAPI
     end
 
     def result
-      CorevistAPI::RFCServices::BaseRFC::Result.new(@sap_return, @data)
+      CorevistAPI::RFCServices::BaseRFC::RFCServiceResult.new(@sap_return, @data)
     end
 
     private

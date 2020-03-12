@@ -10,7 +10,17 @@ module CorevistAPI
 
       def perform!
         @rfc_result = rfc_service_for(:salesdoc_display, @object, @params).call
-        result(@rfc_result)
+
+        salesdoc = builder_for(:salesdoc, @rfc_result.data).build do |builder|
+          builder.with_configs
+          builder.with_items
+          builder.with_header
+          builder.with_prices
+          builder.with_partners
+          builder.with_addresses
+        end
+
+        result(salesdoc.as_json)
       end
     end
   end

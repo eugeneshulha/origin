@@ -1,6 +1,6 @@
 module CorevistAPI
   module RFCServices::BaseRFC
-    class Result
+    class RFCServiceResult
       attr_reader :sap_return, :data, :options
 
       def initialize(sap_return, data, options = {})

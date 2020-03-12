@@ -45,8 +45,8 @@ module CorevistAPI
         end
       end
 
-      def obtain_object(params)
-        params[:class].find_or_initialize_by(sales_area_id: sales_area.id, number: rfc_partner.nr, function: function)
+      def obtain_object
+        CorevistAPI::Partner.find_or_initialize_by(sales_area_id: sales_area.id, number: rfc_partner.nr, function: function)
       end
     end
   end

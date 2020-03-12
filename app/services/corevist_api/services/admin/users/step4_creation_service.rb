@@ -53,8 +53,16 @@ module CorevistAPI
       end
 
       def build_partner(sales_area, function, sales_data)
-        partner_params = {
-          class: CorevistAPI::Partner,
+        partner_params =         partner_params = {
+          sales_area: sales_area,
+          user: user,
+          rfc_partner: @rfc_partner,
+          sales_data: sales_data,
+          function: function,
+          postal_addresses: @rfc_result.data[:postal_addresses],
+          street_addresses: @rfc_result.data[:street_addresses]
+        }
+{
           sales_area: sales_area,
           user: user,
           rfc_partner: @rfc_partner,
