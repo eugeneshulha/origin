@@ -17,7 +17,6 @@ module CorevistAPI
           builder.with_header
           builder.with_prices
           builder.with_partners
-          builder.with_addresses
         end
 
         result(salesdoc.as_json)

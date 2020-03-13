@@ -10,7 +10,6 @@ module CorevistAPI
 
       def with_base_params
         @object.sales_area = sales_area
-        @object.user = user
         @object.number = rfc_partner.nr
         @object.payment_terms = sales_data.payment_terms
         @object.function = function
@@ -21,6 +20,11 @@ module CorevistAPI
         @object.email = rfc_partner.email
         @object.language = rfc_partner.lang
         @object.deleted = rfc_partner.del.sap_to_boolean
+        with_user
+      end
+
+      def with_user
+        @object.user = user
       end
 
       def with_assigned_param

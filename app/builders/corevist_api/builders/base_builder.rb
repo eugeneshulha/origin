@@ -1,6 +1,8 @@
 module CorevistAPI
   module Builders
     class BaseBuilder
+      include CorevistAPI::Factories::FactoryInterface
+
       def initialize(params = {})
         @params = params.with_indifferent_access
         begin

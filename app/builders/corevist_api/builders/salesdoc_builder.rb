@@ -1,6 +1,34 @@
 module CorevistAPI
   module Builders
     class SalesdocBuilder < CorevistAPI::Builders::BaseBuilder
+      MAX_ADDRESSES_COUNT = 3
+      MAPPING = {
+          doc_nr: :doc_number,
+          doc_type: :doc_type,
+          doc_cat: :doc_category,
+          sa: :sales_area,
+          po_nr: :po_number,
+          doc_date: :doc_date,
+          rdd: :rdd,
+          curr: :currency,
+          net_value: :net_value,
+          payment_terms: :payment_terms,
+          paymt_t_text: :payment_terms_text,
+          ship_status: :ship_status,
+          credit_status: :credit_status,
+          no_copy_reason: :no_copy_reason,
+          no_chg_reason: :no_change_reason,
+          no_cwref_reason: :no_cwref_reason,
+          po_type: :po_type,
+          change_date: :change_date,
+          change_nr: :change_number,
+          contact_info: :contact_info,
+          pfinv: :proforma_invoice_number,
+          inv: :invoice_number,
+          valid_from: :valid_from,
+          valid_to: :valid_to,
+          ref_doc_nr: :ref_doc_number
+      }.with_indifferent_access
 
       def build
         yield(self)
@@ -9,6 +37,12 @@ module CorevistAPI
 
       def with_header
 
+        header.each do |h|
+          v = h.instance_variables.first.to_s.tr('@', '')
+          next unless MAPPING[v]
+
+          @object.header.send("#{MAPPING[v]}=", h.send(v))
+        end
       end
 
       def with_items
@@ -52,6 +86,30 @@ module CorevistAPI
       end
 
       def with_partners
+        sales_area = CorevistAPI::SalesArea.find_by(title: @params[:header].find { |x| x.respond_to?(:sa) }.sa)
+        raise ServiceException('sales area of partner not found') unless sales_area
+
+        partners.each do |partner|
+          partner_params = {
+              rfc_partner: Struct.new(:nr).new(partner.nr),
+              sales_area: sales_area,
+              user: CorevistAPI::Context.current_user,
+              function: partner.fct,
+              postal_addresses: postal_addresses.select { |x| x.nr == partner.addr_nr },
+              street_addresses: street_addresses.select { |x| x.nr == partner.addr_nr }
+          }
+
+          partner = builder_for(:partner, partner_params).build do |builder|
+            builder.with_user
+            builder.with_postal_addresses
+            builder.with_street_addresses
+          end
+
+          partner.save if partner.changed? || partner.new_record?
+          puts partner.errors.full_messages if partner.errors.any?
+
+          @object.partners << partner
+        end
       end
 
       def with_prices
@@ -76,17 +134,6 @@ module CorevistAPI
 
           memo
         end
-      end
-
-      def with_addresses
-        with_postal_addresses
-        with_street_addresses
-      end
-
-      def with_postal_addresses
-      end
-
-      def with_street_addresses
       end
 
       private
