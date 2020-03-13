@@ -1,0 +1,38 @@
+title: "Create new user"
+components:
+  - uuid: "invoice_details"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: POST
+    title: Complete user details
+    type: form
+    url: "/v1/admin/users"
+    elements:
+      - atom: hidden
+        uuid: "uuid"
+        label: User ID
+        name: "uuid"
+        validation_type: string
+        value: ""
+
+  - uuid: "invoice_items_table"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: POST
+    title: Assign roles to user
+    type: datatable
+    name: "role_ids"
+    url: "/v1/assigned_roles"
+    selected_rows: []
+    data_url: "/v1/"
+    elements:
+      - key: true,
+        name: 'role'
+        caption: 'Role'
+        label: null
+        sortable: true
+        action: 'expand'
+      - key: true,
+        name: 'role'
+        caption: 'Role'
+        label: null
+        sortable: true
+        action: 'expand'

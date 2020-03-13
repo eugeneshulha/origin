@@ -24,7 +24,7 @@ CorevistAPI::Engine.routes.draw do
       # registrations
       resources :registrations, only: [:new, :create]
 
-      resources :invoices, only: [:show, :index], param: :doc_number do
+      resources :invoices, only: [:new, :show, :index], param: :doc_number do
         resources :items, on: :member, only: [:index], controller: 'invoices/items'
       end
 
