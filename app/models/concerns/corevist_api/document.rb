@@ -31,8 +31,8 @@ module CorevistAPI
         @items = []
         @partners = []
         @price_components = []
-        @config = CorevistAPI::Salesdoc::Config.new
-        @header = CorevistAPI::Salesdoc::Header.new
+        @config = "#{self.class}::Config".constantize.new
+        @header = "#{self.class}::Header".constantize.new
       end
 
       def doc_number

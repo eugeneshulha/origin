@@ -1,5 +1,7 @@
 module CorevistAPI
-  class Invoice::PaymentHistory
-    attr_accessor :date, :amount, :text
+  class Invoice
+    class PaymentHistory
+      attr_accessor :date, :amount, :text
+    end
   end
 end

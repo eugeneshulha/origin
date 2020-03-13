@@ -4,7 +4,8 @@ module CorevistAPI
       def initialize
         @storage = {
           partner: 'CorevistAPI::Builders::PartnerBuilder',
-          salesdoc: 'CorevistAPI::Builders::SalesdocBuilder'
+          salesdoc: 'CorevistAPI::Builders::SalesdocBuilder',
+          invoice: 'CorevistAPI::Builders::InvoiceBuilder'
         }
       end
     end

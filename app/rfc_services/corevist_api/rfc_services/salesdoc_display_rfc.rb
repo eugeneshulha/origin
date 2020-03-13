@@ -28,6 +28,8 @@ module CorevistAPI
         next if value.blank?
         value = { key => value } if value.is_a?(String)
 
+        next @data[key.downcase] = RfcResultEntry.new(self.class.name.demodulize.underscore, value) if value.is_a?(Hash)
+
         @data[key.downcase] = value.map do |data|
           data = Hash[*data] if data.is_a?(Array)
 

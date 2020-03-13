@@ -1,33 +1,23 @@
 module CorevistAPI
   module Builders
-    class SalesdocBuilder < CorevistAPI::Builders::BaseBuilder
+    class InvoiceBuilder < CorevistAPI::Builders::BaseBuilder
       MAX_ADDRESSES_COUNT = 3
       MAPPING = {
+          bil_date: :billing_date,
+          tax: :tax,
+          status: :status,
+          due_date: :due_date,
+          comp_code: :company_code,
           doc_nr: :doc_number,
           doc_type: :doc_type,
           doc_cat: :doc_category,
           sa: :sales_area,
-          po_nr: :po_number,
-          doc_date: :doc_date,
-          rdd: :rdd,
+          po_number: :po_number,
           curr: :currency,
           net_value: :net_value,
           payment_terms: :payment_terms,
           paymt_t_text: :payment_terms_text,
-          ship_status: :ship_status,
-          credit_status: :credit_status,
-          no_copy_reason: :no_copy_reason,
-          no_chg_reason: :no_change_reason,
-          no_cwref_reason: :no_cwref_reason,
-          po_type: :po_type,
-          change_date: :change_date,
-          change_nr: :change_number,
-          contact_info: :contact_info,
-          pfinv: :proforma_invoice_number,
-          inv: :invoice_number,
-          valid_from: :valid_from,
-          valid_to: :valid_to,
-          ref_doc_nr: :ref_doc_number
+          sales_order: :sales_order
       }.with_indifferent_access
 
       def build
@@ -46,31 +36,20 @@ module CorevistAPI
 
       def with_items
         items.inject(@object.items) do |memo, _item|
-
           # TODO: move to a salesdoc item builder.
-          item = CorevistAPI::Salesdoc::Item.new
+          item = CorevistAPI::Invoice::Item.new
           item.cond_uom = _item.cond_uom
-          item.customer_material = _item.cust_mat
           item.description = _item.descr
           item.item_category = _item.item_cat
           item.item_number = _item.item_nr
           item.material = _item.mat
           item.net_price = _item.net_price
           item.net_value = _item.net_value
-          item.no_change_reason = _item.no_chg_reason
-          item.no_copy_reason = _item.no_copy_reason
-          item.no_cwref_reason = _item.no_cwref_reason
           item.parent_item = _item.parent_item
-          item.parent_item_use = _item.parent_item_use
           item.per = _item.per
-          item.plant = _item.plant
           item.quantity = _item.qty
-          item.rdd = _item.rdd
-          item.ref_item_number = _item.ref_item_nr
-          item.reference = _item.reference
-          item.rejection_reason = _item.rej_reason
+          item.sales_order = _item.sales_order
           item.sales_uom = _item.sales_uom
-          item.ship_status = _item.ship_status
           memo << item
         end
       end
@@ -138,7 +117,7 @@ module CorevistAPI
       private
 
       def obtain_object
-        doc = CorevistAPI::Salesdoc.new
+        doc = CorevistAPI::Invoice.new
         doc.doc_number = doc_nr.doc_nr
         raise CorevistAPI::ServiceException.new("api.salesdoc.doc_nr_not_found") unless doc.doc_number
 

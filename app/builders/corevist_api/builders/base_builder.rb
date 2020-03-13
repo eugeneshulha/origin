@@ -4,7 +4,7 @@ module CorevistAPI
       include CorevistAPI::Factories::FactoryInterface
 
       def initialize(params = {})
-        @params = params.with_indifferent_access
+        @params = params.is_a?(Hash) ? params.with_indifferent_access : params
         begin
           @object = obtain_object
         rescue StandardError => e

@@ -26,7 +26,9 @@ module CorevistAPI
       @function.parameters.each_key do |key|
         value = @function.parameters[key].value
         next if value.blank?
-        (@data[key.downcase] = value) and next if value.is_a?(String)
+        value = { key => value } if value.is_a?(String)
+
+        next @data[key.downcase] = RfcResultEntry.new(self.class.name.demodulize.underscore, value) if value.is_a?(Hash)
 
         @data[key.downcase] = value.map do |data|
           data = Hash[*data] if data.is_a?(Array)
