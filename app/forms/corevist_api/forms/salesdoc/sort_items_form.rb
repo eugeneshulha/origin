@@ -1,5 +1,5 @@
 module CorevistAPI
   class Forms::Salesdoc::SortItemsForm < CorevistAPI::Forms::BaseForm
-    # validate_component :zsd, on_page: :show_salesdoc
+    validate_component :filter_items_form, on_page: :show_salesdoc_items
   end
 end

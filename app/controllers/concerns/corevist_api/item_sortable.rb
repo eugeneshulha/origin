@@ -8,8 +8,8 @@ module CorevistAPI
       before_action :prepare_params
 
       def index
-        # form = form_for(@obj.api_names[:sort_items], params)
-        service = service_for(@obj.api_names[:sort_items], @obj, params)
+        form = form_for(@obj.api_names[:sort_items], params)
+        service = service_for(@obj.api_names[:sort_items], form, params)
         @result = service.call
       end
 

@@ -22,7 +22,11 @@ module CorevistAPI
     def init_params(_params = {})
       params = _params[params_key] || _params
 
-      params.each { |k, v| self.send("#{k}=", v) }
+      params.each do |k, v|
+        next unless self.respond_to?(k)
+
+        self.send("#{k}=", v)
+      end
     end
   end
 end
