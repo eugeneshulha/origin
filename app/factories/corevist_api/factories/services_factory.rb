@@ -29,8 +29,7 @@ module CorevistAPI
         admin_roles_index_filter: 'CorevistAPI::Services::Admin::Roles::FilterService',
         admin_roles_destroy: 'CorevistAPI::Services::Admin::Roles::DestroyService',
         admin_users_steps: 'CorevistAPI::Services::Admin::Users::StepsService',
-        sort_salesdoc_items: 'CorevistAPI::Services::Salesdoc::SortItemsService',
-        sort_invoice_items: 'CorevistAPI::Services::Invoice::SortItemsService'
+        sort_document_items: 'CorevistAPI::Services::Document::SortItemsService',
       }
     end
   end

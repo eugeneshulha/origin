@@ -51,7 +51,7 @@ module CorevistAPI
           item = CorevistAPI::Salesdoc::Item.new
           item.cond_uom = _item.cond_uom
           item.customer_material = _item.cust_mat
-          item.description = _item.descr
+          item.description = _item.descr.force_encoding(Encoding::UTF_8)
           item.item_category = _item.item_cat
           item.item_number = _item.item_nr
           item.material = _item.mat

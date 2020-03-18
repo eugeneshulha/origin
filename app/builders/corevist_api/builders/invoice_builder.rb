@@ -39,7 +39,7 @@ module CorevistAPI
           # TODO: move to a salesdoc item builder.
           item = CorevistAPI::Invoice::Item.new
           item.cond_uom = _item.cond_uom
-          item.description = _item.descr
+          item.description = _item.descr.force_encoding(Encoding::UTF_8)
           item.item_category = _item.item_cat
           item.item_number = _item.item_nr
           item.material = _item.mat
