@@ -23,9 +23,12 @@ module CorevistAPI
       def sort_items(items)
         return items if @params[:sort_by].blank?
 
-        items.sort_by do |item|
+        items = items.sort_by do |item|
           item.send(@params[:sort_by]) if item.respond_to?(@params[:sort_by])
         end
+
+        items.reverse! if @params[:order]&.to_sym == :desc
+        items
       end
 
       def filter_by_query(items)

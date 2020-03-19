@@ -31,3 +31,8 @@ components:
           name: "sort_by"
           validation_type: string
           value: ""
+        - atom: text
+          uuid: "order"
+          name: "order"
+          validation_type: string
+          value: ""
