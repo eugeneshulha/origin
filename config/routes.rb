@@ -17,8 +17,9 @@ CorevistAPI::Engine.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      devise_scope :user do
-        get 'auth/configs', to: 'sessions#configs'
+
+      resources :users, only: [], param: :uuid do
+        resources :partners, only: %i[index], controller: 'users/partners'
       end
 
       # registrations
