@@ -7,12 +7,12 @@ components:
     type: form
     url: "/v1/admin/users"
     elements:
-      - atom: hidden
-        uuid: "uuid"
-        label: User ID
-        name: "uuid"
-        validation_type: string
-        value: ""
+      - - atom: hidden
+          uuid: "uuid"
+          label: User ID
+          name: "uuid"
+          validation_type: string
+          value: ""
 
   - uuid: "salesdoc_items_table"
     description: "Fields with an asterisk (*) are mandatory."
