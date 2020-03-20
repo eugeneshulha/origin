@@ -1,6 +1,7 @@
 json.status 200
 price_components = {
     title: "Pricing details",
+    content_type: 'table',
     data: @result.data['price_components'].map do |pc|
       { title: "label for #{pc['cond_type']}", text: pc['value'] }
     end
