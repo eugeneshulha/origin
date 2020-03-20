@@ -1,6 +1,6 @@
 module CorevistAPI
   module Services
-    class Admin::Users::Step4CreationService < BaseServiceWithForm
+    class Admin::Users::Step4CreationService< CorevistAPI::Services::BaseServiceWithForm
 
       # sp - sold-to
       # sh - ship-to

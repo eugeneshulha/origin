@@ -1,6 +1,6 @@
 module CorevistAPI
   module Services
-    class Base::UpdateService < BaseServiceWithForm
+    class Base::UpdateService< CorevistAPI::Services::BaseServiceWithForm
 
       def perform
         object = object_class.find_by_id(@form.id)

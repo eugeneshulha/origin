@@ -1,6 +1,6 @@
 module CorevistAPI
   module Services
-    class Admin::Users::Step3CreationService < BaseServiceWithForm
+    class Admin::Users::Step3CreationService< CorevistAPI::Services::BaseServiceWithForm
       def perform
         raise CorevistAPI::ServiceException.new(not_found_msg) unless user
 

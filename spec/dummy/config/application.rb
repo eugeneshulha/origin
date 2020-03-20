@@ -37,12 +37,13 @@ module Dummy
 
 
     # Rack CORS configuration
-    config.middleware.insert_before Warden::Manager, Rack::Cors do
+    config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
+
         resource '*',
                  headers: :any,
-                 methods: [:get, :post, :options, :patch, :put, :delete],
+                 methods: [:get, :post, :put, :patch, :delete, :options, :head],
                  expose: %w(Access-Control-Allow-Origin Authorization)
       end
     end

@@ -1,6 +1,6 @@
 module CorevistAPI
   module Services
-    class Base::IndexService < BaseServiceWithForm
+    class Base::IndexService< CorevistAPI::Services::BaseServiceWithForm
 
       def perform
         filter_result = filter

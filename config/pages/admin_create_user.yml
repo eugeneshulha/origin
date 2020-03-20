@@ -267,7 +267,7 @@ components:
                   type: primary
                   action_type: submit
 
-      - uuid: "2"
+      - uuid: "admin_create_new_user_step_1"
         description: ""
         method: "POST"
         title: Assigned roles
