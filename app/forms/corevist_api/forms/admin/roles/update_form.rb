@@ -1,7 +1,6 @@
 module CorevistAPI
   module Forms
-    class Admin::Roles::UpdateForm < BaseForm
-      include CorevistAPI::FormValidations
+    class Admin::Roles::UpdateForm < CorevistAPI::Forms::BaseForm
     end
   end
 end

@@ -14,5 +14,6 @@ module CorevistAPI
     SEARCH_CRITERIA         = 'SEARCH_CRITERIA'
     SHIPMENTS               = 'SHIPMENTS'
     USER_DATA               = 'USER_DATA'
+    GET_PDF_IN              = 'GET_PDF_IN'
   end
 end

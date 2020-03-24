@@ -58,9 +58,9 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |user|
     user.password = '123123123'
-    user.email = Forgery('email').address
-    user.first_name = Forgery('name').first_name
-    user.last_name = Forgery('name').last_name
+    user.email = 'yury.matusevich@corevist.com'
+    user.first_name = 'First name'
+    user.last_name = 'Last name'
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first

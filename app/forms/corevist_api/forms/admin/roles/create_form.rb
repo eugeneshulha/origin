@@ -1,7 +1,6 @@
 module CorevistAPI
   module Forms
-    class Admin::Roles::CreateForm < BaseForm
-      include CorevistAPI::FormValidations
+    class Admin::Roles::CreateForm < CorevistAPI::Forms::BaseForm
     end
   end
 end

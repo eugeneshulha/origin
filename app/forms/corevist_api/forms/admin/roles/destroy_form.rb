@@ -1,7 +1,6 @@
 module CorevistAPI
   module Forms
-    class Admin::Roles::DestroyForm < BaseForm
-      include CorevistAPI::FormValidations
+    class Admin::Roles::DestroyForm < CorevistAPI::Forms::BaseForm
     end
   end
 end

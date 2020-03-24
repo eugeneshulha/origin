@@ -96,6 +96,7 @@ module CorevistAPI
           partner_search: '/COREVIST/PARTNER_SEARCH',
           get_partner: '/COREVIST/PARTNER_DATA',
           open_items: '/COREVIST/OPEN_ITEMS',
+          get_pdf: '/COREVIST/GET_PDF',
           summary: '/COREVIST/SUMMARY'
         }[method]
       end

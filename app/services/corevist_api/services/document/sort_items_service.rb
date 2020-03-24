@@ -33,14 +33,19 @@ module CorevistAPI
 
       def filter_by_query(items)
         return items if @params[:q].blank?
-
         items.select do |item|
-          item.description.downcase.include?(@params[:q]) || item.material.downcase.include?(@params[:q])
+          item.description.downcase.include?(@params[:q].downcase) || item.material.downcase.include?(@params[:q].downcase)
         end
       end
 
       def obj
-        eval(@form.class.to_s[/.+::.+::(.+)::/, 1]).new
+        @params[:controller]
+            .gsub('/api/v1/', '::_')
+            .gsub('/items', '')
+            .singularize
+            .camelize
+            .constantize
+            .new
       end
     end
   end

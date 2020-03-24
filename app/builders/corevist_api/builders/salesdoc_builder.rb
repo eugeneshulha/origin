@@ -40,7 +40,7 @@ module CorevistAPI
           v = h.to_s.tr('@', '')
           next unless MAPPING[v]
 
-          @object.header.send("#{MAPPING[v]}=", h.instance_variable_get("@#{v}"))
+          @object.header.send("#{MAPPING[v]}=", header.instance_variable_get(h))
         end
       end
 

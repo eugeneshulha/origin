@@ -1,7 +1,6 @@
 module CorevistAPI
   module Forms
-    class Admin::Roles::IndexForm < BaseForm
-      include CorevistAPI::FormValidations
+    class Admin::Roles::IndexForm < CorevistAPI::Forms::BaseForm
     end
   end
 end

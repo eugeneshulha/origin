@@ -26,11 +26,13 @@ CorevistAPI::Engine.routes.draw do
       resources :registrations, only: [:new, :create]
 
       resources :invoices, only: [:new, :show, :index], param: :doc_number do
-        resources :items, on: :member, only: [:index], controller: 'invoices/items'
+        resources :items, only: [:index], controller: 'invoices/items'
+        resources :output_types, only: [:index, :show], param: :output_type_id, controller: 'invoices/output_types'
       end
 
       resources :salesdocs, only: [:new, :show, :index], param: :doc_number do
-        resources :items, on: :member, only: [:index], controller: 'salesdocs/items'
+        resources :items, only: [:index], controller: 'salesdocs/items'
+        resources :output_types, only: [:index, :show], param: :output_type_id, controller: 'salesdocs/output_types'
       end
 
       get 'status', to: 'statuses#status'

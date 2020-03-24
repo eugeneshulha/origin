@@ -30,6 +30,8 @@ module CorevistAPI
         admin_roles_destroy: 'CorevistAPI::Services::Admin::Roles::DestroyService',
         admin_users_steps: 'CorevistAPI::Services::Admin::Users::StepsService',
         sort_document_items: 'CorevistAPI::Services::Document::SortItemsService',
+        output_types_list: 'CorevistAPI::Services::Document::OutputTypesList',
+        show_output_type: 'CorevistAPI::Services::Document::ShowOutputType'
       }
     end
   end

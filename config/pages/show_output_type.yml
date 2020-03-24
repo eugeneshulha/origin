@@ -1,5 +1,5 @@
 components:
-  - uuid: "filter_items_form"
+  - uuid: "show_output_types_form"
     description: "Fields with an asterisk (*) are mandatory."
     method: POST
     title: Registration
@@ -8,7 +8,6 @@ components:
     elements:
       - - atom: text
           uuid: "doc_number"
-          label: Doc number
           name: "doc_number"
           validation_type: string
           value: ""
@@ -17,22 +16,12 @@ components:
               type: required
               value: ""
         - atom: text
-          uuid: "due_date"
-          name: "due_date"
+          uuid: "output_type_id"
+          name: "output_type_id"
           validation_type: string
           value: ""
-        - atom: text
-          uuid: "q"
-          name: "q"
-          validation_type: string
-          value: ""
-        - atom: text
-          uuid: "sort_by"
-          name: "sort_by"
-          validation_type: string
-          value: ""
-        - atom: text
-          uuid: "order"
-          name: "order"
-          validation_type: string
-          value: ""
+          validations:
+            - message: "output_type_id is required"
+              type: required
+              value: ""
+
