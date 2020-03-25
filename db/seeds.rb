@@ -70,7 +70,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::Partner.new.tap do |payer|
-    payer.user = CorevistAPI::User.find_by_username('dummy_user')
+    payer.user = CorevistAPI::User.find_by_username('user_1')
     payer.sales_area = sales_area
     payer.number = '0000003000'
     payer.function = 'RG'
@@ -81,7 +81,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::Partner.new.tap do |payer|
-    payer.user = CorevistAPI::User.find_by_username('dummy_user')
+    payer.user = CorevistAPI::User.find_by_username('user_1')
     payer.sales_area = sales_area
     payer.number = '0000003050'
     payer.function = 'RG'
@@ -92,7 +92,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::Partner.new.tap do |sold_to|
-    sold_to.user = CorevistAPI::User.find_by_username('dummy_user')
+    sold_to.user = CorevistAPI::User.find_by_username('user_1')
     sold_to.sales_area = sales_area
     sold_to.number = '0000003000'
     sold_to.function = 'AG'

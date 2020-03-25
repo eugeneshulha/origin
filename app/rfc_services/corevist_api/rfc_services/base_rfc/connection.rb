@@ -23,7 +23,7 @@ module CorevistAPI
 
     def open
       trace_execution_scoped(['Custom/SAP/init_rfc_connection']) do
-        @connection = SAPNW::Base.rfc_connect
+        @connection ||= SAPNW::Base.rfc_connect
       end
 
       log_new_connection('RFC_NEW_CONNECTION', sprintf("%010d", rand(9999999999)), Time.now - 0)

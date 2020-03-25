@@ -1,6 +1,6 @@
 module CorevistAPI
   module Forms
-    class Admin::Partners::SearchForm < BaseForm
+    class Admin::Partners::SearchForm < CorevistAPI::Forms::BaseForm
       validates_with CorevistAPI::Validators::OneOutOfValidator
 
       def one_out_of_params

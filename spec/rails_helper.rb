@@ -22,6 +22,7 @@ SimpleCov.start 'rails' do
   add_filter 'spec/'
 end
 
+require 'forgery'
 require File.expand_path('../spec/dummy/config/environment', __dir__)
 
 # Prevent database truncation if the environment is production

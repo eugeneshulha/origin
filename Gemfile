@@ -20,7 +20,6 @@ gem 'sapnwrfc',                          git: 'git@github.com:b2b2dot0/sapnwrfc.
 #
 
 group :test, :development do
-  gem 'forgery'
   gem 'pry-byebug'
   gem 'thin'
 end
