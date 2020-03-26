@@ -17,7 +17,9 @@ module CorevistAPI
         items = filter_by_query(document.items)
         items = sort_items(items)
 
-        result(items)
+        hash = paginate(items)
+
+        result(hash)
       end
 
       def sort_items(items)
@@ -36,6 +38,30 @@ module CorevistAPI
         items.select do |item|
           item.description.downcase.include?(@params[:q].downcase) || item.material.downcase.include?(@params[:q].downcase)
         end
+      end
+
+      def paginate(_items)
+        p_size = @params[:page_size].present? ? @params[:page_size].to_i : DEFAULT_PAGE_SIZE
+        p_size = p_size < 1 ? 1 : p_size
+
+        p_number = @params[:page].present? ? @params[:page].to_i : 1
+        p_number = 0 if p_number <= 1
+        p_number = p_number - 1 if p_number > 1
+
+        p_count = _items.size / p_size + 1
+        total_size = _items.size
+
+        items = _items.drop(p_size * p_number).first(p_size)
+
+        {
+            pagination: {
+                totalResults: total_size,
+                pageCount: p_count,
+                pageNumber: p_number + 1,
+                pageSize: p_size,
+            },
+            items: items.as_json
+        }
       end
 
       def obj
