@@ -20,7 +20,7 @@ module CorevistAPI
         salesdoc_list: 'CorevistAPI::Services::Salesdoc::ListService',
         partners_search: 'CorevistAPI::Services::Admin::Partners::SearchService',
         page_configs_read: 'CorevistAPI::Services::PageConfigs::Read',
-        openitems_index: 'CorevistAPI::Services::OpenItems::SearchService',
+        open_items_index: 'CorevistAPI::Services::OpenItems::SearchService',
         summaries_salesdocs_index: 'CorevistAPI::Services::Summaries::Salesdocs::SearchService',
         admin_roles_index: 'CorevistAPI::Services::Admin::Roles::IndexService',
         admin_roles_create: 'CorevistAPI::Services::Admin::Roles::CreateService',
@@ -31,7 +31,8 @@ module CorevistAPI
         admin_users_steps: 'CorevistAPI::Services::Admin::Users::StepsService',
         sort_document_items: 'CorevistAPI::Services::Document::SortItemsService',
         output_types_list: 'CorevistAPI::Services::Document::OutputTypesList',
-        show_output_type: 'CorevistAPI::Services::Document::ShowOutputType'
+        show_output_type: 'CorevistAPI::Services::Document::ShowOutputType',
+        account_details_show: 'CorevistAPI::Services::AccountDetails::Show'
       }
     end
   end

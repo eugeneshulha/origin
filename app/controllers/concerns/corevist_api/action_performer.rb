@@ -14,7 +14,7 @@ module CorevistAPI
       end
 
       def action_prefix
-        self.class.name.remove('CorevistAPI::API::V1::').remove(/Controller/).gsub('::', '_').downcase
+        self.class.name.remove('CorevistAPI::API::V1::').remove(/Controller/).gsub('::', '_').underscore
       end
 
       def type

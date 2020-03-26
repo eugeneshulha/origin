@@ -18,7 +18,7 @@ module CorevistAPI
         salesdoc_list: 'CorevistAPI::Forms::Salesdoc::ListForm',
         partners_search: 'CorevistAPI::Forms::Admin::Partners::SearchForm',
         login: 'CorevistAPI::Forms::User::Login',
-        openitems_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
+        open_items_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
         summaries_salesdocs_index: 'CorevistAPI::Forms::Summaries::SalesdocIndexForm',
         admin_roles_index: 'CorevistAPI::Forms::Admin::Roles::IndexForm',
         admin_roles_create: 'CorevistAPI::Forms::Admin::Roles::CreateForm',
@@ -28,7 +28,8 @@ module CorevistAPI
         sort_salesdoc_items: 'CorevistAPI::Forms::Document::SortItemsForm',
         sort_invoice_items: 'CorevistAPI::Forms::Document::SortItemsForm',
         output_types_list: 'CorevistAPI::Forms::Document::OutputTypesList',
-        show_output_type: 'CorevistAPI::Forms::Document::ShowOutputType'
+        show_output_type: 'CorevistAPI::Forms::Document::ShowOutputType',
+        account_details_show: 'CorevistAPI::Forms::AccountDetails::Show'
       }
     end
   end
