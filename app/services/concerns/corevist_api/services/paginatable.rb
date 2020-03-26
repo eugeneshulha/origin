@@ -4,7 +4,7 @@ module CorevistAPI
 
     included do
       DEFAULT_PAGE_SIZE = 5
-      
+
       private
 
       def paginate(hash)

@@ -1,6 +1,8 @@
 module CorevistAPI
   module Services
     class OpenItems::SearchService< CorevistAPI::Services::BaseServiceWithForm
+      include Paginatable
+
       def perform
         open_items = CorevistAPI::Context.current_user.payers&.inject([]) do |memo, payer|
           @form.payer_number = payer.number
@@ -10,7 +12,9 @@ module CorevistAPI
           memo
         end
 
-        result({ invoices: open_items.flatten.as_json })
+        open_items = paginate(invoices: open_items.flatten)
+
+        result(open_items)
       end
     end
   end
