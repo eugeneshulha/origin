@@ -55,11 +55,12 @@ module CorevistAPI
 
         {
             pagination: {
-                totalResults: total_size,
-                pageCount: p_count,
-                pageNumber: p_number + 1,
-                pageSize: p_size,
+                total_results: total_size,
+                page_count: p_count,
+                page_number: p_number + 1,
+                page_size: p_size,
             },
+
             items: items.as_json
         }
       end

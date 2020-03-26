@@ -35,3 +35,13 @@ components:
           name: "order"
           validation_type: string
           value: ""
+        - atom: text
+          uuid: "page"
+          name: "page"
+          validation_type: string
+          value: ""
+        - atom: text
+          uuid: "page_size"
+          name: "page_size"
+          validation_type: string
+          value: ""
