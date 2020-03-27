@@ -22,9 +22,9 @@ CorevistAPI::Engine.routes.draw do
         resources :partners, only: %i[index], controller: 'users/partners'
       end
 
-      resources :account_details, only: [:show], param: :user_id do
+      resources :account_details, only: [:show], param: :user_id
 
-      end
+      resources :payments, only: [:new]
 
       # registrations
       resources :registrations, only: [:new, :create]
