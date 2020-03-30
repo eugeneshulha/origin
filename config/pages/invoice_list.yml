@@ -1,6 +1,6 @@
 title: "Search for salesdoc"
 components:
-  - uuid: "search_salesdoc_table"
+  - uuid: "search_invoice_table"
     description: "Fields with an asterisk (*) are mandatory."
     method: POST
     title: Assign roles to user

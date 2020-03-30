@@ -103,5 +103,6 @@ module CorevistAPI
     VALID_TO = 'VALID_TO'
     VIEWS = 'VIEWS'
     WITH_DESCRIPTIONS = 'WITH_DESCRIPTIONS'
+    RFC_FLAGS = 'RFC_FLAGS'
   end
 end

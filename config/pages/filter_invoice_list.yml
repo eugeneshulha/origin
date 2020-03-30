@@ -15,6 +15,8 @@ components:
         validation_type: string
         value: ""
         options:
+          - name: Payer
+            value: payer
           - name: PO Number
             value: po_number
           - name: Order Number
@@ -48,16 +50,16 @@ components:
         validation_type: string
         value: ""
       - atom: select
-          uuid: "status"
-          label: Status
-          name: "status"
-          placeholder: Select status
-          validation_type: string
-          value: ""
-          options:
-            - name: Outstanding
-              value: outstanding
-            - name: Status 2
-              value: status_2
-            - name: Status 3
-              value: status_3
+        uuid: "status"
+        label: Status
+        name: "status"
+        placeholder: Select status
+        validation_type: string
+        value: ""
+        options:
+          - name: Outstanding
+            value: outstanding
+          - name: Status 2
+            value: status_2
+          - name: Status 3
+            value: status_3

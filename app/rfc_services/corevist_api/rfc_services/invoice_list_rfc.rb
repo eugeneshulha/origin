@@ -17,16 +17,22 @@ module CorevistAPI
     end
 
     def object_to_rfc
-      {
-        SEARCH_CRITERIA => {
-          PAYER_NR => @params[:payer].add_leading_zeros,
-          MAT => @params[:material].to_s,
-          FROM_DOC_DATE => @params[:from_date].to_s,
-          TO_DOC_DATE => @params[:to_date].to_s,
-          PO_NR => @params[:po_number].to_s,
-          SALESDOC_NR => @params[:doc_number].add_leading_zeros
+      hash = {
+          SEARCH_CRITERIA => {
+          WITH_DESCRIPTIONS => 'T',
+          MAX_RESULTS => '12000',
+          ITEM_LIST => 'F',
+          RFC_FLAGS => 'A'
         }
       }
+
+      hash[SEARCH_CRITERIA][PAYER_NR] = @params[:payer].add_leading_zeros if @params[:payer].present?
+      hash[SEARCH_CRITERIA][MAT] = @params[:material].to_s if @params[:material].present?
+      hash[SEARCH_CRITERIA][FROM_DOC_DATE] = @params[:from_date].to_s if @params[:from_date].present?
+      hash[SEARCH_CRITERIA][TO_DOC_DATE] = @params[:to_date].to_s if @params[:to_date].present?
+      hash[SEARCH_CRITERIA][PO_NR] = @params[:po_number].to_s if @params[:po_number].present?
+      hash[SEARCH_CRITERIA][SALESDOC_NR] = @params[:salesdoc_number].add_leading_zeros if @params[:salesdoc_number].present?
+      hash
     end
 
     def output
