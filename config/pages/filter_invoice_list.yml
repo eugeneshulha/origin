@@ -1,0 +1,63 @@
+title: "List invoices"
+components:
+  - uuid: "invoice_filter_form"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: GET
+    title: Invoices search criteria
+    type: form
+    url: "/v1/invoices"
+    elements:
+      - atom: select
+        uuid: "search_criteria"
+        label: Search criteria
+        name: "search_criteria"
+        placeholder: Select Сriteria
+        validation_type: string
+        value: ""
+        options:
+          - name: PO Number
+            value: po_number
+          - name: Order Number
+            value: order_number
+          - name: Invoice Number
+            value: invoice_number
+          - name: Material Number
+            value: material_number
+          - name: Delivery Number
+            value: delivery_number
+        validations:
+          - message: "<%= I18n.t('my_message') %>"
+            type: required
+            value: ""
+      - atom: text
+        uuid: "payer"
+        label: Payer
+        name: "payer"
+        validation_type: string
+        value: ""
+      - atom: text
+        uuid: "from_date"
+        label: From date
+        name: "from_date"
+        validation_type: string
+        value: ""
+      - atom: text
+        uuid: "to_date"
+        label: To date
+        name: "to_date"
+        validation_type: string
+        value: ""
+      - atom: select
+          uuid: "status"
+          label: Status
+          name: "status"
+          placeholder: Select status
+          validation_type: string
+          value: ""
+          options:
+            - name: Outstanding
+              value: outstanding
+            - name: Status 2
+              value: status_2
+            - name: Status 3
+              value: status_3

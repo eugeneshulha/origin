@@ -93,6 +93,7 @@ module CorevistAPI
         {
           salesdoc_display: '/COREVIST/SALESDOC_DISPLAY',
           invoice_display: '/COREVIST/INVOICE_DISPLAY',
+          invoice_list: '/COREVIST/INVOICE_LIST',
           partner_search: '/COREVIST/PARTNER_SEARCH',
           get_partner: '/COREVIST/PARTNER_DATA',
           open_items: '/COREVIST/OPEN_ITEMS',

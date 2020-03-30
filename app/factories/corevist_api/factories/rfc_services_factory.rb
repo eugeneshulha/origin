@@ -4,6 +4,7 @@ module CorevistAPI
       @storage = {
         salesdoc_display: 'CorevistAPI::RFCServices::SalesdocDisplayRFC',
         invoice_display: 'CorevistAPI::RFCServices::InvoiceDisplayRFC',
+        invoice_list: 'CorevistAPI::RFCServices::InvoiceListRFC',
         get_partner: 'CorevistAPI::RFCServices::PartnerDataRFC',
         partner_search: 'CorevistAPI::RFCServices::PartnerSearchRFC',
         truncate_rfc: 'CorevistAPI::RFCServices::Truncations::RfcService',

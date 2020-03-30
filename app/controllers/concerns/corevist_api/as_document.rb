@@ -13,7 +13,7 @@ module CorevistAPI
 
       def index
         form = form_for(@obj.api_names[:list], params)
-        service = service_for(@obj.api_names[:list], form)
+        service = service_for(@obj.api_names[:list], form, params)
         @result = service.call
       end
 
