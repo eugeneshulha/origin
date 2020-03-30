@@ -12,9 +12,15 @@ module CorevistAPI
       end
 
       def index
-        form = form_for(@obj.api_names[:list], params)
-        service = service_for(@obj.api_names[:list], form, params)
-        @result = service.call
+        @result =
+            if request.get?
+              name = "#{@obj.model_name.element}_list"
+              service_for(:page_configs_read, name).call
+            else
+              form = form_for(@obj.api_names[:list], params)
+              service = service_for(@obj.api_names[:list], form, params)
+              service.call
+            end
       end
 
       def show

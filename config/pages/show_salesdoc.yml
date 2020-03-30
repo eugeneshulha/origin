@@ -24,13 +24,13 @@ components:
     selected_rows: []
     data_url: "/v1/"
     elements:
-      - key: true,
+      - key: true
         name: 'role'
         caption: 'Role'
         label: null
         sortable: true
         action: 'expand'
-      - key: true,
+      - key: true
         name: 'role'
         caption: 'Role'
         label: null
