@@ -12,7 +12,7 @@ components:
     elements:
       - key: true
         name: 'number'
-        caption: 'Invoice'
+        caption: 'Doc number'
         label: null
         sortable: true
         action: 'expand'
@@ -25,12 +25,6 @@ components:
       - key: true
         name: 'po_number'
         caption: 'PO'
-        label: null
-        sortable: true
-        action: 'expand'
-      - key: true
-        name: 'order_number'
-        caption: 'Order'
         label: null
         sortable: true
         action: 'expand'
