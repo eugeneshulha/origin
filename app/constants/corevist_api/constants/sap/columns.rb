@@ -104,5 +104,6 @@ module CorevistAPI
     VIEWS = 'VIEWS'
     WITH_DESCRIPTIONS = 'WITH_DESCRIPTIONS'
     RFC_FLAGS = 'RFC_FLAGS'
+    MY = 'MY'
   end
 end

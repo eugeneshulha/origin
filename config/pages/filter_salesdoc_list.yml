@@ -7,34 +7,16 @@ components:
     type: form
     url: "/v1/salesdocs"
     elements:
-      - atom: select
-        uuid: "search_criteria"
-        label: Search criteria
-        name: "search_criteria"
-        placeholder: Select Сriteria
+      - atom: text
+        uuid: "sold_to_nr"
+        label: Sold-to
+        name: "sold_to_nr"
         validation_type: string
         value: ""
-        options:
-          - name: Payer
-            value: payer
-          - name: PO Number
-            value: po_number
-          - name: Order Number
-            value: order_number
-          - name: Invoice Number
-            value: invoice_number
-          - name: Material Number
-            value: material_number
-          - name: Delivery Number
-            value: delivery_number
-        validations:
-          - message: "<%= I18n.t('my_message') %>"
-            type: required
-            value: ""
       - atom: text
-        uuid: "sold_to"
-        label: Sold-to
-        name: "sold_to"
+        uuid: "material"
+        label: Material
+        name: "material"
         validation_type: string
         value: ""
       - atom: text
@@ -47,6 +29,12 @@ components:
         uuid: "to_date"
         label: To date
         name: "to_date"
+        validation_type: string
+        value: ""
+      - atom: hidden
+        uuid: "my"
+        label: To date
+        name: "my"
         validation_type: string
         value: ""
       - atom: select

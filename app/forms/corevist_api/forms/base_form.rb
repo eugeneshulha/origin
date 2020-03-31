@@ -17,6 +17,12 @@ module CorevistAPI
       nil
     end
 
+    def value_for(param)
+      return nil unless self.respond_to?(param)
+
+      self.instance_variable_get("@#{param}")
+    end
+
     private
 
     def init_params(_params = {})

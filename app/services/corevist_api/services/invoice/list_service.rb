@@ -4,10 +4,6 @@ module CorevistAPI
       include CorevistAPI::Services::Paginatable
       include CorevistAPI::Services::Sortable
 
-      def call
-        perform!
-      end
-
       private
 
       def perform!
