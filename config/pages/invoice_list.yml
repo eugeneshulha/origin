@@ -2,41 +2,55 @@ title: "Search for salesdoc"
 components:
   - uuid: "search_invoice_table"
     description: "Fields with an asterisk (*) are mandatory."
-    method: POST
     title: Assign roles to user
     type: datatable
-    name: "role_ids"
-    url: "/v1/assigned_roles"
-    selected_rows: []
-    data_url: "/v1/"
+    data_url: "/v1/invoices/search"
     elements:
       - key: true
-        name: 'number'
+        name: 'doc_nr'
         caption: 'Invoice'
         label: null
         sortable: true
-        action: 'expand'
+        hidden: false
       - key: true
-        name: 'due_date'
+        name: 'bill_date'
         caption: 'Due date'
         label: null
         sortable: true
-        action: 'expand'
+        hidden: false
       - key: true
         name: 'po_number'
         caption: 'PO'
         label: null
         sortable: true
-        action: 'expand'
+        hidden: false
       - key: true
-        name: 'order_number'
+        name: 'sales_order'
         caption: 'Order'
         label: null
         sortable: true
-        action: 'expand'
+        hidden: false
       - key: true
-        name: 'total_value'
+        name: 'net_value'
         caption: 'Total'
         label: null
         sortable: true
-        action: 'expand'
+        hidden: false
+      - key: true
+        name: 'payer_nr'
+        caption: 'Payer'
+        label: null
+        sortable: true
+        hidden: true
+      - key: true
+        name: 'payer_descr'
+        caption: 'Payer Name'
+        label: null
+        sortable: true
+        hidden: true
+      - key: true
+        name: 'doc_type'
+        caption: 'Doc type'
+        label: null
+        sortable: true
+        hidden: true
