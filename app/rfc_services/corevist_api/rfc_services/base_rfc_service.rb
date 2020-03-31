@@ -92,6 +92,7 @@ module CorevistAPI
       def get_function_name(method)
         {
           salesdoc_display: '/COREVIST/SALESDOC_DISPLAY',
+          salesdoc_list: '/COREVIST/SALESDOC_LIST',
           invoice_display: '/COREVIST/INVOICE_DISPLAY',
           invoice_list: '/COREVIST/INVOICE_LIST',
           partner_search: '/COREVIST/PARTNER_SEARCH',

@@ -3,6 +3,7 @@ module CorevistAPI
     def initialize
       @storage = {
         salesdoc_display: 'CorevistAPI::RFCServices::SalesdocDisplayRFC',
+        salesdoc_list: 'CorevistAPI::RFCServices::SalesdocListRFC',
         invoice_display: 'CorevistAPI::RFCServices::InvoiceDisplayRFC',
         invoice_list: 'CorevistAPI::RFCServices::InvoiceListRFC',
         get_partner: 'CorevistAPI::RFCServices::PartnerDataRFC',
