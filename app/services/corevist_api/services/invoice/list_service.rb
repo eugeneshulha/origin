@@ -6,7 +6,7 @@ module CorevistAPI
 
       private
 
-      def perform!
+      def perform
         @rfc_result = rfc_service_for(:invoice_list, @form, @params).call
 
         array = filter_by_query(@rfc_result.data)
