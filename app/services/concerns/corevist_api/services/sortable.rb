@@ -3,7 +3,6 @@ module CorevistAPI
     extend ActiveSupport::Concern
 
     included do
-
       private
 
       def sort_by_param(array)
@@ -19,10 +18,14 @@ module CorevistAPI
 
       def filter_by_query(array)
         return array if @params[:q].blank?
-        array.select do |element|
-          next element unless element.respond_to?(:description) || element.respond_to?(:material)
 
-          element.description.downcase.include?(@params[:q].downcase) || element.material.downcase.include?(@params[:q].downcase)
+        array.select do |element|
+          v = element.instance_variables.keep_if do |variable|
+            variable.to_s.tr(':@', '')
+            element.value_for_key(variable).to_s.include?(@params[:q].downcase)
+          end
+
+          v.present?
         end
       end
     end

@@ -5,32 +5,62 @@ components:
     method: POST
     title: Assign roles to user
     type: datatable
-    name: "role_ids"
     url: "/v1/assigned_roles"
-    selected_rows: []
-    data_url: "/v1/"
+    data_url: "/v1/salesdocs/search"
     elements:
       - key: true
-        name: 'number'
+        name: 'doc_number'
         caption: 'Doc number'
         label: null
         sortable: true
+        hidden: false
         action: 'expand'
       - key: true
-        name: 'due_date'
-        caption: 'Due date'
+        name: 'doc_type'
+        caption: 'Doc type'
         label: null
         sortable: true
+        hidden: false
+        action: 'expand'
+      - key: true
+        name: 'doc_date'
+        caption: 'Document date'
+        label: null
+        sortable: true
+        hidden: false
         action: 'expand'
       - key: true
         name: 'po_number'
         caption: 'PO'
         label: null
         sortable: true
+        hidden: false
         action: 'expand'
       - key: true
-        name: 'total_value'
+        name: 'ship_status'
+        caption: 'Ship status'
+        label: null
+        sortable: true
+        hidden: false
+        action: 'expand'
+      - key: true
+        name: 'net_value'
         caption: 'Total'
         label: null
         sortable: true
+        hidden: false
+        action: 'expand'
+      - key: true
+        name: 'sold_to_number'
+        caption: 'Sold to number'
+        label: null
+        sortable: true
+        hidden: true
+        action: 'expand'
+      - key: true
+        name: 'sold_to_description'
+        caption: 'Sold to description'
+        label: null
+        sortable: true
+        hidden: true
         action: 'expand'

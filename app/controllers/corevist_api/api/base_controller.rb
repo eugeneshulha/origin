@@ -27,10 +27,9 @@ module CorevistAPI::API
     def handle_exception(exception)
       error("api.errors.#{exception}")
 
-      Rails.logger.error do
-        exception.message
-        exception.backtrace.join("\n")
-      end
+      Rails.logger.error exception.message
+      Rails.logger.error '-' * 70
+      Rails.logger.error exception.backtrace.join("\n")
     end
 
     def handle_service_exception(exception)
