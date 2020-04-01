@@ -16,7 +16,7 @@ module CorevistAPI
           "api/v1/#{doc_name}/#{document.doc_number}/output_types/#{a[1]}"
         end
 
-        result({ output_ypes: data })
+        result({ output_types: data })
       end
 
       def doc_name
