@@ -6,51 +6,52 @@ components:
     type: datatable
     data_url: "/v1/invoices/search"
     elements:
-      - key: true
-        name: 'doc_nr'
-        caption: 'Invoice'
-        label: null
-        sortable: true
-        hidden: false
-      - key: true
-        name: 'bill_date'
-        caption: 'Due date'
-        label: null
-        sortable: true
-        hidden: false
-      - key: true
-        name: 'po_number'
-        caption: 'PO'
-        label: null
-        sortable: true
-        hidden: false
-      - key: true
-        name: 'sales_order'
-        caption: 'Order'
-        label: null
-        sortable: true
-        hidden: false
-      - key: true
-        name: 'net_value'
-        caption: 'Total'
-        label: null
-        sortable: true
-        hidden: false
-      - key: true
-        name: 'payer_nr'
-        caption: 'Payer'
-        label: null
-        sortable: true
-        hidden: true
-      - key: true
-        name: 'payer_descr'
-        caption: 'Payer Name'
-        label: null
-        sortable: true
-        hidden: true
-      - key: true
-        name: 'doc_type'
-        caption: 'Doc type'
-        label: null
-        sortable: true
-        hidden: true
+      thead:
+        - key: true
+          name: 'doc_nr'
+          caption: 'Invoice'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'bill_date'
+          caption: 'Due date'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'po_number'
+          caption: 'PO'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'sales_order'
+          caption: 'Order'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'net_value'
+          caption: 'Total'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'payer_nr'
+          caption: 'Payer'
+          label: null
+          sortable: true
+          hidden: true
+        - key: true
+          name: 'payer_descr'
+          caption: 'Payer Name'
+          label: null
+          sortable: true
+          hidden: true
+        - key: true
+          name: 'doc_type'
+          caption: 'Doc type'
+          label: null
+          sortable: true
+          hidden: true

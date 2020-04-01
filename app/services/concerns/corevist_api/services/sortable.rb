@@ -20,12 +20,17 @@ module CorevistAPI
         return array if @params[:q].blank?
 
         array.select do |element|
-          v = element.instance_variables.keep_if do |variable|
-            variable.to_s.tr(':@', '')
-            element.value_for_key(variable).to_s.include?(@params[:q].downcase)
-          end
+          matches = look_up(element)
+          matches.present?
+        end
+      end
 
-          v.present?
+      def look_up(element)
+        element.instance_variables.select do |variable|
+          variable = variable.to_s.tr(':@', '')
+          next false if element.value_for_key(variable).is_a?(Array)
+
+          element.value_for_key(variable).to_s.downcase.include?(@params[:q].downcase)
         end
       end
     end
