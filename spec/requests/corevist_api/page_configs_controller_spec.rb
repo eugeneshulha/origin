@@ -1,4 +1,4 @@
-describe 'configs', type: :request do
+Ndescribe 'configs', type: :request do
   describe 'get configs for registration page' do
     before{get '/api/v1/page_configs/forgot_password_1'}
     # has translations, fields, buttonsData; Q: or just equal to json from /config/pages/passwords/new.json

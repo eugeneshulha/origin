@@ -1,0 +1,56 @@
+title: "Filter"
+components:
+  - uuid: "filter_salesdocs_modal_form"
+    description:
+    method: GET
+    title:
+    type: form
+    url: "/v1/salesdocs"
+    elements:
+      - - atom: select
+          uuid: 'search_option'
+          label: Payer
+          name: "payer"
+          placeholder: Select Payer
+          validation_type: string
+          value: ""
+          options:
+            - name: Sold to number
+              value: 'sold_to_nr'
+            - name: Ship to number
+              value: 'ship_to_nr'
+            - name: PO number
+              value: 'po_number'
+            - name: Material number
+              value: 'material'
+            - name: Invoice number
+              value: 'invoice_number'
+            - name: Delivery number
+              value: 'delivery_number'
+
+      - - atom: text
+          label: From date
+          name: "from_date"
+          value: ""
+
+        - atom: text
+          label: To date
+          name: "to_date"
+          value: ""
+
+      - - atom: text
+          label: Status
+          name: "status"
+          value: ""
+
+      - - atom: button
+          text: Cancel
+          type: text
+          actionType: button
+          name: "apply"
+
+        - atom: button
+          text: Apply
+          type: secondary
+          actionType: submit
+          name: "apply"

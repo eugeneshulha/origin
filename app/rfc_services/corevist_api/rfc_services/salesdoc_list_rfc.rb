@@ -55,7 +55,7 @@ module CorevistAPI
         hash[SEARCH_CRITERIA][FROM_DOC_DATE] = @object.value_for_key(:from_date).to_s                     if @object.value_for_key(:from_date)
         hash[SEARCH_CRITERIA][TO_DOC_DATE]   = @object.value_for_key(:to_date).to_s                       if @object.value_for_key(:to_date)
         hash[SEARCH_CRITERIA][PO_NR]         = @object.value_for_key(:po_number).to_s                     if @object.value_for_key(:po_number)
-        hash[SEARCH_CRITERIA][SALESDOC_NR]   = @object.value_for_key(:salesdoc_number).add_leading_zeros  if @object.value_for_key(:salesdoc_number)
+        hash[SEARCH_CRITERIA][INVOICE_NR]   = @object.value_for_key(:salesdoc_number).add_leading_zeros  if @object.value_for_key(:salesdoc_number)
         hash[SEARCH_CRITERIA][MY]            = 'T' if @object.value_for_key(:my)
       end
     end

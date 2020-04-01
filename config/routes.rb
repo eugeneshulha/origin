@@ -30,14 +30,16 @@ CorevistAPI::Engine.routes.draw do
       resources :registrations, only: [:new, :create]
 
       resources :invoices, only: [:new, :show, :index], param: :doc_number do
-        post 'search', on: :collection, to: 'invoices#index'
+        get 'configs', on: :collection, to: 'invoices#index_configs'
         resources :items, only: [:index], controller: 'invoices/items'
+        resources :filters, only: [:new], controller: 'invoices/filters'
         resources :output_types, only: [:index, :show], param: :output_type_id, controller: 'invoices/output_types'
       end
 
       resources :salesdocs, only: [:new, :show, :index], param: :doc_number do
-        post 'search', on: :collection, to: 'salesdocs#index'
+        get 'configs', on: :collection, to: 'invoices#index_configs'
         resources :items, only: [:index], controller: 'salesdocs/items'
+        resources :filters, only: [:new], controller: 'salesdocs/filters'
         resources :output_types, only: [:index, :show], param: :output_type_id, controller: 'salesdocs/output_types'
       end
 
