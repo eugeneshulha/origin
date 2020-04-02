@@ -46,7 +46,7 @@ module CorevistAPI
           WITH_DESCRIPTIONS => TRUE_VAL,
           MAX_RESULTS => '12000',
           ITEM_LIST => FALSE_VAL,
-          TA_GROUP => '2'
+          TA_GROUP => '0'
         }
       }.tap do |hash|
         hash[SEARCH_CRITERIA][SOLD_TO_NR]    = @object.value_for_key(:sold_to_nr).add_leading_zeros       if @object.value_for_key(:sold_to_nr)
