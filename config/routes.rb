@@ -23,6 +23,7 @@ CorevistAPI::Engine.routes.draw do
       end
 
       resources :account_details, only: [:show], param: :user_id
+      resources :accounts, only: [:show], param: :user_id
 
       resources :payments, only: [:new]
 
