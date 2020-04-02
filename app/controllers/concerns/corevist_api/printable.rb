@@ -18,7 +18,13 @@ module CorevistAPI
         service = service_for(:show_output_type, form, params)
         @result = service.call
 
-        send_data @result.data, disposition: 'inline', type: 'application/pdf'
+        # send_data @result.data, disposition: 'inline', type: 'application/pdf'
+        file = File.new('data.pdf', 'wb')
+        file.write(@result.data)
+        file.close
+        send_file file.path, type: 'application/pdf', disposition: 'attachment'
+
+        # send_file File.new('blabla.pdf', 'w') { |x| x << @result.data }, type: 'application/pdf'
       end
 
       private

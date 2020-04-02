@@ -1,1 +1,46 @@
-title: new payment
+title: "Pay Invoice"
+components:
+  - uuid: "invoice_payment_form"
+    method: POST
+    type: form
+    url: "/v1/auth"
+    elements:
+      - - atom: select
+          uuid: "payment_method"
+          label: Payment Method
+          name: "payment_method"
+          placeholder: Select Payment Method
+          validation_type: string
+          value: ""
+          options:
+            - name: Credit card
+              value: 'credit_card'
+            - name: Invoice
+              value: 'invoice_card'
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
+              value: ""
+
+        - atom: text
+          uuid: "reference"
+          label: Reference
+          name: "reference"
+          placeholder: Reference
+          validation_type: string
+          value: ""
+          validations:
+            - message: "Reference field is required"
+              type: required
+              value: ""
+            - message: "Reference cannot be less than 3 characters"
+              type: min
+              value: "3"
+            - message: "Reference cannot be more than 20 characters"
+              type: max
+              value: "20"
+      - - atom: button
+          uuid: "button_1"
+          text: Pay
+          type: primary
+          action_type: submit

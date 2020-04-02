@@ -13,6 +13,7 @@ components:
           label: null
           sortable: true
           hidden: false
+          action: 'expand'
         - key: true
           name: 'bill_date'
           caption: 'Due date'
@@ -31,6 +32,7 @@ components:
           label: null
           sortable: true
           hidden: false
+          action: 'expand'
         - key: true
           name: 'net_value'
           caption: 'Total'
