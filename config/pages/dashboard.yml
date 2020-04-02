@@ -1,8 +1,81 @@
 title: "Dashboard"
 components:
-  -
-    uuid: "recent_orders"
-    type: "table"
-    url: "/api/v1/salesdocs"
+  - uuid: "accounting_chart"
+    type: "chart"
+    data_url: "v1/account_details"
     method: "GET"
-    title: "Recently placed orders"
+    name: "accounting_chart"
+
+  - uuid: "recent_orders"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: POST
+    title: Assign roles to user
+    type: datatable
+    url: "/v1/assigned_roles"
+    data_url: "/v1/salesdocs/search"
+    elements:
+      thead:
+        - key: true
+          name: 'doc_number'
+          caption: 'Doc number'
+          label: null
+          sortable: true
+          hidden: false
+          action: 'link'
+        - key: true
+          name: 'doc_type'
+          caption: 'Doc type'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'doc_date'
+          caption: 'Document date'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'po_number'
+          caption: 'PO'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'ship_status'
+          caption: 'Ship status'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'net_value'
+          caption: 'Total'
+          label: null
+          sortable: true
+          hidden: false
+
+  - uuid: "open_items"
+    description: "Fields with an asterisk (*) are mandatory."
+    title: Assign roles to user
+    type: datatable
+    data_url: "/v1/invoices/search"
+    elements:
+      thead:
+        - key: true
+          name: 'inv'
+          caption: 'Invoice'
+          label: null
+          sortable: true
+          hidden: false
+          action: 'expand'
+        - key: true
+          name: 'bill_date'
+          caption: 'Due date'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'net_value'
+          caption: 'Total'
+          label: null
+          sortable: true
+          hidden: false
