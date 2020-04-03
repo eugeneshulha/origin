@@ -15,5 +15,9 @@ module CorevistAPI
     SHIPMENTS               = 'SHIPMENTS'
     USER_DATA               = 'USER_DATA'
     GET_PDF_IN              = 'GET_PDF_IN'
+    CREDIT_CARD_IN          = 'CREDIT_CARD_IN'
+    PAYMENT_HEADER          = 'PAYMENT_HEADER'
+    ECHECK                  = 'ECHECK'
+    PAY_ITEMS_IN            = 'PAY_ITEMS_IN'
   end
 end

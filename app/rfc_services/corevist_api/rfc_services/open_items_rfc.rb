@@ -1,6 +1,5 @@
 module CorevistAPI
   class RFCServices::OpenItemsRFC < CorevistAPI::RFCServices::BaseRFCService
-    COMP_CODE = 'COMP_CODE'.freeze
     PAYER_NR = 'PAYER_NR'.freeze
     OPEN_ITEMS = 'OPEN_ITEMS'.freeze
     ACCOUNTING_DATA = 'ACCOUNTING_DATA'.freeze

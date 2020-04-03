@@ -25,7 +25,7 @@ CorevistAPI::Engine.routes.draw do
       resources :account_details, only: [:show], param: :user_id
       resources :accounts, only: [:show], param: :user_id
 
-      resources :payments, only: [:new]
+      resources :payments, only: [:new, :create]
       resource :dashboard, only: [:new]
 
       # registrations

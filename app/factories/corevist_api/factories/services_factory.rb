@@ -32,7 +32,8 @@ module CorevistAPI
         sort_document_items: 'CorevistAPI::Services::Document::SortItemsService',
         output_types_list: 'CorevistAPI::Services::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Services::Document::ShowOutputType',
-        account_details_show: 'CorevistAPI::Services::AccountDetails::Show'
+        account_details_show: 'CorevistAPI::Services::AccountDetails::Show',
+        pay_invoices: 'CorevistAPI::Services::Invoice::Pay'
       }
     end
   end

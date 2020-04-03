@@ -8,14 +8,29 @@ en_US:
           presence: 'is absent'
         function:
           presence: 'is absent'
-
-    services:
-      no_uuid: 'UUID is required to perform this operation'
-    user:
-      not_found: 'User not found'
-    partner:
-      not_found: 'Partner not found'
     errors:
+      services:
+        no_uuid: 'UUID is required to perform this operation'
+      user:
+        not_found: 'User not found'
+      partner:
+        not_found: 'Partner not found'
+      infos:
+        admin_roles_show: 'Role has been successfully loaded'
+        admin_roles_create: 'Role has been successfully created'
+        admin_roles_update: 'Role has been successfully updated'
+        admin_roles_destroy: 'Role has been successfully destroyed'
+        open_items_index: 'Open items have been loaded successfully'
+        summaries_salesdocs_index: 'Salesdocs have been loaded successfully'
+        admin_roles_index: 'Roles have been successfully loaded'
+      roles:
+        not_found: 'Role has not been found'
+        not_destroyed: 'Role has NOT been destroyed'
+      users:
+        not_found: 'User has not been found'
+        not_destroyed: 'User has NOT been destroyed'
+      open_items:
+        items_to_pay_not_found: "No items to pay"
       step: 'Invalid step parameter'
       unauthorized: 'You are not authorised to access this resource.'
       unexpected_exception: 'An unknown error has occurred, please report this.'
@@ -24,18 +39,3 @@ en_US:
       assignable_role_not_found: 'The assignable role was not found'
       one_function: 'Only one sold-to or ship-to can be assigned'
       territory_not_found: 'The territory was not found'
-    infos:
-      admin_roles_show: 'Role has been successfully loaded'
-      admin_roles_create: 'Role has been successfully created'
-      admin_roles_update: 'Role has been successfully updated'
-      admin_roles_destroy: 'Role has been successfully destroyed'
-      open_items_index: 'Open items have been loaded successfully'
-      summaries_salesdocs_index: 'Salesdocs have been loaded successfully'
-      admin_roles_index: 'Roles have been successfully loaded'
-    roles:
-      not_found: 'Role has not been found'
-      not_destroyed: 'Role has NOT been destroyed'
-    users:
-      not_found: 'User has not been found'
-      not_destroyed: 'User has NOT been destroyed'
-

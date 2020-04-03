@@ -29,7 +29,8 @@ module CorevistAPI
         sort_invoice_items: 'CorevistAPI::Forms::Document::SortItemsForm',
         output_types_list: 'CorevistAPI::Forms::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Forms::Document::ShowOutputType',
-        account_details_show: 'CorevistAPI::Forms::AccountDetails::Show'
+        account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',
+        pay_invoices: 'CorevistAPI::Forms::Invoice::Pay'
       }
     end
   end

@@ -26,6 +26,12 @@ components:
         validation_type: string
         value: ""
       - atom: text
+        uuid: "po_number"
+        label: PO number
+        name: "po_number"
+        validation_type: string
+        value: ""
+      - atom: text
         uuid: "to_date"
         label: To date
         name: "to_date"

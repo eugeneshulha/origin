@@ -5,10 +5,10 @@ module CorevistAPI
       @result = service_for(:page_configs_read, :new_payment).call
     end
 
-    private
-
-    def type
-      "#{action_prefix}_#{action_name}".to_sym
+    def create
+      form = form_for(:pay_invoices, params)
+      service = service_for(:pay_invoices, form, params)
+      @result = service.call
     end
   end
 end
