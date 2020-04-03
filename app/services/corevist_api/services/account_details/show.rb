@@ -5,7 +5,7 @@ module CorevistAPI
       def perform
         result = { }
 
-        payer = Struct.new(:payer_number).new(params[:payer])
+        payer = Struct.new(:payer_number).new(@params[:payer])
         rfc_result = rfc_service_for(:open_items, payer, @params).call
 
         result[:open_items] = rfc_result.data[:open_items]
@@ -26,17 +26,11 @@ module CorevistAPI
           memo
         end
 
-        limit = result[:accounting_data].inject(0) do |memo, x|
-          memo += x.credit_limit.to_f
-        end
-
-        remaining = result[:accounting_data].inject(0) { |memo, x| memo += x.rem_credit.to_f }
-
         data = {
             balance: balance,
             credit: {
-              limit: limit,
-              remaining:  remaining
+              limit: result[:accounting_data].credit_limit,
+              remaining:   result[:accounting_data].rem_credit
             }
         }
 
