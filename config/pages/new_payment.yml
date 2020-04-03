@@ -11,10 +11,10 @@ components:
           name: "payment_method"
           placeholder: Select Payment Method
           validation_type: string
-          value: ""
+          value: "c"
           options:
             - name: Credit card
-              value: 'credit_card'
+              value: 'c'
             - name: Invoice
               value: 'invoice_card'
           validations:
@@ -28,7 +28,7 @@ components:
           name: "reference"
           placeholder: Reference
           validation_type: string
-          value: ""
+          value: "test"
           validations:
             - message: "Reference field is required"
               type: required
@@ -39,8 +39,3 @@ components:
             - message: "Reference cannot be more than 20 characters"
               type: max
               value: "20"
-      - - atom: button
-          uuid: "button_1"
-          text: Pay
-          type: primary
-          action_type: submit

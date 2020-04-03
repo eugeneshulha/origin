@@ -46,11 +46,11 @@ components:
       - - atom: button
           text: Cancel
           type: text
-          actionType: button
+          action_type: button
           name: "apply"
 
         - atom: button
           text: Apply
           type: secondary
-          actionType: submit
+          action_type: submit
           name: "apply"
