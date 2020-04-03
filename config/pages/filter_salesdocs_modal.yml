@@ -28,6 +28,12 @@ components:
             - name: Delivery number
               value: 'delivery_number'
 
+        - atom: text
+          uuid: 'search_criteria_value'
+          label: Search Criteria Value
+          name: "search_criteria_value"
+          value: ""
+
       - - atom: text
           label: From date
           name: "from_date"
@@ -38,10 +44,18 @@ components:
           name: "to_date"
           value: ""
 
-      - - atom: text
+      - - atom: select
           label: Status
+          uuid: "status"
           name: "status"
-          value: ""
+          value: "ALL"
+          options:
+            - name: All
+              value: 'ALL'
+            - name: Not shipped
+              value: 'NSHP'
+            - name: Shipped
+              value: 'SHIP'
 
       - - atom: button
           text: Cancel
