@@ -2,6 +2,9 @@ module CorevistAPI
   class Services::BaseService
     include CorevistAPI::Factories::FactoryInterface
     include CorevistAPI::Services::BaseServiceInterface
+    include CorevistAPI::Services::Paginatable
+    include CorevistAPI::Services::Sortable
+
 
     def initialize(object, params)
       @object = object

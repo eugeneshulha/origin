@@ -1,6 +1,8 @@
 module CorevistAPI
   class API::V1::BaseController < CorevistAPI::API::BaseController
     include CorevistAPI::Factories::FactoryInterface
+    include CorevistAPI::ConfigsFor
+
     include Pundit
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized

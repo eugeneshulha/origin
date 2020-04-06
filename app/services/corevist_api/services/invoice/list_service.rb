@@ -1,8 +1,6 @@
 module CorevistAPI
   module Services::Invoice
     class ListService < CorevistAPI::Services::BaseServiceWithForm
-      include CorevistAPI::Services::Paginatable
-      include CorevistAPI::Services::Sortable
 
       private
 

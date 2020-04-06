@@ -1,8 +1,6 @@
 module CorevistAPI
   module Services::Document
     class SortItemsService < CorevistAPI::Services::BaseServiceWithForm
-      include CorevistAPI::Services::Paginatable
-      include CorevistAPI::Services::Sortable
 
       private
 

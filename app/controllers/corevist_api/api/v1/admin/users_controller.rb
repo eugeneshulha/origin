@@ -5,15 +5,13 @@ module CorevistAPI
       before_action :check_step, only: :create
       before_action :perform_action, only: %i[index show create update destroy]
 
+      configs_for :new, :index_configs, :edit
+
       STEPS = %w[1 2 3 4 5 6].freeze
 
       def index; end
 
       def show; end
-
-      def new
-        @result = service_for(:page_configs_read, :admin_create_user).call
-      end
 
       def create; end
 

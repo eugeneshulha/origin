@@ -4,7 +4,10 @@ module CorevistAPI
 
       def perform
         filter_result = filter
-        result(filter_result.data)
+
+        data = paginate(users: filter_result.data)
+
+        result(data)
       end
 
       def filter
