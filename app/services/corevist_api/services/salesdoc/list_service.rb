@@ -5,13 +5,20 @@ module CorevistAPI
       private
 
       def perform
-        @rfc_result = rfc_service_for(:salesdoc_list, @form, @params).call
+        if @params[:doc_number]
+          @rfc_result = service_for(:salesdocs_show, @form, @params).call
 
-        array = filter_by_query(@rfc_result.data)
-        array = sort_by_param(array)
+          result = @rfc_result.data
+        else
+          @rfc_result = rfc_service_for(:salesdoc_list, @form, @params).call
 
-        invoices = paginate(salesdocs: array)
-        result(invoices)
+          array = filter_by_query(@rfc_result.data)
+          array = sort_by_param(array)
+
+          result = paginate(salesdocs: array)
+        end
+
+        result(result)
       end
     end
   end
