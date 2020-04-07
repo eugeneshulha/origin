@@ -20,6 +20,7 @@ PATH
       rack-cors (~> 1.1.0)
       rails (~> 5.2.4)
       sidekiq (~> 5.2.7)
+      spreedly (~> 2.0.24)
       thin (~> 1.7.0)
       unicorn
 
@@ -269,6 +270,8 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
+    spreedly (2.0.24)
+      nokogiri
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
