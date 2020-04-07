@@ -56,7 +56,7 @@ module CorevistAPI
         hash[SEARCH_CRITERIA][PO_NR]         = @object.value_for_key(:po_number).to_s                     if @object.value_for_key(:po_number)
         hash[SEARCH_CRITERIA][INVOICE_NR]    = @object.value_for_key(:salesdoc_number).add_leading_zeros  if @object.value_for_key(:salesdoc_number)
         hash[SEARCH_CRITERIA][MY]            = 'T'                                                        if @object.value_for_key(:my)
-        hash[SEARCH_CRITERIA][MAX_RESULTS]   = @object.value_for_key(:my) ? '50' : '50'
+        hash[SEARCH_CRITERIA][MAX_RESULTS]   = @object.value_for_key(:my) ? '50' : '12000'
       end
     end
 
