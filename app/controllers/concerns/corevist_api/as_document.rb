@@ -5,27 +5,9 @@ module CorevistAPI
     included do
       before_action :dispatch_object
 
-      def index
-        form = form_for(@obj.api_names[:list], params)
-        service = service_for(@obj.api_names[:list], form, params)
-        @result = service.call
-      end
-
-      def index_configs
-        name = "#{@obj.model_name.element}_list"
-        service = service_for(:page_configs_read, name)
-        @result = service.call
-      end
-
-      def new
-        name = "show_#{@obj.model_name.element}"
-        @result = service_for(:page_configs_read, name).call
-      end
-
-      def show
-        service = service_for(@obj.api_names[:display], @obj, params)
-        @result = service.call
-      end
+      form_performer_for :index
+      obj_performer_for :show
+      configs_for :new, :index
 
       private
 

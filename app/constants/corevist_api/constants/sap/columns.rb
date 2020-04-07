@@ -110,7 +110,6 @@ module CorevistAPI
     CARD_NR = 'CARD_NR'
     VALID_TO = 'VALID_TO'
     NAME_ON_CARD = 'NAME_ON_CARD'
-    CURR = 'CURR'
     AUTH_AMOUNT = 'AUTH_AMOUNT'
     AUTH_DATE = 'AUTH_DATE'
     AUTH_TIME = 'AUTH_TIME'

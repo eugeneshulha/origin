@@ -1,7 +1,6 @@
 module CorevistAPI
   class API::V1::BaseController < CorevistAPI::API::BaseController
     include CorevistAPI::Factories::FactoryInterface
-    include CorevistAPI::ConfigsFor
 
     include Pundit
 
@@ -30,12 +29,8 @@ module CorevistAPI
       super(record, query, policy_class: policy_class || policy_class(record.model_name))
     end
 
-    def type
-      raise NotImplementedError
-    end
-
     def service_result
-      @result = service_for(type, form_for(type, params), params).call
+      @result = service_for(performer_name, form_for(performer_name, params), params).call
     end
 
     def authorize_user

@@ -14,14 +14,13 @@ module CorevistAPI
         admin_users_destroy: 'CorevistAPI::Services::Admin::Users::DestroyService',
         admin_users_index_filter: 'CorevistAPI::Services::Admin::Users::FilterService',
         user_registration: 'CorevistAPI::Services::User::RegistrationService',
-        invoice_display: 'CorevistAPI::Services::Invoice::DisplayService',
-        salesdoc_display: 'CorevistAPI::Services::Salesdoc::DisplayService',
-        invoice_list: 'CorevistAPI::Services::Invoice::ListService',
-        salesdoc_list: 'CorevistAPI::Services::Salesdoc::ListService',
+        invoices_show: 'CorevistAPI::Services::Invoice::DisplayService',
+        salesdocs_show: 'CorevistAPI::Services::Salesdoc::DisplayService',
+        invoices_index: 'CorevistAPI::Services::Invoice::ListService',
+        salesdocs_index: 'CorevistAPI::Services::Salesdoc::ListService',
         partners_search: 'CorevistAPI::Services::Admin::Partners::SearchService',
         page_configs_read: 'CorevistAPI::Services::PageConfigs::Read',
         open_items_index: 'CorevistAPI::Services::OpenItems::SearchService',
-        summaries_salesdocs_index: 'CorevistAPI::Services::Summaries::Salesdocs::SearchService',
         admin_roles_index: 'CorevistAPI::Services::Admin::Roles::IndexService',
         admin_roles_create: 'CorevistAPI::Services::Admin::Roles::CreateService',
         admin_roles_update: 'CorevistAPI::Services::Admin::Roles::UpdateService',
@@ -30,10 +29,10 @@ module CorevistAPI
         admin_roles_destroy: 'CorevistAPI::Services::Admin::Roles::DestroyService',
         admin_users_steps: 'CorevistAPI::Services::Admin::Users::StepsService',
         sort_document_items: 'CorevistAPI::Services::Document::SortItemsService',
-        output_types_list: 'CorevistAPI::Services::Document::OutputTypesList',
+        output_types_index: 'CorevistAPI::Services::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Services::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Services::AccountDetails::Show',
-        pay_invoices: 'CorevistAPI::Services::Invoice::Pay'
+        payments_create: 'CorevistAPI::Services::Invoice::Pay'
       }
     end
   end

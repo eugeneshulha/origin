@@ -10,7 +10,6 @@ module CorevistAPI
         partner_search: 'CorevistAPI::RFCServices::PartnerSearchRFC',
         truncate_rfc: 'CorevistAPI::RFCServices::Truncations::RfcService',
         open_items: 'CorevistAPI::RFCServices::OpenItemsRFC',
-        summary: 'CorevistAPI::RFCServices::SummaryRFC',
         get_pdf: 'CorevistAPI::RFCServices::GetPdfRFC',
         pay_invoices: 'CorevistAPI::RFCServices::PayBillRFC'
       }

@@ -1,10 +1,7 @@
 module CorevistAPI
   class API::V1::RegistrationsController < CorevistAPI::API::V1::BaseController
     skip_before_action :authenticate_user!
-
-    def new
-      @result = service_for(:page_configs_read, :registration).call
-    end
+    configs_for :new
 
     def create
       form = form_for(:user_registration, params)

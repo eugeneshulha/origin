@@ -1,12 +1,11 @@
 module CorevistAPI
   class API::V1::PasswordsController < Devise::PasswordsController
     include CorevistAPI::Factories::FactoryInterface
+    include CorevistAPI::ConfigsFor
 
+    configs_for :new
     respond_to :json
 
-    def new
-      @result = service_for(:page_configs_read, :forgot_password_1).call
-    end
 
     def create
       self.resource = resource_class.send_reset_password_instructions(resource_params)
@@ -31,6 +30,12 @@ module CorevistAPI
       end
 
       render action: :update
+    end
+
+    private
+
+    def performer_name
+      :forgot_password_1
     end
   end
 end

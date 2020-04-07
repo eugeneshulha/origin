@@ -1,14 +1,13 @@
 module CorevistAPI
   class API::V1::SessionsController < Devise::SessionsController
     include CorevistAPI::Factories::FactoryInterface
+    include CorevistAPI::ConfigsFor
     include JsonResponse
 
-    def new
-      @result = service_for(:page_configs_read, :login).call
-    end
+    configs_for :new
 
     def create
-      @form = form_for(:login, params)
+      @form = form_for(:sessions_create, params)
 
       if @form.valid?
         self.resource = warden.authenticate!(auth_options)

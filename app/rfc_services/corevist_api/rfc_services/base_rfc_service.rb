@@ -99,7 +99,6 @@ module CorevistAPI
           get_partner: '/COREVIST/PARTNER_DATA',
           open_items: '/COREVIST/OPEN_ITEMS',
           get_pdf: '/COREVIST/GET_PDF',
-          summary: '/COREVIST/SUMMARY',
           pay_bill: '/COREVIST/PAY_BILL'
         }[method]
       end

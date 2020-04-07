@@ -7,24 +7,18 @@ module CorevistAPI
       before_action :dispatch_object
       before_action :prepare_params
 
-      def index
-        form = form_for(:output_types_list, params)
-        service = service_for(:output_types_list, form, params)
-        @result = service.call
-      end
+      form_performer_for :index
 
       def show
         form = form_for(:show_output_type, params)
         service = service_for(:show_output_type, form, params)
         @result = service.call
 
-        # send_data @result.data, disposition: 'inline', type: 'application/pdf'
         file = File.new('data.pdf', 'wb')
         file.write(@result.data)
         file.close
-        send_file file.path, type: 'application/pdf', disposition: 'attachment'
 
-        # send_file File.new('blabla.pdf', 'w') { |x| x << @result.data }, type: 'application/pdf'
+        send_file file.path, type: 'application/pdf', disposition: 'attachment'
       end
 
       private
@@ -49,6 +43,10 @@ module CorevistAPI
                    .capitalize
 
         @obj = ('CorevistAPI::' + name).safe_constantize.new
+      end
+
+      def performer_name
+        'output_types_index'
       end
     end
   end

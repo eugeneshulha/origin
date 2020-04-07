@@ -3,11 +3,5 @@ module CorevistAPI
     include CorevistAPI::UserSpecific
 
     def show; end
-
-    private
-
-    def type
-      "#{action_prefix}_#{action_name}".to_sym
-    end
   end
 end

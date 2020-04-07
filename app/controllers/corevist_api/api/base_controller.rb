@@ -5,8 +5,9 @@ module CorevistAPI::API
 
     include ActionController::MimeResponds
     include ActionController::Helpers
-    include CorevistAPI::ActionPerformer
     include CorevistAPI::JsonResponse
+    include CorevistAPI::ActionPerformer
+    include CorevistAPI::ConfigsFor
 
     rescue_from StandardError, with: :handle_exception
     rescue_from CorevistAPI::ServiceException, with: :handle_service_exception

@@ -14,12 +14,11 @@ module CorevistAPI
         admin_users_destroy: 'CorevistAPI::Forms::Admin::Users::DestroyForm',
         user_registration: 'CorevistAPI::Forms::User::Registration',
         set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',
-        invoice_list: 'CorevistAPI::Forms::Invoice::ListForm',
-        salesdoc_list: 'CorevistAPI::Forms::Salesdoc::ListForm',
+        invoices_index: 'CorevistAPI::Forms::Invoice::ListForm',
+        salesdocs_index: 'CorevistAPI::Forms::Salesdoc::ListForm',
         partners_search: 'CorevistAPI::Forms::Admin::Partners::SearchForm',
-        login: 'CorevistAPI::Forms::User::Login',
+        sessions_create: 'CorevistAPI::Forms::User::Login',
         open_items_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
-        summaries_salesdocs_index: 'CorevistAPI::Forms::Summaries::SalesdocIndexForm',
         admin_roles_index: 'CorevistAPI::Forms::Admin::Roles::IndexForm',
         admin_roles_create: 'CorevistAPI::Forms::Admin::Roles::CreateForm',
         admin_roles_update: 'CorevistAPI::Forms::Admin::Roles::UpdateForm',
@@ -27,10 +26,10 @@ module CorevistAPI
         admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
         sort_salesdoc_items: 'CorevistAPI::Forms::Document::SortItemsForm',
         sort_invoice_items: 'CorevistAPI::Forms::Document::SortItemsForm',
-        output_types_list: 'CorevistAPI::Forms::Document::OutputTypesList',
+        output_types_index: 'CorevistAPI::Forms::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Forms::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',
-        pay_invoices: 'CorevistAPI::Forms::Invoice::Pay'
+        payments_create: 'CorevistAPI::Forms::Invoice::Pay'
       }
     end
   end
