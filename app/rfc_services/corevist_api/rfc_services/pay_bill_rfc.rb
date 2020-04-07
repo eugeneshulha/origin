@@ -48,6 +48,7 @@ module CorevistAPI
     end
 
     def payment_header_to_rfc
+      today = Time.zone.today.to_s.tr('-', '')
       {
         REF_DOC_NO => @params[:reference_number],
         HEADER_TXT => '',
@@ -58,10 +59,10 @@ module CorevistAPI
         BDCMODE => 'N',
         PROFIT_CTR => '',
         DOC_TYPE => 'DZ',
-        DOC_DATE => '20200403',
-        PSTNG_DATE => '20200403',
+        DOC_DATE => today,
+        PSTNG_DATE => today,
         CURR => 'USD',
-        VALID_ON => '20200403',
+        VALID_ON => today,
         RFC_FLAGS => '',
         COMP_CODE => '3000',
         PAYER_NR => '3000'

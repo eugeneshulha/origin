@@ -4,5 +4,12 @@ module CorevistAPI
       @form = form
       mail to: form.email
     end
+
+    def pay_invoices_confirmation(user, payment_number)
+      @user = user
+      @number = payment_number
+
+      mail to: user.email
+    end
   end
 end
