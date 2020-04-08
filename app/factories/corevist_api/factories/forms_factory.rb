@@ -29,7 +29,9 @@ module CorevistAPI
         output_types_index: 'CorevistAPI::Forms::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Forms::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',
-        payments_create: 'CorevistAPI::Forms::Invoice::Pay'
+        payments_create: 'CorevistAPI::Forms::Invoice::Pay',
+        salesdocs_questions_create: 'CorevistAPI::Forms::Salesdoc::Question::Create',
+        invoices_questions_create: 'CorevistAPI::Forms::Invoice::Question::Create'
       }
     end
   end

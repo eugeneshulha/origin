@@ -1,0 +1,27 @@
+components:
+  - uuid: "invoices_questions_create_form"
+    description:
+    method: POST
+    title:
+    type: form
+    url: "/v1/invoices/<invoice_doc_number>/questions"
+    elements:
+      - - atom: hidden
+          label: Payer
+          name: "text"
+          uuid: "text"
+          validation_type: string
+          value: ""
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
+
+        - atom: hidden
+          label: Timeframe
+          name: "invoice_doc_number"
+          uuid: "invoice_doc_number"
+          placeholder: Select Timeframe
+          value: ""
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required

@@ -32,7 +32,9 @@ module CorevistAPI
         output_types_index: 'CorevistAPI::Services::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Services::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Services::AccountDetails::Show',
-        payments_create: 'CorevistAPI::Services::Invoice::Pay'
+        payments_create: 'CorevistAPI::Services::Invoice::Pay',
+        invoices_questions_create: 'CorevistAPI::Services::Invoice::Question::Create',
+        salesdocs_questions_create: 'CorevistAPI::Services::Salesdoc::Question::Create'
       }
     end
   end

@@ -35,7 +35,7 @@ CorevistAPI::Engine.routes.draw do
         get :configs, on: :collection, to: 'invoices#index_configs'
         get 'filters/new', on: :collection, to: 'invoices/filters#new'
         resources :items, only: [:index], controller: 'invoices/items'
-        resources :questions, only: [:new], controller: 'invoices/questions'
+        resources :questions, only: [:new, :create], controller: 'invoices/questions'
         resources :output_types, only: [:index, :show], param: :output_type_id, controller: 'invoices/output_types'
       end
 
@@ -43,7 +43,7 @@ CorevistAPI::Engine.routes.draw do
         get :configs, on: :collection, to: 'salesdocs#index_configs'
         get 'filters/new', on: :collection, to: 'salesdocs/filters#new'
         resources :items, only: [:index], controller: 'salesdocs/items'
-        resources :questions, only: [:new], controller: 'salesdocs/questions'
+        resources :questions, only: [:new, :create], controller: 'salesdocs/questions'
         resources :output_types, only: [:index, :show], param: :output_type_id, controller: 'salesdocs/output_types'
       end
 

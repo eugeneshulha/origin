@@ -1,0 +1,27 @@
+components:
+  - uuid: "salesdocs_questions_create_form"
+    description:
+    method: POST
+    title:
+    type: form
+    url: "/v1/salesdocs/<salesdoc_doc_number>/questions"
+    elements:
+      - - atom: hidden
+          label: Payer
+          name: "text"
+          uuid: "text"
+          validation_type: string
+          value: ""
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
+
+        - atom: hidden
+          label: Timeframe
+          name: "salesdoc_doc_number"
+          uuid: "salesdoc_doc_number"
+          placeholder: Select Timeframe
+          value: ""
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
