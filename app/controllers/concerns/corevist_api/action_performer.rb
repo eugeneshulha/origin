@@ -21,6 +21,7 @@ module CorevistAPI
         def obj_performer_for(*actions)
           actions.each do |action|
             define_method action do
+              binding.pry
               params.merge!(type: performer_name)
               params.merge!(scope: policy_scope(scope_model)) if respond_to?(:scope_model, true)
               result = service_for(performer_name, @obj, params).call
