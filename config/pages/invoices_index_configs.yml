@@ -1,4 +1,4 @@
-title: "Search for salesdoc"
+title: "Search for Invoice"
 components:
   - uuid: "search_invoice_table"
     description: "Fields with an asterisk (*) are mandatory."

@@ -1,16 +1,5 @@
-title: "Create new user"
+title: "Order"
 components:
-  - uuid: "salesdoc_details"
-    description: "Fields with an asterisk (*) are mandatory."
-    method: POST
-    title: Complete user details
-    type: form
-    url: "/v1/admin/users"
-    elements:
-      - - atom: button
-          uuid: "uuid"
-          label: User ID
-
   - uuid: "salesdoc_items_table"
     description: "Fields with an asterisk (*) are mandatory."
     method: POST
@@ -23,14 +12,53 @@ components:
     elements:
       thead:
         - key: true
-          name: 'role'
-          caption: 'Role'
+          name: 'item_number'
+          caption: 'Item Number'
           label: null
           sortable: true
-          action: 'expand'
         - key: true
-          name: 'role'
-          caption: 'Role'
+          name: 'material'
+          caption: 'Material'
           label: null
           sortable: true
-          action: 'expand'
+        - key: true
+          name: 'description'
+          caption: 'Description'
+          label: null
+          sortable: true
+        - key: true
+          name: 'rdd'
+          caption: 'Req. Del Date'
+          label: null
+          sortable: true
+        - key: true
+          name: 'net_value'
+          caption: 'Net Value'
+          label: null
+          sortable: true
+        - key: true
+          name: 'quantity'
+          caption: 'Quantity'
+          label: null
+          sortable: true
+        - key: true
+          name: 'sales_uom'
+          caption: 'Sales UOM'
+          label: null
+          sortable: true
+        - key: true
+          name: 'item_cat'
+          caption: 'Item Cat.'
+          label: null
+          sortable: true
+        - key: true
+          name: 'net_price'
+          caption: 'Net Price'
+          label: null
+          sortable: true
+        - key: true
+          name: 'per'
+          caption: 'Per.'
+          label: null
+          sortable: true
+
