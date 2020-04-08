@@ -28,13 +28,13 @@ module CorevistAPI
         price_components = {
             title: "Pricing details",
             content_type: 'table',
-            data: @rfc_result.data['price_components'].map do |pc|
+            data: doc.price_components.map do |pc|
               { title: "label for #{pc.cond_type}", text: pc.value }
             end
         }
 
-        partners = @rfc_result.data['partners'].map do |partner|
-          { title: "Partner #{partner.fct}", text: "#{partner.name1}, #{partner.city}" }
+        partners = doc.partners.map do |partner|
+          { title: "Partner #{partner.function}", text: "#{partner.street_address_1}, #{partner.street_address_2}, #{partner.street_address_3}" }
         end
 
         doc_details = {
