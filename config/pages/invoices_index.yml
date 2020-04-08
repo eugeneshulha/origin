@@ -31,6 +31,24 @@ components:
         name: "to_date"
         validation_type: string
         value: ""
+      - atom: text
+        uuid: "material"
+        label: Material
+        name: "material"
+        validation_type: string
+        value: ""
+      - atom: text
+        uuid: "salesdoc_number"
+        label: Order number
+        name: "salesdoc_number"
+        validation_type: string
+        value: ""
+      - atom: text
+        uuid: "delivery_number"
+        label: Order number
+        name: "delivery_number"
+        validation_type: string
+        value: ""
       - atom: select
         uuid: "status"
         label: Status

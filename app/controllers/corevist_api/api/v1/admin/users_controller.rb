@@ -4,7 +4,7 @@ module CorevistAPI
       before_action :check_step, only: :create
 
       form_performer_for :index, :show, :create, :update, :destroy
-      configs_for :new, :index, :edit
+      configs_for :new, :index, :show, :edit
 
       STEPS = %w[1 2 3 4 5 6].freeze
 

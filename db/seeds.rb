@@ -18,9 +18,24 @@ ActiveRecord::Base.transaction do
     territory.microsites << CorevistAPI::Microsite.first
   end.save
 
-  sales_area = CorevistAPI::SalesArea.find_or_create_by(
+  sales_area_1 = CorevistAPI::SalesArea.find_or_create_by(
     title: '30001000',
     created_by: 'seeds'
+  )
+
+  sales_area_2 = CorevistAPI::SalesArea.find_or_create_by(
+      title: '30001200',
+      created_by: 'seeds'
+  )
+
+  sales_area_3 = CorevistAPI::SalesArea.find_or_create_by(
+      title: '30001400',
+      created_by: 'seeds'
+  )
+
+  sales_area_4 = CorevistAPI::SalesArea.find_or_create_by(
+      title: '10001000',
+      created_by: 'seeds'
   )
 
   role = CorevistAPI::Role.find_or_create_by!(
@@ -37,7 +52,10 @@ ActiveRecord::Base.transaction do
 
   %w[C I H M O P U B A].each do |c|
     dc = CorevistAPI::DocCategory.find_or_create_by!(id: c, created_by: 'seeds')
-    dc.sales_areas << sales_area
+    dc.sales_areas << sales_area_1
+    dc.sales_areas << sales_area_2
+    dc.sales_areas << sales_area_3
+    dc.sales_areas << sales_area_4
   end
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_1') do |user|
@@ -71,7 +89,7 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::Partner.new.tap do |payer|
     payer.user = CorevistAPI::User.find_by_username('user_1')
-    payer.sales_area = sales_area
+    payer.sales_area = sales_area_1
     payer.number = '0000003000'
     payer.function = 'RG'
     payer.state = 'NE'
@@ -82,7 +100,18 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::Partner.new.tap do |payer|
     payer.user = CorevistAPI::User.find_by_username('user_1')
-    payer.sales_area = sales_area
+    payer.sales_area = sales_area_1
+    payer.number = '0000003001'
+    payer.function = 'RG'
+    payer.state = 'NE'
+    payer.country = 'US'
+    payer.city = 'New York'
+    payer.assigned = true
+  end.save
+
+  CorevistAPI::Partner.new.tap do |payer|
+    payer.user = CorevistAPI::User.find_by_username('user_1')
+    payer.sales_area = sales_area_1
     payer.number = '0000003050'
     payer.function = 'RG'
     payer.state = 'NE'
@@ -93,7 +122,7 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::Partner.new.tap do |sold_to|
     sold_to.user = CorevistAPI::User.find_by_username('user_1')
-    sold_to.sales_area = sales_area
+    sold_to.sales_area = sales_area_1
     sold_to.number = '0000003000'
     sold_to.function = 'AG'
     sold_to.state = 'NE'
@@ -102,12 +131,26 @@ ActiveRecord::Base.transaction do
     sold_to.assigned = true
   end.save
 
-  role.sales_areas << sales_area
-  doc_type.sales_areas << sales_area
+  role.sales_areas.delete_all
+  doc_type.sales_areas.delete_all
+  role.privileges.delete_all
+
+  role.sales_areas << sales_area_1
+  role.sales_areas << sales_area_2
+  role.sales_areas << sales_area_3
+  role.sales_areas << sales_area_4
+
+  doc_type.sales_areas << sales_area_1
+  doc_type.sales_areas << sales_area_2
+  doc_type.sales_areas << sales_area_3
+  doc_type.sales_areas << sales_area_4
+
   role.privileges << CorevistAPI::Privilege.all
 
   u = CorevistAPI::User.find_by(username: 'user_1')
+  u.roles.delete_all
   u.roles << role if u.roles.blank?
+
 
   CorevistAPI::User.find_or_initialize_by(username: 'b2b') do |user|
     user.username = 'b2b'
@@ -122,3 +165,4 @@ ActiveRecord::Base.transaction do
     user.roles = [role]
   end.save
 end
+

@@ -32,6 +32,7 @@ module CorevistAPI
       hash[SEARCH_CRITERIA][TO_DOC_DATE]   = @object.value_for_key(:to_date).to_s                       if @object.value_for_key(:to_date)
       hash[SEARCH_CRITERIA][PO_NR]         = @object.value_for_key(:po_number).to_s                     if @object.value_for_key(:po_number)
       hash[SEARCH_CRITERIA][SALESDOC_NR]   = @object.value_for_key(:salesdoc_number).add_leading_zeros  if @object.value_for_key(:salesdoc_number)
+      hash[SEARCH_CRITERIA][DEL_NR]        = @object.value_for_key(:delivery_number).add_leading_zeros  if @object.value_for_key(:delivery_number)
       hash
     end
 
