@@ -49,12 +49,12 @@ CorevistAPI::Engine.routes.draw do
 
       # admin panel
       namespace :admin do
-        resources :users, only: [:index, :new, :create, :edit, :update, :destroy], param: :uuid do
+        resources :users, only: [:index, :new, :create, :edit, :update, :show, :destroy], param: :uuid do
           get :configs, on: :collection, to: 'users#index_configs'
           resources :partners, only: %i[index], controller: 'users/partners'
         end
 
-        resources :roles, only: [:index, :new, :create, :edit, :update, :destroy] do
+        resources :roles, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
           get :configs, on: :collection, to: 'roles#index_configs'
         end
       end
