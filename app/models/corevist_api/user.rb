@@ -79,6 +79,14 @@ module CorevistAPI
       find_by(id: id) || find_by(uuid: id)
     end
 
+    def number_format
+      @number_format || Settings.number_format_US
+    end
+
+    def date_format
+      @date_format || Settings.date_format_US
+    end
+
     private
 
     def set_uuid
