@@ -1,1 +1,36 @@
-title: Role display page
+title: "Role display page"
+components:
+  - uuid: "roles_list_table"
+    description: ""
+    method: GET
+    title: Assign roles to user
+    type: datatable
+    url: ""
+    data_url: "/v1/admin/roles"
+    elements:
+      thead:
+        - key: true
+          name: "title"
+          caption: "Title"
+          label: null
+          sortable: true
+          hidden: false
+          action: "link"
+        - key: true
+          name: "description"
+          caption: "description"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "created_by"
+          caption: "created_by"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "active"
+          caption: "active"
+          label: null
+          sortable: true
+          hidden: false
