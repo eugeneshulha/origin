@@ -129,7 +129,7 @@ class String
   # 1. empty   -> nil
   # 1. invalid -> string (as-is)
   # 1. valid   -> integer
-  def view_amount_to_ruby(f=Const::App.number_format_US, d=2)
+  def view_amount_to_ruby(f=Settings.number_format_US, d=2)
     if self.strip.empty?
       nil    # nothing entered
     elsif d == 0 && self.index(f[0].chr)
@@ -255,5 +255,15 @@ class String
 
   def unatify
     remove(AT_SIGN)
+  end
+
+  def amount_to_user_format(format)
+    ActiveSupport::NumberHelper.number_to_delimited(Float(self), delimiter: format.first, separator: format.last)
+  end
+
+  def date_to_user_format(format)
+    return self if self.blank?
+
+    Date.strptime(self, format)
   end
 end
