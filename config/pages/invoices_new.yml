@@ -1,6 +1,6 @@
 title: "Invoice"
 components:
-  - uuid: "salesdoc_items_table"
+  - uuid: "invoice_items_table"
     description: "Fields with an asterisk (*) are mandatory."
     method: POST
     title: Assign roles to user

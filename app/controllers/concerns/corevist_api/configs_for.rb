@@ -10,7 +10,7 @@ module CorevistAPI
             action = "#{action}_configs" if %i[index show].include?(action)
 
             define_method action do
-              @result = service_for(:page_configs_read, performer_name).call
+              @result = service_for(:page_configs_read, performer_name, object: params).call
 
               render 'corevist_api/api/v1/shared/configs', result: @result
             end

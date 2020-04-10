@@ -1,0 +1,65 @@
+title: "New payment"
+components:
+  - uuid: "create_payment_form"
+    description:
+    method: POST
+    title:
+    type: form
+    url: "/v1/admin_user_sold_to_modal_form"
+    elements:
+      - - atom: text
+          label: Payer
+          name: "payer"
+          uuid: "payer"
+          placeholder: Select Payer
+          validation_type: string
+          value: ""
+
+      - - atom: text
+          label: Timeframe
+          name: "token"
+          uuid: "token"
+          placeholder: Select Timeframe
+          value: ""
+
+      - - atom: text
+          label: Status
+          name: "comp_code"
+          uuid: "comp_code"
+          placeholder: Select Status
+          value: ""
+
+      - - atom: text
+          label: Status
+          name: "reference_number"
+          uuid: "reference_number"
+          placeholder: Select Status
+          value: ""
+
+      - - atom: text
+          label: Status
+          name: "invoices"
+          uuid: "invoices"
+          placeholder: Select Status
+          value: ""
+
+      - - atom: text
+          label: Status
+          name: "payment_method"
+          uuid: "payment_method"
+          placeholder: Select Status
+          value: ""
+
+      - - atom: text
+          label: Status
+          name: "currency"
+          uuid: "currency"
+          placeholder: Select Status
+          value: ""
+
+      - - atom: text
+          label: Status
+          name: "amount"
+          uuid: "amount"
+          placeholder: Select Status
+          value: ""

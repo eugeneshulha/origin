@@ -5,10 +5,10 @@ components:
     method: POST
     title: Contact us about this Order
     type: form
-    url: "/v1/salesdocs/<salesdoc_doc_number>/questions"
+    url: "/v1/salesdocs/<%= @object[:salesdoc_doc_number] %>/questions"
     elements:
       - - atom: text
-          uuid: "textarea"
+          uuid: "text"
           label: Your message
           name: "text"
           placeholder: Your message
