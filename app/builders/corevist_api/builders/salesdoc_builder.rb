@@ -135,6 +135,23 @@ module CorevistAPI
         end
       end
 
+      def with_deliveries
+        return unless respond_to?(:deliveries)
+
+        deliveries.inject(@object.deliveries) do |memo, _delivery|
+          memo << CorevistAPI::Salesdoc::Delivery.new.tap do |delivery|
+            delivery.number = _delivery.nr
+            delivery.delivery_date = _delivery.del_date
+            delivery.gi_date = _delivery.gi_date
+            delivery.tracking_number = _delivery.tracking_nr
+            delivery.carrier_name = _delivery.carrier_name
+            delivery.carrier_number = _delivery.carrier_nr
+            delivery.shipment = _delivery.shipment
+            delivery.status = _delivery.status
+          end
+        end
+      end
+
       private
 
       def obtain_object
