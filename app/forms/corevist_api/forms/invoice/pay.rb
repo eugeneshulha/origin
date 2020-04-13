@@ -1,5 +1,12 @@
 module CorevistAPI
   class Forms::Invoice::Pay < CorevistAPI::Forms::BaseForm
-    # validate_component :pay_invoices_form, on_page: :pay_invoices
+    attr_accessor :credit_card, :auth_token
+
+    validate_component :create_payment_form, on_page: :payments_create
+
+
+    def pay_with_cc?
+      @payment_method.downcase == 'c'
+    end
   end
 end

@@ -24,12 +24,12 @@ module CorevistAPI
 
     def credit_card_to_rfc
       hash = {
-        CARD_TYPE => @params[:credit_card][:type],
-        CARD_NR => @params[:credit_card][:number],
-        VALID_TO => @params[:credit_card][:valid_to],
-        NAME_ON_CARD => @params[:credit_card][:name],
-        CURR => 'USD',
-        AUTH_AMOUNT => '9689.00',
+        CARD_TYPE => @object.credit_card[:cc_type],
+        CARD_NR => @object.credit_card[:cc_number],
+        VALID_TO => @object.credit_card[:cc_exp_date],
+        NAME_ON_CARD => @object.credit_card[:cc_name],
+        CURR => @object.currency,
+        AUTH_AMOUNT => @object.amount.to_s,
         AUTH_DATE => '20200403',
         AUTH_TIME => '154121',
         AUTH_NR => '',
@@ -70,16 +70,7 @@ module CorevistAPI
     end
 
     def items_to_rfc
-      data = Struct.new(:payer).new(@params[:payer])
-      rfc_result = rfc_service_for(:open_items, data, @params).call
-
-      items = rfc_result.data[:open_items].select do |item|
-        @params[:invoices].include?(item.inv)
-      end
-
-      raise CorevistAPI::ServiceException.new('open_items.items_to_pay_not_found') if items.blank?
-
-      @items = items.inject([]) do |memo, item|
+      items = @object.invoices.inject([]) do |memo, item|
         memo << {
             INV => item.inv,
             AC_DOC_NO => item.fi_nr,
@@ -90,7 +81,7 @@ module CorevistAPI
         memo
       end
 
-      { PAY_ITEMS_IN => @items }
+      { PAY_ITEMS_IN => items }
     end
 
     def output
