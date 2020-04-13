@@ -3,6 +3,14 @@ module CorevistAPI
     extend ActiveSupport::Concern
     include ActiveModel::Model
 
+    def initialize
+      @items = []
+      @partners = []
+      @price_components = []
+      @config = "#{self.class}::Config".constantize.new
+      @header = "#{self.class}::Header".constantize.new
+    end
+
     included do
       attr_accessor :header, :items, :partners, :payment_terms, :config, :cond_types, :sap_return, :price_components
                     :user_id
@@ -25,14 +33,6 @@ module CorevistAPI
 
       class self::PriceComponent
         include CorevistAPI::Document::PriceComponent
-      end
-
-      def initialize
-        @items = []
-        @partners = []
-        @price_components = []
-        @config = "#{self.class}::Config".constantize.new
-        @header = "#{self.class}::Header".constantize.new
       end
 
       def doc_number
