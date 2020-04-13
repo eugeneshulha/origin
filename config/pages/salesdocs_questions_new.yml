@@ -1,1 +1,36 @@
-title: Have a question?
+title: "Have a question?"
+components:
+  - uuid: "salesdocs_questions_create_form"
+    description:
+    method: POST
+    title: Contact us about this Order
+    type: form
+    url: "/v1/salesdocs/<%= @object[:salesdoc_doc_number] %>/questions"
+    elements:
+      - - atom: text
+          uuid: "text"
+          label: Your message
+          name: "text"
+          placeholder: Your message
+          validation_type: string
+          value: ""
+          validations:
+            - message: "Your message field is required"
+              type: required
+              value: ""
+            - message: "Your message cannot be less than 3 characters"
+              type: min
+              value: "3"
+            - message: "Your message cannot be more than 1000 characters"
+              type: max
+              value: "1000"
+
+      - - atom: button
+          text: Cancel
+          type: text
+          action_type: button
+
+        - atom: button
+          text: Send Email
+          type: secondary
+          action_type: submit

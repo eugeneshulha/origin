@@ -17,6 +17,7 @@ module CorevistAPI
           builder.with_header
           builder.with_prices
           builder.with_partners
+          builder.with_deliveries
         end
 
         salesdoc = prepare_response(salesdoc)
@@ -29,7 +30,7 @@ module CorevistAPI
             title: "Pricing details",
             content_type: 'table',
             data: doc.price_components.map do |pc|
-              { title: "label for #{pc.cond_type}", text: pc.value }
+              { title: "label for #{pc.cond_type}", text: pc.value_formatted }
             end
         }
 
@@ -46,9 +47,25 @@ module CorevistAPI
             ]
         }
 
+        deliveries = if doc.deliveries.present?
+                       {
+                           title: "Salesdoc deliveries",
+                           content_type: 'table',
+                           data: doc.deliveries.map do |delivery|
+                             {
+                               delivery_date: delivery.delivery_date, delivery_number: delivery.number,
+                               carrier: delivery.carrier_number, tracking_number: delivery.tracking_number
+                             }
+                           end
+                       }
+                     else []
+                     end
+                       
+
         [].tap do |arr|
           arr << price_components
           arr << doc_details
+          arr << deliveries if deliveries.present?
         end
       end
     end

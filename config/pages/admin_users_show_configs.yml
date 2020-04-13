@@ -1,1 +1,78 @@
-title: User display page
+title: "User display page"
+components:
+  - uuid: "users_list_table"
+    description: ""
+    method: GET
+    title: Assign roles to user
+    type: datatable
+    url: ""
+    data_url: "/v1/admin/users"
+    elements:
+      thead:
+        - key: true
+          name: "username"
+          caption: "Username"
+          label: null
+          sortable: true
+          hidden: false
+          action: "link"
+        - key: true
+          name: "first_name"
+          caption: "first_name"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "last_name"
+          caption: "last_name"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "email"
+          caption: "email"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "phone"
+          caption: "phone"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "date_format"
+          caption: "date_format"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "number_format"
+          caption: "number_format"
+          label: null
+          sortable: true
+          hidden: true
+        - key: true
+          name: "time_format"
+          caption: "time_format"
+          label: null
+          sortable: true
+          hidden: true
+        - key: true
+          name: "time_zone"
+          caption: "time_zone"
+          label: null
+          sortable: true
+          hidden: true
+        - key: true
+          name: "language"
+          caption: "language"
+          label: null
+          sortable: true
+          hidden: true
+        - key: true
+          name: "active"
+          caption: "active"
+          label: null
+          sortable: true
+          hidden: true

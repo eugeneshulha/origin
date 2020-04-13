@@ -112,6 +112,17 @@ ActiveRecord::Base.transaction do
   CorevistAPI::Partner.new.tap do |payer|
     payer.user = CorevistAPI::User.find_by_username('user_1')
     payer.sales_area = sales_area_1
+    payer.number = '0000003001'
+    payer.function = 'AG'
+    payer.state = 'NE'
+    payer.country = 'US'
+    payer.city = 'New York'
+    payer.assigned = true
+  end.save
+
+  CorevistAPI::Partner.new.tap do |payer|
+    payer.user = CorevistAPI::User.find_by_username('user_1')
+    payer.sales_area = sales_area_1
     payer.number = '0000003050'
     payer.function = 'RG'
     payer.state = 'NE'
