@@ -9,7 +9,16 @@ module CorevistAPI
         return array if @params[:sort_by].blank?
 
         array = array.sort_by do |item|
-          item.send(@params[:sort_by]) if item.respond_to?(@params[:sort_by])
+          next unless item.respond_to?(@params[:sort_by])
+
+          param = item.send(@params[:sort_by])
+
+          if param.is_date?
+            param.to_time.to_i
+          elsif param.is_numeric?
+            param.user_format_to_numeric
+          else param
+          end
         end
 
         array.reverse! if @params[:order]&.to_sym == :desc

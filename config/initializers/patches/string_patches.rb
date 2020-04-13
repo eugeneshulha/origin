@@ -266,4 +266,20 @@ class String
 
     Date.strptime(self, format)
   end
+
+  def user_format_to_numeric
+    ActiveSupport::NumberHelper.number_to_delimited(Float(self), delimiter: '').to_f
+  rescue
+    self
+  end
+
+  def is_numeric?
+    self.gsub(/\W/, '').scan(/^\d+$/).present?
+  end
+
+  def is_date?
+    self.to_date
+  rescue
+    false
+  end
 end
