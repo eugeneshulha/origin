@@ -277,9 +277,8 @@ class String
     self.gsub(/\W/, '').scan(/^\d+$/).present?
   end
 
+  # For dates like: 20200101, 2020/01/01, 01.01.2020
   def is_date?
-    self.to_date
-  rescue
-    false
+    self !~ /^0+/ && self.length == 8 || %w[/ .].any? { |sep| self.include?(sep) } && self.length == 10
   end
 end
