@@ -26,7 +26,6 @@ module CorevistAPI
 
         # convert basic structure to objects with getters and setters
         elements = component.elements.flatten
-
         elements.each { |element| element.transform(self) }
       end
     end

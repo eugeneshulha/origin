@@ -39,7 +39,8 @@ module CorevistAPI
       end
 
       def user
-        CorevistAPI::User.find_by_id(@form.id)
+        id = @form.try(:uuid) || @form.try(:id)
+        CorevistAPI::User.find_by_id(id)
       end
     end
   end

@@ -1,5 +1,0 @@
-id:
-  presence: true
-territories_ids:
-  presence: true
-  array: true

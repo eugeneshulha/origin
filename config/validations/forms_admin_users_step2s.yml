@@ -1,5 +1,0 @@
-id:
-  presence: true
-role_ids:
-  presence: true
-  array: true

@@ -1,5 +1,0 @@
-id:
-  presence: true
-assignable_role_ids:
-  presence: true
-  array: true
