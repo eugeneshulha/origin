@@ -7,7 +7,10 @@ module CorevistAPI
     end
 
     def for(name, *args)
-      @storage.with_indifferent_access[name].safe_constantize.new(*args)
+      obj = @storage.with_indifferent_access[name]
+      raise NoObjectException, "Factory with id #{name} not found in #{self.class}'s storage'" unless obj
+
+      obj.safe_constantize.new(*args)
     end
   end
 end

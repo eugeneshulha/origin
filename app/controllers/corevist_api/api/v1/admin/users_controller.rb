@@ -13,7 +13,7 @@ module CorevistAPI
       def performer_name
         return "#{action_prefix}_#{action_name}".to_sym if params[:step].blank?
 
-        "#{action_prefix}_step_#{params[:step]}".to_sym
+        "#{action_prefix}_#{action_name}_step_#{params[:step]}".to_sym
       end
 
       def check_step

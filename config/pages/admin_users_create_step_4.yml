@@ -1,0 +1,22 @@
+title: "assignable roles of new user"
+components:
+  - uuid: "roles_can_assign_of_new_user_form"
+    description: ""
+    method: PATCH
+    title: Show user
+    type: form
+    url: "/v1/admin/users/<uuid>"
+    elements:
+      - - atom: hidden
+          uuid: "assignable_role_ids"
+          label: assigned_roles
+          name: "assignable_role_ids"
+          validation_type: string
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
+      - - atom: hidden
+          uuid: "uuid"
+          label: ID
+          name: "uuid"
+          validation_type: string

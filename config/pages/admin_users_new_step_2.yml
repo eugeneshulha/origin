@@ -1,22 +1,28 @@
 title: "Assigned roles of new user"
 components:
-  - uuid: "assigned_roles_of_new_user_form"
-    description: ""
-    method: PATCH
-    title: Show user
-    type: form
-    url: "/v1/admin/users/<uuid>"
+  - uuid: "assigned_roles"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: POST
+    title: Assign roles to user
+    type: datatable
+    name: "role_ids"
+    url: "/v1/assigned_roles"
+    selected_rows: []
+    data_url: "/v1/"
     elements:
-      - - atom: hidden
-          uuid: "role_ids"
-          label: assigned_roles
-          name: "role_ids"
-          validation_type: string
-          validations:
-            - message: "<%= I18n.t('my_message') %>"
-              type: required
-      - - atom: hidden
-          uuid: "uuid"
-          label: ID
-          name: "uuid"
-          validation_type: string
+      thead:
+        - key: true,
+          name: 'id'
+          uuid: 'id'
+          caption: 'Id'
+          label: null
+          sortable: true
+          action: 'expand'
+
+        - key: true,
+          name: 'title'
+          uuid: 'title'
+          caption: 'Titles'
+          label: null
+          sortable: true
+          action: 'expand'
