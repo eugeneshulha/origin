@@ -37,7 +37,7 @@ module CorevistAPI
 
     def object_to_rfc
       {
-        PARTNER_NUMBER => @object.partner_number.to_s
+        PARTNER_NUMBER => @object.partner_number.to_s.add_leading_zeros
       }
     end
   end

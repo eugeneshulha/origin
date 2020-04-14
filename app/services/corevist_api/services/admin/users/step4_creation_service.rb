@@ -19,6 +19,7 @@ module CorevistAPI
         raise CorevistAPI::ServiceException.new("api.#{namespace}.one_function") if assigned_partners.present?
 
         partners = @form.partners.each_with_object([]) do |data, memo|
+          data = data[1] if data.is_a?(Array)
           next if data[KEY_FUNCTION].to_sym == function_name(excluded_function)
 
           partners = process_partner(data[KEY_NUMBER])

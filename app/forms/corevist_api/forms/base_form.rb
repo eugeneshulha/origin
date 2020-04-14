@@ -25,6 +25,7 @@ module CorevistAPI
       params.each do |k, v|
         next unless self.respond_to?(k)
 
+        v = v.permit!.to_h if v.is_a?(ActionController::Parameters)
         self.send("#{k}=", v)
       end
     end
