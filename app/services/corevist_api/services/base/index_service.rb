@@ -5,7 +5,9 @@ module CorevistAPI
       def perform
         filter_result = filter
 
-        data = paginate(items: filter_result.data)
+        items = filter_by_query(filter_result.data)
+        items = sort_by_param(items)
+        data = paginate(items: items)
 
         result(data)
       end

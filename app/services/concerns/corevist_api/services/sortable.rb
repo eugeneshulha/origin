@@ -35,7 +35,8 @@ module CorevistAPI
       end
 
       def look_up(element)
-        element.instance_variables.select do |variable|
+        attrs = element.respond_to?(:attributes) ? element.attributes : element.instance_variables
+        attrs.select do |variable|
           variable = variable.to_s.tr(':@', '')
           next false if element.value_for_key(variable).is_a?(Array)
 
