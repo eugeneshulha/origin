@@ -22,6 +22,12 @@ module CorevistAPI
         end
 
       end
+
+      def as_json
+        super.tap do |hash|
+          hash.keys.each { |field| hash[field] = send("#{field}_formatted") if respond_to?("#{field}_formatted")  }
+        end
+      end
     end
   end
 end
