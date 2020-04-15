@@ -20,8 +20,6 @@ en_US:
     errors:
       services:
         no_uuid: 'UUID is required to perform this operation'
-      user:
-        not_found: 'User not found'
       partner:
         not_found: 'Partner not found'
       roles:
@@ -30,6 +28,7 @@ en_US:
       users:
         not_found: 'User has not been found'
         not_destroyed: 'User has NOT been destroyed'
+        one_function: 'You can not assign sold_tos and ship_to at the same time'
       open_items:
         items_to_pay_not_found: "No items to pay"
       step: 'Invalid step parameter'

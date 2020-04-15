@@ -12,7 +12,6 @@ components:
           label: assigned_roles
           name: "partners"
           validation_type: string
-          validations:
 
       - - atom: hidden
           uuid: "uuid"

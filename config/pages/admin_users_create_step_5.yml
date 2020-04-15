@@ -1,22 +1,22 @@
-title: "assignable roles of new user"
+title: "Ship tos of new user"
 components:
-  - uuid: "roles_can_assign_of_new_user_form"
+  - uuid: "ship_tos_of_new_user_form"
     description: ""
     method: PATCH
     title: Show user
     type: form
-    url: "/v1/admin/users/<uuid>"
+    url: "/v1/admin/users?step=4"
     elements:
       - - atom: hidden
-          uuid: "assignable_role_ids"
+          uuid: "partners"
           label: assigned_roles
-          name: "assignable_role_ids"
+          name: "partners"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('my_message') %>"
-              type: required
+
       - - atom: hidden
           uuid: "uuid"
           label: ID
           name: "uuid"
           validation_type: string
+

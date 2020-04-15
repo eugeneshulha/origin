@@ -73,7 +73,7 @@ module CorevistAPI
     def as_json(options = nil)
       relations = self.class.reflections.keys.each_with_object({}) { |relation, memo| memo[relation] = send(relation) }
       relations = relations.except('partners')
-      partners_brake_down = { sold_tos: sold_tos, ship_tos: sold_tos, payers: payers }
+      partners_brake_down = { sold_tos: sold_tos, ship_tos: ship_tos, payers: payers }
       relations.merge!(partners_brake_down)
       attributes.merge(relations)
     end
