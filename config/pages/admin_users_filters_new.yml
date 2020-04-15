@@ -1,0 +1,26 @@
+title: "Filter"
+components:
+  - uuid: "filter_users_modal_form"
+    description:
+    method: GET
+    title:
+    type: form
+    url: "/v1/salesdocs"
+    elements:
+      - - atom: text
+          uuid: 'username'
+          label: Username
+          name: "username"
+          value: ""
+
+      - - atom: button
+          text: Cancel
+          type: text
+          action_type: button
+          name: "apply"
+
+        - atom: button
+          text: Apply
+          type: secondary
+          action_type: submit
+          name: "apply"
