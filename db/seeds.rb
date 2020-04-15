@@ -38,19 +38,19 @@ ActiveRecord::Base.transaction do
       created_by: 'seeds'
   )
 
-  role_1 = CorevistAPI::Role_1.find_or_create_by!(
+  role_1 = CorevistAPI::Role.find_or_create_by!(
     title: 'Create Roles',
     description: 'That role lets you create roles',
     created_by: 'seeds'
   )
-
-  role_2 = CorevistAPI::Role_1.find_or_create_by!(
+:admin_create_user_step
+  role_2 = CorevistAPI::Role.find_or_create_by!(
       title: 'View Roles',
       description: 'That role lets you create roles',
       created_by: 'seeds'
   )
 
-  role_3 = CorevistAPI::Role_1.find_or_create_by!(
+  role_3 = CorevistAPI::Role.find_or_create_by!(
       title: 'Edit Roles',
       description: 'That role lets you create roles',
       created_by: 'seeds'
