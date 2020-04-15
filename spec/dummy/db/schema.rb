@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_12_133658) do
+ActiveRecord::Schema.define(version: 2020_04_15_100625) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -53,7 +53,17 @@ ActiveRecord::Schema.define(version: 2020_02_12_133658) do
 
   create_table "jwt_blacklist", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "jti", null: false
+    t.datetime "exp", null: false
     t.index ["jti"], name: "index_jwt_blacklist_on_jti"
+  end
+
+  create_table "jwt_tokens", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "access_jti", null: false
+    t.datetime "access_exp", null: false
+    t.string "refresh_jti", null: false
+    t.datetime "refresh_exp", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_jwt_tokens_on_user_id"
   end
 
   create_table "microsites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

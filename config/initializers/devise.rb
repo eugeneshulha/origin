@@ -10,18 +10,19 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-   config.secret_key = '1f03f89b1ea5374b20685995ca512a052ee9e05b7e42e0af727655c5a86d6f728ae919ccd0b8135cff41069e4638aaa34eaa4aaeb14d08db2f928c739c3284b1'
+  config.secret_key = '1f03f89b1ea5374b20685995ca512a052ee9e05b7e42e0af727655c5a86d6f728ae919ccd0b8135cff41069e4638aaa34eaa4aaeb14d08db2f928c739c3284b1'
 
   config.jwt do |jwt|
-    jwt.secret = 'eeeb57e96254175aef7eaa9169e0afedc1882e370a296f8c73afd9e7c7fc1d1803933d06259f629d216e9b8e2c99331a9aafaac3270a844dbcc459ea56063534'
+    jwt.secret = 'b0d03fa1e44d315f4c0ee4c61eefe195338c3e36593530d8ab0139a09db501ae9e71036e80d9149817549919e823faa44bd4c153d8dfc783531748e37b914af1'
     jwt.expiration_time = 1.day.to_i
     jwt.request_formats = { user: [:json] }
 
     jwt.dispatch_requests = [
-        ['POST', %r{^/api/v1/auth$}]
+      ['POST', %r{^/api/v1/auth$}],
+      ['POST', %r{^/api/v1/auth/refresh_token$}]
     ]
     jwt.revocation_requests = [
-        ['DELETE', %r{^/api/v1/logout$}]
+      ['DELETE', %r{^/api/v1/logout$}]
     ]
   end
 
@@ -37,7 +38,7 @@ Devise.setup do |config|
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
-   config.mailer = 'CorevistAPI::DeviseMailer'
+  config.mailer = 'CorevistAPI::DeviseMailer'
 
   # Configure the parent class responsible to send e-mails.
   # config.parent_mailer = 'ActionMailer::Base'
@@ -223,7 +224,7 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-   config.reset_password_keys = [:username]
+  config.reset_password_keys = [:username]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
@@ -248,7 +249,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-   config.scoped_views = true
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -267,7 +268,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  #config.navigational_formats = []
+  # config.navigational_formats = []
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete

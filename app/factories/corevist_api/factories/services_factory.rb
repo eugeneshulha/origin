@@ -34,7 +34,8 @@ module CorevistAPI
         account_details_show: 'CorevistAPI::Services::AccountDetails::Show',
         payments_create: 'CorevistAPI::Services::Invoice::Pay',
         invoices_questions_create: 'CorevistAPI::Services::Invoice::Question::Create',
-        salesdocs_questions_create: 'CorevistAPI::Services::Salesdoc::Question::Create'
+        salesdocs_questions_create: 'CorevistAPI::Services::Salesdoc::Question::Create',
+        refresh_token: 'CorevistAPI::Services::Token::RefreshService'
       }
     end
   end

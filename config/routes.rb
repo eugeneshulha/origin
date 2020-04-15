@@ -8,9 +8,10 @@ CorevistAPI::Engine.routes.draw do
                      passwords: 'corevist_api/api/v1/passwords'
                  }
       as :user do
-        post 'auth',    to: 'api/v1/sessions#create'
-        get 'auth/new', to: 'api/v1/sessions#new'
-        delete 'logout',       to: 'api/v1/sessions#destroy'
+        post 'auth',               to: 'api/v1/sessions#create'
+        get 'auth/new',            to: 'api/v1/sessions#new'
+        delete 'logout',           to: 'api/v1/sessions#destroy'
+        post 'auth/refresh_token', to: 'api/v1/sessions#refresh_token'
       end
     end
   end
