@@ -7,7 +7,8 @@ module CorevistAPI
 
         raise CorevistAPI::ServiceException.new(not_found_msg) unless object
 
-        result(object)
+        data = paginate(items: [object])
+        result(data)
       end
     end
   end
