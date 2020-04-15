@@ -13,10 +13,11 @@ module CorevistAPI
 
           param = item.send(@params[:sort_by])
 
-          if param.is_date?
-            param.to_time.to_i
-          elsif param.is_numeric?
-            param.user_format_to_numeric
+          next param unless item.respond_to?(:sort_type)
+
+          case item.sort_type(@params[:sort_by])
+          when :date then param.to_time.to_i
+          when :numeric then param.user_format_to_numeric
           else param
           end
         end

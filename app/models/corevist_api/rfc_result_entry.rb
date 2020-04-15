@@ -1,5 +1,16 @@
 module CorevistAPI
   class RfcResultEntry
+    include CorevistAPI::Sortable
+    # FIXME: Temporary solution for list services without builders
+                  # Salesdoc list
+    sort_as_date :doc_date, :req_del_date, :valid_from, :valid_to
+                  # Invoice list
+    sort_as_date :bill_date
+                    # Salesdoc list
+    sort_as_numeric :doc_number, :item_number,:sales_area,:net_value, :quantity, :sold_to_number, :ship_to_number
+                    # Invoice list
+    sort_as_numeric :doc_nr, :sa, :tax, :item_nr, :qty, :payer_nr, :sales_order
+
     def initialize(_, data)
       data.each do |k, v|
         #
