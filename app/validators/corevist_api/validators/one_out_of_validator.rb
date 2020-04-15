@@ -6,7 +6,7 @@ module CorevistAPI
       def validate(record)
         return if (variables_names(record) & one_out_of_params(record)).present?
 
-        record.errors.add(:parameter, I18n.t('api.forms.no_param'))
+        record.errors.add(:parameter, I18n.t('api.errors.forms.no_param'))
       end
 
       private

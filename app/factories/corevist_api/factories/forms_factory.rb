@@ -16,7 +16,7 @@ module CorevistAPI
         set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',
         invoices_index: 'CorevistAPI::Forms::Invoice::ListForm',
         salesdocs_index: 'CorevistAPI::Forms::Salesdoc::ListForm',
-        partners_search: 'CorevistAPI::Forms::Admin::Partners::SearchForm',
+        partners_index: 'CorevistAPI::Forms::Admin::Partners::IndexForm',
         sessions_create: 'CorevistAPI::Forms::User::Login',
         open_items_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
         admin_roles_index: 'CorevistAPI::Forms::Admin::Roles::IndexForm',

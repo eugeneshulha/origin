@@ -5,7 +5,8 @@ module CorevistAPI
           required: 'ActiveModel::Validations::PresenceValidator',
           min: 'ActiveModel::Validations::LengthValidator',
           max: 'ActiveModel::Validations::LengthValidator',
-          confirmation: 'ActiveModel::Validations::ConfirmationValidator'
+          confirmation: 'ActiveModel::Validations::ConfirmationValidator',
+          one_out_of: 'CorevistAPI::Validators::OneOutOfValidator'
       }
     end
 
