@@ -264,7 +264,9 @@ class String
   def date_to_user_format(format)
     return self if self.blank?
 
-    Date.strptime(self, format)
+    Date.parse(self).strftime(format)
+  rescue
+    self
   end
 
   def user_format_to_numeric
