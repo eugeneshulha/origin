@@ -2,6 +2,7 @@ module CorevistAPI
   class Salesdoc
     class Header
       include CorevistAPI::FormatConversion
+      include CorevistAPI::Sortable
 
       attr_accessor :doc_date, :rdd,:inco_terms1, :inco_terms2, :ship_status, :credit_status, :po_type, :change_number,
                     :change_date, :contact_info, :invoice_number, :proforma_invoice_number, :total_value,
@@ -11,6 +12,8 @@ module CorevistAPI
                     :price_components
 
       format_date :doc_date, :rdd, :change_date, :valid_from, :valid_to
+      sort_as_date :doc_date, :rdd, :change_date, :valid_from, :valid_to
+      sort_as_numeric :change_number, :invoice_number, :proforma_invoice_number, :total_value, :ref_doc_number
     end
   end
 end

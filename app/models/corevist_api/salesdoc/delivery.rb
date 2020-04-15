@@ -2,6 +2,7 @@ module CorevistAPI
   class Salesdoc
     class Delivery
       include CorevistAPI::FormatConversion
+      include CorevistAPI::Sortable
 
       attr_accessor :number, :delivery_date, :gi_date, :tracking_number, :carrier_number, :carrier_name,
                     :tracking_numbers, :shipment, :status,
@@ -9,6 +10,7 @@ module CorevistAPI
                     :postal_address_1, :postal_address_2, :postal_address_3
 
       format_date :delivery_date, :gi_date
+      sort_as_date :delivery_date, :gi_date
     end
   end
 end
