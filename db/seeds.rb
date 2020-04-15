@@ -38,10 +38,22 @@ ActiveRecord::Base.transaction do
       created_by: 'seeds'
   )
 
-  role = CorevistAPI::Role.find_or_create_by!(
+  role_1 = CorevistAPI::Role_1.find_or_create_by!(
     title: 'Create Roles',
     description: 'That role lets you create roles',
     created_by: 'seeds'
+  )
+
+  role_2 = CorevistAPI::Role_1.find_or_create_by!(
+      title: 'View Roles',
+      description: 'That role lets you create roles',
+      created_by: 'seeds'
+  )
+
+  role_3 = CorevistAPI::Role_1.find_or_create_by!(
+      title: 'Edit Roles',
+      description: 'That role lets you create roles',
+      created_by: 'seeds'
   )
 
   doc_type = CorevistAPI::DocType.find_or_create_by!(
@@ -84,7 +96,7 @@ ActiveRecord::Base.transaction do
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
     user.phone = '123456789'
-    user.roles << role
+    user.roles = [role_1]
   end.save
 
   CorevistAPI::Partner.new.tap do |payer|
@@ -142,25 +154,31 @@ ActiveRecord::Base.transaction do
     sold_to.assigned = true
   end.save
 
-  role.sales_areas.delete_all
+  role_1.sales_areas.delete_all
+  role_2.sales_areas.delete_all
+  role_3.sales_areas.delete_all
   doc_type.sales_areas.delete_all
-  role.privileges.delete_all
+  role_1.privileges.delete_all
+  role_2.privileges.delete_all
+  role_3.privileges.delete_all
 
-  role.sales_areas << sales_area_1
-  role.sales_areas << sales_area_2
-  role.sales_areas << sales_area_3
-  role.sales_areas << sales_area_4
+  role_1.sales_areas << sales_area_1
+  role_1.sales_areas << sales_area_2
+  role_1.sales_areas << sales_area_3
+  role_1.sales_areas << sales_area_4
 
   doc_type.sales_areas << sales_area_1
   doc_type.sales_areas << sales_area_2
   doc_type.sales_areas << sales_area_3
   doc_type.sales_areas << sales_area_4
 
-  role.privileges << CorevistAPI::Privilege.all
+  role_1.privileges << CorevistAPI::Privilege.all
+  role_2.privileges << CorevistAPI::Privilege.all
+  role_3.privileges << CorevistAPI::Privilege.all
 
   u = CorevistAPI::User.find_by(username: 'user_1')
   u.roles.delete_all
-  u.roles << role if u.roles.blank?
+  u.roles << role_1 if u.roles.blank?
 
 
   CorevistAPI::User.find_or_initialize_by(username: 'b2b') do |user|
@@ -173,7 +191,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [role]
+    user.roles = [role_1]
   end.save
 end
 
