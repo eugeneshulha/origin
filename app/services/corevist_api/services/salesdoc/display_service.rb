@@ -53,8 +53,11 @@ module CorevistAPI
                            content_type: 'table',
                            data: doc.deliveries.map do |delivery|
                              {
-                               delivery_date: delivery.delivery_date, delivery_number: delivery.number,
-                               carrier: delivery.carrier_number, tracking_number: delivery.tracking_number
+                                 status: delivery.status,
+                                 delivery_date: delivery.delivery_date,
+                                 delivery_number: delivery.number,
+                                 carrier: delivery.carrier_number,
+                                 tracking_number: delivery.tracking_number
                              }
                            end
                        }
