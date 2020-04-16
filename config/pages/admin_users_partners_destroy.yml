@@ -1,0 +1,44 @@
+title: "Assigned roles of new user"
+components:
+  - uuid: "destroy_users_partners_form"
+    description: ""
+    method: PATCH
+    title: Show user
+    type: form
+    url: "/v1/admin/users/<uuid>/partners"
+    elements:
+      - - atom: hidden
+          uuid: "id"
+          label: partner id
+          name: "id"
+          validation_type: string
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
+
+      - - atom: hidden
+          uuid: "user_uuid"
+          label: user_uuid
+          name: "user_uuid"
+          validation_type: string
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
+
+      - - atom: hidden
+          uuid: "function"
+          label: Function
+          name: "function"
+          validation_type: string
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
+
+      - - atom: hidden
+          uuid: "number"
+          label: Number
+          name: "number"
+          validation_type: string
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required

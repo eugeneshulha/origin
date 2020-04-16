@@ -29,6 +29,8 @@ en_US:
         not_found: 'User has not been found'
         not_destroyed: 'User has NOT been destroyed'
         one_function: 'You can not assign sold_tos and ship_to at the same time'
+        partners:
+          not_found: "Partner not found"
       open_items:
         items_to_pay_not_found: "No items to pay"
       step: 'Invalid step parameter'

@@ -55,7 +55,7 @@ CorevistAPI::Engine.routes.draw do
           get :configs, on: :collection, to: 'users#index_configs'
           get :configs, on: :member, to: 'users#show_configs'
           get 'filters/new', on: :collection, to: 'users/filters#new'
-          resources :partners, only: %i[index], controller: 'users/partners'
+          resources :partners, only: %i[index destroy], controller: 'users/partners'
         end
 
         resources :roles, only: [:index, :new, :create, :edit, :update, :show, :destroy], param: :uuid do

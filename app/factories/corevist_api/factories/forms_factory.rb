@@ -12,6 +12,7 @@ module CorevistAPI
         admin_users_show: 'CorevistAPI::Forms::Admin::Users::ShowForm',
         admin_users_update: 'CorevistAPI::Forms::Admin::Users::UpdateForm',
         admin_users_destroy: 'CorevistAPI::Forms::Admin::Users::DestroyForm',
+        admin_users_partners_destroy: 'CorevistAPI::Forms::Admin::Users::Partners::DestroyForm',
         user_registration: 'CorevistAPI::Forms::User::Registration',
         set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',
         invoices_index: 'CorevistAPI::Forms::Invoice::ListForm',
