@@ -8,32 +8,32 @@ components:
     url: "/v1/partners"
     elements:
       - - atom: text
-          label: Payer
+          label: Sold-to Number
           name: "number"
           uuid: "number"
-          placeholder: Select Payer
+          placeholder: Sold-to Number
           validation_type: string
           value: ""
 
       - - atom: text
-          label: Status
+          label: Sold-to Name
           name: "name"
           uuid: "name"
-          placeholder: Select Status
+          placeholder: Sold-to Name
           value: ""
 
       - - atom: text
-          label: Status
+          label: City
           name: "city"
           uuid: "city"
-          placeholder: Select Status
+          placeholder: City
           value: ""
 
-      - - atom: text
-          label: Status
+        - atom: text
+          label: Postal Code
           name: "postal_code"
           uuid: "postal_code"
-          placeholder: Select Status
+          placeholder: Postal Code
           value: ""
 
 
@@ -41,11 +41,9 @@ components:
           text: Cancel
           type: text
           action_type: button
-          name: "apply"
 
         -
           atom: button
           text: Apply
           type: secondary
           action_type: submit
-          name: "apply"
