@@ -1,7 +1,7 @@
 module CorevistAPI
   module Services
     module Admin::Partners
-      class IndexService< CorevistAPI::Services::BaseServiceWithForm
+      class IndexService < CorevistAPI::Services::BaseServiceWithForm
         def perform
           rfc_result = rfc_service_for(:partner_search, @form, @params).call
 

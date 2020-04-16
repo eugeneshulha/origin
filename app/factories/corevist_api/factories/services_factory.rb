@@ -12,6 +12,7 @@ module CorevistAPI
         admin_users_show: 'CorevistAPI::Services::Admin::Users::ShowService',
         admin_users_update: 'CorevistAPI::Services::Admin::Users::UpdateService',
         admin_users_destroy: 'CorevistAPI::Services::Admin::Users::DestroyService',
+        admin_users_partners_index: 'CorevistAPI::Services::Admin::Users::Partners::IndexService',
         admin_users_partners_destroy: 'CorevistAPI::Services::Admin::Users::Partners::DestroyService',
         admin_users_index_filter: 'CorevistAPI::Services::Admin::Users::FilterService',
         user_registration: 'CorevistAPI::Services::User::RegistrationService',
