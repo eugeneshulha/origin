@@ -8,7 +8,10 @@ module CorevistAPI
 
           partners = u.partners.where(function: @form.function, assigned: true)
 
-          data = paginate(items: partners)
+          items = filter_by_query(partners)
+          items = sort_by_param(items)
+
+          data = paginate(items: items)
           result(data)
         end
       end
