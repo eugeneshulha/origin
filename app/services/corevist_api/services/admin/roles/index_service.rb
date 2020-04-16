@@ -1,6 +1,10 @@
 module CorevistAPI
   module Services
-    class Admin::Roles::IndexService < Base::IndexService
+    module Admin
+      module Roles
+        class IndexService < CorevistAPI::Services::Base::IndexService
+        end
+      end
     end
   end
 end
