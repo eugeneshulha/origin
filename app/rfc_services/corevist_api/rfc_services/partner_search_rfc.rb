@@ -32,11 +32,11 @@ module CorevistAPI
     def object_to_rfc
       {
         SEARCH_CRITERIA => {
-          KEY_NAME => "#{@object.instance_variable_get(:@name)}*",
-          KEY_CITY => @object.instance_variable_get(:@city).to_s,
+          KEY_NAME => @object.instance_variable_get(:@name).to_s.to_sap_search_string(35),
+          KEY_CITY => @object.instance_variable_get(:@city).to_s.to_sap_search_string(25),
           KEY_FCT => VALUE_FCT,
-          KEY_POSTAL_CODE => @object.instance_variable_get(:@postal_code).to_s,
-          KEY_NR => @object.instance_variable_get(:@number).to_s,
+          KEY_POSTAL_CODE => @object.instance_variable_get(:@postal_code).to_s.to_sap_search_string(10),
+          KEY_NR => @object.instance_variable_get(:@number).to_s.to_sap_search_string(10),
           KEY_MAX_RESULTS => VALUE_MAX_RESULTS
         }
       }

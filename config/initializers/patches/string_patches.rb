@@ -241,8 +241,8 @@ class String
   end
 
   # Formats a wildcard search string to go to SAP: adds * based on the rules(SAP has to handle the upper casing, so it follows SAP's rules)
-  def to_sap_search_string(requirements, max_length)
-    if self.blank? || self.length == max_length || requirements == false
+  def to_sap_search_string(max_length = nil, requirements = '^[^\*]{3}')
+    if self.blank? || self.length == max_length
       s = self
     elsif self.length < max_length
       s = self =~ /\*$/ ? self : self + '*'

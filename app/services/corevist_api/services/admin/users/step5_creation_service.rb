@@ -20,7 +20,7 @@ module CorevistAPI
           memo << partners
         end
 
-        user.partners = partners.flatten if partners
+        user.partners = [user.partners, partners].flatten.uniq if partners
         result(user)
       end
 

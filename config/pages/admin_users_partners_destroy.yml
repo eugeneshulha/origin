@@ -42,3 +42,12 @@ components:
           validations:
             - message: "<%= I18n.t('my_message') %>"
               type: required
+
+      - - atom: hidden
+          uuid: "sales_area"
+          label: Number
+          name: "sales_area"
+          validation_type: string
+          validations:
+            - message: "<%= I18n.t('my_message') %>"
+              type: required
