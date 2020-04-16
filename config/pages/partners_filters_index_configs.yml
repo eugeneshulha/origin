@@ -1,4 +1,4 @@
-title: "Search for Orders"
+title: "Select Sold-to"
 components:
   - uuid: "search_salesdoc_table"
     description: "Fields with an asterisk (*) are mandatory."
@@ -30,3 +30,9 @@ components:
           label: null
           sortable: true
           hidden: false
+        - name: 'action'
+          caption: 'Action'
+          label: null
+          sortable: false
+          hidden: false
+          row_action: "Add"
