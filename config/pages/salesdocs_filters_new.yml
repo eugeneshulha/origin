@@ -9,9 +9,9 @@ components:
     elements:
       - - atom: select
           uuid: 'search_option'
-          label: Payer
-          name: "payer"
-          placeholder: Select Payer
+          label: Search Criteria
+          name: "search_criteria"
+          placeholder: Select Search Criteria
           validation_type: string
           value: ""
           options:

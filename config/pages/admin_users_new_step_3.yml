@@ -1,13 +1,25 @@
-title: "Assigned roles of new user"
+title: "Assignable roles of new user"
 components:
-  - uuid: "add_sold_to"
-    method: POST
-    title: Select sold-to`s
+  - uuid: "roles_can_assign_of_new_user_form"
+    description: ""
+    method: PATCH
+    title: Show user
     type: form
-    url: "/v1/partners/new"
+    url: "/v1/admin/users/<uuid>"
     elements:
-      - - atom: button_with_modal
-          text: Add Sold-to
-          url: "/v1/partners/new"
-          name: "Submit"
+      thead:
+        - key: true,
+          name: 'id'
+          uuid: 'id'
+          caption: 'Id'
+          label: null
+          sortable: true
+          action: 'expand'
 
+        - key: true,
+          name: 'title'
+          uuid: 'title'
+          caption: 'Titles'
+          label: null
+          sortable: true
+          action: 'expand'
