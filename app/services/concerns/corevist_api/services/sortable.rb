@@ -15,7 +15,7 @@ module CorevistAPI
 
           next param unless item.respond_to?(:sort_type)
 
-          case item.sort_type(@params[:sort_by])
+          case item.sort_type(@params[:sort_by].to_sym)
           when :date then param.to_time.to_i
           when :numeric then param.user_format_to_numeric
           else param
