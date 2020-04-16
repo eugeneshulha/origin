@@ -12,13 +12,15 @@ module CorevistAPI
     end
 
     def object_to_rfc
-      { GET_PDF_IN => {
-          PRINTER_ID => 'LP01',
-          METHOD => 'pdf',
+      output_type = @params[:output_type_id].to_s.strip
+      {
+        GET_PDF_IN => {
+          PRINTER_ID => Settings.dig(:sap, :output_types, output_type, :printer_id).to_s,
+          METHOD => Settings.dig(:sap, :output_types, output_type, :special_method).to_s,
           LANG => 'E',
           DOC_CAT => @object.header.doc_category,
           DOC_NR => @object.doc_number.add_leading_zeros,
-          OUTPUT_TYPE => @params[:output_type_id].to_s.strip
+          OUTPUT_TYPE => output_type
         }
       }
     end

@@ -104,3 +104,46 @@ sap:
       last4: 10
       is_default: 1
       nickname: 40
+  output_types:
+    # Allowed parameters: method, based_on, ga_link (link used in Google Analytics),
+    # special_method (spool, pdf, idoc, state), printer_id (#requires SAP transport EH6K900170 or higher)
+    QU00:
+      method: :generate_pdf
+      based_on: :salesdoc
+      ga_link: :quote
+    BA00:
+      method: :generate_pdf
+      based_on: :salesdoc
+      ga_link: :order_confirmation
+      special_method: :pdf
+      printer_id: :LP01
+    PL00:
+      method: :generate_pdf
+      based_on: :delivery
+      ga_link: :packing_list
+      special_method: :spool
+    LD00:
+      method: :generate_pdf
+      based_on: :delivery
+      ga_link: :bill_of_lading
+      special_method: :spool
+    RD00:
+      method: :generate_pdf
+      based_on: :invoice
+      ga_link: :invoice
+      special_method: :pdf
+      printer_id: :LP01 #LOCL
+    BOL:
+      method: :client_specific
+      based_on: :shipment
+      ga_link: :bol
+    SAP13:
+      method: :generate_pdf
+      based_on: :statement
+      ga_link: :statement
+      special_method: :state
+    invoice: inv
+    order_confirmation: oc
+    packing_list: pl
+    bill_of_lading: bol
+    quote: qu
