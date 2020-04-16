@@ -5,8 +5,8 @@ module CorevistAPI
 
       def perform
         user = CorevistAPI::Context.current_user
-        Mailer.submit_invoice_question(@form.to_json, user.to_json).deliver_later
-        Admin::Mailer.submit_invoice_question(@form.to_json, user.to_json).deliver_later
+        CorevistAPI::Mailer.submit_invoice_question(@form.as_json, user.uuid).deliver_later
+        CorevistAPI::Admin::Mailer.submit_invoice_question(@form.as_json, user.uuid).deliver_later
 
         result
       end

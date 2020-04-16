@@ -26,7 +26,7 @@ module CorevistAPI
 
         if @rfc_result.data[:payment_doc_number]
           spreedly.capture_amount(@form.auth_token)
-          Mailer.pay_invoices_confirmation.deliver_later
+          Mailer.pay_invoices_confirmation(CorevistAPI::Context.current_user.uuid, @rfc_result.data[:payment_doc_number]).deliver_later
         else
           raise ServiceException.new('Something is wrong with your payment')
         end
