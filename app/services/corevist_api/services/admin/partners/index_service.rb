@@ -5,7 +5,10 @@ module CorevistAPI
         def perform
           rfc_result = rfc_service_for(:partner_search, @form, @params).call
 
-          data = paginate(items: rfc_result.data[:partners])
+          items = filter_by_query(rfc_result.data[:partners])
+          items = sort_by_param(items)
+
+          data = paginate(items: items)
           result(data)
         end
       end
