@@ -69,6 +69,8 @@ CorevistAPI::Engine.routes.draw do
         get 'filters/configs', on: :collection, to: 'partners/filters#index_configs'
       end
       resources :open_items, only: :index
+
+      resources :site_configs, only: [:index]
     end
   end
 
