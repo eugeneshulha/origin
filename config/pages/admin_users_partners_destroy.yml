@@ -44,9 +44,9 @@ components:
               type: required
 
       - - atom: hidden
-          uuid: "sales_area"
+          uuid: "sales_area_id"
           label: Number
-          name: "sales_area"
+          name: "sales_area_id"
           validation_type: string
           validations:
             - message: "<%= I18n.t('my_message') %>"

@@ -7,7 +7,13 @@ module CorevistAPI
             u = CorevistAPI::User.find_by(uuid: @form.user_uuid)
             raise CorevistAPI::ServiceException.new('api.errors.users.not_found') unless u
 
-            partner = u.partners.find_by(function: @form.function, number: @form.number, assigned: true)
+            partner = u.partners.find_by(
+                id: @form.id,
+                function: @form.function,
+                number: @form.number,
+                sales_area_id: @form.sales_area_id,
+                assigned: true
+            )
             raise CorevistAPI::ServiceException.new('api.errors.users.partners.not_found') unless partner
 
             partner.destroy
