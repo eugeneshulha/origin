@@ -19,10 +19,8 @@ gem 'sapnwrfc',                          git: 'git@github.com:b2b2dot0/sapnwrfc.
 # Pull in extra gems to run specs against the gem.
 #
 
-group :test, :development do
-  gem 'pry-byebug'
-  gem 'thin'
-end
+gem 'pry-byebug'
+gem 'thin'
 
 group :test do
   gem 'database_cleaner'
