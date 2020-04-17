@@ -244,6 +244,6 @@ components:
 
       - - atom: button
           uuid: "button_1"
-          text: Next
+          text: Next Step
           type: primary
           action_type: submit

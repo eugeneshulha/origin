@@ -45,3 +45,11 @@ components:
           label: null
           sortable: true
           hidden: false
+        - name: 'action'
+          caption: 'Action'
+          label: null
+          sortable: false
+          hidden: false
+          row_action: "delete"
+          type_btn: "link"
+          icon: 'trash'

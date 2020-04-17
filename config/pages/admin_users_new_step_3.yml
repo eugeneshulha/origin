@@ -14,12 +14,23 @@ components:
           caption: 'Id'
           label: null
           sortable: true
-          action: 'expand'
 
         - key: true,
           name: 'title'
           uuid: 'title'
-          caption: 'Titles'
+          caption: 'Role'
           label: null
           sortable: true
           action: 'expand'
+
+#        - name: 'description'
+#          uuid: 'description'
+#          caption: 'Description'
+#          label: null
+#          sortable: true
+#
+#        - name: 'created_by'
+#          uuid: 'created_by'
+#          caption: 'Created By'
+#          label: null
+#          sortable: true

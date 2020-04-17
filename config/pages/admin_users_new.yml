@@ -30,8 +30,8 @@ components:
     type: step
     data_url: "/v1/admin/users/new?step=5"
 
-  - uuid: "step 6"
-    method: GET
-    title: Territories
-    type: step
-    data_url: "/v1/admin/users/new?step=6"
+#  - uuid: "step 6"
+#    method: GET
+#    title: Territories
+#    type: step
+#    data_url: "/v1/admin/users/new?step=6"

@@ -8,18 +8,18 @@ components:
     url: "/v1/partners"
     elements:
       - - atom: text
-          label: Sold-to Number
+          label: Number
           name: "number"
           uuid: "number"
-          placeholder: Sold-to Number
+          placeholder: Number
           validation_type: string
           value: ""
 
       - - atom: text
-          label: Sold-to Name
+          label: Name
           name: "name"
           uuid: "name"
-          placeholder: Sold-to Name
+          placeholder: Name
           value: ""
 
       - - atom: text
