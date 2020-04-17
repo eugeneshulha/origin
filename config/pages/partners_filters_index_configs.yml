@@ -1,4 +1,4 @@
-title: "Select Sold-to"
+title: "Select Sold-to/Ship-to"
 components:
   - uuid: "search_salesdoc_table"
     description: "Fields with an asterisk (*) are mandatory."
@@ -10,7 +10,7 @@ components:
       thead:
         - key: true
           name: 'nr'
-          caption: 'Sold-to number'
+          caption: 'Number'
           label: null
           sortable: true
           hidden: false
@@ -36,3 +36,4 @@ components:
           sortable: false
           hidden: false
           row_action: "Add"
+          type_btn: "secondary"

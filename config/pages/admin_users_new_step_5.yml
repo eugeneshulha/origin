@@ -1,22 +1,55 @@
-title: "Assigned roles of new user"
+title: "Search for Orders"
 components:
-  - uuid: "assigned_roles_of_new_user_form"
-    description: ""
-    method: PATCH
-    title: Show user
-    type: form
-    url: "/v1/admin/users/<uuid>"
+  - uuid: "search_salesdoc_table"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: POST
+    title: Select ship-to`s
+    type: datatable
+    url: "/v1/partners"
     elements:
-      - - atom: hidden
-          uuid: "role_ids"
-          label: assigned_roles
-          name: "role_ids"
-          validation_type: string
-          validations:
-            - message: "<%= I18n.t('my_message') %>"
-              type: required
-      - - atom: hidden
-          uuid: "uuid"
-          label: ID
-          name: "uuid"
-          validation_type: string
+      thead:
+        - key: true
+          name: 'number'
+          caption: 'Ship-to number'
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: 'name'
+          caption: 'Name'
+          label: null
+          sortable: true
+          hidden: false
+        - name: 'postal_address_1'
+          caption: 'Postal Address 1'
+          label: null
+          sortable: true
+          hidden: false
+        - name: 'postal_address_2'
+          caption: 'Postal Address 2'
+          label: null
+          sortable: true
+          hidden: false
+        - name: 'postal_address_3'
+          caption: 'Postal Address 3'
+          label: null
+          sortable: true
+          hidden: false
+        - name: 'country'
+          caption: 'Country code'
+          label: null
+          sortable: true
+          hidden: false
+        - name: 'sales_area_id'
+          caption: 'Sales area ID'
+          label: null
+          sortable: true
+          hidden: false
+        - name: 'action'
+          caption: 'Action'
+          label: null
+          sortable: false
+          hidden: false
+          row_action: "delete"
+          type_btn: "link"
+          icon: 'trash'
