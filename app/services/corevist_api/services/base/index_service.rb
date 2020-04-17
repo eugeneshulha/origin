@@ -13,7 +13,8 @@ module CorevistAPI
       end
 
       def filter
-        service_for("#{@params[:type]}_filter", @params[:scope], @params[:filters]).call
+        p = { 'username' => @params[:username].to_s }
+        service_for("#{@params[:type]}_filter", @params[:scope], p).call
       end
     end
   end
