@@ -22,7 +22,7 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
             - message: "User ID cannot be less than 3 characters"
@@ -34,16 +34,16 @@ components:
 
         - atom: select
           uuid: "user_classification_id"
-          label: Customer Type
+          label: User Classification
           name: "user_classification_id"
           placeholder: Select Customer Type
           validation_type: string
           value: ""
           options:
             - name: Dealer
-              value: 'Dealer'
+              value: 'dealer'
             - name: Distributor
-              value: 'Distributor'
+              value: 'distributor'
 
       - - atom: text
           uuid: "first_name"
@@ -53,7 +53,7 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
             - message: "First Name cannot be less than 3 characters"
@@ -70,7 +70,7 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
             - message: "Last name cannot be less than 3 characters"
@@ -88,7 +88,7 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
 
@@ -119,7 +119,7 @@ components:
           placeholder: Password confirmation
           validation_type: string
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
 
       - - atom: select
@@ -133,9 +133,9 @@ components:
             - name: Microsite 1
               value: "1"
             - name: Microsite 2
-              value: "2"
+              value: "1"
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
 
@@ -152,7 +152,7 @@ components:
             - name: CT 2
               value: "2"
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
         - atom: select
@@ -168,7 +168,7 @@ components:
             - name: Polish
               value: pl_PL
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
 
@@ -181,11 +181,11 @@ components:
           value: ""
           options:
             - name: UTC
-              value: 'b2b_microsite1'
+              value: 'utc'
             - name: EST
-              value: 'b2b_client'
+              value: 'est'
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
 
@@ -204,7 +204,7 @@ components:
             - name: "9'999'999.99"
               value: "."
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
 
@@ -216,12 +216,16 @@ components:
           validation_type: string
           value: ""
           options:
-            - name: English
-              value: en_US
-            - name: Polish
-              value: pl_PL
+            - name: "%m/%d/%Y"
+              value: "%m/%d/%Y"
+            - name: '%d.%m.%'
+              value: '%d.%m.%'
+            - name: '%Y/%m/%d'
+              value: '%Y/%m/%d'
+            - name: '%Y-%m-%d'
+              value: '%Y-%m-%d'
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
 
@@ -233,12 +237,12 @@ components:
           validation_type: string
           value: ""
           options:
-            - name: Microsite 1
-              value: 'b2b_microsite1'
-            - name: Microsite 2
-              value: 'b2b_client'
+            - name: 24h
+              value: '%H:%M:%S'
+            - name: 12h
+              value: '%I:%M:%S %p'
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('required') %>"
               type: required
               value: ""
 
