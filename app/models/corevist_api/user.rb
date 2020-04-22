@@ -63,7 +63,7 @@ module CorevistAPI
     end
 
     def doc_categories_by_sales_area(sales_area)
-      roles.flat_map { |role| role.sales_areas.find_by_title(sales_area).doc_categories.uniq.pluck(:id) }
+      roles.flat_map { |role| role.sales_areas.find_by_title(sales_area)&.doc_categories&.uniq&.pluck(:id) }
     end
 
     def self.extra_column_names
