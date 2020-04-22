@@ -62,6 +62,11 @@ CorevistAPI::Engine.routes.draw do
           get :configs, on: :collection, to: 'roles#index_configs'
           get :configs, on: :member, to: 'roles#show_configs'
         end
+
+        resources :translations, only: [:index, :new, :create, :edit, :update, :destroy] do
+          get :configs, on: :collection, to: 'translations#index_configs'
+          get 'filters/new', on: :collection, to: 'translations/filters#new'
+        end
       end
 
       resources :partners, only: %i[index] do

@@ -1,0 +1,48 @@
+title: "Translations maintenance"
+components:
+  - uuid: "translations_list_table"
+    description: ""
+    method: GET
+    title: Assign roles to user
+    type: datatable
+    url: ""
+    data_url: "/v1/admin/translations"
+    elements:
+      thead:
+        - key: true
+          name: "key"
+          caption: "key"
+          label: null
+          sortable: true
+          hidden: false
+          action: "link"
+        - key: true
+          name: "cst_translation"
+          caption: "cst_translation"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "locale"
+          caption: "locale"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "microsite_id"
+          caption: "microsite_id"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "status"
+          caption: "status"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "df_translation"
+          caption: "df_translation"
+          label: null
+          sortable: trueactive
+          hidden: false

@@ -1,0 +1,51 @@
+title: "Create new translation"
+components:
+  - uuid: "new_translation_form"
+    description: ""
+    method: POST
+    title: "New translation"
+    type: form
+    url: "/v1/admin/translations"
+    elements:
+      - - atom: text
+          uuid: "key"
+          label: key
+          name: "key"
+          validation_type: string
+          validations:
+            - message: "<%= I18n.t('field is required') %>"
+              type: required
+              value: ""
+
+      - - atom: select
+          uuid: "locale"
+          label: locale
+          name: "locale"
+          options:
+            - name: en_US
+              value: "en_US"
+            - name: pl_PL
+              value: "pl_PL"
+
+      - - atom: text
+          uuid: "cst_translation"
+          label: cst_translation
+          name: "cst_translation"
+          validation_type: string
+
+      - - atom: text
+          uuid: "status"
+          label: status
+          name: "status"
+          validation_type: string
+
+      - - atom: select
+          uuid: "microsite_id"
+          label: microsite
+          name: "microsite_id"
+          validation_type: string
+          options:
+            - name: Microsite 1
+              value: "1"
+            - name: Microsite 2
+              value: "2"

@@ -1,0 +1,44 @@
+title: "Filter"
+components:
+  - uuid: "filter_translations_modal_form"
+    description:
+    method: GET
+    title:
+    type: form
+    url: "/v1/admin/translations"
+    elements:
+      - - atom: text
+          uuid: 'cst_translation'
+          label: cst_translation
+          name: "cst_translation"
+          value: "po_number"
+
+        - atom: text
+          uuid: 'locale'
+          label: localse
+          name: "locale"
+          value: ""
+
+      - - atom: text
+          uuid: 'key'
+          label: key
+          name: "key"
+          value: ""
+
+        - atom: text
+          uuid: 'microsite_id'
+          label: microsite
+          name: "microsite_id"
+          value: ""
+
+      - - atom: button
+          uuid: 'cancel'
+          text: Cancel
+          type: text
+          action_type: button
+
+        - atom: button
+          uuid: 'apply'
+          text: Apply
+          type: secondary
+          action_type: submit
