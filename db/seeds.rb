@@ -229,6 +229,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
+    user.roles = [role_4]
   end.save
 end
 
