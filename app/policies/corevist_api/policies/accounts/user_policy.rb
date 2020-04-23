@@ -1,6 +1,6 @@
 module CorevistAPI
   module Policies
-    class Accounts::UserPolicy < Admin::Users::UserPolicy
+    class Accounts::UserPolicy < CorevistAPI::Policies::Admin::Users::UserPolicy
       def show?
         true
       end

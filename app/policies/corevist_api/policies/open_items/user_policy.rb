@@ -1,6 +1,6 @@
 module CorevistAPI
   module Policies
-    class OpenItems::UserPolicy < Admin::Users::UserPolicy
+    class OpenItems::UserPolicy < CorevistAPI::Policies::Admin::Users::UserPolicy
       def index?
         true
       end

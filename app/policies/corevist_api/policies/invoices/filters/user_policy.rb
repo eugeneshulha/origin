@@ -1,6 +1,6 @@
 module CorevistAPI
   module Policies
-    class Invoices::Filters::UserPolicy < Admin::Users::UserPolicy
+    class Invoices::Filters::UserPolicy < CorevistAPI::Policies::Admin::Users::UserPolicy
       def new?
         true
       end

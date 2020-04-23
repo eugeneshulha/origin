@@ -1,6 +1,6 @@
 module CorevistAPI
   module Policies
-    class Salesdocs::Questions::UserPolicy < Admin::Users::UserPolicy
+    class Salesdocs::Questions::UserPolicy < CorevistAPI::Policies::Admin::Users::UserPolicy
       def new?
         true
       end
