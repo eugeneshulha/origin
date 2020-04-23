@@ -44,7 +44,7 @@ module Dummy
         resource '*',
                  headers: :any,
                  methods: [:get, :post, :put, :patch, :delete, :options, :head],
-                 expose: %w(Access-Control-Allow-Origin Authorization)
+                 expose: %w(Access-Control-Allow-Origin Authorization HTTP_AUTHORIZATION)
       end
     end
 

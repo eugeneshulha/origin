@@ -1,7 +1,6 @@
 module CorevistAPI
   class API::V1::BaseController < CorevistAPI::API::BaseController
     include CorevistAPI::Factories::FactoryInterface
-
     include Pundit
 
     rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
@@ -18,7 +17,8 @@ module CorevistAPI
     end
 
     def policy_class(klass, scope = false)
-      "#{self.class.name.remove(/Controller/)}::#{klass.name.demodulize}Policy#{'::Scope' if scope}".safe_constantize
+      name = self.class.name.remove(/Controller/).gsub(/API::V1/, 'Policies')
+      "#{name}::#{klass.name.demodulize}Policy#{'::Scope' if scope}".safe_constantize
     end
 
     def policy_scope(scope, policy_scope_class: nil)

@@ -1,6 +1,6 @@
 module CorevistAPI
-  module API::V1::Admin
-    class Roles::UserPolicy < ApplicationPolicy
+  module Policies::Admin
+    class Roles::UserPolicy < CorevistAPI::Policies::ApplicationPolicy
       def create?
         true
       end

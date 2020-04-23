@@ -5,14 +5,14 @@
 
 # Read more: https://github.com/cyu/rack-cors
 
-Rails.application.config.middleware.insert_before 0, Rack::Cors do
-  allow do
-    # TODO: enforce CORS rules after completion of development
-    # If restricted - then request will be blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present
-    # on the requested resource.
-    origins '*'
-    resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
-  end
-end
+# Rails.application.config.middleware.insert_before 0, Rack::Cors do
+#   allow do
+#     # TODO: enforce CORS rules after completion of development
+#     # If restricted - then request will be blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present
+#     # on the requested resource.
+#     origins '*'
+#     resource '*',
+#       headers: :any,
+#       methods: [:get, :post, :put, :patch, :delete, :options, :head]
+#   end
+# end

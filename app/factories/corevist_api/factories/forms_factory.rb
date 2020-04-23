@@ -14,6 +14,17 @@ module CorevistAPI
         admin_users_destroy: 'CorevistAPI::Forms::Admin::Users::DestroyForm',
         admin_users_partners_index: 'CorevistAPI::Forms::Admin::Users::Partners::IndexForm',
         admin_users_partners_destroy: 'CorevistAPI::Forms::Admin::Users::Partners::DestroyForm',
+
+        admin_roles_index: 'CorevistAPI::Forms::Admin::Roles::IndexForm',
+        admin_roles_create: 'CorevistAPI::Forms::Admin::Roles::CreateForm',
+        admin_roles_update: 'CorevistAPI::Forms::Admin::Roles::UpdateForm',
+        admin_roles_show: 'CorevistAPI::Forms::Admin::Roles::ShowForm',
+        admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
+
+        admin_translations_create: 'CorevistAPI::Forms::Admin::Translations::CreateForm',
+        admin_translations_update: 'CorevistAPI::Forms::Admin::Translations::UpdateForm',
+        admin_translations_destroy: 'CorevistAPI::Forms::Admin::Translations::DestroyForm',
+
         user_registration: 'CorevistAPI::Forms::User::Registration',
         set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',
         invoices_index: 'CorevistAPI::Forms::Invoice::ListForm',
@@ -21,11 +32,7 @@ module CorevistAPI
         partners_index: 'CorevistAPI::Forms::Admin::Partners::IndexForm',
         sessions_create: 'CorevistAPI::Forms::User::Login',
         open_items_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
-        admin_roles_index: 'CorevistAPI::Forms::Admin::Roles::IndexForm',
-        admin_roles_create: 'CorevistAPI::Forms::Admin::Roles::CreateForm',
-        admin_roles_update: 'CorevistAPI::Forms::Admin::Roles::UpdateForm',
-        admin_roles_show: 'CorevistAPI::Forms::Admin::Roles::ShowForm',
-        admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
+
         sort_salesdoc_items: 'CorevistAPI::Forms::Document::SortItemsForm',
         sort_invoice_items: 'CorevistAPI::Forms::Document::SortItemsForm',
         output_types_index: 'CorevistAPI::Forms::Document::OutputTypesList',

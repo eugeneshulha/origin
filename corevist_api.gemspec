@@ -18,7 +18,8 @@ Gem::Specification.new do |spec|
   spec.version     = CorevistAPI::VERSION
 
   spec.add_dependency 'devise',         '~> 4.7.1'
-  spec.add_dependency 'devise-jwt',     '~> 0.5.9'
+  spec.add_dependency 'devise-jwt',     '~> 0.6'
+  spec.add_dependency 'warden-jwt_auth', '0.4.2'
   spec.add_dependency 'haml-rails',     '~> 2.0'
   spec.add_dependency 'jbuilder',       '~> 2.9.1'
   spec.add_dependency 'mysql2',         '~> 0.5.2'

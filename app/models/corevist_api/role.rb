@@ -4,7 +4,7 @@ module CorevistAPI
 
     has_and_belongs_to_many :users
     has_and_belongs_to_many :sales_areas
-    has_and_belongs_to_many :privileges
+    has_and_belongs_to_many :permissions
 
     validates_uniqueness_of :title
     validates_presence_of :title

@@ -4,7 +4,7 @@ module CorevistAPI
     include CorevistAPI::ConfigsFor
     include JsonResponse
 
-    configs_for :new
+    configs_for new: { authorize: false }
 
     def create
       @form = form_for(:sessions_create, params)

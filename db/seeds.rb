@@ -43,7 +43,7 @@ ActiveRecord::Base.transaction do
     description: 'That role lets you create roles',
     created_by: 'seeds'
   )
-:admin_create_user_step
+
   role_2 = CorevistAPI::Role.find_or_create_by!(
       title: 'View Roles',
       description: 'That role lets you create roles',
@@ -51,7 +51,13 @@ ActiveRecord::Base.transaction do
   )
 
   role_3 = CorevistAPI::Role.find_or_create_by!(
-      title: 'Edit Roles',
+      title: 'View Invoices',
+      description: 'That role lets you create roles',
+      created_by: 'seeds'
+  )
+
+  role_4 = CorevistAPI::Role.find_or_create_by!(
+      title: 'No view invoices',
       description: 'That role lets you create roles',
       created_by: 'seeds'
   )
@@ -82,8 +88,8 @@ ActiveRecord::Base.transaction do
     user.created_by = 'seeds'
   end.save
 
-  %w[no_pricing atp_check request_orders].each do |title|
-    CorevistAPI::Privilege.create!(title: title)
+  %w[view_invoices search_for_invoices].each do |title|
+    CorevistAPI::Permission.create!(title: title)
   end
 
   CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |user|
@@ -157,24 +163,30 @@ ActiveRecord::Base.transaction do
   role_1.sales_areas.delete_all
   role_2.sales_areas.delete_all
   role_3.sales_areas.delete_all
+  role_4.sales_areas.delete_all
+
   doc_type.sales_areas.delete_all
-  role_1.privileges.delete_all
-  role_2.privileges.delete_all
-  role_3.privileges.delete_all
+  role_1.permissions.delete_all
+  role_2.permissions.delete_all
+  role_3.permissions.delete_all
+  role_4.permissions.delete_all
 
   role_1.sales_areas << sales_area_1
   role_1.sales_areas << sales_area_2
   role_1.sales_areas << sales_area_3
   role_1.sales_areas << sales_area_4
 
+  role_3.sales_areas << sales_area_1
+  role_4.sales_areas << sales_area_1
+
   doc_type.sales_areas << sales_area_1
   doc_type.sales_areas << sales_area_2
   doc_type.sales_areas << sales_area_3
   doc_type.sales_areas << sales_area_4
 
-  role_1.privileges << CorevistAPI::Privilege.all
-  role_2.privileges << CorevistAPI::Privilege.all
-  role_3.privileges << CorevistAPI::Privilege.all
+  role_1.permissions << CorevistAPI::Permission.all
+  role_2.permissions << CorevistAPI::Permission.all
+  role_3.permissions << CorevistAPI::Permission.find_by(title: 'view_invoices')
 
   u = CorevistAPI::User.find_by(username: 'user_1')
   u.roles.delete_all
@@ -192,6 +204,31 @@ ActiveRecord::Base.transaction do
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
     user.roles = [role_1]
+  end.save
+
+  CorevistAPI::User.find_or_initialize_by(username: 'user_view_invoices') do |user|
+    user.username = 'user_view_invoices'
+    user.password = '123123123'
+    user.email = 'yury.matusevich@corevist.com'
+    user.first_name = 'User'
+    user.last_name = '2'
+    user.user_type = CorevistAPI::UserType.first
+    user.user_classification = CorevistAPI::UserClassification.first
+    user.microsite = CorevistAPI::Microsite.first
+    user.created_by = 'seeds'
+    user.roles = [role_3]
+  end.save
+
+  CorevistAPI::User.find_or_initialize_by(username: 'user_no_view_invoices') do |user|
+    user.username = 'user_no_view_invoices'
+    user.password = '123123123'
+    user.email = 'yury.matusevich@corevist.com'
+    user.first_name = 'User'
+    user.last_name = '2'
+    user.user_type = CorevistAPI::UserType.first
+    user.user_classification = CorevistAPI::UserClassification.first
+    user.microsite = CorevistAPI::Microsite.first
+    user.created_by = 'seeds'
   end.save
 end
 

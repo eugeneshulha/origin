@@ -1,7 +1,11 @@
 module CorevistAPI
-  module API::V1
+  module Policies
     class OpenItems::UserPolicy < Admin::Users::UserPolicy
       def index?
+        true
+      end
+
+      def index_configs?
         true
       end
     end

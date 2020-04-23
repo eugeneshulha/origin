@@ -1,5 +1,5 @@
 module CorevistAPI
-  module API
+  module Policies
     class ApplicationPolicy
       attr_reader :user, :record
 
@@ -12,12 +12,20 @@ module CorevistAPI
         true
       end
 
+      def index_configs?
+        true
+      end
+
       def show?
-        false
+        true
+      end
+
+      def show_configs?
+        true
       end
 
       def create?
-        false
+        true
       end
 
       def new?
@@ -25,7 +33,7 @@ module CorevistAPI
       end
 
       def update?
-        false
+        true
       end
 
       def edit?
@@ -33,7 +41,7 @@ module CorevistAPI
       end
 
       def destroy?
-        false
+        true
       end
 
       class Scope

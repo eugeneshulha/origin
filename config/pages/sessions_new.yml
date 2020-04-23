@@ -15,15 +15,15 @@ components:
           value: ""
           validation_type: string
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('activemodel.errors.models.attributes.username.blank') %>"
               type: required
               value: ""
-            - message: "cannot be less than 3 characters"
+            - message: "<%= I18n.t('activemodel.errors.models.attributes.username.too_short') %>"
               type: min
               value: "3"
-            - message: "cannot be more than 20 characters"
+            - message: "<%= I18n.t('activemodel.errors.models.attributes.username.too_long') %>"
               type: max
-              value: "20"
+              value: "25"
       - - atom: password
           uuid: "password"
           label: Password
@@ -32,13 +32,13 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "field is required"
+            - message: "<%= I18n.t('activemodel.errors.models.attributes.password.blank') %>"
               type: required
               value: ""
-            - message: "cannot be less than 3 characters"
+            - message: "<%= I18n.t('activemodel.errors.models.attributes.password.too_short') %>"
               type: min
               value: "3"
-            - message: "cannot be more than 20 characters"
+            - message: "<%= I18n.t('activemodel.errors.models.attributes.password.too_long') %>"
               type: max
               value: "20"
       - - atom: button

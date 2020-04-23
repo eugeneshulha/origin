@@ -3,7 +3,7 @@ module CorevistAPI
     include CorevistAPI::Factories::FactoryInterface
     include CorevistAPI::ConfigsFor
 
-    configs_for :new
+    configs_for new: { authorize: false }
     respond_to :json
 
 

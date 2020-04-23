@@ -8,6 +8,7 @@ module CorevistAPI
         def form_performer_for(*actions)
           actions.each do |action|
             define_method action do
+              # authorize(User)
               form = form_for(performer_name, params)
               params.merge!(type: performer_name)
               params.merge!(scope: policy_scope(scope_model)) if respond_to?(:scope_model, true)
@@ -21,6 +22,7 @@ module CorevistAPI
         def obj_performer_for(*actions)
           actions.each do |action|
             define_method action do
+              # authorize(User)
               params.merge!(type: performer_name)
               params.merge!(scope: policy_scope(scope_model)) if respond_to?(:scope_model, true)
               result = service_for(performer_name, @obj, params).call

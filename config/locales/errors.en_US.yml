@@ -1,0 +1,170 @@
+en_US:
+  api:
+    errors:
+      services:
+        no_uuid: 'UUID is required to perform this operation'
+      partner:
+        not_found: 'Partner not found'
+      roles:
+        not_found: 'Role has not been found'
+        not_destroyed: 'Role has NOT been destroyed'
+      users:
+        not_found: 'User has not been found'
+        not_destroyed: 'User has NOT been destroyed'
+        one_function: 'You can not assign sold_tos and ship_to at the same time'
+        partners:
+          not_found: "Partner not found"
+      open_items:
+        items_to_pay_not_found: "No items to pay"
+      step: 'Invalid step parameter'
+      unauthorized: 'You are not authorised to access this resource.'
+      unexpected_exception: 'An unknown error has occurred, please report this.'
+      user_not_found: 'The user was not found'
+      role_not_found:  'The role was not found'
+      assignable_role_not_found: 'The assignable role was not found'
+      one_function: 'Only one sold-to or ship-to can be assigned'
+      territory_not_found: 'The territory was not found'
+
+  activerecord:
+    errors:
+      models:
+        corevist_api/user:
+          attributes:
+            reset_password_token:
+              invalid: "is invalid"
+              blank: "is blank"
+            username:
+              taken: "already in use"
+            password:
+              blank: "can not be blank"
+
+        corevist_api/forms/user/registration:
+          attributes:
+            email:
+              blank: "field can not be blank"
+            language:
+              blank: "field can not be blank"
+        corevist_api/role:
+          attributes:
+            title:
+              taken: "already in use"
+              blank: "cannot be blank"
+
+  activemodel:
+    errors:
+      models:
+        corevist_api/forms/user/registration:
+          attributes:
+            email:
+              blank: "field can not be blank"
+            language:
+              blank: "field can not be blank"
+            first_name:
+              blank: "field can not be blank"
+              too_short: "is too short"
+              too_long: "is too long"
+            last_name:
+              blank: "field can not be blank"
+            microsite:
+              blank: "field can not be blank"
+            phone:
+              blank: "field can not be blank"
+              not_a_number: "field should be numeric"
+        corevist_api/forms/user/login:
+          attributes:
+            username:
+              blank: "field can not be blank"
+              too_short: "is too short"
+              too_long: "is too long"
+            password:
+              blank: "field can not be blank"
+              too_short: "is too short"
+              too_long: "is too long"
+
+        corevist_api/forms/user/set_new_password:
+          attributes:
+            password:
+              blank: 'field can not be blank'
+              too_short: 'value is too short'
+              too_long: 'value is too long'
+            password_confirmation:
+              blank: 'field can not be blank'
+              confirmation: 'does not match'
+        corevist_api/forms/admin/users/step1:
+          attributes:
+            number_format:
+              blank: 'field cannot be blank'
+            username:
+              blank: 'field cannot be blank'
+            phone:
+              blank: 'field cannot be blank'
+            first_name:
+              blank: 'field cannot be blank'
+            last_name:
+              blank: 'field cannot be blank'
+            email:
+              blank: 'field cannot be blank'
+            password:
+              blank: 'field cannot be blank'
+            confirm_password:
+              blank: 'field cannot be blank'
+            microsite_id:
+              blank: 'field cannot be blank'
+            user_type_id:
+              blank: 'field cannot be blank'
+            language:
+              blank: 'field cannot be blank'
+            time_zone:
+              blank: 'field cannot be blank'
+            user_classification_id:
+              blank: 'field cannot be blank'
+            date_format:
+              blank: 'field cannot be blank'
+            time_format:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step2:
+          attributes:
+            role_ids:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step3:
+          attributes:
+            assignable_role_ids:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step4:
+          attributes:
+            function:
+              inclusion: 'is not included in the list'
+              blank: 'field cannot be blank'
+            uuid:
+              blank: 'field cannot be blank'
+            partner_number:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step5:
+          attributes:
+            function:
+              inclusion: 'is not included in the list'
+              blank: 'field cannot be blank'
+            uuid:
+              blank: 'field cannot be blank'
+            partner_number:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/users/step6:
+          attributes:
+            uuid:
+              blank: 'field cannot be blank'
+            territories_ids:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/roles/create_form:
+          attributes:
+            title:
+              blank: 'field cannot be blank'
+            description:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/roles/show_form:
+          attributes:
+            id:
+              blank: 'field cannot be blank'
+        corevist_api/forms/admin/roles/update_form:
+          attributes:
+            id:
+              blank: 'field cannot be blank'
