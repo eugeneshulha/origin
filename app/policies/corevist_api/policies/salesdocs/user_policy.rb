@@ -10,11 +10,11 @@ module CorevistAPI
       end
 
       def new?
-        self.user.roles.includes(:permissions).find_by(permissions: { title: 'view_invoices'}).present?
+        true
       end
 
       def show?
-        self.user.roles.includes(:permissions).find_by(permissions: { title: 'view_invoices'}).present?
+        true
       end
     end
   end
