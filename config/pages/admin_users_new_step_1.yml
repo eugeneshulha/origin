@@ -132,8 +132,6 @@ components:
           options:
             - name: Microsite 1
               value: "1"
-            - name: Microsite 2
-              value: "1"
           validations:
             - message: "<%= I18n.t('required') %>"
               type: required
