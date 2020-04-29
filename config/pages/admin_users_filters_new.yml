@@ -13,6 +13,24 @@ components:
           name: "username"
           value: ""
 
+      - - atom: text
+          uuid: 'first_name'
+          label: First name
+          name: "first_name"
+          value: ""
+
+      - - atom: text
+          uuid: 'last_name'
+          label: Last name
+          name: "last_name"
+          value: ""
+
+      - - atom: text
+          uuid: 'email'
+          label: email
+          name: "email"
+          value: ""
+
       - - atom: button
           text: Cancel
           type: text
