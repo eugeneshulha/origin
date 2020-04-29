@@ -38,3 +38,5 @@ date_formats:
   EU: '%d.%m.%'
   CI: '%Y/%m/%d'
   SW: '%Y-%m-%d'
+
+self_url: http://localhost:3001/

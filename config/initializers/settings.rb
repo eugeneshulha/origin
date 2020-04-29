@@ -1,7 +1,9 @@
 SETTINGS = [
     # global general settings
-    Dir.glob("#{CorevistAPI::Engine.root}/config/*.yml")
+    Dir.glob("#{CorevistAPI::Engine.root}/config/*.yml"),
 
+    "#{CorevistAPI::Engine.root.to_s}/config/environments/#{Rails.env}.yml",
+    "#{Rails.root.to_s}/config/environments/#{Rails.env}.yml"
     # To add folder with configs use
     # Dir.glob("#{CorevistAPI::Engine.root}/config/folder_name/*.yml")
     #
