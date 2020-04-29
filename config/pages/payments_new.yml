@@ -15,8 +15,6 @@ components:
           options:
             - name: Credit card
               value: 'c'
-            - name: Invoice
-              value: 'invoice_card'
           validations:
             - message: "<%= I18n.t('my_message') %>"
               type: required
