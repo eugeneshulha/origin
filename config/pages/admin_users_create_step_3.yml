@@ -12,9 +12,6 @@ components:
           label: assigned_roles
           name: "assignable_role_ids"
           validation_type: string
-          validations:
-            - message: "<%= I18n.t('my_message') %>"
-              type: required
       - - atom: hidden
           uuid: "uuid"
           label: ID
