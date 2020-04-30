@@ -1,7 +1,7 @@
 module CorevistAPI
   module Policies::Admin
-    module Users
-      class Filters::UserPolicy < CorevistAPI::Policies::ApplicationPolicy
+    module Users::Filters
+      class UserPolicy < CorevistAPI::Policies::ApplicationPolicy
         def new?
           true
         end
