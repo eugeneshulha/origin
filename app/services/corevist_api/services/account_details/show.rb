@@ -1,6 +1,7 @@
 module CorevistAPI
   module Services::AccountDetails
     class Show < CorevistAPI::Services::BaseServiceWithForm
+      private
 
       def perform
         result = { }

@@ -12,16 +12,7 @@ module CorevistAPI
         raise CorevistAPI::ServiceException.new("api.errors.#{namespace}.one_function") if assigned_partners.present?
         raise CorevistAPI::ServiceException.new("api.errors.#{namespace}.at_least_one_function") if assigned_partners.blank? && @form.partners.blank?
 
-        partners = @form.partners&.each_with_object([]) do |data, memo|
-          data = data[1] if data.is_a?(Array)
-          next if data[KEY_FUNCTION].to_sym == function_name(excluded_function)
-
-          partners = process_partner(data[KEY_NUMBER])
-          memo << partners
-        end
-
-        user.partners = [user.partners, partners].flatten.uniq if partners
-        result(user)
+        process_partners
       end
 
       def function

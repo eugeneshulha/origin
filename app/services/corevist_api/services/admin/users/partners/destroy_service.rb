@@ -3,6 +3,8 @@ module CorevistAPI
     module Admin::Users
       module Partners
         class DestroyService< CorevistAPI::Services::BaseServiceWithForm
+          private
+
           def perform
             u = CorevistAPI::User.find_by(uuid: @form.user_uuid)
             raise CorevistAPI::ServiceException.new('api.errors.users.not_found') unless u

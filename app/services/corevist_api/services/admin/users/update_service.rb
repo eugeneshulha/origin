@@ -2,6 +2,8 @@ module CorevistAPI
   module Services
     module Admin::Users
       class UpdateService < Step1CreationService
+        private
+
         def perform
           ActiveRecord::Base.transaction do
             super

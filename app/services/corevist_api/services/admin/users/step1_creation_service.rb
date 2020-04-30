@@ -1,6 +1,8 @@
 module CorevistAPI
   module Services
     class Admin::Users::Step1CreationService< CorevistAPI::Services::BaseServiceWithForm
+      private
+
       def perform
         object = CorevistAPI::User.find_by(uuid: @form&.uuid) || CorevistAPI::User.new
         fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)&.strip) }
@@ -8,8 +10,6 @@ module CorevistAPI
 
         result(object)
       end
-
-      private
 
       def obtain_object
         CorevistAPI::User.new

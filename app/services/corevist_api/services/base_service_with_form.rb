@@ -15,10 +15,6 @@ module CorevistAPI
         invalid_object_error
       end
 
-      def perform
-        raise NotImplementedError
-      end
-
       def result(data = nil)
         if @result.present?
           @result.data = data

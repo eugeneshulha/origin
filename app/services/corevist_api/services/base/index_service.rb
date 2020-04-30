@@ -1,6 +1,7 @@
 module CorevistAPI
   module Services
     class Base::IndexService < CorevistAPI::Services::BaseServiceWithForm
+      private
 
       def perform
         filter_result = filter
@@ -10,11 +11,6 @@ module CorevistAPI
         data = paginate(items: items)
 
         result(data)
-      end
-
-      def filter
-        p = { 'username' => @params[:username].to_s }
-        service_for("#{@params[:type]}_filter", @params[:scope], p).call
       end
     end
   end

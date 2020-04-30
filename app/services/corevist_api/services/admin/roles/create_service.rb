@@ -2,6 +2,8 @@ module CorevistAPI
   module Services
     module Admin::Roles
       class CreateService < CorevistAPI::Services::BaseServiceWithForm
+        private
+
         def perform
           object = CorevistAPI::Role.new
           raise CorevistAPI::ServiceException.new(not_found_msg) unless object

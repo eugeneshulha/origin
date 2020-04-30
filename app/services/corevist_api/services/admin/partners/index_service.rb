@@ -3,6 +3,8 @@ module CorevistAPI
     module Admin
       module Partners
         class IndexService < CorevistAPI::Services::BaseServiceWithForm
+          private
+
           def perform
             rfc_result = rfc_service_for(:partner_search, @form, @params).call
 

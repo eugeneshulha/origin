@@ -1,6 +1,8 @@
 module CorevistAPI
   module Services
     class Admin::Users::Step6CreationService< CorevistAPI::Services::BaseServiceWithForm
+      private
+
       def perform
         raise CorevistAPI::ServiceException.new(not_found_msg) unless user
         return result(user) if @form.territory_ids.blank?

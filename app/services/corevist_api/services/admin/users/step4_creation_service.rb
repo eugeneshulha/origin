@@ -1,16 +1,10 @@
 module CorevistAPI
   module Services
     class Admin::Users::Step4CreationService< CorevistAPI::Services::BaseServiceWithForm
-
-      # sp - sold-to
-      # sh - ship-to
-      # py - payer
-      FUNCTIONS_MAP = {
-        sp: :AG,
-        sh: :WE
-      }.freeze
       KEY_FUNCTION = 'function'.freeze
       KEY_NUMBER = 'number'.freeze
+
+      private
 
       def perform
         raise CorevistAPI::ServiceException.new(not_found_msg) unless user
@@ -20,25 +14,23 @@ module CorevistAPI
 
         raise CorevistAPI::ServiceException.new("api.errors.#{namespace}.one_function") if assigned_partners.present?
 
+        process_partners
+      end
+
+      def process_partners
         partners = @form.partners&.each_with_object([]) do |data, memo|
           data = data[1] if data.is_a?(Array)
           next if data[KEY_FUNCTION].to_sym == function_name(excluded_function)
 
-          partners = process_partner(data[KEY_NUMBER])
-          memo << partners
+          partner = get_partner(data[KEY_NUMBER])
+          memo << partner
         end
 
         user.partners = [user.partners, partners].flatten.uniq if partners
         result(user)
       end
 
-      private
-
-      def function_name(function)
-        FUNCTIONS_MAP.dig(function)
-      end
-
-      def process_partner(number)
+      def get_partner(number)
         object = OpenStruct.new(partner_number: number)
         @rfc_result = rfc_service_for(:get_partner, object, @params).call
         @rfc_partner = @rfc_result.data[:partner]
@@ -79,6 +71,10 @@ module CorevistAPI
 
       def fetch_sales_data(sales_area)
         @partner_sales_data.select { |data| data.sa == sales_area && data.nr == @rfc_partner.nr }
+      end
+
+      def function_name(function)
+        CorevistAPI::Constants::SAP::Common::FUNCTIONS_MAP.dig(function)
       end
 
       def function
