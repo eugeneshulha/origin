@@ -91,6 +91,7 @@ module CorevistAPI
 
       def get_function_name(method)
         {
+          assigned_partners: '/COREVIST/ASSIGNED_PARTNERS',
           salesdoc_display: '/COREVIST/SALESDOC_DISPLAY',
           salesdoc_list: '/COREVIST/SALESDOC_LIST',
           invoice_display: '/COREVIST/INVOICE_DISPLAY',
@@ -99,7 +100,7 @@ module CorevistAPI
           get_partner: '/COREVIST/PARTNER_DATA',
           open_items: '/COREVIST/OPEN_ITEMS',
           get_pdf: '/COREVIST/GET_PDF',
-          pay_bill: '/COREVIST/PAY_BILL'
+          pay_bill: '/COREVIST/PAY_BILL',
         }[method]
       end
 

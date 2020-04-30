@@ -17,12 +17,13 @@ module CorevistAPI
     end
 
     def with_exception_handling
+      attempts ||= 0
       yield
     rescue SAPNW::RFC::FunctionCallException, SAPNW::RFC::ConnectionException => exc
-      # @connection&.close
-      # @retry_condition.call(exc) and retry
+      CorevistAPI::RFCServices::BaseRFC::Connection.instance.close
       log_rfc_exception(exc)
-      raise_rfc_exception(exc)
+
+      attempts < 1 ? (attempts += 1) && retry : raise_rfc_exception(exc)
     rescue CorevistAPI::RFCServices::BaseRFC::Error => exc
       raise_sap_error(exc)
     rescue => exc

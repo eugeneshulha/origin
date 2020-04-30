@@ -7,6 +7,8 @@ module CorevistAPI
     include CorevistAPI::RFCServices::BaseRFC::WithHelpers
     include NewRelic::Agent::MethodTracer
 
+    attr_reader :connection
+
     CLOSE_EXCEPTION = 'CONNECTION CLOSE EXCEPTION'.freeze
 
     def initialize
@@ -22,6 +24,8 @@ module CorevistAPI
     end
 
     def open
+      return @connection if @connection.present?
+
       trace_execution_scoped(['Custom/SAP/init_rfc_connection']) do
         @connection ||= SAPNW::Base.rfc_connect
       end
@@ -35,6 +39,7 @@ module CorevistAPI
 
     def close
       @connection.close
+      @connection = nil
     rescue Exception => exc
       Rails.logger.tagged(CLOSE_EXCEPTION) do
         log_error(exc)
