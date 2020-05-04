@@ -24,6 +24,8 @@ module CorevistAPI
         admin_roles_destroy: 'CorevistAPI::Services::Admin::Roles::DestroyService',
         admin_users_steps: 'CorevistAPI::Services::Admin::Users::StepsService',
 
+        admin_translations_index_filter: 'CorevistAPI::Services::Admin::Translations::FilterService',
+        admin_translations_index: 'CorevistAPI::Services::Admin::Translations::IndexService',
         admin_translations_create: 'CorevistAPI::Services::Admin::Translations::CreateService',
         admin_translations_update: 'CorevistAPI::Services::Admin::Translations::UpdateService',
         admin_translations_destroy: 'CorevistAPI::Services::Admin::Translations::DestroyService',

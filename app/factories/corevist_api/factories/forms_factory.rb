@@ -21,6 +21,7 @@ module CorevistAPI
         admin_roles_show: 'CorevistAPI::Forms::Admin::Roles::ShowForm',
         admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
 
+        admin_translations_index: 'CorevistAPI::Forms::Admin::Translations::IndexForm',
         admin_translations_create: 'CorevistAPI::Forms::Admin::Translations::CreateForm',
         admin_translations_update: 'CorevistAPI::Forms::Admin::Translations::UpdateForm',
         admin_translations_destroy: 'CorevistAPI::Forms::Admin::Translations::DestroyForm',

@@ -10,7 +10,8 @@ require 'sidekiq'
 require 'config'
 require 'rack/cors'
 require 'corevist_api/engine'
+require 'gettext_i18n_rails'
 
 module CorevistAPI
-  
+
 end

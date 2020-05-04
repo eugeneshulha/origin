@@ -17,22 +17,24 @@ Gem::Specification.new do |spec|
   spec.files       = Dir['{app,config,db,lib}/**/*', 'Rakefile', 'README.md']
   spec.version     = CorevistAPI::VERSION
 
+  spec.add_dependency 'config',         '~> 2.2.1'
   spec.add_dependency 'devise',         '~> 4.7.1'
   spec.add_dependency 'devise-jwt',     '~> 0.6'
-  spec.add_dependency 'warden-jwt_auth', '0.4.2'
+  spec.add_dependency 'forgery',        '~> 0.7.0'
+  spec.add_dependency 'gettext',        '~> 3.2.9'
+  spec.add_dependency 'gettext_i18n_rails', '~> 1.8.1'
   spec.add_dependency 'haml-rails',     '~> 2.0'
   spec.add_dependency 'jbuilder',       '~> 2.9.1'
   spec.add_dependency 'mysql2',         '~> 0.5.2'
+  spec.add_dependency 'newrelic_rpm',   '~> 6.8.0.360'
   spec.add_dependency 'pundit',         '~> 2.1'
   spec.add_dependency 'rack-cors',      '~> 1.1.0'
   spec.add_dependency 'rails',          '~> 5.2.4'
+  spec.add_dependency 'sidekiq',        '~> 5.2.7'
+  spec.add_dependency 'spreedly',       '~> 2.0.24'
   spec.add_dependency 'thin',           '~> 1.7.0'
   spec.add_dependency 'unicorn'
-  spec.add_dependency 'newrelic_rpm',   '~> 6.8.0.360'
-  spec.add_dependency 'sidekiq',        '~> 5.2.7'
-  spec.add_dependency 'config',         '~> 2.2.1'
-  spec.add_dependency 'forgery',        '~> 0.7.0'
-  spec.add_dependency 'spreedly',       '~> 2.0.24'
+  spec.add_dependency 'warden-jwt_auth', '0.4.2'
 
   spec.required_ruby_version = '>= 2.4.6'
 

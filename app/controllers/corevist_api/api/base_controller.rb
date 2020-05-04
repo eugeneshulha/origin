@@ -8,6 +8,7 @@ module CorevistAPI::API
     include CorevistAPI::JsonResponse
     include CorevistAPI::ActionPerformer
     include CorevistAPI::ConfigsFor
+    include CorevistAPI::Translations::Controller::Base
 
     rescue_from StandardError, with: :handle_exception
     rescue_from CorevistAPI::ServiceException, with: :handle_service_exception
