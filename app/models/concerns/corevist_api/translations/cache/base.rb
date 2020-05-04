@@ -1,21 +1,19 @@
 module CorevistAPI::Translations::Cache::Base
   def fetch(key, &block)
-    translation = nil
+    # translation = nil
 
-    fetchers.each do |fetcher|
-      translation = @current[fetcher.call(key)]
-      break if translation
-    end
+    # fetchers.each do |fetcher|
+    #   translation = @current[fetcher.call(key)]
+    #   break if translation
+    # end
 
-    if translation.nil?
-      translation = try_get_translation(key, &block)
-    end
+    translation = try_get_translation(key, &block)
 
-    if translation.is_a?(String) || translation.is_a?(FalseClass)
-      used_translations[key] = translation
-    end
+    # if translation.is_a?(String) || translation.is_a?(FalseClass)
+    #   used_translations[key] = translation
+    # end
 
-    translation
+    # translation
   end
 
   def cached?(locale, loaded: false)
@@ -45,7 +43,7 @@ module CorevistAPI::Translations::Cache::Base
 
   # initializes cache for available languages
   def init(locale)
-    available_locales = Settings.locales&.values&.flatten&.uniq || [locale]
+    available_locales = Settings.locales&.flatten&.uniq || [locale]
     available_locales.each(&method(:process_locale))
   end
 
