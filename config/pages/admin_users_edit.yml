@@ -1,0 +1,37 @@
+title: "Edit new user"
+components:
+  - uuid: "step 1"
+    method: GET
+    title: User details
+    type: step
+    data_url: "/v1/admin/users/new?step=1"
+
+  - uuid: "step 2"
+    method: GET
+    title: Assigned roles
+    type: step
+    data_url: "/v1/admin/users/new?step=2"
+
+  - uuid: "step 3"
+    method: GET
+    title: Roles user can assign
+    type: step
+    data_url: "/v1/admin/users/new?step=3"
+
+  - uuid: "step 4"
+    method: GET
+    title: Sold tos
+    type: step
+    data_url: "/v1/admin/users/new?step=4"
+
+  - uuid: "step 5"
+    method: GET
+    title: Ship tos
+    type: step
+    data_url: "/v1/admin/users/new?step=5"
+
+#  - uuid: "step 6"
+#    method: GET
+#    title: Territories
+#    type: step
+#    data_url: "/v1/admin/users/new?step=6"
