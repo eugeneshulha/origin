@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_133658) do
+ActiveRecord::Schema.define(version: 2020_04_24_140219) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -154,6 +154,21 @@ ActiveRecord::Schema.define(version: 2020_04_23_133658) do
     t.boolean "selected", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "translations", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.string "key"
+    t.text "df_translation"
+    t.text "cst_translation"
+    t.string "locale"
+    t.bigint "microsite_id"
+    t.boolean "status"
+    t.string "location_used"
+    t.string "updated_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key", "locale"], name: "index_translations_on_key_and_locale"
+    t.index ["microsite_id"], name: "index_translations_on_microsite_id"
   end
 
   create_table "user_classifications", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

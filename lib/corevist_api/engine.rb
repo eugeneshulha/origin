@@ -16,6 +16,16 @@ module CorevistAPI
         app.config.assets.paths << File.join(CorevistAPI::Engine.root, 'app/assets/corevist_api/', sub, '/')
       end
     end
+
+    initializer :translations do
+      default_locales = %i[en_US de_DE fr_FR es_ES da_DK sv_SE nl_BE nl_NL ru_RU pt_BR zh_CN pt_PT pl_PL it_IT fr_CA]
+      FastGettext.add_text_domain(:api, type: :db, model: CorevistAPI::Translation)
+      FastGettext.default_available_locales = default_locales
+      FastGettext.default_locale = :en_US
+      FastGettext.default_text_domain = :api
+      I18n.enforce_available_locales = false
+      CorevistAPI::Translations::Base.load if ActiveRecord::Base.connected?
+    end
   end
 end
 
