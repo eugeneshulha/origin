@@ -14,7 +14,7 @@ module CorevistAPI::Translations::Base::Service
   end
 
   def used_translations
-    Context::Base[:used_translations] ||= {}
+    CorevistAPI::Context[:used_translations] ||= {}
   end
 
   def default_query(key)
