@@ -10,7 +10,7 @@ module CorevistAPI
         array = filter_by_query(@rfc_result.data)
         array = sort_by_param(array)
 
-        invoices = paginate(invoices: array)
+        invoices = paginate(items: array)
         result(invoices)
       end
     end
