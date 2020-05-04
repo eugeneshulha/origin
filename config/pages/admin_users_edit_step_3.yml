@@ -1,0 +1,36 @@
+title: "Edit a user"
+components:
+  - uuid: "roles_can_assign_of_new_user_form"
+    description: ""
+    method: PATCH
+    title: Show user
+    type: form
+    url: "/v1/admin/users/<uuid>"
+    elements:
+      thead:
+        - key: true,
+          name: 'id'
+          uuid: 'id'
+          caption: 'Id'
+          label: null
+          sortable: true
+
+        - key: true,
+          name: 'title'
+          uuid: 'title'
+          caption: 'Role'
+          label: null
+          sortable: true
+          action: 'expand'
+
+#        - name: 'description'
+#          uuid: 'description'
+#          caption: 'Description'
+#          label: null
+#          sortable: true
+#
+#        - name: 'created_by'
+#          uuid: 'created_by'
+#          caption: 'Created By'
+#          label: null
+#          sortable: true

@@ -1,4 +1,4 @@
-title: "Create a new user"
+title: "Edit a user"
 components:
   - uuid: "admin_create_new_user_step_1"
     description: "Fields with an asterisk (*) are mandatory."

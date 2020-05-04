@@ -1,0 +1,39 @@
+title: "Edit a user"
+components:
+  - uuid: "assigned_roles"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: POST
+    title: Assign roles to user
+    type: datatable
+    name: "role_ids"
+    url: "/v1/assigned_roles"
+    selected_rows: []
+    data_url: "/v1/"
+    elements:
+      thead:
+        - key: true,
+          name: 'id'
+          uuid: 'id'
+          caption: 'Id'
+          label: null
+          sortable: true
+
+        - key: true,
+          name: 'title'
+          uuid: 'title'
+          caption: 'Role'
+          label: null
+          sortable: true
+          action: 'expand'
+#
+#        - name: 'description'
+#          uuid: 'description'
+#          caption: 'Description'
+#          label: null
+#          sortable: true
+#
+#        - name: 'created_by'
+#          uuid: 'created_by'
+#          caption: 'Created By'
+#          label: null
+#          sortable: true
