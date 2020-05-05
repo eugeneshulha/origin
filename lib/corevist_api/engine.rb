@@ -24,7 +24,6 @@ module CorevistAPI
       FastGettext.default_locale = :en_US
       FastGettext.default_text_domain = :api
       I18n.enforce_available_locales = false
-      CorevistAPI::Translations::Base.load if ActiveRecord::Base.connected?
     end
   end
 end

@@ -25,45 +25,45 @@ CorevistAPI::Engine.routes.draw do
       resources :account_details, only: [:show], param: :user_id
       resources :accounts, only: [:show], param: :user_id
 
-      resources :payments, only: [:new, :create]
+      resources :payments, only: %i[new create]
       resource :dashboard, only: [:new]
 
       # registrations
-      resources :registrations, only: [:new, :create]
+      resources :registrations, only: %i[new create]
 
-      resources :invoices, only: [:new, :show, :index], param: :doc_number do
+      resources :invoices, only: %i[new show index], param: :doc_number do
         get :configs, on: :collection, to: 'invoices#index_configs'
         get 'filters/new', on: :collection, to: 'invoices/filters#new'
         resources :items, only: [:index], controller: 'invoices/items'
-        resources :questions, only: [:new, :create], controller: 'invoices/questions'
-        resources :output_types, only: [:index, :show], param: :output_type_id, controller: 'invoices/output_types'
+        resources :questions, only: %i[new create], controller: 'invoices/questions'
+        resources :output_types, only: %i[index show], param: :output_type_id, controller: 'invoices/output_types'
       end
 
-      resources :salesdocs, only: [:new, :show, :index], param: :doc_number do
+      resources :salesdocs, only: %i[new show index], param: :doc_number do
         get :configs, on: :collection, to: 'salesdocs#index_configs'
         get 'filters/new', on: :collection, to: 'salesdocs/filters#new'
         resources :items, only: [:index], controller: 'salesdocs/items'
-        resources :questions, only: [:new, :create], controller: 'salesdocs/questions'
-        resources :output_types, only: [:index, :show], param: :output_type_id, controller: 'salesdocs/output_types'
+        resources :questions, only: %i[new create], controller: 'salesdocs/questions'
+        resources :output_types, only: %i[index show], param: :output_type_id, controller: 'salesdocs/output_types'
       end
 
       get 'status', to: 'statuses#status'
 
       # admin panel
       namespace :admin do
-        resources :users, only: [:index, :new, :create, :edit, :update, :show, :destroy], param: :uuid do
+        resources :users, only: %i[index new create edit update show destroy], param: :uuid do
           get :configs, on: :collection, to: 'users#index_configs'
           get :configs, on: :member, to: 'users#show_configs'
           get 'filters/new', on: :collection, to: 'users/filters#new'
           resources :partners, only: %i[index destroy], controller: 'users/partners'
         end
 
-        resources :roles, only: [:index, :new, :create, :edit, :update, :show, :destroy], param: :uuid do
+        resources :roles, only: %i[index new create edit update show destroy], param: :uuid do
           get :configs, on: :collection, to: 'roles#index_configs'
           get :configs, on: :member, to: 'roles#show_configs'
         end
 
-        resources :translations, only: [:index, :new, :create, :edit, :update, :destroy] do
+        resources :translations, only: %i[index create update destroy], param: :uuid do
           get :configs, on: :collection, to: 'translations#index_configs'
           get 'filters/new', on: :collection, to: 'translations/filters#new'
         end
@@ -73,7 +73,7 @@ CorevistAPI::Engine.routes.draw do
         get 'filters/new', on: :collection, to: 'partners/filters#new'
         get 'filters/configs', on: :collection, to: 'partners/filters#index_configs'
       end
-      
+
       resources :open_items, only: [:index] do
         get :configs, on: :collection, to: 'open_items#index_configs'
       end

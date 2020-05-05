@@ -8,7 +8,6 @@ module CorevistAPI::Translations::Base::Callbacks
     before_update :reject_default_changed
     before_destroy :reject_default
     before_save :reject_duplicate
-    after_initialize :calculate_cache_key
   end
 
   private
@@ -40,36 +39,6 @@ module CorevistAPI::Translations::Base::Callbacks
     unless df_translation.to_s.empty?
       errors.add(:df_translation, _('msg|default_translation_deleting'))
       throw :abort
-    end
-  end
-
-  def calculate_cache_key
-    return unless persisted?
-
-    begin
-      self.class.initializers.each do |initializer|
-        if initializer.init?(self)
-          @cache_key = generate_key(initializer.fetch_method)
-          break
-        end
-      end
-    rescue StandardError => e
-      Rails.logger.tagged('Translations Issue') do
-        Rails.logger.error(e.message)
-        Rails.logger.error(e.backtrace.first(10)&.join("\n"))
-      end
-    end
-
-    @cache_key
-  end
-
-  def generate_key(fetch_method)
-    generator = self.class.key_class.new(key)
-
-    if generator.with_translation?(fetch_method)
-      generator.send(fetch_method, self)
-    else
-      generator.send(fetch_method)
     end
   end
 end

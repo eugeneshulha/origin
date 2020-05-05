@@ -8,7 +8,7 @@ class CorevistAPI::Translations::DbSearch::Base::Conditions::LocationMicrosite <
     translations.find do |t|
       @extra_condition.call(t) &&
         t.microsite_id.present? &&
-        t.microsite_id == CorevistAPI::Translation.microsite_id &&
+        t.microsite == CorevistAPI::Translation.microsite &&
         t.location_used.present? &&
         t.location_used == CorevistAPI::Translation.location
     end
