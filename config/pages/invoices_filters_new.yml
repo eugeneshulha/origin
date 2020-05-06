@@ -8,7 +8,7 @@ components:
     url: "/v1/invoices"
     elements:
       - - atom: select
-          uuid: 'search_criteria'
+          uuid: "search_criteria"
           label: Search Criteria
           name: "search_criteria"
           placeholder: Select Search Criteria
@@ -16,42 +16,42 @@ components:
           value: "po_number"
           options:
             - name: PO number
-              value: 'po_number'
+              value: "po_number"
             - name: Material number
-              value: 'material'
+              value: "material"
             - name: Order number
-              value: 'salesdoc_number'
+              value: "salesdoc_number"
             - name: Payer number
-              value: 'payer'
+              value: "payer"
             - name: Delivery number
-              value: 'delivery_number'
+              value: "delivery_number"
 
         - atom: text
-          uuid: 'search_criteria_value'
+          uuid: "search_criteria_value"
           label: Search Criteria Value
           name: "search_criteria_value"
           value: ""
 
-      - - atom: text
-          uuid: 'from_date'
+      - - atom: date
+          uuid: "from_date"
           label: From date
           name: "from_date"
           value: ""
 
-        - atom: text
-          uuid: 'to_date'
+        - atom: date
+          uuid: "to_date"
           label: To date
           name: "to_date"
           value: ""
 
       - - atom: button
-          uuid: 'cancel'
+          uuid: "cancel"
           text: Cancel
           type: text
           action_type: button
 
         - atom: button
-          uuid: 'apply'
+          uuid: "apply"
           text: Apply
           type: secondary
           action_type: submit

@@ -25,7 +25,7 @@ components:
         name: "material"
         validation_type: string
         value: ""
-      - atom: text
+      - atom: date
         uuid: "from_date"
         label: From date
         name: "from_date"
@@ -37,7 +37,7 @@ components:
         name: "po_number"
         validation_type: string
         value: ""
-      - atom: text
+      - atom: date
         uuid: "to_date"
         label: To date
         name: "to_date"
