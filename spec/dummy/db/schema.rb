@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 2020_04_24_140219) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "translations", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "translations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "key"
     t.text "df_translation"
     t.text "cst_translation"

@@ -1,4 +1,4 @@
-title: "Edit new user"
+title: "Edit user"
 components:
   - uuid: "step 1"
     method: GET
