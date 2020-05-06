@@ -8,7 +8,7 @@ components:
     url: "/v1/salesdocs"
     elements:
       - - atom: select
-          uuid: 'search_option'
+          uuid: "search_option"
           label: Search Criteria
           name: "search_criteria"
           placeholder: Select Search Criteria
@@ -16,30 +16,30 @@ components:
           value: ""
           options:
             - name: Sold to number
-              value: 'sold_to_nr'
+              value: "sold_to_nr"
             - name: Ship to number
-              value: 'ship_to_nr'
+              value: "ship_to_nr"
             - name: PO number
-              value: 'po_number'
+              value: "po_number"
             - name: Material number
-              value: 'material'
+              value: "material"
             - name: Invoice number
-              value: 'invoice_number'
+              value: "invoice_number"
             - name: Delivery number
-              value: 'delivery_number'
+              value: "delivery_number"
 
         - atom: text
-          uuid: 'search_criteria_value'
+          uuid: "search_criteria_value"
           label: Search Criteria Value
           name: "search_criteria_value"
           value: ""
 
-      - - atom: text
+      - - atom: date
           label: From date
           name: "from_date"
           value: ""
 
-        - atom: text
+        - atom: date
           label: To date
           name: "to_date"
           value: ""
@@ -51,11 +51,11 @@ components:
           value: "ALL"
           options:
             - name: All
-              value: 'ALL'
+              value: "ALL"
             - name: Not shipped
-              value: 'NSHP'
+              value: "NSHP"
             - name: Shipped
-              value: 'SHIP'
+              value: "SHIP"
 
       - - atom: button
           text: Cancel
