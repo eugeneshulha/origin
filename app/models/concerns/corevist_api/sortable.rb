@@ -15,9 +15,7 @@ module CorevistAPI
           end
         end
 
-        def sort_as
-          @sort_as
-        end
+        attr_reader :sort_as
       end
 
       def sort_type(field)
