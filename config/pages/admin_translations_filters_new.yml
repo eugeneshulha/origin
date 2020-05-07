@@ -8,37 +8,37 @@ components:
     url: "/v1/admin/translations"
     elements:
       - - atom: text
-          uuid: 'cst_translation'
+          uuid: "cst_translation"
           label: cst_translation
           name: "cst_translation"
           value: "po_number"
 
         - atom: text
-          uuid: 'locale'
-          label: localse
+          uuid: "locale"
+          label: locale
           name: "locale"
           value: ""
 
       - - atom: text
-          uuid: 'key'
+          uuid: "key"
           label: key
           name: "key"
           value: ""
 
         - atom: text
-          uuid: 'microsite_id'
+          uuid: "microsite_id"
           label: microsite
           name: "microsite_id"
           value: ""
 
       - - atom: button
-          uuid: 'cancel'
+          uuid: "cancel"
           text: Cancel
           type: text
           action_type: button
 
         - atom: button
-          uuid: 'apply'
+          uuid: "apply"
           text: Apply
           type: secondary
           action_type: submit
