@@ -46,7 +46,9 @@ module CorevistAPI
         payments_create: 'CorevistAPI::Services::Invoice::Pay',
         invoices_questions_create: 'CorevistAPI::Services::Invoice::Question::Create',
         salesdocs_questions_create: 'CorevistAPI::Services::Salesdoc::Question::Create',
-        site_configs_index: 'CorevistAPI::Services::SiteConfigs::Index'
+        site_configs_index: 'CorevistAPI::Services::SiteConfigs::Index',
+
+        login: 'CorevistAPI::Services::User::LoginService'
       }
     end
   end

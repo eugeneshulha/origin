@@ -7,13 +7,11 @@ module CorevistAPI
     configs_for new: { authorize: false }
 
     def create
-      @form = form_for(:sessions_create, params)
+      form = form_for(:sessions_create, params)
+      service = service_for(:login, form, self)
+      result = service.call
 
-      if @form.valid?
-        self.resource = warden.authenticate!(auth_options)
-        sign_in(resource_name, resource)
-        success('devise.sessions.signed_in', account_id: resource.uuid)
-      end
+      success(message, account_id: result&.data&.uuid)
     end
   end
 end

@@ -55,7 +55,8 @@ module CorevistAPI
           sales_data: sales_data,
           function: function,
           postal_addresses: @rfc_result.data[:postal_addresses],
-          street_addresses: @rfc_result.data[:street_addresses]
+          street_addresses: @rfc_result.data[:street_addresses],
+          assigned: true
         }
 
         partner = builder_for(:partner, partner_params).build do |builder|
@@ -74,7 +75,7 @@ module CorevistAPI
       end
 
       def function_name(function)
-        CorevistAPI::Constants::SAP::Common::FUNCTIONS_MAP.dig(function)
+        CorevistAPI::Constants::SAP::Common::PARTNER_FUNCTIONS_MAP.dig(function)
       end
 
       def function

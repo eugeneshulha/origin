@@ -11,7 +11,8 @@ module CorevistAPI
         truncate_rfc: 'CorevistAPI::RFCServices::Truncations::RfcService',
         open_items: 'CorevistAPI::RFCServices::OpenItemsRFC',
         get_pdf: 'CorevistAPI::RFCServices::GetPdfRFC',
-        pay_invoices: 'CorevistAPI::RFCServices::PayBillRFC'
+        pay_invoices: 'CorevistAPI::RFCServices::PayBillRFC',
+        assigned_partners: 'CorevistAPI::RFCServices::AssignedPartnersRFC'
       }
     end
   end

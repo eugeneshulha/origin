@@ -28,11 +28,15 @@ module CorevistAPI
       end
 
       def with_assigned_param
-        @object.assigned = true
+        @object.assigned = true if assigned
       end
 
       def with_postal_addresses
         with_addresses(:postal_address)
+      end
+
+      def with_parent_partner
+        @object.parent_partner_id = parent_partner_id
       end
 
       def with_street_addresses
@@ -50,7 +54,10 @@ module CorevistAPI
       end
 
       def obtain_object
-        CorevistAPI::Partner.find_or_initialize_by(sales_area_id: sales_area.id, number: rfc_partner.nr, function: function)
+        CorevistAPI::Partner.find_or_initialize_by(sales_area_id: sales_area.id,
+                                                   user: user,
+                                                   number: rfc_partner.nr,
+                                                   function: function)
       end
     end
   end

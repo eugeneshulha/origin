@@ -6,7 +6,7 @@ module CorevistAPI
     belongs_to :sales_area
 
     # self association
-    has_many :associated_partners, class_name: 'Partner', foreign_key: 'parent_id'
+    has_many :associated_partners, class_name: 'Partner', foreign_key: 'parent_id', dependent: :destroy
     belongs_to :parent_partner, class_name: 'Partner', optional: true
   end
 end
