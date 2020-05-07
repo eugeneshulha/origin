@@ -18,7 +18,7 @@ module CorevistAPI
           case item.sort_type(@params[:sort_by].to_sym)
           when :date then param.to_time.to_i
           when :numeric then param.user_format_to_numeric
-          else param
+          else param.downcase
           end
         end
 

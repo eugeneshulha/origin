@@ -71,7 +71,7 @@ module CorevistAPI
 
     def map_params(invoice)
       invoice.each_with_object({}) do |(k, v), memo|
-        memo[MAPPER[k.to_sym].to_s] = v
+        memo[MAPPER[k.to_sym].to_s] = v.try(:force_encoding, Encoding::UTF_8)
       end
     end
   end
