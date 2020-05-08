@@ -16,9 +16,9 @@ components:
           value: ""
           options:
             - name: Sold to number
-              value: "sold_to_nr"
+              value: "sold_to_number"
             - name: Ship to number
-              value: "ship_to_nr"
+              value: "ship_to_number"
             - name: PO number
               value: "po_number"
             - name: Material number

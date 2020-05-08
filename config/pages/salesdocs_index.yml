@@ -14,9 +14,9 @@ components:
         validation_type: string
         value: ""
       - atom: text
-        uuid: "sold_to_nr"
+        uuid: "sold_to_number"
         label: Sold-to
-        name: "sold_to_nr"
+        name: "sold_to_number"
         validation_type: string
         value: ""
       - atom: text
