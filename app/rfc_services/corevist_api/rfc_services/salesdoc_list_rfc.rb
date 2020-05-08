@@ -9,6 +9,7 @@ module CorevistAPI
       DOC_DATE: :doc_date,
       DOC_NR: :doc_number,
       DOC_TYPE: :doc_type,
+      FROM_DOC_DATE: :from_date,
       INVOICE_NR: :salesdoc_number,
       ITEM_NR: :item_number,
       MAT: :material,
@@ -25,6 +26,7 @@ module CorevistAPI
       SHIP_TO_NR: :ship_to_number,
       SOLD_TO_DESCR: :sold_to_description,
       SOLD_TO_NR: :sold_to_number,
+      TO_DOC_DATE: :to_date,
       VALID_FROM: :valid_from,
       VALID_TO: :valid_to
     }.freeze
@@ -55,7 +57,7 @@ module CorevistAPI
           end
         end
 
-        %i[status material from_date to_date po_number].each do |key|
+        %i[ship_status material from_date to_date po_number].each do |key|
           if @object.value_for_key(key).present?
             hash[SEARCH_CRITERIA][MAPPER.key(key).to_s] = @object.value_for_key(key)
           end
