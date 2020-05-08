@@ -1,11 +1,7 @@
-module CorevistAPI
-  module Policies::Admin
-    module Translations
-      class Filters::UserPolicy < CorevistAPI::Policies::ApplicationPolicy
-        def new?
-          true
-        end
-      end
+module CorevistAPI::Policies::Admin::Translations::Filters
+  class UserPolicy < CorevistAPI::Policies::ApplicationPolicy
+    def new?
+      true
     end
   end
 end
