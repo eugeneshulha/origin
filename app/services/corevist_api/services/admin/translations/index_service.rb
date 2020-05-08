@@ -1,7 +1,7 @@
 module CorevistAPI
   module Services
-    class Admin::Translations::IndexService < Base::IndexService
-      ALLOWED_SEARCH_CRITERIA = %w[key df_translation cst_translation locale microsite status updated_by].freeze
+    class Admin::Translations::IndexService < CorevistAPI::Services::Base::IndexService
+      ALLOWED_SEARCH_CRITERIA = %w[key df_translation cst_translation locale microsite_id status updated_by].freeze
 
       private
 
