@@ -3,7 +3,7 @@ module CorevistAPI
     module Translations
       class UserPolicy < CorevistAPI::Policies::ApplicationPolicy
         def index?
-          true
+          user.authorized_for?('translation_maintenance')
         end
 
         def index_configs?
@@ -11,7 +11,7 @@ module CorevistAPI
         end
 
         def create?
-          true
+          user.authorized_for?('translation_maintenance')
         end
 
         def destroy?

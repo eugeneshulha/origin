@@ -2,7 +2,7 @@ module CorevistAPI
   module Policies::Admin
     class Users::UserPolicy < CorevistAPI::Policies::ApplicationPolicy
       def create?
-        true
+        user.authorized_for?('user_maintenance')
       end
 
       def show?

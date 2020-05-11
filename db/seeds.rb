@@ -24,18 +24,18 @@ ActiveRecord::Base.transaction do
   )
 
   sales_area_2 = CorevistAPI::SalesArea.find_or_create_by(
-      title: '30001200',
-      created_by: 'seeds'
+    title: '30001200',
+    created_by: 'seeds'
   )
 
   sales_area_3 = CorevistAPI::SalesArea.find_or_create_by(
-      title: '30001400',
-      created_by: 'seeds'
+    title: '30001400',
+    created_by: 'seeds'
   )
 
   sales_area_4 = CorevistAPI::SalesArea.find_or_create_by(
-      title: '10001000',
-      created_by: 'seeds'
+    title: '10001000',
+    created_by: 'seeds'
   )
 
   role_1 = CorevistAPI::Role.find_or_create_by!(
@@ -45,21 +45,21 @@ ActiveRecord::Base.transaction do
   )
 
   role_2 = CorevistAPI::Role.find_or_create_by!(
-      title: 'View Roles',
-      description: 'That role lets you create roles',
-      created_by: 'seeds'
+    title: 'View Roles',
+    description: 'That role lets you create roles',
+    created_by: 'seeds'
   )
 
   role_3 = CorevistAPI::Role.find_or_create_by!(
-      title: 'View Invoices',
-      description: 'That role lets you create roles',
-      created_by: 'seeds'
+    title: 'View Invoices',
+    description: 'That role lets you create roles',
+    created_by: 'seeds'
   )
 
   role_4 = CorevistAPI::Role.find_or_create_by!(
-      title: 'No view invoices',
-      description: 'That role lets you create roles',
-      created_by: 'seeds'
+    title: 'No view invoices',
+    description: 'That role lets you create roles',
+    created_by: 'seeds'
   )
 
   doc_type = CorevistAPI::DocType.find_or_create_by!(
@@ -88,7 +88,14 @@ ActiveRecord::Base.transaction do
     user.created_by = 'seeds'
   end.save
 
-  %w[view_invoices search_for_invoices].each do |title|
+  %w[open_items
+     role_maintenance
+     search_for_invoices
+     search_for_orders
+     translation_maintenance
+     user_maintenance
+     view_invoices
+     view_orders].each do |title|
     CorevistAPI::Permission.create!(title: title)
   end
 

@@ -2,7 +2,7 @@ module CorevistAPI
   module Policies
     class Salesdocs::UserPolicy < CorevistAPI::Policies::ApplicationPolicy
       def index?
-        true
+        user.authorized_for?('search_for_orders')
       end
 
       def index_configs?
@@ -14,7 +14,7 @@ module CorevistAPI
       end
 
       def show?
-        true
+        user.authorized_for?('view_orders')
       end
     end
   end
