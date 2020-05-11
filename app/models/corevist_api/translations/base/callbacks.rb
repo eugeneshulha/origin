@@ -2,7 +2,8 @@ module CorevistAPI::Translations::Base::Callbacks
   extend ActiveSupport::Concern
 
   included do
-    validates_presence_of :key, :locale, :status, message: N_('msg|%{attribute} required')
+    validates_presence_of :key, :locale, message: N_('msg|%{attribute} required')
+    validates_inclusion_of :status, in: [true, false]
     validate :translation_blank?
 
     before_update :reject_default_changed
