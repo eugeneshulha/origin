@@ -2,7 +2,7 @@ module CorevistAPI
   module Policies
     class Invoices::UserPolicy < CorevistAPI::Policies::ApplicationPolicy
       def index?
-        true
+        user.authorized_for?('search_for_invoices')
       end
 
       def index_configs?
@@ -10,11 +10,11 @@ module CorevistAPI
       end
 
       def new?
-        self.user.roles.includes(:permissions).find_by(permissions: { title: 'view_invoices'}).present?
+        user.authorized_for?('view_invoices')
       end
 
       def show?
-        self.user.roles.includes(:permissions).find_by(permissions: { title: 'view_invoices'}).present?
+        user.authorized_for?('view_invoices')
       end
     end
   end

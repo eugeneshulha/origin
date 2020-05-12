@@ -3,6 +3,7 @@ module CorevistAPI
     self.table_name = 'microsites'
 
     has_and_belongs_to_many :territories, before_add: :check_territories
+    has_and_belongs_to_many :sales_areas
 
     validates_presence_of :name
 

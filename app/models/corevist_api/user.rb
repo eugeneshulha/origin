@@ -90,6 +90,10 @@ module CorevistAPI
       @date_format || Settings.date_format_US
     end
 
+    def authorized_for?(privilege)
+      roles.any? { |role| role.permissions.pluck(:title).include?(privilege) }
+    end
+
     private
 
     def set_uuid

@@ -3,7 +3,6 @@ module CorevistAPI
     self.table_name = 'roles'
 
     has_and_belongs_to_many :users
-    has_and_belongs_to_many :sales_areas
     has_and_belongs_to_many :permissions
 
     validates_uniqueness_of :title
