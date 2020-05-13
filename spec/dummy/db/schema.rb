@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_140219) do
+ActiveRecord::Schema.define(version: 2020_05_11_192741) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(version: 2020_04_24_140219) do
 
   create_table "microsites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+  end
+
+  create_table "microsites_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "microsite_id"
+    t.bigint "sales_area_id"
+    t.index ["microsite_id"], name: "index_microsites_sales_areas_on_microsite_id"
+    t.index ["sales_area_id"], name: "index_microsites_sales_areas_on_sales_area_id"
   end
 
   create_table "microsites_territories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -122,13 +129,6 @@ ActiveRecord::Schema.define(version: 2020_04_24_140219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_roles_on_user_id"
-  end
-
-  create_table "roles_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "role_id"
-    t.bigint "sales_area_id"
-    t.index ["role_id"], name: "index_roles_sales_areas_on_role_id"
-    t.index ["sales_area_id"], name: "index_roles_sales_areas_on_sales_area_id"
   end
 
   create_table "roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
