@@ -3,7 +3,7 @@ module CorevistAPI
     extend ActiveSupport::Concern
 
     included do
-      DEFAULT_PAGE_SIZE = 5
+      DEFAULT_PAGE_SIZE = 10
 
       private
 
