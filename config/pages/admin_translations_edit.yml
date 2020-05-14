@@ -3,7 +3,7 @@ components:
   - uuid: "edit_translation_form"
     description: ""
     method: PATCH
-    title: "New translation"
+    title: "Edit translation"
     type: form
     url: "/v1/admin/translations/"
     elements:
@@ -49,3 +49,15 @@ components:
               value: "1"
             - name: Microsite 2
               value: "2"
+
+      - - atom: button
+          uuid: "cancel"
+          text: Cancel
+          type: text
+          action_type: button
+
+        - atom: button
+          uuid: "apply"
+          text: Apply
+          type: secondary
+          action_type: submit
