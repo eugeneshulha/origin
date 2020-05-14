@@ -23,7 +23,7 @@ components:
               value: "3"
             - message: "<%= I18n.t('activemodel.errors.models.attributes.username.too_long') %>"
               type: max
-              value: "25"
+              value: "50"
       - - atom: password
           uuid: "password"
           label: Password
