@@ -5,10 +5,16 @@ module CorevistAPI
         private
 
         def perform
-          u = CorevistAPI::User.find_by(uuid: @form.user_uuid)
-          raise CorevistAPI::ServiceException.new('api.errors.users.not_found') unless u
+          user = CorevistAPI::User.find_by(uuid: @form.user_uuid)
+          raise CorevistAPI::ServiceException.new('api.errors.users.not_found') unless user
 
-          partners = u.partners.where(function: @form.function, assigned: true)
+          query = if @form.parent_partner.blank?
+                    { function: @form.function, assigned: true }
+                  else
+                    { function: @form.function, parent_partner: @form.parent_partner }
+                  end
+
+          partners = user.partners.where(query)
 
           items = filter_by_query(partners)
           items = sort_by_param(items)
