@@ -1,8 +1,5 @@
 class PopulateDefaultTranslations < ActiveRecord::Migration[5.2]
   def up
-    require 'pry-byebug'
-    binding.pry
-
     default_translation_files = Dir[*File.join(CorevistAPI::Engine.root, "/config/locales/default.*.yml")]
     default_translation_files.each do |t_file|
       translations = YAML.load(File.read(t_file))
