@@ -1,4 +1,4 @@
-title: "Create new translation"
+title: "<%= _('page title|new translation') %>"
 components:
   - uuid: "new_translation_form"
     description: ""
@@ -13,7 +13,7 @@ components:
           name: "key"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('field is required') %>"
+            - message: "<%= I18n.t('error|attributes.key.blank') %>"
               type: required
               value: ""
 
@@ -32,6 +32,10 @@ components:
           label: cst_translation
           name: "cst_translation"
           validation_type: string
+          validations:
+            - message: "<%= I18n.t('error|attributes.cst_translation.blank') %>"
+              type: required
+              value: ""
 
       - - atom: text
           uuid: "status"
