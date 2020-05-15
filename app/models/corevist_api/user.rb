@@ -91,7 +91,11 @@ module CorevistAPI
     end
 
     def authorized_for?(privilege)
-      roles.any? { |role| role.permissions.pluck(:title).include?(privilege) }
+      permissions.include?(privilege)
+    end
+
+    def permissions
+      roles.map { |role| role.permissions.pluck(:title) }.flatten.uniq
     end
 
     private
