@@ -1,44 +1,44 @@
-title: "Filter"
+title: "<%= _('title|filter') %>"
 components:
   - uuid: "filter_translations_modal_form"
     description:
     method: GET
-    title:
+    title: "<%= _('title|filter') %>"
     type: form
     url: "/v1/admin/translations"
     elements:
       - - atom: text
           uuid: "cst_translation"
-          label: cst_translation
+          label: "<%= _('lbl|custom translation') %>"
           name: "cst_translation"
           value: "po_number"
 
         - atom: text
           uuid: "locale"
-          label: locale
+          label: "<%= _('lbl|locale') %>"
           name: "locale"
           value: ""
 
       - - atom: text
           uuid: "key"
-          label: key
+          label: "<%= _('lbl|key') %>"
           name: "key"
           value: ""
 
         - atom: text
           uuid: "microsite_id"
-          label: microsite
+          label: "<%= _('lbl|microsite') %>"
           name: "microsite_id"
           value: ""
 
       - - atom: button
           uuid: "cancel"
-          text: Cancel
+          text: "<%= _('btn|cancel') %>"
           type: text
           action_type: button
 
         - atom: button
           uuid: "apply"
-          text: Apply
+          text: "<%= _('btn|apply') %>"
           type: secondary
           action_type: submit

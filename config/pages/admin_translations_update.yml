@@ -13,7 +13,7 @@ components:
           name: "uuid"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('error|attributes.uuid.blank') %>"
               type: required
 
       - - atom: select
@@ -31,6 +31,10 @@ components:
           label: cst_translation
           name: "cst_translation"
           validation_type: string
+          validations:
+            - message: "<%= I18n.t('error|attributes.cst_translation.blank') %>"
+              type: required
+              value: ""
 
       - - atom: text
           uuid: "status"

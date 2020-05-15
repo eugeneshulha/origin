@@ -13,7 +13,7 @@ components:
           name: "key"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('field is required') %>"
+            - message: "<%= I18n.t('error|attributes.key.blank') %>"
               type: required
               value: ""
 

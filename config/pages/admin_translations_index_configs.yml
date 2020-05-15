@@ -1,4 +1,4 @@
-title: "Translations maintenance"
+title: "<%= _('page title|translation maintenance') %>"
 components:
   - uuid: "translations_list_table"
     description: ""
@@ -11,38 +11,38 @@ components:
       thead:
         - key: true
           name: "key"
-          caption: "key"
+          caption: "<%= _('lbl|key') %>"
           label: null
           sortable: true
           hidden: false
           action: "link"
         - key: true
           name: "cst_translation"
-          caption: "cst_translation"
+          caption: "<%= _('lbl|custom translation') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "locale"
-          caption: "locale"
+          caption: "<%= _('lbl|locale') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "microsite_id"
-          caption: "microsite_id"
+          caption: "<%= _('lbl|microsite') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "status"
-          caption: "status"
+          caption: "<%= _('lbl|status') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "df_translation"
-          caption: "df_translation"
+          caption: "<%= _('lbl|default translation') %>"
           label: null
-          sortable: trueactive
+          sortable: true
           hidden: false

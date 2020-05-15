@@ -9,6 +9,8 @@ en_US:
   page title|salesdoc: Salesdoc
   page title|role maintenance: Role maintenance
   page title|registration: Registration
+  page title|translation maintenance: Translations maintenance
+  page title|new translation: New translation
 
   title|login: Login
   title|recent orders: Recent Orders
@@ -67,7 +69,6 @@ en_US:
   lbl|role name: Role name
   lbl|created by: Created by
   lbl|is active: Active?
-
   lbl|first name: First name
   lbl|last name: Last name
   lbl|email address: Email address
@@ -81,6 +82,14 @@ en_US:
   lbl|company name: Company name
   lbl|street: Street
   lbl|phone: Phone
+  lbl|overdue: Overdue
+  lbl|outstanding: Outstanding
+  lbl|custom translation: Custom translation
+  lbl|locale: Locale
+  lbl|key: Key
+  lbl|status: Status
+  lbl|default translation: Default translation
+
 
   plc|username: Username
   plc|password: Password
@@ -111,3 +120,6 @@ en_US:
   error|attributes.username.too_long: Username is too long
   error|attributes.text.min_max: Length of your message can not be less than %{min} and more than %{max} chars
   error|attributes.new_password.blank: New password can not be blank
+  error|attributes.uuid.blank: UUID value is missing
+  error|attributes.key.blank: Key value can not be blank
+  error|attributes.cst_translation.blank: Custom translation can not be blank

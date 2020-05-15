@@ -14,14 +14,14 @@ module CorevistAPI
 
         balance = []
         balance << result[:open_items].select { |item| item.due_date.to_date < Time.zone.now.to_date }.each_with_index.inject({}) do |memo, (item, index)|
-          memo[:status] ||= 'Overdue'
+          memo[:status] ||= _('lbl|overdue')
           memo[:amount].present? ? memo[:amount].to_f + item.due_today.to_f : memo[:amount] = item.due_today.to_f
           memo[:count] = index
           memo
         end
 
         balance << result[:open_items].each_with_index.inject({}) do |memo, (item, index)|
-          memo[:status] ||= 'Outstanding'
+          memo[:status] ||= _('lbl|outstanding')
           memo[:amount].present? ? memo[:amount].to_f + item.due_today.to_f : memo[:amount] = item.due_today.to_f
           memo[:count] = index
           memo
