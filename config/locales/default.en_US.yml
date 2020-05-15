@@ -1,0 +1,113 @@
+en_US:
+  page title|login: Login page
+  page title|dashboard: Dashboard
+  page title|open items: Open Items
+  page title|search for invoice: Search for invoice
+  page title|search for orders: Search for orders
+  page title|search for partners: Search for partners
+  page title|invoice: Invoice
+  page title|salesdoc: Salesdoc
+  page title|role maintenance: Role maintenance
+  page title|registration: Registration
+
+  title|login: Login
+  title|recent orders: Recent Orders
+  title|open items: Open Items
+  title|filter: Filter
+  title|have a question: Have a question?
+  title|contact about salesdoc: Contact us about this order
+  title|contact about invoice: Contact us about this invoice
+  title|reset password: Reset your password
+
+  lbl|username: Username
+  lbl|password: Password
+  lbl|confirm password: Password Confirmation
+  lbl|new password: New password
+  lbl|doc number: Doc number
+  lbl|doc type: Doc type
+  lbl|doc date: Doc date
+  lbl|po number: PO number
+  lbl|po: PO
+  lbl|ship status: Ship status
+  lbl|net value: Total
+  lbl|invoice: Invoice
+  lbl|due date: Due date
+  lbl|material number: Material number
+  lbl|order number: Order number
+  lbl|payer number: Payer number
+  lbl|delivery number: Delivery number
+  lbl|search criteria value: Value
+  lbl|from date: From date
+  lbl|to date: To date
+  lbl|payer: Payer
+  lbl|payer name: Payer name
+  lbl|sold to number: Sold to number
+  lbl|sold to descr: Sold to description
+  lbl|search criteria: Search criteria
+  lbl|ship to number: Ship to number
+  lbl|invoice number: Invoice number
+  lbl|ship date: Ship date
+  lbl|ship status ALL: All
+  lbl|ship status NSHP: Not shipped
+  lbl|ship status SHIP: Shipped
+  lbl|item number: Item number
+  lbl|material: Material
+  lbl|description: Description
+  lbl|rdd: RDD
+  lbl|quantity: Quantity
+  lbl|sales uom: Sales UOM
+  lbl|item category: Item category
+  lbl|net price: Net price
+  lbl|per: Per
+  lbl|your message: Your message
+  lbl|partner number: Number
+  lbl|partner name: Name
+  lbl|city: City
+  lbl|postal code: Postal Code
+  lbl|role name: Role name
+  lbl|created by: Created by
+  lbl|is active: Active?
+
+  lbl|first name: First name
+  lbl|last name: Last name
+  lbl|email address: Email address
+  lbl|customer number: Customer number
+  lbl|microsite: Microsite
+  lbl|microsite 1: microsite 1
+  lbl|microsite 2: microsite 2
+  lbl|language: Language
+  lbl|language en_US: English
+  lbl|language pl_PL: Polish
+  lbl|company name: Company name
+  lbl|street: Street
+  lbl|phone: Phone
+
+  plc|username: Username
+  plc|password: Password
+  plc|select search criteria: Select search criteria
+  plc|your message: Enter your message here
+  plc|partner number: Number
+  plc|partner name: Name
+  plc|city: City
+  plc|postal code: Postal Code
+
+  btn|login: Login
+  btn|cancel: Cancel
+  btn|apply: Apply
+  btn|send email: Send email
+  btn|reset password: Reset Password
+  btn|update password: Update password
+  btn|submit registration: Submit registration
+
+  link|forgot password: Forgot your password?
+  link|create account: Create an account
+
+  error|attributes.password.blank: Password can not be blank
+  error|attributes.password.too_short: Password is too short
+  error|attributes.password.too_long: Password is too long
+  error|attributes.reset_password_token.blank: Token is missing
+  error|attributes.username.blank: Username can not be blank
+  error|attributes.username.too_short: Username is too short
+  error|attributes.username.too_long: Username is too long
+  error|attributes.text.min_max: Length of your message can not be less than %{min} and more than %{max} chars
+  error|attributes.new_password.blank: New password can not be blank

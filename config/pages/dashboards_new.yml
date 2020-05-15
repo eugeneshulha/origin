@@ -1,4 +1,4 @@
-title: "Dashboard"
+title: "<%= _('page title|dashboard') %>"
 components:
   - uuid: "accounting_chart"
     type: "chart"
@@ -9,7 +9,7 @@ components:
   - uuid: "recent_orders"
     description: "Fields with an asterisk (*) are mandatory."
     method: POST
-    title: Assign roles to user
+    title: "<%= _('title|recent orders') %>"
     type: datatable
     url: "/v1/assigned_roles"
     data_url: "/v1/salesdocs/search"
@@ -17,65 +17,65 @@ components:
       thead:
         - key: true
           name: 'doc_number'
-          caption: 'Doc number'
+          caption: "<%= _('lbl|doc number') %>"
           label: null
           sortable: true
           hidden: false
           action: 'link'
         - key: true
           name: 'doc_type'
-          caption: 'Doc type'
+          caption: "<%= _('lbl|doc type') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'doc_date'
-          caption: 'Document date'
+          caption: "<%= _('lbl|doc date') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'po_number'
-          caption: 'PO'
+          caption: "<%= _('lbl|po') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'ship_status'
-          caption: 'Ship status'
+          caption: "<%= _('lbl|ship status') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'net_value'
-          caption: 'Total'
+          caption: "<%= _('lbl|net value') %>"
           label: null
           sortable: true
           hidden: false
 
   - uuid: "open_items"
     description: "Fields with an asterisk (*) are mandatory."
-    title: Assign roles to user
+    title: "<%= _('title|open items') %>"
     type: datatable
     data_url: "/v1/invoices/search"
     elements:
       thead:
         - key: true
           name: 'inv'
-          caption: 'Invoice'
+          caption: "<%= _('lbl|invoice number') %>"
           label: null
           sortable: true
           hidden: false
           action: 'expand'
         - key: true
           name: 'bill_date'
-          caption: 'Due date'
+          caption: "<%= _('lbl|due date') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'net_value'
-          caption: 'Total'
+          caption: "<%= _('lbl|net value') %>"
           label: null
           sortable: true
           hidden: false

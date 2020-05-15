@@ -1,4 +1,4 @@
-title: "Order"
+title: "<%= _('page title|salesdoc') %>"
 components:
   - uuid: "salesdoc_items_table"
     description: "Fields with an asterisk (*) are mandatory."
@@ -13,52 +13,52 @@ components:
       thead:
         - key: true
           name: 'item_number'
-          caption: 'Item Number'
+          caption: "<%= _('lbl|item number') %>"
           label: null
           sortable: true
         - key: true
           name: 'material'
-          caption: 'Material'
+          caption: "<%= _('lbl|material') %>"
           label: null
           sortable: true
         - key: true
           name: 'description'
-          caption: 'Description'
+          caption: "<%= _('lbl|description') %>"
           label: null
           sortable: true
         - key: true
           name: 'rdd'
-          caption: 'Req. Del Date'
+          caption: "<%= _('lbl|rdd') %>"
           label: null
           sortable: true
         - key: true
           name: 'net_value'
-          caption: 'Net Value'
+          caption: "<%= _('lbl|net value') %>"
           label: null
           sortable: true
         - key: true
           name: 'quantity'
-          caption: 'Quantity'
+          caption: "<%= _('lbl|quantity') %>"
           label: null
           sortable: true
         - key: true
           name: 'sales_uom'
-          caption: 'Sales UOM'
+          caption: "<%= _('lbl|sales uom') %>"
           label: null
           sortable: true
         - key: true
           name: 'item_cat'
-          caption: 'Item Cat.'
+          caption: "<%= _('lbl|item category') %>"
           label: null
           sortable: true
         - key: true
           name: 'net_price'
-          caption: 'Net Price'
+          caption: "<%= _('lbl|net price') %>"
           label: null
           sortable: true
         - key: true
           name: 'per'
-          caption: 'Per.'
+          caption: "<%= _('lbl|per') %>"
           label: null
           sortable: true
 

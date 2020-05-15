@@ -1,4 +1,4 @@
-title: "Search for Invoice"
+title: "page title|search for invoice"
 components:
   - uuid: "search_invoice_table"
     description: "Fields with an asterisk (*) are mandatory."
@@ -9,51 +9,51 @@ components:
       thead:
         - key: true
           name: 'doc_nr'
-          caption: 'Invoice'
+          caption: "<%= _('lbl|invoice') %>"
           label: null
           sortable: true
           hidden: false
           action: 'expand'
         - key: true
           name: 'bill_date'
-          caption: 'Due date'
+          caption: "<%= _('lbl|due date') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'po_number'
-          caption: 'PO'
+          caption: "<%= _('lbl|po') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'sales_order'
-          caption: 'Order'
+          caption: "<%= _('lbl|order number') %>"
           label: null
           sortable: true
           hidden: false
           action: 'expand'
         - key: true
           name: 'net_value'
-          caption: 'Total'
+          caption: "<%= _('lbl|net value') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'payer_nr'
-          caption: 'Payer'
+          caption: "<%= _('lbl|payer') %>"
           label: null
           sortable: true
           hidden: true
         - key: true
           name: 'payer_descr'
-          caption: 'Payer Name'
+          caption: "<%= _('lbl|payer name') %>"
           label: null
           sortable: true
           hidden: true
         - key: true
           name: 'doc_type'
-          caption: 'Doc type'
+          caption: "<%= _('lbl|doc type') %>"
           label: null
           sortable: true
           hidden: true

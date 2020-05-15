@@ -1,4 +1,4 @@
-title: "Sold-to modal"
+title: "<%= _('page title|search for partners') %>"
 components:
   - uuid: "admin_user_partners_modal_form"
     description:
@@ -8,42 +8,42 @@ components:
     url: "/v1/partners"
     elements:
       - - atom: text
-          label: Number
+          label: "<%= _('lbl|partner number') %>"
           name: "number"
           uuid: "number"
-          placeholder: Number
+          placeholder: "<%= _('plc|partner number') %>"
           validation_type: string
           value: ""
 
       - - atom: text
-          label: Name
+          label: "<%= _('lbl|partner name') %>"
           name: "name"
           uuid: "name"
-          placeholder: Name
+          placeholder: "<%= _('plc|partner name') %>"
           value: ""
 
       - - atom: text
-          label: City
+          label: "<%= _('lbl|city') %>"
           name: "city"
           uuid: "city"
-          placeholder: City
+          placeholder: "<%= _('plc|city') %>"
           value: ""
 
         - atom: text
-          label: Postal Code
+          label: "<%= _('lbl|postal code') %>"
           name: "postal_code"
           uuid: "postal_code"
-          placeholder: Postal Code
+          placeholder: "<%= _('plc|postal code') %>"
           value: ""
 
 
       - - atom: button
-          text: Cancel
+          text: "<%= _('btn|cancel') %>"
           type: text
           action_type: button
 
         -
           atom: button
-          text: Apply
+          text: "<%= _('btn|apply') %>"
           type: secondary
           action_type: submit

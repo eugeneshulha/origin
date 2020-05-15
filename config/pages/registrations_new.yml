@@ -1,4 +1,4 @@
-title: "Registration"
+title: "<%= _('page title|registration') %>"
 components:
   - uuid: "registration_form"
     description: "Fields with an asterisk (*) are mandatory."
@@ -9,9 +9,9 @@ components:
     elements:
       - - atom: text
           uuid: "first_name"
-          label: First name
+          label: "<%= _('lbl|first name') %>"
           name: "first_name"
-          placeholder: First name
+          placeholder: "<%= _('plc|first name') %>"
           validation_type: string
           value: ""
           validations:
@@ -27,136 +27,109 @@ components:
 
       - - atom: text
           uuid: "last_name"
-          label: Last name
+          label: "<%= _('lbl|last name') %>"
           name: "last_name"
-          placeholder: Last name
+          placeholder: "<%= _('plc|last name') %>"
           validation_type: string
           value: ""
           validations:
-            -
-              message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('my_message') %>"
               type: required
               value: ""
-            -
-              message: "Last name cannot be less than 3 characters"
+            - message: "Last name cannot be less than 3 characters"
               type: min
               value: "3"
-            -
-              message: "Last name cannot be more than 20 characters"
+            - message: "Last name cannot be more than 20 characters"
               type: max
               value: "20"
 
-      -
-        -
-          atom: text
+      - - atom: text
           uuid: "email"
-          label: Email address
+          label: "<%= _('lbl|email address') %>"
           name: "email"
-          placeholder: Email address
+          placeholder: "<%= _('plc|email address') %>"
           validation_type: string
           value: ""
           validations:
-            -
-              message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('my_message') %>"
               type: required
               value: ""
 
-      -
-        -
-          atom: text
+      - - atom: text
           uuid: "customer_number"
-          label: Customer Number
+          label: "<%= _('lbl|customer number') %>"
           name: "customer_number"
-          placeholder: Customer Number
+          placeholder: "<%= _('plc|customer number') %>"
           validation_type: string
           value: ""
 
-      -
-        -
-          atom: select
+      - - atom: select
           uuid: "microsite_id"
-          label: Microsite
+          label: "<%= _('lbl|microsite') %>"
           name: "microsite_id"
-          placeholder: Select Microsite
+          placeholder: "<%= _('plc|select microsite') %>"
           validation_type: string
           value: ""
           options:
-            -
-              name: Microsite 1
+            - name: "<%= _('lbl|microsite 1') %>"
               value: 'b2b_microsite1'
-            -
-              name: Microsite 2
+            - name: "<%= _('lbl|microsite 2') %>"
               value: 'b2b_client'
           validations:
-            -
-              message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('my_message') %>"
               type: required
               value: ""
-      -
-        -
-          atom: select
+      - - atom: select
           uuid: "language"
-          label: Language
+          label: "<%= _('lbl|language') %>"
           name: "language"
-          placeholder: Select Language
+          placeholder: "<%= _('plc|select language') %>"
           validation_type: string
           value: ""
           options:
-            -
-              name: English
+            - name: "<%= _('lbl|language en_US') %>"
               value: en_US
-            -
-              name: Polish
+            - name: "<%= _('lbl|language pl_PL') %>"
               value: pl_PL
           validations:
-            -
-              message: "<%= I18n.t('my_message') %>"
+            - message: "<%= I18n.t('my_message') %>"
               type: required
               value: ""
 
-      -
-        -
-          atom: text
+      - - atom: text
           uuid: "company_name"
-          label: Company Name
+          label: "<%= _('lbl|company name') %>"
           name: "company_name"
-          placeholder: Company Name
+          placeholder: "<%= _('plc|company name') %>"
           validation_type: string
           value: ""
 
-      -
-        -
-          atom: text
+      - - atom: text
           uuid: "street"
-          label: Street
+          label: "<%= _('lbl|street') %>"
           name: "street"
-          placeholder: Street
+          placeholder: "<%= _('plc|street') %>"
           validation_type: string
           value: ""
 
-      -
-        -
-          atom: text
+      - - atom: text
           uuid: "phone"
-          label: Phone
+          label: "<%= _('lbl|phone') %>"
           name: "phone"
-          placeholder: Phone
+          placeholder: "<%= _('plc|phone') %>"
           validation_type: string
           value: ""
 
-      -
-        -
-          atom: text
+      - - atom: text
           uuid: "city"
-          label: City
+          label: "<%= _('lbl|city') %>"
           name: "city"
-          placeholder: City
+          placeholder: "<%= _('plc|city') %>"
           validation_type: string
           value: ""
-      -
-        -
-          atom: button
+
+      - - atom: button
           uuid: "Submit"
-          text: Send Email
+          text: "<%= _('btn|submit registration') %>"
           type: primary
           action_type: submit

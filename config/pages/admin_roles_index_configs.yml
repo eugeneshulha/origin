@@ -1,4 +1,4 @@
-title: "Roles maintenance"
+title: "<%= _('page title|role maintenance') %>"
 components:
   - uuid: "roles_list_table"
     description: ""
@@ -11,26 +11,26 @@ components:
       thead:
         - key: true
           name: "title"
-          caption: "Title"
+          caption: "<%= _('lbl|role name') %>"
           label: null
           sortable: true
           hidden: false
           action: "link"
         - key: true
           name: "description"
-          caption: "description"
+          caption: "<%= _('lbl|description') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "created_by"
-          caption: "created_by"
+          caption: "<%= _('lbl|created by') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "active"
-          caption: "active"
+          caption: "<%= _('lbl|is active') %>"
           label: null
           sortable: true
           hidden: false
