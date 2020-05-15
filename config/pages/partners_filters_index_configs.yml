@@ -10,26 +10,27 @@ components:
       thead:
         - key: true
           name: 'nr'
-          caption: 'Number'
+          caption: "<%= _('lbl|partner number') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'name1'
-          caption: 'Name'
+          caption: "<%= _('lbl|partner name') %>"
           label: null
           sortable: true
           hidden: false
         - name: 'city'
-          caption: 'City'
+          caption: "<%= _('lbl|city') %>"
           label: null
           sortable: true
           hidden: false
         - name: 'postal_code'
-          caption: 'Postal code'
+          caption: "<%= _('lbl|postal code') %>"
           label: null
           sortable: true
           hidden: false
+
         - name: 'action'
           caption: 'Action'
           label: null

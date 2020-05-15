@@ -1,57 +1,57 @@
-title: "Filter"
+title: "<%= _('title|filter') %>"
 components:
   - uuid: "filter_invoices_modal_form"
     description:
     method: GET
-    title:
+    title: "<%= _('title|filter') %>"
     type: form
     url: "/v1/invoices"
     elements:
       - - atom: select
           uuid: "search_criteria"
-          label: Search Criteria
+          label: "<%= _('lbl|search criteria') %>"
           name: "search_criteria"
-          placeholder: Select Search Criteria
+          placeholder: "<%= _('plc|select search criteria') %>"
           validation_type: string
           value: "po_number"
           options:
-            - name: PO number
+            - name: "<%= _('lbl|po number') %>"
               value: "po_number"
-            - name: Material number
+            - name: "<%= _('lbl|material number') %>"
               value: "material"
-            - name: Order number
+            - name: "<%= _('lbl|order number') %>"
               value: "salesdoc_number"
-            - name: Payer number
+            - name: "<%= _('lbl|payer number') %>"
               value: "payer"
-            - name: Delivery number
+            - name: "<%= _('lbl|delivery number') %>"
               value: "delivery_number"
 
         - atom: text
           uuid: "search_criteria_value"
-          label: Search Criteria Value
+          label: "<%= _('lbl|search criteria value') %>"
           name: "search_criteria_value"
           value: ""
 
       - - atom: date
           uuid: "from_date"
-          label: From date
+          label: "<%= _('lbl|from date') %>"
           name: "from_date"
           value: ""
 
         - atom: date
           uuid: "to_date"
-          label: To date
+          label: "<%= _('lbl|to date') %>"
           name: "to_date"
           value: ""
 
       - - atom: button
           uuid: "cancel"
-          text: Cancel
+          text: "<%= _('btn|cancel') %>"
           type: text
           action_type: button
 
         - atom: button
           uuid: "apply"
-          text: Apply
+          text: "<%= _('btn|apply') %>"
           type: secondary
           action_type: submit

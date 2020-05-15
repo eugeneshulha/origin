@@ -1,59 +1,59 @@
-title: "Login page"
+title: "page title|login"
 components:
   - uuid: "login_form"
     description: "Please enter username and password"
     method: POST
-    title: Login
+    title: "<%= _('title|login') %>"
     type: form
     url: "/v1/auth"
     elements:
       - - atom: text
           uuid: 'username'
-          label: Username
+          label: "<%= _('lbl|username') %>"
           name: "username"
-          placeholder: Username
+          placeholder: "<%= _('plc|username') %>"
           value: ""
           validation_type: string
           validations:
-            - message: "<%= I18n.t('activemodel.errors.models.attributes.username.blank') %>"
+            - message: "<%= _('error|attributes.username.blank') %>"
               type: required
               value: ""
-            - message: "<%= I18n.t('activemodel.errors.models.attributes.username.too_short') %>"
+            - message: "<%= _('error|attributes.username.too_short') %>"
               type: min
               value: "3"
-            - message: "<%= I18n.t('activemodel.errors.models.attributes.username.too_long') %>"
+            - message: "<%= _('error|attributes.username.too_long') %>"
               type: max
               value: "50"
       - - atom: password
           uuid: "password"
-          label: Password
+          label: "<%= _('lbl|password') %>"
           name: "password"
-          placeholder: Password
+          placeholder: "<%= _('plc|password') %>"
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('activemodel.errors.models.attributes.password.blank') %>"
+            - message: "<%= _('error|attributes.password.blank') %>"
               type: required
               value: ""
-            - message: "<%= I18n.t('activemodel.errors.models.attributes.password.too_short') %>"
+            - message: "<%= _('error|attributes.password.too_short') %>"
               type: min
               value: "3"
-            - message: "<%= I18n.t('activemodel.errors.models.attributes.password.too_long') %>"
+            - message: "<%= _('error|attributes.password.too_long') %>"
               type: max
               value: "20"
       - - atom: button
           uuid: "button_1"
-          text: Login
+          text: "<%= _('btn|login') %>"
           type: primary
           action_type: submit
         - atom: link
           uuid: "link_1"
           button_like: "false"
           path: /password/reset
-          text: "Forgot your password?"
+          text: "<%= _('link|forgot password') %>"
       - - atom: link
           uuid: "link_2"
           button_like: "true"
           type: "secondary"
           path: /registration
-          text: "Create an account"
+          text: "<%= _('link|create account') %>"

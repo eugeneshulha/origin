@@ -1,70 +1,70 @@
-title: "Filter"
+title: "<%= _('title|filter') %>"
 components:
   - uuid: "filter_salesdocs_modal_form"
     description:
     method: GET
-    title:
+    title: "<%= _('title|filter') %>"
     type: form
     url: "/v1/salesdocs"
     elements:
       - - atom: select
           uuid: "search_option"
-          label: Search Criteria
+          label: "<%= _('lbl|search criteria') %>"
           name: "search_criteria"
-          placeholder: Select Search Criteria
+          placeholder: "<%= _('plc|select search criteria') %>"
           validation_type: string
           value: ""
           options:
-            - name: Sold to number
+            - name: "<%= _('lbl|sold to number') %>"
               value: "sold_to_number"
-            - name: Ship to number
+            - name: "<%= _('lbl|ship to number') %>"
               value: "ship_to_number"
-            - name: PO number
+            - name: "<%= _('lbl|po number') %>"
               value: "po_number"
-            - name: Material number
+            - name: "<%= _('lbl|material number') %>"
               value: "material"
-            - name: Invoice number
+            - name: "<%= _('lbl|invoice number') %>"
               value: "invoice_number"
-            - name: Delivery number
+            - name: "<%= _('lbl|delivery number') %>"
               value: "delivery_number"
 
         - atom: text
           uuid: "search_criteria_value"
-          label: Search Criteria Value
+          label: "<%= _('lbl|search criteria value') %>"
           name: "search_criteria_value"
           value: ""
 
       - - atom: date
-          label: From date
+          label: "<%= _('lbl|from date') %>"
           name: "from_date"
           value: ""
 
         - atom: date
-          label: To date
+          label: "<%= _('lbl|to date') %>"
           name: "to_date"
           value: ""
 
       - - atom: select
-          label: Status
+          label: "<%= _('lbl|ship date') %>"
           uuid: "status"
           name: "status"
           value: "ALL"
           options:
-            - name: All
+            - name: "<%= _('lbl|ship status ALL') %>"
               value: "ALL"
-            - name: Not shipped
+            - name: "<%= _('lbl|ship status NSHP') %>"
               value: "NSHP"
-            - name: Shipped
+            - name: "<%= _('lbl|ship status SHIP') %>"
               value: "SHIP"
 
       - - atom: button
-          text: Cancel
+          uuid: "cancel"
+          text: "<%= _('btn|cancel') %>"
           type: text
           action_type: button
-          name: "apply"
 
         - atom: button
-          text: Apply
+          uuid: "apply"
+          text: "<%= _('btn|apply') %>"
           type: secondary
           action_type: submit
-          name: "apply"

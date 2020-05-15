@@ -1,28 +1,28 @@
-title: "Open items"
+title: "page title|open items"
 components:
   - uuid: "open_items_table"
     description: "Fields with an asterisk (*) are mandatory."
-    title: Open items
+    title: "<%= _('title|open items') %>"
     type: datatable
-    data_url: "/v1/open_items"
+    data_url: "/v1/invoices/search"
     elements:
       thead:
         - key: true
           name: 'inv'
-          caption: 'Invoice'
+          caption: "<%= _('lbl|invoice number') %>"
           label: null
           sortable: true
           hidden: false
           action: 'expand'
         - key: true
           name: 'bill_date'
-          caption: 'Due date'
+          caption: "<%= _('lbl|due date') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'net_value'
-          caption: 'Total'
+          caption: "<%= _('lbl|net value') %>"
           label: null
           sortable: true
           hidden: false
