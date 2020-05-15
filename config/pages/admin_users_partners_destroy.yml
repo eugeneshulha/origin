@@ -5,7 +5,7 @@ components:
     method: DELETE
     title: Show user
     type: form
-    url: "/v1/admin/users/<uuid>/partners"
+    url: "/v1/admin/users/<uuid>/partners/<id>"
     elements:
       - - atom: hidden
           uuid: "id"
@@ -20,33 +20,6 @@ components:
           uuid: "user_uuid"
           label: user_uuid
           name: "user_uuid"
-          validation_type: string
-          validations:
-            - message: "<%= I18n.t('my_message') %>"
-              type: required
-
-      - - atom: hidden
-          uuid: "function"
-          label: Function
-          name: "function"
-          validation_type: string
-          validations:
-            - message: "<%= I18n.t('my_message') %>"
-              type: required
-
-      - - atom: hidden
-          uuid: "number"
-          label: Number
-          name: "number"
-          validation_type: string
-          validations:
-            - message: "<%= I18n.t('my_message') %>"
-              type: required
-
-      - - atom: hidden
-          uuid: "sales_area_id"
-          label: Number
-          name: "sales_area_id"
           validation_type: string
           validations:
             - message: "<%= I18n.t('my_message') %>"
