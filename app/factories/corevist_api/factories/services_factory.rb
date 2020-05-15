@@ -37,6 +37,7 @@ module CorevistAPI
         salesdocs_index: 'CorevistAPI::Services::Salesdoc::ListService',
         partners_index: 'CorevistAPI::Services::Admin::Partners::IndexService',
         page_configs_read: 'CorevistAPI::Services::PageConfigs::Read',
+        page_configs_navigation: 'CorevistAPI::Services::PageConfigs::Navigation',
         open_items_index: 'CorevistAPI::Services::OpenItems::SearchService',
 
         sort_document_items: 'CorevistAPI::Services::Document::SortItemsService',

@@ -4,6 +4,10 @@ module CorevistAPI
       def new?
         true
       end
+
+      def navigation?
+        true
+      end
     end
   end
 end

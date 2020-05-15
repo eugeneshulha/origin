@@ -26,7 +26,9 @@ CorevistAPI::Engine.routes.draw do
       resources :accounts, only: [:show], param: :user_id
 
       resources :payments, only: %i[new create]
-      resource :dashboard, only: [:new]
+      resource :dashboard, only: %i[new] do
+        get :navigation, to: 'dashboards#navigation'
+      end
 
       # registrations
       resources :registrations, only: %i[new create]
