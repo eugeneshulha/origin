@@ -3,6 +3,7 @@ module CorevistAPI
     PAYER_NR = 'PAYER_NR'.freeze
     OPEN_ITEMS = 'OPEN_ITEMS'.freeze
     ACCOUNTING_DATA = 'ACCOUNTING_DATA'.freeze
+    E_VALID_ON = 'E_VALID_ON'.freeze
 
     def function_name
       :open_items
@@ -19,7 +20,9 @@ module CorevistAPI
       @data[:open_items] = get_function_param(OPEN_ITEMS).map do |open_item|
         RfcResultEntry.new(self.class.name.demodulize.underscore, open_item)
       end
-      @data[:accounting_data] =  RfcResultEntry.new(nil, get_function_param(ACCOUNTING_DATA))
+      @data[:accounting_data] = RfcResultEntry.new(nil, get_function_param(ACCOUNTING_DATA))
+      @data[:valid_on] = get_function_param(E_VALID_ON)
+      @data[:payer_number] = payer_number
     end
 
     def object_to_rfc

@@ -15,23 +15,26 @@ module CorevistAPI
         @form.invoices = items
         @form.currency = rfc_result.data[:accounting_data].pay_curr
         @form.amount = (items.sum { |x| x.due_today.to_f } * 100).to_i
+        @form.comp_code = rfc_result.data[:accounting_data].comp_code
+        @form.payer_number = rfc_result.data[:payer_number]
+        @form.valid_on = rfc_result.data[:valid_on]
 
-        spreedly = CorevistAPI::PaymentProcessors::SpreedlyAPI.instance
-
-        if @form.pay_with_cc?
-          spreedly.authorize_amount(@form)
-        end
+        spreedly.authorize_amount(@form) if @form.pay_with_cc?
 
         @rfc_result = rfc_service_for(:pay_invoices, @form, @params).call
 
         if @rfc_result.data[:payment_doc_number]
-          spreedly.capture_amount(@form.auth_token)
+          spreedly.capture_amount(@form.auth_token) if @form.pay_with_cc?
           Mailer.pay_invoices_confirmation(CorevistAPI::Context.current_user.uuid, @rfc_result.data[:payment_doc_number]).deliver_later
         else
           raise ServiceException.new('Something is wrong with your payment')
         end
 
         result(@rfc_result.data)
+      end
+
+      def spreedly
+        @spreedly ||= CorevistAPI::PaymentProcessors::SpreedlyAPI.instance
       end
     end
   end
