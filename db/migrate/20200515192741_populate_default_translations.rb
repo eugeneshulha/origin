@@ -1,23 +1,15 @@
 class PopulateDefaultTranslations < ActiveRecord::Migration[5.2]
   def up
-    default_translation_files = Dir[*File.join(CorevistAPI::Engine.root, "/config/locales/default.*.yml")]
-    default_translation_files.each do |t_file|
-      translations = YAML.load(File.read(t_file))
-      locale = translations.keys.first
-      translations[locale].each do |k, v|
-
-        CorevistAPI::Translation.find_or_create_by!(
-            key: k,
-            df_translation: v,
-            locale: locale,
-            microsite_id: nil,
-            cst_translation: nil,
-            status: 1
-        )
-      end
-    end
+    #
+    # There was code here one day but it was a big mistake to put it here.
+    # Today i removed the code but I can not remove this migration so I just leave it to keep the site alive.
+    # If you expected to find something interesting here, I'm sorry.
+    #
   end
 
   def down
+    #
+    # There is nothing here as well. Please find go to the next migration, I'm sure it has more code in there.
+    #
   end
 end
