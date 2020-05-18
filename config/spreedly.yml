@@ -1,0 +1,18 @@
+spreedly:
+  env_key: ED7WwP1r22srNCZF66BYca00fQP
+  access_key: qot46AtVxc4tZ4Ip0zD3p95tOG31w26ywijvvRrj57wwzxAqwfra4RFZ1fj4NdZR
+  cc_types:
+    visa: 'VISA'
+    master: 'MC'
+    american_express: 'AMEX'
+  gl_account: '0000113108'
+  merchant: 'BLT_INC_USD'
+  reaction: ''
+  account_procedure: 'ZPAYAR'
+  clearing_text: ''
+  item_text: ''
+  clearing_tran: ''
+  profit_center: ''
+  doc_type: 'DZ'
+  bdc_mode: 'N'
+  rfc_flags: ''

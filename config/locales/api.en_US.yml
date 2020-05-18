@@ -33,6 +33,7 @@ en_US:
           not_found: "Partner not found"
       open_items:
         items_to_pay_not_found: "No items to pay"
+        unsupported_method: "Payment method is not supported"
       step: 'Invalid step parameter'
       unauthorized: 'You are not authorised to access this resource.'
       unexpected_exception: 'An unknown error has occurred, please report this.'

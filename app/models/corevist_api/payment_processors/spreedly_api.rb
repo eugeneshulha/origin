@@ -4,25 +4,12 @@ module CorevistAPI
       require 'spreedly'
       include Singleton
 
-      # TODO: move to settings
-      SPREEDLY_ENV_KEY = "ED7WwP1r22srNCZF66BYca00fQP".freeze
-      SPREEDLY_ACCESS_KEY = "qot46AtVxc4tZ4Ip0zD3p95tOG31w26ywijvvRrj57wwzxAqwfra4RFZ1fj4NdZR".freeze
-      CC_TYPES_MAPPING = {
-          visa: 'VISA',
-          master: 'MC',
-          american_express: 'AMEX'
-      }.freeze
-
       attr_reader :env, :gateway
 
       def initialize(gateway_token = nil)
-        @env = Spreedly::Environment.new(SPREEDLY_ENV_KEY, SPREEDLY_ACCESS_KEY)
+        @env = Spreedly::Environment.new(config(:env_key), config(:access_key))
 
-        @gateway = if gateway_token
-          @env.find_gateway(gateway_token)
-        else
-          @env.add_gateway(:test)
-        end
+        @gateway = gateway_token ? @env.find_gateway(gateway_token) : @env.add_gateway(:test)
       end
 
       def authorize_amount(obj)
@@ -43,28 +30,33 @@ module CorevistAPI
       private
 
       def authorize!(obj)
-        @env.authorize_on_gateway(@gateway.token, obj.token, obj.amount,
-                                 order_id: obj.reference_number,
-                                 currency_code: obj.currency
+        transaction = @env.authorize_on_gateway(
+          @gateway.token,
+          obj.token,
+          obj.amount,
+          order_id: obj.reference_number,
+          currency_code: obj.currency
         )
-      rescue Exception => e
+        fill_cc_data(transaction, obj) if transaction&.succeeded?
+        transaction
+      rescue StandardError => e
         raise TransactionException.new(e.message)
       end
 
       def get_cc_details(token)
         response = {
-            token: token,
-            cc_type: nil,
-            cc_number: nil,
-            cc_name: nil,
-            cc_exp_date: nil,
-            cc_last_4: nil
+          token: token,
+          cc_type: nil,
+          cc_number: nil,
+          cc_name: nil,
+          cc_exp_date: nil,
+          cc_last_4: nil
         }
 
         payment_method = @env.find_payment_method(token)
 
         response.tap do |hash|
-          hash[:cc_type] = CC_TYPES_MAPPING[payment_method.card_type.to_sym]
+          hash[:cc_type] = config(:cc_types, payment_method.card_type)
           hash[:cc_number] = payment_method.number
           hash[:cc_name] = payment_method.full_name
           hash[:cc_exp_date] = Date.new(payment_method.year.to_i, payment_method.month.to_i, -1).strftime('%Y%m%d')
@@ -75,12 +67,20 @@ module CorevistAPI
       end
 
       def verify(token)
-        transaction = @env.verify_on_gateway(
-            @gateway.token,
-            token,
-            retain_on_success: true
-        )
+        transaction = @env.verify_on_gateway(@gateway.token, token, retain_on_success: true)
         raise TransactionException.new(transaction.message) unless transaction.succeeded?
+      end
+
+      def config(*keys)
+        Settings.dig(:spreedly, *keys)
+      end
+
+      def fill_cc_data(transaction, object)
+        object.credit_card[:auth_date] = transaction.created_at.strftime('%Y%m%d')
+        object.credit_card[:auth_time] = transaction.created_at.strftime('%H%M%S')
+        object.credit_card[:auth_ref_number] = object.credit_card[:auth_number] = transaction.gateway_transaction_id
+        object.credit_card[:text] = "#{transaction.gateway_token} - #{transaction.gateway_transaction_id}"
+        object.credit_card[:header_text] = transaction.gateway_transaction_id
       end
     end
   end
