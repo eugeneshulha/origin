@@ -11,6 +11,8 @@ en_US:
   page title|registration: Registration
   page title|translation maintenance: Translations maintenance
   page title|new translation: New translation
+  page title|edit translation: Edit translation
+  page title|user details: User details
 
   title|login: Login
   title|recent orders: Recent Orders
@@ -20,6 +22,7 @@ en_US:
   title|contact about salesdoc: Contact us about this order
   title|contact about invoice: Contact us about this invoice
   title|reset password: Reset your password
+  title|edit translation: Edit translation
 
   lbl|username: Username
   lbl|password: Password
@@ -89,6 +92,15 @@ en_US:
   lbl|key: Key
   lbl|status: Status
   lbl|default translation: Default translation
+  lbl|user classification: Classification
+  lbl|user classification dealer:  Dealer
+  lbl|user classification distributor:  Distributor
+  lbl|password confirmation: Password confirmation
+  lbl|user type: User type
+  lbl|time zone:  Time zone
+  lbl|number format:  Number format
+  lbl|date format:  Date format
+  lbl|time format: Time format
 
 
   plc|username: Username
@@ -99,6 +111,19 @@ en_US:
   plc|partner name: Name
   plc|city: City
   plc|postal code: Postal Code
+  plc|select user classification: Select user classification
+  plc|first name: First name
+  plc|last name: Last name
+  plc|email address: Email address
+  plc|phone: Phone
+  plc|password confirmation: Password confirmation 
+  plc|microsite: Microsite
+  plc|user type: User type
+  plc|select language: Select language
+  plc|select time zone: Select time zone
+  plc|select number format: Select number format
+  plc|select date format: Select date format
+  plc|select time format: Select time format
 
   btn|login: Login
   btn|cancel: Cancel
@@ -123,3 +148,20 @@ en_US:
   error|attributes.uuid.blank: UUID value is missing
   error|attributes.key.blank: Key value can not be blank
   error|attributes.cst_translation.blank: Custom translation can not be blank
+  error|attributes.first_name.blank: First name can not be blank
+  error|attributes.first_name.too_short: First name is too short
+  error|attributes.first_name.too_long: First name is too long
+  error|attributes.last_name.blank: Last name can not be blank
+  error|attributes.last_name.too_short: Last name is too short
+  error|attributes.last_name.too_long: Last name is too long
+  error|attributes.email.too_long: Email is too long
+  error|attributes.email.blank: Email can not be blank
+  error|attributes.password.confirmation:
+  error|attributes.password_confirmation.blank: Password confirmation can not be blank
+  error|attributes.microsite.blank: Microsite can not be blank
+  error|attributes.user_type.blank: User type can not be blank
+  error|attributes.language.blank: Language can not be blank
+  error|attributes.time_zone.blank: Time zone can not be blank
+  error|attributes.number_format.blank: Number format can not be blank
+  error|attributes.date_format.blank: Date format can not be blank
+  error|attributes.time_format.blank: Time format can not be blank

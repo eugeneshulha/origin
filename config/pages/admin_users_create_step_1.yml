@@ -1,4 +1,4 @@
-title: "User details"
+title: "<%= _('page title|user details') %>"
 components:
   - uuid: "admin_create_new_user_step_1"
     description: "Fields with an asterisk (*) are mandatory."
@@ -9,124 +9,126 @@ components:
     elements:
       - - atom: hidden
           uuid: "uuid"
-          label: User ID
+          label: uuid
           name: "uuid"
           validation_type: string
           value: ""
 
       - - atom: text
           uuid: "username"
-          label: User ID
+          label: "<%= _('lbl|username') %>"
           name: "username"
-          placeholder: User ID
+          placeholder: "<%= _('plc|username') %>"
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.username.blank') %>"
               type: required
               value: ""
-            - message: "User ID cannot be less than 3 characters"
+            - message: "<%= _('error|attributes.username.too_short') %>"
               type: min
               value: "3"
-            - message: "User ID cannot be more than 20 characters"
+            - message: "<%= _('error|attributes.username.too_long') %>"
               type: max
               value: "20"
 
         - atom: select
           uuid: "user_classification_id"
-          label: Customer Type
+          label: "<%= _('lbl|user classification') %>"
           name: "user_classification_id"
-          placeholder: Select Customer Type
+          placeholder: "<%= _('plc|select user classification') %>"
           validation_type: string
           value: ""
           options:
-            - name: Dealer
+            - name: "<%= _('lbl|user classification dealer') %>"
               value: 'Dealer'
-            - name: Distributor
+            - name: "<%= _('lbl|user classification distributor') %>"
               value: 'Distributor'
 
       - - atom: text
           uuid: "first_name"
-          label: First name
+          label: "<%= _('lbl|first name') %>"
           name: "first_name"
-          placeholder: First name
+          placeholder: "<%= _('plc|first name') %>"
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.first_name.blank') %>"
               type: required
               value: ""
-            - message: "First Name cannot be less than 3 characters"
+            - message: "<%= _('error|attributes.first_name.to_short') %>"
               type: min
               value: "3"
-            - message: "First Name cannot be more than 20 characters"
+            - message: "<%= _('error|attributes.first_name.too_long') %>"
               type: max
               value: "20"
         - atom: text
           uuid: "last_name"
-          label: Last name
+          label: "<%= _('lbl|last name') %>"
           name: "last_name"
-          placeholder: Last name
+          placeholder: "<%= _('plc|last name') %>"
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.last_name.blank') %>"
               type: required
               value: ""
-            - message: "Last name cannot be less than 3 characters"
+            - message: "<%= _('error|attributes.last_name.to_short') %>"
               type: min
               value: "3"
-            - message: "Last name cannot be more than 20 characters"
+            - message: "<%= _('error|attributes.last_name.too_long') %>"
               type: max
               value: "20"
 
       - - atom: text
           uuid: "email"
-          label: Email address
+          label: "<%= _('lbl|email address') %>"
           name: "email"
-          placeholder: Email address
+          placeholder: "<%= _('plc|email address') %>"
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.email.blank') %>"
               type: required
               value: ""
 
         - atom: text
           uuid: "phone"
-          label: Phone Number
+          label: "<%= _('lbl|phone') %>"
           name: "phone"
-          placeholder: Phone
+          placeholder: "<%= _('plc|phone') %>"
           validation_type: string
           value: ""
 
       - - atom: text
           uuid: "password"
-          label: Password
+          label: "<%= _('lbl|password') %>"
           name: "password"
-          placeholder: Password
+          placeholder: "<%= _('plc|password') %>"
           validation_type: string
           validations:
-            - message: " field is required"
+            - message: "<%= _('error|attributes.password.blank') %>"
               type: required
-            - message: "password should match password confirmation"
+              value: ""
+            - message: "<%= _('error|attributes.password.confirmation') %>"
               type: confirmation
 
         - atom: text
           uuid: "password_confirmation"
-          label: Password confirmation
+          label: "<%= _('lbl|password confirmation') %>"
           name: "password_confirmation"
-          placeholder: Password confirmation
+          placeholder: "<%= _('plc|password confirmation') %>"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.password_confirmation.blank') %>"
               type: required
+              value: ""
 
       - - atom: select
           uuid: "microsite_id"
-          label: Microsite
+          label: "<%= _('lbl|microsite') %>"
           name: "microsite_id"
-          placeholder: Select Microsite
+          placeholder: "<%= _('plc|microsite') %>"
           validation_type: string
           value: ""
           options:
@@ -135,15 +137,15 @@ components:
             - name: Microsite 2
               value: "2"
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.microsite.blank') %>"
               type: required
               value: ""
 
       - - atom: select
           uuid: "user_type_id"
-          label: Customer Type
+          label: "<%= _('lbl|user type') %>"
           name: "user_type_id"
-          placeholder: Select Customer Type
+          placeholder: "<%= _('plc|user type') %>"
           validation_type: string
           value: ""
           options:
@@ -152,31 +154,32 @@ components:
             - name: CT 2
               value: "2"
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.user_type.blank') %>"
               type: required
               value: ""
+
         - atom: select
           uuid: "language"
-          label: Language
+          label: "<%= _('lbl|language') %>"
           name: "language"
-          placeholder: Select Language
+          placeholder: "<%= _('plc|select language') %>"
           validation_type: string
           value: "pl_PL"
           options:
-            - name: English
-              value: en_US
-            - name: Polish
-              value: pl_PL
+            - name: "<%= _('lbl|language en_US') %>"
+              value: "en_US"
+            - name: "<%= _('lbl|language pl_PL') %>"
+              value: "pl_PL"
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.language.blank') %>"
               type: required
               value: ""
 
         - atom: select
           uuid: "time_zone"
-          label: Timezone
+          label: "<%= _('lbl|time zone') %>"
           name: "time_zone"
-          placeholder: Select Timezone
+          placeholder: "<%= _('plc|select time zone') %>"
           validation_type: string
           value: ""
           options:
@@ -185,15 +188,15 @@ components:
             - name: EST
               value: 'b2b_client'
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.time_zone.blank') %>"
               type: required
               value: ""
 
       - - atom: select
           uuid: "number_format"
-          label: Number Format
+          label: "<%= _('lbl|number format') %>"
           name: "number_format"
-          placeholder: Select Number Format
+          placeholder: "<%= _('plc|select number format') %>"
           validation_type: string
           value: ""
           options:
@@ -204,32 +207,30 @@ components:
             - name: "9'999'999.99"
               value: "."
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.number_format.blank') %>"
               type: required
               value: ""
 
         - atom: select
           uuid: "date_format"
-          label: Date Format
+          label: "<%= _('lbl|date format') %>"
           name: "date_format"
-          placeholder: Select Date Format
+          placeholder: "<%= _('plc|select date format') %>"
           validation_type: string
           value: ""
           options:
             - name: English
               value: en_US
-            - name: Polish
-              value: pl_PL
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.date_format.blank') %>"
               type: required
               value: ""
 
         - atom: select
           uuid: "time_format"
-          label: Time Format
+          label: "<%= _('lbl|time format') %>"
           name: "time_format"
-          placeholder: Select Time Format
+          placeholder: "<%= _('plc|select time format') %>"
           validation_type: string
           value: ""
           options:
@@ -238,12 +239,12 @@ components:
             - name: Microsite 2
               value: 'b2b_client'
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.time_format.blank') %>"
               type: required
               value: ""
 
       - - atom: button
           uuid: "button_1"
-          text: Next
+          text: "<%= _('btn|next') %>"
           type: primary
           action_type: submit

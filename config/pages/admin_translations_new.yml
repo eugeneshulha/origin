@@ -1,51 +1,51 @@
 title: "<%= _('page title|new translation') %>"
 components:
-  - uuid: "new_translation_form"
+  - uuid: "edit_translation_form"
     description: ""
-    method: POST
-    title: "New translation"
+    method: PATCH
+    title: "<%= _('title|edit translation') %>"
     type: form
-    url: "/v1/admin/translations"
+    url: "/v1/admin/translations/"
     elements:
       - - atom: text
           uuid: "key"
-          label: key
+          label: "<%= _('lbl|key') %>"
           name: "key"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('error|attributes.key.blank') %>"
+            - message: "<%= _('error|attributes.key.blank') %>"
               type: required
               value: ""
 
       - - atom: select
           uuid: "locale"
-          label: locale
+          label: "<%= _('lbl|locale') %>"
           name: "locale"
           options:
-            - name: en_US
+            - name: "<%= _('lbl|language en_US') %>"
               value: "en_US"
-            - name: pl_PL
+            - name: "<%= _('lbl|language pl_PL') %>"
               value: "pl_PL"
 
       - - atom: text
           uuid: "cst_translation"
-          label: cst_translation
+          label: "<%= _('lbl|custom translation') %>"
           name: "cst_translation"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('error|attributes.cst_translation.blank') %>"
+            - message: "<%= _('error|attributes.cst_translation.blank') %>"
               type: required
               value: ""
 
       - - atom: text
           uuid: "status"
-          label: status
+          label: "<%= _('lbl|status') %>"
           name: "status"
           validation_type: string
 
       - - atom: select
           uuid: "microsite_id"
-          label: microsite
+          label: "<%= _('lbl|microsite') %>"
           name: "microsite_id"
           validation_type: string
           options:
@@ -53,3 +53,15 @@ components:
               value: "1"
             - name: Microsite 2
               value: "2"
+
+      - - atom: button
+          uuid: "cancel"
+          text: "<%= _('btn|cancel') %>"
+          type: text
+          action_type: button
+
+        - atom: button
+          uuid: "apply"
+          text: "<%= _('btn|apply') %>"
+          type: secondary
+          action_type: submit
