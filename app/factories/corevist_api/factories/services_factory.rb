@@ -49,7 +49,8 @@ module CorevistAPI
         salesdocs_questions_create: 'CorevistAPI::Services::Salesdoc::Question::Create',
         site_configs_index: 'CorevistAPI::Services::SiteConfigs::Index',
 
-        login: 'CorevistAPI::Services::User::LoginService'
+        login: 'CorevistAPI::Services::User::LoginService',
+        refresh_token: 'CorevistAPI::Services::Token::RefreshService'
       }
     end
   end

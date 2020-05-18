@@ -41,3 +41,10 @@ en_US:
       assignable_role_not_found: 'The assignable role was not found'
       one_function: 'Only one sold-to or ship-to can be assigned'
       territory_not_found: 'The territory was not found'
+      token:
+        refresh:
+          used_double_times: 'This refresh token has already been used'
+          empty: 'No token has been provided in the request parameters'
+          expired:  'This refresh token has expired'
+          invalid_user: 'This token has no user attached'
+          no_refresh_tokens: 'This user has no refresh tokens'

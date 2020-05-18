@@ -6,3 +6,11 @@ namespace :db do
     end
   end
 end
+
+namespace :users do
+  desc 'Remove stale jwt tokens'
+  task remove_stale_tokens: :environment do
+    CorevistAPI::JwtToken.where('refresh_exp < ?', Time.now.utc).delete_all
+    CorevistAPI::JWTBlacklist.where('exp < ?', Time.now.utc).delete_all
+  end
+end

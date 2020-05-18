@@ -16,7 +16,7 @@ module CorevistAPI
       raise NotImplementedError
     end
 
-    def result(data)
+    def result(data = {})
       @result ||= CorevistAPI::Services::ServiceResult.new(data)
     end
 

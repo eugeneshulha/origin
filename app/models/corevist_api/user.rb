@@ -1,5 +1,7 @@
 module CorevistAPI
   class User < ApplicationRecord
+    attr_reader :access_exp, :refresh_exp, :token
+
     devise :database_authenticatable, :recoverable, :jwt_authenticatable, jwt_revocation_strategy: JWTBlacklist
 
     self.table_name = 'users'
@@ -10,6 +12,7 @@ module CorevistAPI
                             before_add: :check_assignable_roles,
                             join_table: 'assignable_roles_users',
                             association_foreign_key: 'role_id'
+    has_many :jwt_tokens, dependent: :destroy
     belongs_to :user_type
     belongs_to :user_classification, optional: true
     belongs_to :microsite
@@ -18,11 +21,14 @@ module CorevistAPI
 
     validates_uniqueness_of :username
 
+    KEY_EXP             = 'exp'.freeze
+    KEY_JTI             = 'jti'.freeze
+    KEY_SUB             = 'sub'.freeze
+    PAYER_FUNCTION      = 'RG'.freeze
+    SHIP_TO_FUNCTION    = 'WE'.freeze
+    SOLD_TO_FUNCTION    = 'AG'.freeze
     TYPE_CUSTOMER_ADMIN = 'customer_admin'.freeze
-    TYPE_SYSTEM_ADMIN = 'system_admin'.freeze
-    SOLD_TO_FUNCTION = 'AG'.freeze
-    SHIP_TO_FUNCTION = 'WE'.freeze
-    PAYER_FUNCTION = 'RG'.freeze
+    TYPE_SYSTEM_ADMIN   = 'system_admin'.freeze
 
     def assigned_partners
       partners.where(assigned: true)
@@ -98,6 +104,40 @@ module CorevistAPI
       roles.map { |role| role.permissions.pluck(:title) }.flatten.uniq
     end
 
+    def on_jwt_dispatch(_, payload)
+      @token, refresh_payload = refresh_token
+      jwt_tokens.create(
+        access_jti: payload[KEY_JTI],
+        access_exp: @access_exp = utc_time(payload[KEY_EXP]),
+        refresh_jti: refresh_payload[KEY_JTI],
+        refresh_exp: @refresh_exp = utc_time(refresh_payload[KEY_EXP])
+      )
+    end
+
+    def refresh_token
+      payload = {
+        KEY_EXP => Time.now.utc.to_i + Settings.dig(:jwt, :refresh_exp_time),
+        KEY_SUB => id,
+        scope: :user,
+        KEY_JTI => SecureRandom.uuid
+      }
+      token = Warden::JWTAuth::TokenEncoder.new.call(payload)
+      [token, payload]
+    end
+
+    def jwt_data
+      {
+        account_id: uuid,
+        refresh_token: token,
+        refresh_exp: refresh_exp.to_i,
+        access_exp: access_exp.to_i
+      }
+    end
+
+    def warden_options
+      { scope: :user, store: true, event: :authentication, run_callbacks: true }
+    end
+
     private
 
     def set_uuid
@@ -110,6 +150,10 @@ module CorevistAPI
 
     def check_assignable_roles(role)
       raise ActiveRecord::Rollback if assignable_roles.include?(role)
+    end
+
+    def utc_time(timestamp)
+      Time.at(timestamp).utc
     end
   end
 end
