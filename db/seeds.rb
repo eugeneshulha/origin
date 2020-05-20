@@ -131,15 +131,21 @@ ActiveRecord::Base.transaction do
     user.roles = [role_1]
   end.save
 
-  %w[open_items
-     role_maintenance
-     search_for_invoices
-     search_for_orders
-     translation_maintenance
-     user_maintenance
-     view_invoices
-     view_orders].each do |title|
-    CorevistAPI::Permission.create!(title: title)
+  permissions = %w[ open_items
+      search_for_invoices
+      search_for_orders
+      view_invoices
+      view_orders
+      pay_invoices
+      translation_maintenance
+      user_maintenance
+      role_maintenance
+      system_maintenance
+      content_maintenance
+      look_and_feel_maintenance
+    ]
+  permissions.each do |title|
+    CorevistAPI::Permission.find_or_create_by!(title: title)
   end
 
   CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |user|

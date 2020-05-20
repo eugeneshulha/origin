@@ -1,9 +1,8 @@
-title: "Assigned roles of new user"
+title: "<%= _('page title|assigned roles') %>"
 components:
   - uuid: "assigned_roles"
-    description: "Fields with an asterisk (*) are mandatory."
     method: POST
-    title: Assign roles to user
+    title: ""
     type: datatable
     name: "role_ids"
     url: "/v1/assigned_roles"
@@ -14,26 +13,14 @@ components:
         - key: true,
           name: 'id'
           uuid: 'id'
-          caption: 'Id'
+          caption: "<%= _('lbl|id') %>"
           label: null
           sortable: true
 
         - key: true,
           name: 'title'
           uuid: 'title'
-          caption: 'Role'
+          caption: "<%= _('lbl|title') %>"
           label: null
           sortable: true
           action: 'expand'
-#
-#        - name: 'description'
-#          uuid: 'description'
-#          caption: 'Description'
-#          label: null
-#          sortable: true
-#
-#        - name: 'created_by'
-#          uuid: 'created_by'
-#          caption: 'Created By'
-#          label: null
-#          sortable: true

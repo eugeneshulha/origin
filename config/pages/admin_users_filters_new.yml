@@ -15,30 +15,30 @@ components:
 
       - - atom: text
           uuid: 'first_name'
-          label: First name
+          label: "<%= _('lbl|first name) %>"
           name: "first_name"
           value: ""
 
       - - atom: text
           uuid: 'last_name'
-          label: Last name
+          label: "<%= _('lbl|last name) %>"
           name: "last_name"
           value: ""
 
       - - atom: text
           uuid: 'email'
-          label: email
+          label: "<%= _('lbl|email address) %>"
           name: "email"
           value: ""
 
       - - atom: button
-          text: Cancel
+          text: "<%= _('btn|cancel) %>"
           type: text
           action_type: button
           name: "apply"
 
         - atom: button
-          text: Apply
+          text: "<%= _('btn|apply) %>"
           type: secondary
           action_type: submit
           name: "apply"

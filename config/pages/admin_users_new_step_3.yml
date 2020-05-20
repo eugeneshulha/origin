@@ -1,4 +1,4 @@
-title: "Assignable roles of new user"
+title: "<%= _('page title|assignable roles') %>"
 components:
   - uuid: "roles_can_assign_of_new_user_form"
     description: ""
@@ -11,26 +11,14 @@ components:
         - key: true,
           name: 'id'
           uuid: 'id'
-          caption: 'Id'
+          caption: "<%= _('lbl|id') %>"
           label: null
           sortable: true
 
         - key: true,
           name: 'title'
           uuid: 'title'
-          caption: 'Role'
+          caption: "<%= _('lbl|title') %>"
           label: null
           sortable: true
           action: 'expand'
-
-#        - name: 'description'
-#          uuid: 'description'
-#          caption: 'Description'
-#          label: null
-#          sortable: true
-#
-#        - name: 'created_by'
-#          uuid: 'created_by'
-#          caption: 'Created By'
-#          label: null
-#          sortable: true
