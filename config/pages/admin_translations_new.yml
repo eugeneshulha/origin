@@ -1,6 +1,6 @@
 title: "<%= _('page title|new translation') %>"
 components:
-  - uuid: "edit_translation_form"
+  - uuid: "new_translation_form"
     description: ""
     method: PATCH
     title: "<%= _('title|edit translation') %>"
