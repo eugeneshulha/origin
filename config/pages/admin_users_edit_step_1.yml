@@ -166,8 +166,10 @@ components:
           options:
             - name: "<%= _('lbl|language en_US') %>"
               value: "en_US"
-            - name: "<%= _('lbl|language pl_PL') %>"
-              value: "pl_PL"
+            - name: "<%= _('lbl|language es_ES') %>"
+              value: "es_ES"
+            - name: "<%= _('lbl|language ru_RU') %>"
+              value: "ru_RU"
           validations:
             - message: "<%= _('error|attributes.language.blank') %>"
               type: required

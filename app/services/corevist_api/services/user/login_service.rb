@@ -10,6 +10,7 @@ module CorevistAPI
 
         get_assigned_partners(resource) if resource.assigned_partners.present?
 
+        # FastGettext.locale = resource.language
         @params.sign_in(:user, resource)
 
         result(resource)

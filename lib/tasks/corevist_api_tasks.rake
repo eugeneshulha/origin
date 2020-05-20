@@ -35,6 +35,7 @@ namespace :translations do
       translations = YAML.load(File.read(t_file))
       locale = translations.keys.first
       translations[locale].each do |k, v|
+        next if v.blank?
 
         CorevistAPI::Translation.create!(
             key: k,

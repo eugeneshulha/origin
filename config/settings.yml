@@ -2,23 +2,24 @@ number_format_US: '.,'
 date_format_US: '%m/%d/%Y'
 locales:
   - en_US
-  - de_DE
   - es_ES
-  - fr_CA
-  - fr_FR
-  - nl_BE
-  - nl_NL
-  - sv_SE
-  - zh_CN
-  - cs_CZ
-  - da_DK
-  - en_GB
-  - it_IT
-  - nb_NO
-  - pl_PL
-  - pt_BR
-  - pt_PT
-  - tr_TR
+  - ru_RU
+#  - de_DE
+#  - fr_CA
+#  - fr_FR
+#  - nl_BE
+#  - nl_NL
+#  - sv_SE
+#  - zh_CN
+#  - cs_CZ
+#  - da_DK
+#  - en_GB
+#  - it_IT
+#  - nb_NO
+#  - pl_PL
+#  - pt_BR
+#  - pt_PT
+#  - tr_TR
 
 timezones:
   est: est

@@ -1,0 +1,194 @@
+es_ES:
+  page title|login: Página de inicio de sesión
+  page title|dashboard: Tablero
+  page title|open items: Artículos abiertos
+  page title|search for invoice: Buscar factura
+  page title|search for orders: Buscar pedidos
+  page title|search for partners: Busca socios
+  page title|invoice: Factura
+  page title|salesdoc: Salesdoc
+  page title|role maintenance: Mantenimiento de roles
+  page title|registration: Registro
+  page title|translation maintenance: Mantenimiento de traducciones
+  page title|new translation: Nueva traducción
+  page title|edit translation: Editar traducción
+  page title|user details: Detalles de usuario
+  page title|assigned partners: Socios asignados
+  page title|edit user: Editar usuario
+  page title|new user: Nuevo Usuario
+
+  title|login: Iniciar sesión
+  title|recent orders: órdenes recientes
+  title|open items: Artículos abiertos
+  title|filter: Filtrar
+  title|have a question: ¿Tengo una pregunta?
+  title|contact about salesdoc: Contáctenos sobre este pedido
+  title|contact about invoice: Contáctenos sobre esta factura
+  title|reset password: Restablecer su contraseña
+  title|edit translation: Editar traducción
+  title|user details: Detalles de usuario
+  title|assigned roles: Roles asignados
+  title|assignable roles: Roles asignables
+  title|sold tos: Vendido tos
+  title|ship tos: Barco tos
+
+  lbl|username: Nombre de usuario
+  lbl|password: Contraseña
+  lbl|confirm password: Confirmación de contraseña
+  lbl|new password: Nueva contraseña
+  lbl|doc number: Número de doc.
+  lbl|doc type: Tipo de documento
+  lbl|doc date: Fecha de doc.
+  lbl|po number: Numero postal
+  lbl|po: correos
+  lbl|ship status: Estado del barco
+  lbl|net value: Total
+  lbl|invoice: Factura
+  lbl|due date: Fecha de vencimiento
+  lbl|material number: Número material
+  lbl|order number: Número de orden
+  lbl|payer number: Número de pagador
+  lbl|delivery number: Número de entrega
+  lbl|search criteria value: Valor
+  lbl|from date: Partir de la fecha
+  lbl|to date: Hasta la fecha
+  lbl|payer: Pagador
+  lbl|payer name: Nombre del pagador
+  lbl|sold to number: Vendido al número
+  lbl|sold to descr: Vendido a descripción
+  lbl|search criteria: Criterio de búsqueda
+  lbl|ship to number: Enviar a número
+  lbl|invoice number: Número de factura
+  lbl|ship date: Fecha de envío
+  lbl|ship status ALL: Todas
+  lbl|ship status NSHP: No enviado
+  lbl|ship status SHIP: Enviado
+  lbl|item number: Número de artículo
+  lbl|material: Material
+  lbl|description: Descripción
+  lbl|rdd: RDD
+  lbl|quantity: Cantidad
+  lbl|sales uom: UOM de ventas
+  lbl|item category: Categoría de artículo
+  lbl|net price: Precio neto
+  lbl|per: Por
+  lbl|your message: Tu mensaje
+  lbl|partner number: Número
+  lbl|partner name: Nombre
+  lbl|city: Ciudad
+  lbl|postal code: Código postal
+  lbl|role name: Nombre de rol
+  lbl|created by: Creado por
+  lbl|is active: ¿Activo?
+  lbl|first name: Nombre de pila
+  lbl|last name: Apellido
+  lbl|email address: Dirección de correo electrónico
+  lbl|customer number: Número de cliente
+  lbl|microsite: Micrositio
+  lbl|microsite 1: micrositio 1
+  lbl|microsite 2: micrositio 2
+  lbl|language: Idioma
+  lbl|language en_US: Inglés
+  lbl|language pl_PL: polaco
+  lbl|company name: Nombre de empresa
+  lbl|street: Calle
+  lbl|phone: Teléfono
+  lbl|overdue: Atrasado
+  lbl|outstanding: Excepcional
+  lbl|custom translation: Traducción personalizada
+  lbl|locale: Lugar
+  lbl|key: Llave
+  lbl|status: Estado
+  lbl|default translation: Traducción por defecto
+  lbl|user classification: Clasificación
+  lbl|user classification dealer:  Comerciante
+  lbl|user classification distributor:  Distribuidor
+  lbl|password confirmation: confirmación de contraseña
+  lbl|user type: Tipo de usuario
+  lbl|time zone:  Zona horaria
+  lbl|number format:  Formato numérico
+  lbl|date format:  Formato de fecha
+  lbl|time format: Formato de tiempo
+  lbl|id: CARNÉ DE IDENTIDAD
+  lbl|title: Título
+  lbl|partner AG number: Vendido al número
+  lbl|partner WE number: Enviar a número
+  lbl|postal address 1: Dirección postal 1
+  lbl|postal address 2: Dirección postal 2
+  lbl|postal address 3: Dirección postal 3
+  lbl|country: País
+  lbl|sales area id: ID del área de ventas
+  lbl|actions: Comportamiento
+  lbl|menu admin: Administración
+  lbl|menu system: Sistema
+  lbl|menu user maintenance: Los usuarios
+  lbl|menu role maintenance: Roles
+  lbl|menu translations maintenance: Traducciones
+  lbl|menu look and feel maintenance: Mira y siente
+  lbl|menu content maintenance: Contenido
+  lbl|menu dashboard: Tablero
+  lbl|menu orders: Pedidos
+  lbl|menu invoices: Facturas
+  lbl|menu open items: Artículos abiertos
+
+  plc|username: Nombre de usuario
+  plc|password: Contraseña
+  plc|select search criteria: Seleccionar criterios de búsqueda
+  plc|your message: Introduzca su mensaje aquí
+  plc|partner number: Número
+  plc|partner name: Nombre
+  plc|city: Ciudad
+  plc|postal code: Código postal
+  plc|select user classification: Seleccionar clasificación de usuario
+  plc|first name: Nombre de pila
+  plc|last name: Apellido
+  plc|email address: Dirección de correo electrónico
+  plc|phone: Teléfono
+  plc|password confirmation: confirmación de contraseña
+  plc|microsite: Micrositio
+  plc|user type: Tipo de usuario
+  plc|select language: Seleccione el idioma
+  plc|select time zone: Selecciona la zona horaria
+  plc|select number format: Seleccionar formato de número
+  plc|select date format: Seleccionar formato de fecha
+  plc|select time format: Seleccionar formato de hora
+
+  btn|login: Iniciar sesión
+  btn|cancel: Cancelar
+  btn|apply: Aplicar
+  btn|send email: Enviar correo electrónico
+  btn|reset password: Restablecer la contraseña
+  btn|update password: Actualiza contraseña
+  btn|submit registration: Enviar registro
+
+  link|forgot password: ¿Olvidaste tu contraseña?
+  link|create account: Crea una cuenta
+
+  error|attributes.password.blank: La contraseña no puede estar en blanco
+  error|attributes.password.too_short: La contraseña es demasiado corta
+  error|attributes.password.too_long: La contraseña es muy larga
+  error|attributes.reset_password_token.blank: Falta el token
+  error|attributes.username.blank: nombre de usuario no puede estar en blanco
+  error|attributes.username.too_short: El nombre de usuario es demasiado corto.
+  error|attributes.username.too_long: El nombre de usuario es demasiado largo.
+  error|attributes.text.min_max: La longitud de su mensaje no puede ser inferior a% {min} y superior a% {max} caracteres
+  error|attributes.new_password.blank: La nueva contraseña no puede estar en blanco
+  error|attributes.uuid.blank: Falta el valor de UUID
+  error|attributes.key.blank: El valor clave no puede estar en blanco
+  error|attributes.cst_translation.blank: La traducción personalizada no puede estar en blanco
+  error|attributes.first_name.blank: El nombre no puede estar en blanco
+  error|attributes.first_name.too_short: El nombre es muy corto
+  error|attributes.first_name.too_long: El nombre es muy largo
+  error|attributes.last_name.blank: El apellido no puede estar en blanco
+  error|attributes.last_name.too_short: El apellido es demasiado corto
+  error|attributes.last_name.too_long: El apellido es demasiado largo
+  error|attributes.email.too_long: El correo electrónico es demasiado largo.
+  error|attributes.email.blank: El correo electrónico no puede estar en blanco
+  error|attributes.password_confirmation.blank: La confirmación de contraseña no puede estar en blanco
+  error|attributes.microsite.blank: Microsite no puede estar en blanco
+  error|attributes.user_type.blank: El tipo de usuario no puede estar en blanco
+  error|attributes.language.blank: El idioma no puede estar en blanco
+  error|attributes.time_zone.blank: La zona horaria no puede estar en blanco
+  error|attributes.number_format.blank: El formato de número no puede estar en blanco
+  error|attributes.date_format.blank: El formato de fecha no puede estar en blanco
+  error|attributes.time_format.blank: El formato de hora no puede estar en blanco

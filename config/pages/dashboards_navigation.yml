@@ -1,69 +1,69 @@
 title: "Dashboard"
 navigationLinks:
-  - uuid: 'admin',
-    icon: 'admin',
-    caption: "<%= _('lbl|menu admin) %>",
-    href: ' ',
+  - uuid: "admin"
+    icon: "admin"
+    caption: "<%= _('lbl|menu admin') %>"
+    href: ""
     subCategories:
-      - uuid: 'create_user',
-        icon: 'catalog',
-        caption: "<%= _('lbl|menu system) %>",
-        href: '/admin/system',
-        permission: 'system_settings'
+      - uuid: "create_user"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu system') %>"
+        href: "/admin/system"
+        permission: "system_settings"
 
-      - uuid: 'user_maintenance',
-        icon: 'catalog',
-        caption: "<%= _('lbl|menu user maintenance) %>",
-        href: '/admin/users',
-        permission: 'user_maintenance'
+      - uuid: "user_maintenance"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu user maintenance') %>"
+        href: "/admin/users"
+        permission: "user_maintenance"
 
-      - uuid: 'role_maintenance',
-        icon: 'catalog',
-        caption: "<%= _('lbl|menu role maintenance) %>",
-        href: '/admin/roles',
-        permission: 'role_maintenance'
+      - uuid: "role_maintenance"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu role maintenance') %>"
+        href: "/admin/roles"
+        permission: "role_maintenance"
 
-      - uuid: 'translation_maintenance',
-        icon: 'catalog',
-        caption: "<%= _('lbl|menu translations maintenance) %>",
-        href: '/admin/translations',
-        permission: 'translation_maintenance'
+      - uuid: "translation_maintenance"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu translations maintenance') %>"
+        href: "/admin/translations"
+        permission: "translation_maintenance"
 
-      - uuid: 'look_and_feel_maintenance',
-        icon: 'catalog',
-        caption: "<%= _('lbl|menu look and feel maintenance) %>",
-        href: '/admin/pages',
-        permission: 'look_and_feel_maintenance'
+      - uuid: "look_and_feel_maintenance"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu look and feel maintenance') %>"
+        href: "/admin/pages"
+        permission: "look_and_feel_maintenance"
 
-      - uuid: 'content_maintenance',
-        icon: 'catalog',
-        caption: "<%= _('lbl|menu content maintenance) %>",
-        href: '/admin/pages',
-        permission: 'content_maintenance'
+      - uuid: "content_maintenance"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu content maintenance') %>"
+        href: "/admin/pages"
+        permission: "content_maintenance"
 
-  - uuid: 'dashboard',
-    icon: 'dashboard',
-    caption: "<%= _('lbl|menu dashboard) %>",
-    href: '/dashboard',
-    subCategories: [],
+  - uuid: "dashboard"
+    icon: "dashboard"
+    caption: "<%= _('lbl|menu dashboard') %>"
+    href: "/dashboard"
+    subCategories: []
 
-  - uuid: 'orders',
-    icon: 'orders',
-    caption: "<%= _('lbl|menu orders) %>",
-    href: '/orders',
-    permission: 'search_for_orders',
-    subCategories: [],
+  - uuid: "orders"
+    icon: "orders"
+    caption: "<%= _('lbl|menu orders') %>"
+    href: "/orders"
+    permission: "search_for_orders"
+    subCategories: []
 
-  - uuid: 'invoices',
-    icon: 'invoices',
-    caption: "<%= _('lbl|menu invoices) %>",
-    href: '/invoices',
-    permission: 'search_for_invoices',
-    subCategories: [],
+  - uuid: "invoices"
+    icon: "invoices"
+    caption: "<%= _('lbl|menu invoices') %>"
+    href: "/invoices"
+    permission: "search_for_invoices"
+    subCategories: []
 
-  - uuid: 'open_items',
-    icon: 'open-items',
-    caption: "<%= _('lbl|menu open items) %>",
-    href: '/open_items',
-    permission: 'open_items',
-    subCategories: [],
+  - uuid: "open_items"
+    icon: "open-items"
+    caption: "<%= _('lbl|menu open items') %>"
+    href: "/open_items"
+    permission: "open_items"
+    subCategories: []
