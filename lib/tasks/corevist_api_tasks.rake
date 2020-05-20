@@ -35,6 +35,7 @@ namespace :translations do
       translations = YAML.load(File.read(t_file))
       locale = translations.keys.first
       translations[locale].each do |k, v|
+        next if v.blank?
 
         CorevistAPI::Translation.create!(
             key: k,
@@ -49,5 +50,32 @@ namespace :translations do
 
     num = CorevistAPI::Translation.count
     puts "#{num} translations have been created in database"
+  end
+end
+
+namespace :permissions do
+  desc 'Remove all permissions in database'
+  task clear: :environment do
+    num = CorevistAPI::Permission.delete_all
+    puts "#{num} permissions have been removed from database"
+  end
+
+  desc 'Create permissions in database'
+  task create: :environment do
+    file = File.join(CorevistAPI::Engine.root, "/config/permissions.yml")
+
+    permissions = YAML.load(File.read(file))
+    permissions.each do |title|
+      CorevistAPI::Permission.find_or_create_by!(title: title)
+    end
+  end
+
+  desc 'Recreate permissions in database'
+  task reset: :environment do
+    Rake::Task["app:permissions:clear"].invoke
+    Rake::Task["app:permissions:create"].invoke
+
+    num = CorevistAPI::Permission.count
+    puts "#{num} permissions have been recreated in database"
   end
 end

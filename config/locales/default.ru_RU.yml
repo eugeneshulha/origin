@@ -1,0 +1,194 @@
+ru_RU:
+  page title|login: Страница авторизации
+  page title|dashboard: Приборная панель
+  page title|open items: Открытые элементы
+  page title|search for invoice: Поиск счета
+  page title|search for orders: Поиск заказов
+  page title|search for partners: Поиск партнеров
+  page title|invoice: Выставленный счет
+  page title|salesdoc: Заказ
+  page title|role maintenance: Ролевое обслуживание
+  page title|registration: Регистрация
+  page title|translation maintenance: Обслуживание переводов
+  page title|new translation: Новый перевод
+  page title|edit translation: Редактировать перевод
+  page title|user details: Данные пользователя
+  page title|assigned partners: Назначенные партнеры
+  page title|edit user: Редактировать пользователя
+  page title|new user: Новый пользователь
+
+  title|login: Авторизоваться
+  title|recent orders: Недавние заказы
+  title|open items: Открытые элементы
+  title|filter: Фильтр
+  title|have a question: Есть вопрос?
+  title|contact about salesdoc: Свяжитесь с нами по поводу этого заказа
+  title|contact about invoice: Свяжитесь с нами по поводу этого счета
+  title|reset password: Сбросить пароль
+  title|edit translation: Редактировать перевод
+  title|user details: Данные пользователя
+  title|assigned roles: Назначенные роли
+  title|assignable roles: Назначаемые роли
+  title|sold tos: Продано
+  title|ship tos: Корабль
+
+  lbl|username: имя пользователя
+  lbl|password: пароль
+  lbl|confirm password: Подтверждение пароля
+  lbl|new password: Новый пароль
+  lbl|doc number: Номер документа
+  lbl|doc type: Тип документа
+  lbl|doc date: Дата документа
+  lbl|po number: Номер заказа
+  lbl|po: ПО
+  lbl|ship status: Статус судна
+  lbl|net value: Всего
+  lbl|invoice: Выставленный счет
+  lbl|due date: Срок сдачи
+  lbl|material number: Номер материала
+  lbl|order number: Порядковый номер
+  lbl|payer number: Номер плательщика
+  lbl|delivery number: Номер доставки
+  lbl|search criteria value: Ценность
+  lbl|from date: С даты
+  lbl|to date: Назначить свидание
+  lbl|payer: плательщик
+  lbl|payer name: Имя плательщика
+  lbl|sold to number: Продано на номер
+  lbl|sold to descr: Продано к описанию
+  lbl|search criteria: Критерий поиска
+  lbl|ship to number: Корабль на номер
+  lbl|invoice number: Номер счета
+  lbl|ship date: Дата отправки
+  lbl|ship status ALL: Все
+  lbl|ship status NSHP: Не отправлен
+  lbl|ship status SHIP: Высылаем
+  lbl|item number: Номер предмета
+  lbl|material: материал
+  lbl|description: Описание
+  lbl|rdd: РДД
+  lbl|quantity: Количество
+  lbl|sales uom: Отдел продаж
+  lbl|item category: Категория товара
+  lbl|net price: Цена нетто
+  lbl|per: в
+  lbl|your message: Твое сообщение
+  lbl|partner number: Число
+  lbl|partner name: имя
+  lbl|city: город
+  lbl|postal code: Почтовый индекс
+  lbl|role name: Название роли
+  lbl|created by: Создан
+  lbl|is active: Активный?
+  lbl|first name: Имя
+  lbl|last name: Фамилия
+  lbl|email address: Адрес электронной почты
+  lbl|customer number: Номер клиента
+  lbl|microsite: Microsite
+  lbl|microsite 1: микросайт 1
+  lbl|microsite 2: микросайт 2
+  lbl|language: язык
+  lbl|language en_US: английский
+  lbl|language pl_PL: польский
+  lbl|company name: Название компании
+  lbl|street: улица
+  lbl|phone: Телефон
+  lbl|overdue: просроченный
+  lbl|outstanding: выдающийся
+  lbl|custom translation: Пользовательский перевод
+  lbl|locale: место действия
+  lbl|key: ключ
+  lbl|status: Положение дел
+  lbl|default translation: Перевод по умолчанию
+  lbl|user classification: классификация
+  lbl|user classification dealer:  дилер
+  lbl|user classification distributor:  дистрибьютор
+  lbl|password confirmation: Подтверждение пароля
+  lbl|user type: Тип пользователя
+  lbl|time zone:  Часовой пояс
+  lbl|number format:  Числовой формат
+  lbl|date format:  Формат даты
+  lbl|time format: Формат времени
+  lbl|id: ID
+  lbl|title: Название
+  lbl|partner AG number: Продано на номер
+  lbl|partner WE number: Корабль на номер
+  lbl|postal address 1: Почтовый адрес 1
+  lbl|postal address 2: Почтовый адрес 2
+  lbl|postal address 3: Почтовый адрес 3
+  lbl|country: Страна
+  lbl|sales area id: ID торговой зоны
+  lbl|actions: Действия
+  lbl|menu admin: Администратор
+  lbl|menu system: Системные
+  lbl|menu user maintenance: Пользователи
+  lbl|menu role maintenance: Роли
+  lbl|menu translations maintenance: Переводы
+  lbl|menu look and feel maintenance: Смотреть и чувствовать
+  lbl|menu content maintenance: Содержание
+  lbl|menu dashboard: Приборная панель
+  lbl|menu orders: Заказы
+  lbl|menu invoices: Счета-фактуры
+  lbl|menu open items: Открытые элементы
+
+  plc|username: имя пользователя
+  plc|password: пароль
+  plc|select search criteria: Выберите критерии поиска
+  plc|your message: Введите ваше сообщение здесь
+  plc|partner number: Число
+  plc|partner name: имя
+  plc|city: город
+  plc|postal code: Почтовый индекс
+  plc|select user classification: Выберите классификацию пользователей
+  plc|first name: Имя
+  plc|last name: Фамилия
+  plc|email address: Адрес электронной почты
+  plc|phone: Телефон
+  plc|password confirmation: Подтверждение пароля
+  plc|microsite: Microsite
+  plc|user type: Тип пользователя
+  plc|select language: Выберите язык
+  plc|select time zone: Выберите часовой пояс
+  plc|select number format: Выберите формат номера
+  plc|select date format: Выберите формат даты
+  plc|select time format: Выберите формат времени
+
+  btn|login: Авторизоваться
+  btn|cancel: Отмена
+  btn|apply: Применять
+  btn|send email: Отправить письмо
+  btn|reset password: Сброс пароля
+  btn|update password: Обновить пароль
+  btn|submit registration: Отправить регистрацию
+
+  link|forgot password: Забыли Ваш пароль?
+  link|create account: Завести аккаунт
+
+  error|attributes.password.blank: Пароль не может быть пустым
+  error|attributes.password.too_short: Пароль слишком короткий
+  error|attributes.password.too_long: Пароль слишком длинный
+  error|attributes.reset_password_token.blank: Токен отсутствует
+  error|attributes.username.blank: Имя пользователя не может быть пустым
+  error|attributes.username.too_short: Имя пользователя слишком короткое
+  error|attributes.username.too_long: Имя пользователя слишком длинное
+  error|attributes.text.min_max: Длина вашего сообщения не может быть менее% {min} и более% {max} символов
+  error|attributes.new_password.blank: Новый пароль не может быть пустым
+  error|attributes.uuid.blank: Значение UUID отсутствует
+  error|attributes.key.blank: Значение ключа не может быть пустым
+  error|attributes.cst_translation.blank: Пользовательский перевод не может быть пустым
+  error|attributes.first_name.blank: Имя не может быть пустым
+  error|attributes.first_name.too_short: Имя слишком короткое
+  error|attributes.first_name.too_long: Имя слишком длинное
+  error|attributes.last_name.blank: Фамилия не может быть пустой
+  error|attributes.last_name.too_short: Фамилия слишком короткая
+  error|attributes.last_name.too_long: Фамилия слишком длинная
+  error|attributes.email.too_long: Электронная почта слишком длинная
+  error|attributes.email.blank: Email не может быть пустым
+  error|attributes.password_confirmation.blank: Подтверждение пароля не может быть пустым
+  error|attributes.microsite.blank: Микросайт не может быть пустым
+  error|attributes.user_type.blank: Тип пользователя не может быть пустым
+  error|attributes.language.blank: Язык не может быть пустым
+  error|attributes.time_zone.blank: Часовой пояс не может быть пустым
+  error|attributes.number_format.blank: Числовой формат не может быть пустым
+  error|attributes.date_format.blank: Формат даты не может быть пустым
+  error|attributes.time_format.blank: Формат времени не может быть пустым

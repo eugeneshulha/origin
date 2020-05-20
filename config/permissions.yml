@@ -1,0 +1,13 @@
+permissions:
+  - open_items
+  - search_for_invoices
+  - search_for_orders
+  - view_invoices
+  - view_orders
+  - pay_invoices
+  - translation_maintenance
+  - user_maintenance
+  - role_maintenance
+  - system_maintenance
+  - content_maintenance
+  - look_and_feel_maintenance

@@ -1,32 +1,32 @@
-title: "Edit user"
+title: "<%= _('page title|edit user) %>"
 components:
   - uuid: "step 1"
     method: GET
-    title: User details
+    title: "<%= _('title|user details') %>"
     type: step
     data_url: "/v1/admin/users/new?step=1"
 
   - uuid: "step 2"
     method: GET
-    title: Assigned roles
+    title: "<%= _('title|assigned roles') %>"
     type: step
     data_url: "/v1/admin/users/new?step=2"
 
   - uuid: "step 3"
     method: GET
-    title: Roles user can assign
+    title: "<%= _('title|assignable roles') %>"
     type: step
     data_url: "/v1/admin/users/new?step=3"
 
   - uuid: "step 4"
     method: GET
-    title: Sold tos
+    title: "<%= _('title|sold tos') %>"
     type: step
     data_url: "/v1/admin/users/new?step=4"
 
   - uuid: "step 5"
     method: GET
-    title: Ship tos
+    title: "<%= _('title|ship tos') %>"
     type: step
     data_url: "/v1/admin/users/new?step=5"
 

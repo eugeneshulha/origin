@@ -13,6 +13,9 @@ en_US:
   page title|new translation: New translation
   page title|edit translation: Edit translation
   page title|user details: User details
+  page title|assigned partners: Assigned partners
+  page title|edit user: Edit user
+  page title|new user: New user
 
   title|login: Login
   title|recent orders: Recent Orders
@@ -23,6 +26,11 @@ en_US:
   title|contact about invoice: Contact us about this invoice
   title|reset password: Reset your password
   title|edit translation: Edit translation
+  title|user details: User details
+  title|assigned roles: Assigned roles
+  title|assignable roles: Assignable roles
+  title|sold tos: Sold tos
+  title|ship tos: Ship tos
 
   lbl|username: Username
   lbl|password: Password
@@ -101,7 +109,27 @@ en_US:
   lbl|number format:  Number format
   lbl|date format:  Date format
   lbl|time format: Time format
-
+  lbl|id: ID
+  lbl|title: Title
+  lbl|partner AG number: Sold to number
+  lbl|partner WE number: Ship to number
+  lbl|postal address 1: Postal address 1
+  lbl|postal address 2: Postal address 2
+  lbl|postal address 3: Postal address 3
+  lbl|country: Country
+  lbl|sales area id: Sales area ID
+  lbl|actions: Actions
+  lbl|menu admin: Admin
+  lbl|menu system: System
+  lbl|menu user maintenance: Users
+  lbl|menu role maintenance: Roles
+  lbl|menu translations maintenance: Translations
+  lbl|menu look and feel maintenance: Look and Feel
+  lbl|menu content maintenance: Content
+  lbl|menu dashboard: Dashboard
+  lbl|menu orders: Orders
+  lbl|menu invoices: Invoices
+  lbl|menu open items: Open Items
 
   plc|username: Username
   plc|password: Password
@@ -156,7 +184,6 @@ en_US:
   error|attributes.last_name.too_long: Last name is too long
   error|attributes.email.too_long: Email is too long
   error|attributes.email.blank: Email can not be blank
-  error|attributes.password.confirmation:
   error|attributes.password_confirmation.blank: Password confirmation can not be blank
   error|attributes.microsite.blank: Microsite can not be blank
   error|attributes.user_type.blank: User type can not be blank

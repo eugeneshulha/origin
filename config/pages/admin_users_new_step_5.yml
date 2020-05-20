@@ -1,7 +1,7 @@
-title: "Search for Orders"
+title: "<%= _('page title|assigned partners') %>"
 components:
   - uuid: "search_salesdoc_table"
-    description: "Fields with an asterisk (*) are mandatory."
+    description: ""
     method: POST
     title: Select ship-to`s
     type: datatable
@@ -10,43 +10,43 @@ components:
       thead:
         - key: true
           name: 'number'
-          caption: 'Ship-to number'
+          caption: "<%= _('lbl|partner WE number') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: 'name'
-          caption: 'Name'
+          caption: "<%= _('lbl|partner name') %>"
           label: null
           sortable: true
           hidden: false
         - name: 'postal_address_1'
-          caption: 'Postal Address 1'
+          caption: "<%= _('lbl|postal address 1') %>"
           label: null
           sortable: true
           hidden: false
         - name: 'postal_address_2'
-          caption: 'Postal Address 2'
+          caption: "<%= _('lbl|postal address 2') %>"
           label: null
           sortable: true
           hidden: false
         - name: 'postal_address_3'
-          caption: 'Postal Address 3'
+          caption: "<%= _('lbl|postal address 3') %>"
           label: null
           sortable: true
           hidden: false
         - name: 'country'
-          caption: 'Country code'
+          caption: "<%= _('lbl|country') %>"
           label: null
           sortable: true
           hidden: false
         - name: 'sales_area_id'
-          caption: 'Sales area ID'
+          caption: "<%= _('lbl|sales area id') %>"
           label: null
           sortable: true
           hidden: false
         - name: 'action'
-          caption: 'Action'
+          caption: "<%= _('lbl|actions') %>"
           label: null
           sortable: false
           hidden: false
