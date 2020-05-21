@@ -1,4 +1,6 @@
 CorevistAPI::Engine.routes.draw do
+  CorevistAPI::RouteDrawer.set_context(self).draw_routes
+
   scope :api, defaults: { format: :json } do
     scope :v1 do
       devise_for :users, class_name: "CorevistAPI::User", module: :devise, singular: :user,

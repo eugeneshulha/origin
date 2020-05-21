@@ -7,6 +7,10 @@ module CorevistAPI
 
     validates_presence_of :name
 
+    def to_s
+      name
+    end
+
     private
 
     def check_territories(territory)

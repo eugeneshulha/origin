@@ -8,5 +8,9 @@ module CorevistAPI
     validates_uniqueness_of :title
     validates_presence_of :title
     validates_presence_of :description
+
+    def to_s
+      title
+    end
   end
 end
