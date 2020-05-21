@@ -9,7 +9,7 @@ en_US:
         function:
           presence: 'is absent'
     infos:
-      admin_roles_show: 'Role has been successfully loaded'
+      admin_roles_edit: 'Role has been successfully loaded'
       admin_roles_create: 'Role has been successfully created'
       admin_roles_update: 'Role has been successfully updated'
       admin_roles_destroy: 'Role has been successfully destroyed'
