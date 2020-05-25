@@ -18,8 +18,10 @@ module CorevistAPI
         admin_roles_index: 'CorevistAPI::Forms::Admin::Roles::IndexForm',
         admin_roles_create: 'CorevistAPI::Forms::Admin::Roles::CreateForm',
         admin_roles_update: 'CorevistAPI::Forms::Admin::Roles::UpdateForm',
-        admin_roles_show: 'CorevistAPI::Forms::Admin::Roles::ShowForm',
+        admin_roles_edit: 'CorevistAPI::Forms::Admin::Roles::EditForm',
         admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
+
+        admin_permissions_index: 'CorevistAPI::Forms::Admin::Permissions::IndexForm',
 
         admin_translations_index: 'CorevistAPI::Forms::Admin::Translations::IndexForm',
         admin_translations_create: 'CorevistAPI::Forms::Admin::Translations::CreateForm',

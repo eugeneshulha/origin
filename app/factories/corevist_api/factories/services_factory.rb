@@ -15,14 +15,16 @@ module CorevistAPI
         admin_users_partners_index: 'CorevistAPI::Services::Admin::Users::Partners::IndexService',
         admin_users_partners_destroy: 'CorevistAPI::Services::Admin::Users::Partners::DestroyService',
         admin_users_index_filter: 'CorevistAPI::Services::Admin::Users::FilterService',
+        admin_users_steps: 'CorevistAPI::Services::Admin::Users::StepsService',
 
         admin_roles_index: 'CorevistAPI::Services::Admin::Roles::IndexService',
         admin_roles_create: 'CorevistAPI::Services::Admin::Roles::CreateService',
         admin_roles_update: 'CorevistAPI::Services::Admin::Roles::UpdateService',
-        admin_roles_show: 'CorevistAPI::Services::Admin::Roles::ShowService',
+        admin_roles_edit: 'CorevistAPI::Services::Admin::Roles::EditService',
         admin_roles_index_filter: 'CorevistAPI::Services::Admin::Roles::FilterService',
         admin_roles_destroy: 'CorevistAPI::Services::Admin::Roles::DestroyService',
-        admin_users_steps: 'CorevistAPI::Services::Admin::Users::StepsService',
+
+        admin_permissions_index: 'CorevistAPI::Services::Admin::Permissions::IndexService',
 
         admin_translations_index_filter: 'CorevistAPI::Services::Admin::Translations::FilterService',
         admin_translations_index: 'CorevistAPI::Services::Admin::Translations::IndexService',
