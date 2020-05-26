@@ -26,17 +26,17 @@ components:
             type: max
             value: "20"
 
-      thead:
-        - key: true
-          name: "title"
-          caption: "<%= _('lbl|general privileges') %>"
-          label: null
-          sortable: true
-          hidden: false
-          action: "link"
-        - key: true
-          name: "description"
-          caption: "<%= _('lbl|description') %>"
-          label: null
-          sortable: true
-          hidden: false
+      - thead:
+          - key: true
+            name: "title"
+            caption: "<%= _('lbl|general privileges') %>"
+            label: null
+            sortable: true
+            hidden: false
+            action: "link"
+          - key: true
+            name: "description"
+            caption: "<%= _('lbl|description') %>"
+            label: null
+            sortable: true
+            hidden: false
