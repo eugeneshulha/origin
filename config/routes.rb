@@ -63,13 +63,14 @@ CorevistAPI::Engine.routes.draw do
 
         resources :roles, only: %i[index new create edit update show destroy], param: :uuid do
           get :configs, on: :collection, to: 'roles#index_configs'
-          get :configs, on: :member, to: 'roles#edit_configs'
+          get :configs, on: :member, to: 'roles#edit'
         end
 
         resources :permissions, only: %i[index]
 
-        resources :translations, only: %i[index create update edit destroy], param: :uuid do
+        resources :translations, only: %i[index new create update edit destroy], param: :uuid do
           get :configs, on: :collection, to: 'translations#index_configs'
+          get :configs, on: :member, to: 'translations#edit'
           get 'filters/new', on: :collection, to: 'translations/filters#new'
         end
       end

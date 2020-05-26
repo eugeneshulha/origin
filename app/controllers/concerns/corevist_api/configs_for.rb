@@ -10,7 +10,7 @@ module CorevistAPI
             action, opts = action.first if action.is_a?(Hash)
             opts ||= {}
 
-            action = "#{action}_configs" if %i[index show edit].include?(action)
+            action = "#{action}_configs" if %i[index show].include?(action)
 
             define_method action do
               authorize(User) if opts.fetch(:authorize, true)
