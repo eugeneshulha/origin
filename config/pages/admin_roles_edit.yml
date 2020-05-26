@@ -1,9 +1,9 @@
-title: "<%= _('page title|new role') %>"
+title: "<%= _('page title|edit role') %>"
 components:
   - uuid: "roles_new_form"
     description: ""
     method: GET
-    title: "<%= _('title|new role') %>"
+    title: "<%= _('title|edit role') %>"
     type: datatable
     url: ""
     data_url: "/v1/admin/roles"
