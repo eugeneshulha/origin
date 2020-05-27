@@ -1,13 +1,15 @@
 module CorevistAPI
-  module Services::Base
-    class UpdateService < CorevistAPI::Services::BaseServiceWithForm
+  module Services::Admin::SystemSettings::Microsites
+    class CreateService < CorevistAPI::Services::BaseServiceWithForm
+      private
 
       def perform
-        object = object_class.find_by_id(@form.id)
+        object = CorevistAPI::Microsite.new
         raise CorevistAPI::ServiceException.new(not_found_msg) unless object
 
         fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)) }
-        object.updated_by = current_user.id if object.respond_to?(:updated_by)
+        object.sales_areas = CorevistAPI::SalesArea.where(id: @form.sales_areas) if @form.sales_areas.present?
+        object.created_by = object.updated_by = current_user.id
 
         raise CorevistAPI::ServiceException.new(object.errors.full_messages) unless object.save
 

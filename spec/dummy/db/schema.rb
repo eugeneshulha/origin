@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_192741) do
+ActiveRecord::Schema.define(version: 2020_05_26_140920) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -68,6 +68,10 @@ ActiveRecord::Schema.define(version: 2020_05_15_192741) do
 
   create_table "microsites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "created_by", default: "system", null: false
+    t.string "updated_by", default: "system"
+    t.datetime "created_at", default: "2020-05-27 07:30:47", null: false
+    t.datetime "updated_at", default: "2020-05-27 07:30:47"
   end
 
   create_table "microsites_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

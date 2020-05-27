@@ -23,6 +23,12 @@ module CorevistAPI
 
         admin_permissions_index: 'CorevistAPI::Forms::Admin::Permissions::IndexForm',
 
+        # SystemSettings > Microsites
+        admin_system_settings_microsites_index: 'CorevistAPI::Forms::Admin::SystemSettings::Microsites::IndexForm',
+        admin_system_settings_microsites_create: 'CorevistAPI::Forms::Admin::SystemSettings::Microsites::CreateForm',
+        admin_system_settings_microsites_update: 'CorevistAPI::Forms::Admin::SystemSettings::Microsites::UpdateForm',
+        admin_system_settings_microsites_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::Microsites::DestroyForm',
+
         admin_translations_index: 'CorevistAPI::Forms::Admin::Translations::IndexForm',
         admin_translations_create: 'CorevistAPI::Forms::Admin::Translations::CreateForm',
         admin_translations_update: 'CorevistAPI::Forms::Admin::Translations::UpdateForm',
