@@ -1,0 +1,43 @@
+title: "<%= _('page title|microsite maintenance') %>"
+components:
+  - uuid: "microsites_create_form"
+    description: ""
+    method: GET
+    title: "<%= _('page title|microsite maintenance') %>"
+    type: form
+    url: ""
+    data_url: "/v1/admin/system_settings/microsites"
+    elements:
+      thead:
+        - key: true
+          name: "name"
+          caption: "<%= _('lbl|microsite name') %>"
+          label: null
+          sortable: true
+          hidden: false
+          action: "link"
+        - key: true
+          name: "created_by"
+          caption: "<%= _('lbl|created by') %>"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "updated_by"
+          caption: "<%= _('lbl|updated by') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+
+        - atom: button
+          uuid: "cancel"
+          text: "<%= _('btn|cancel') %>"
+          type: text
+          action_type: button
+
+        - atom: button
+          uuid: "apply"
+          text: "<%= _('btn|apply') %>"
+          type: secondary
+          action_type: submit

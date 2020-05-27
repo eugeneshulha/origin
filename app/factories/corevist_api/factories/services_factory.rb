@@ -26,6 +26,12 @@ module CorevistAPI
 
         admin_permissions_index: 'CorevistAPI::Services::Admin::Permissions::IndexService',
 
+        # SystemSettings > Microsites
+        admin_system_settings_microsites_index: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::IndexService',
+        admin_system_settings_microsites_create: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::CreateService',
+        admin_system_settings_microsites_update: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::UpdateService',
+        admin_system_settings_microsites_destroy: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::DestroyService',
+
         admin_translations_index_filter: 'CorevistAPI::Services::Admin::Translations::FilterService',
         admin_translations_index: 'CorevistAPI::Services::Admin::Translations::IndexService',
         admin_translations_create: 'CorevistAPI::Services::Admin::Translations::CreateService',

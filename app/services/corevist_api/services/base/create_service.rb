@@ -7,8 +7,9 @@ module CorevistAPI
         raise CorevistAPI::ServiceException.new(not_found_msg) unless object
 
         fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)) }
-        object.updated_by = current_user.id if object.respond_to?(:updated_by)
-
+        if %i[created_by updated_by].all? { |field| object.respond_to?(field) }
+          object.created_by = object.updated_by = current_user.id
+        end
         raise CorevistAPI::ServiceException.new(object.errors.full_messages) unless object.save
 
         result(object)

@@ -73,6 +73,13 @@ CorevistAPI::Engine.routes.draw do
           get :configs, on: :member, to: 'translations#edit'
           get 'filters/new', on: :collection, to: 'translations/filters#new'
         end
+
+        namespace :system_settings do
+          resources :microsites, only: %i[index new create edit update show destroy], param: :uuid do
+            get :configs, on: :collection, to: 'microsites#index_configs'
+            get :configs, on: :member, to: 'microsites#edit'
+          end
+        end
       end
 
       resources :partners, only: %i[index] do
