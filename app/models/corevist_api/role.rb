@@ -7,7 +7,6 @@ module CorevistAPI
 
     validates_uniqueness_of :title
     validates_presence_of :title
-    validates_presence_of :description
 
     def permissions_list
       assigned = permissions.to_a
