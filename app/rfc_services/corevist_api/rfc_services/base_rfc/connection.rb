@@ -13,7 +13,7 @@ module CorevistAPI
 
     def initialize
       SAPNW::Base.config = {
-          :ashost => "localhost",
+          :ashost => "172.20.3.2",
           :sysnr => "00",
           :client => "400",
           :user => "core_cpic",
