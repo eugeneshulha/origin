@@ -6,7 +6,7 @@ module CorevistAPI
       def filter
         result(
           if @params['role_id'].present?
-            CorevistAPI::Role.find_by_id(@params['role_id']).permissions
+            CorevistAPI::Role.find_by_id(@params['role_id']).permissions_list
           else
             CorevistAPI::Permission.all
           end

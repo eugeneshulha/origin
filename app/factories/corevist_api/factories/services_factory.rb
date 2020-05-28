@@ -17,8 +17,10 @@ module CorevistAPI
         admin_users_index_filter: 'CorevistAPI::Services::Admin::Users::FilterService',
         admin_users_steps: 'CorevistAPI::Services::Admin::Users::StepsService',
 
+        # Admin > Roles
         admin_roles_index: 'CorevistAPI::Services::Admin::Roles::IndexService',
         admin_roles_create: 'CorevistAPI::Services::Admin::Roles::CreateService',
+        admin_roles_show: 'CorevistAPI::Services::Admin::Roles::ShowService',
         admin_roles_update: 'CorevistAPI::Services::Admin::Roles::UpdateService',
         admin_roles_edit: 'CorevistAPI::Services::Admin::Roles::EditService',
         admin_roles_index_filter: 'CorevistAPI::Services::Admin::Roles::FilterService',
@@ -26,9 +28,10 @@ module CorevistAPI
 
         admin_permissions_index: 'CorevistAPI::Services::Admin::Permissions::IndexService',
 
-        # SystemSettings > Microsites
+        # Admin > SystemSettings > Microsites
         admin_system_settings_microsites_index: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::IndexService',
         admin_system_settings_microsites_create: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::CreateService',
+        admin_system_settings_microsites_show: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::ShowService',
         admin_system_settings_microsites_update: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::UpdateService',
         admin_system_settings_microsites_destroy: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::DestroyService',
 
