@@ -1,18 +1,10 @@
 module CorevistAPI
-  module Services::Admin::SystemSettings::Microsites
+  module Services::Admin::SystemSettings::SalesAreas
     class UpdateService < CorevistAPI::Services::Base::UpdateService
       private
 
       def object_class
-        CorevistAPI::Microsite
-      end
-
-      def depended_class
         CorevistAPI::SalesArea
-      end
-
-      def depended_key
-        :sales_areas
       end
     end
   end

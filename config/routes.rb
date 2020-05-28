@@ -79,6 +79,11 @@ CorevistAPI::Engine.routes.draw do
             get :configs, on: :collection, to: 'microsites#index_configs'
             get :configs, on: :member, to: 'microsites#edit'
           end
+
+          resources :sales_areas, only: %i[index new create edit update show destroy], param: :uuid do
+            get :configs, on: :collection, to: 'sales_areas#index_configs'
+            get :configs, on: :member, to: 'sales_areas#edit'
+          end
         end
       end
 

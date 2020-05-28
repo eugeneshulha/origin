@@ -1,10 +1,10 @@
 module CorevistAPI
-  module Services::Admin::SystemSettings::Microsites
+  module Services::Admin::SystemSettings::SalesAreas
     class ShowService < CorevistAPI::Services::Base::ShowService
       private
 
       def object_class
-        CorevistAPI::Microsite
+        CorevistAPI::SalesArea
       end
     end
   end

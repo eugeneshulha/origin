@@ -35,6 +35,13 @@ module CorevistAPI
         admin_system_settings_microsites_update: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::UpdateService',
         admin_system_settings_microsites_destroy: 'CorevistAPI::Services::Admin::SystemSettings::Microsites::DestroyService',
 
+        # Admin > SystemSettings > SalesAreas
+        admin_system_settings_sales_areas_index: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::IndexService',
+        admin_system_settings_sales_areas_create: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::CreateService',
+        admin_system_settings_sales_areas_show: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::ShowService',
+        admin_system_settings_sales_areas_update: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::UpdateService',
+        admin_system_settings_sales_areas_destroy: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::DestroyService',
+
         admin_translations_index_filter: 'CorevistAPI::Services::Admin::Translations::FilterService',
         admin_translations_index: 'CorevistAPI::Services::Admin::Translations::IndexService',
         admin_translations_create: 'CorevistAPI::Services::Admin::Translations::CreateService',
