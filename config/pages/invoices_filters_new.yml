@@ -13,7 +13,7 @@ components:
           name: "search_criteria"
           placeholder: "<%= _('plc|select search criteria') %>"
           validation_type: string
-          value: "po_number"
+          value: ""
           options:
             - name: "<%= _('lbl|po number') %>"
               value: "po_number"
