@@ -7,6 +7,11 @@ module CorevistAPI
 
     validates_presence_of :name
 
+    def sales_areas_list
+      assigned = sales_areas.to_a
+      CorevistAPI::SalesArea.all.each { |p| p.selected = assigned.include?(p) }.map(&:to_json)
+    end
+
     private
 
     def check_territories(territory)

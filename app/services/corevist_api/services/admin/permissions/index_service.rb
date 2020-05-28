@@ -2,8 +2,8 @@ module CorevistAPI
   module Services::Admin::Permissions
     class IndexService < CorevistAPI::Services::Base::IndexService
       def perform
-        data = if @params['role_id'].present?
-                 role = CorevistAPI::Role.find_by_id(@params['role_id'])
+        data = if @params[:role_id].present?
+                 role = CorevistAPI::Role.find_by_id(@params[:role_id])
 
                  raise CorevistAPI::ServiceException.new(not_found_msg) unless role.present?
 

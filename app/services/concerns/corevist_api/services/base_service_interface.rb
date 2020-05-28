@@ -9,6 +9,10 @@ module CorevistAPI
         raise NotImplementedError
       end
 
+      def depended_class; end
+
+      def depended_key; end
+
       def namespace
         self.class.name.deconstantize.demodulize.downcase
       end
