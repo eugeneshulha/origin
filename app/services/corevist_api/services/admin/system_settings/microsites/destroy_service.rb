@@ -1,9 +1,7 @@
 module CorevistAPI
   module Services::Admin::SystemSettings::Microsites
-    class DestroyService < CorevistAPI::Services::BaseServiceWithForm
-      private
-
-      def perform
+    class DestroyService < CorevistAPI::Services::BaseService
+      def call
         object = object_class.find_by_id(@params['uuid'])
 
         raise CorevistAPI::ServiceException.new(not_found_msg) unless object
