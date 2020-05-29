@@ -5,12 +5,6 @@ navigationLinks:
     caption: "<%= _('lbl|menu admin') %>"
     href: ""
     subCategories:
-      - uuid: "create_user"
-        icon: "catalog"
-        caption: "<%= _('lbl|menu system') %>"
-        href: "/admin/system"
-        permission: "system_settings"
-
       - uuid: "user_maintenance"
         icon: "catalog"
         caption: "<%= _('lbl|menu user maintenance') %>"
@@ -28,6 +22,18 @@ navigationLinks:
         caption: "<%= _('lbl|menu translations maintenance') %>"
         href: "/admin/translations"
         permission: "translation_maintenance"
+
+      - uuid: "microsite_maintenance"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu microsite maintenance') %>"
+        href: "/admin/microsites"
+        permission: "system_maintenance"
+
+      - uuid: "sales_area_maintenance"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu sales area maintenance') %>"
+        href: "/admin/sales_areas"
+        permission: "system_maintenance"
 
       - uuid: "look_and_feel_maintenance"
         icon: "catalog"
