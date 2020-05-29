@@ -13,7 +13,7 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.text.blank') %>"
               type: required
 
         - atom: hidden
@@ -23,5 +23,5 @@ components:
           placeholder: Select Timeframe
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.invoice_doc_number.blank') %>"
               type: required

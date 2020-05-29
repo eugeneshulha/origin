@@ -13,7 +13,7 @@ components:
           name: "role_ids"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.role_ids.blank') %>"
               type: required
       - - atom: hidden
           uuid: "uuid"

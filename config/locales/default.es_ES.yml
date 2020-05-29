@@ -16,6 +16,8 @@ es_ES:
   page title|assigned partners: Socios asignados
   page title|edit user: Editar usuario
   page title|new user: Nuevo Usuario
+  page title|new role: Nuevo rol
+  page title|edit role: Editar rol
 
   title|login: Iniciar sesión
   title|recent orders: órdenes recientes
@@ -130,6 +132,10 @@ es_ES:
   lbl|menu orders: Pedidos
   lbl|menu invoices: Facturas
   lbl|menu open items: Artículos abiertos
+  lbl|menu microsite maintenance: Microsites
+  lbl|menu sales area maintenance: Áreas de ventas
+  lbl|permission name: Permission
+  plc|title: Title
 
   plc|username: Nombre de usuario
   plc|password: Contraseña
@@ -192,3 +198,9 @@ es_ES:
   error|attributes.number_format.blank: El formato de número no puede estar en blanco
   error|attributes.date_format.blank: El formato de fecha no puede estar en blanco
   error|attributes.time_format.blank: El formato de hora no puede estar en blanco
+  error|attributes.role_ids.blank: Seleccione al menos un rol
+  error|attributes.text.blank: El mensaje no puede estar en blanco
+  error|attributes.salesdoc_doc_number.blank: Falta el número de documento de ventas
+  error|attributes.partner_id.blank: Falta la ID de socio
+  error|attributes.user_uuid.blank: Falta el UUID del usuario
+  error|attributes.invoice_doc_number.blank: Falta el número de factura

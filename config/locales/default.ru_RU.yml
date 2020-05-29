@@ -16,6 +16,8 @@ ru_RU:
   page title|assigned partners: Назначенные партнеры
   page title|edit user: Редактировать пользователя
   page title|new user: Новый пользователь
+  page title|new role: Создание роли
+  page title|edit role: Редактирование роли
 
   title|login: Авторизоваться
   title|recent orders: Недавние заказы
@@ -130,6 +132,10 @@ ru_RU:
   lbl|menu orders: Заказы
   lbl|menu invoices: Счета-фактуры
   lbl|menu open items: Открытые элементы
+  lbl|menu microsite maintenance: Микросайт
+  lbl|menu sales area maintenance: Торговые площади
+  lbl|permission name: Разрешение
+  plc|title: Заголовок
 
   plc|username: имя пользователя
   plc|password: пароль
@@ -192,3 +198,9 @@ ru_RU:
   error|attributes.number_format.blank: Числовой формат не может быть пустым
   error|attributes.date_format.blank: Формат даты не может быть пустым
   error|attributes.time_format.blank: Формат времени не может быть пустым
+  error|attributes.role_ids.blank: Выберите хотя бы одну роль
+  error|attributes.text.blank: Сообщение не может быть пустым
+  error|attributes.salesdoc_doc_number.blank: Номер торгового документа отсутствует
+  error|attributes.partner_id.blank: Идентификатор партнера отсутствует
+  error|attributes.user_uuid.blank: UUID пользователя отсутствует
+  error|attributes.invoice_doc_number.blank: Номер счета отсутствует

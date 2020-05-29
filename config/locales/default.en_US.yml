@@ -16,6 +16,8 @@ en_US:
   page title|assigned partners: Assigned partners
   page title|edit user: Edit user
   page title|new user: New user
+  page title|new role: New role
+  page title|edit role: Edit role
 
   title|login: Login
   title|recent orders: Recent Orders
@@ -130,6 +132,10 @@ en_US:
   lbl|menu orders: Orders
   lbl|menu invoices: Invoices
   lbl|menu open items: Open Items
+  lbl|menu microsite maintenance: Microsites
+  lbl|menu sales area maintenance: Sales Areas
+  lbl|permission name: Permission
+  plc|title: Title
 
   plc|username: Username
   plc|password: Password
@@ -192,3 +198,9 @@ en_US:
   error|attributes.number_format.blank: Number format can not be blank
   error|attributes.date_format.blank: Date format can not be blank
   error|attributes.time_format.blank: Time format can not be blank
+  error|attributes.role_ids.blank: Select at least one role
+  error|attributes.text.blank: Message can not be blank
+  error|attributes.salesdoc_doc_number.blank: Salesdoc number is missing
+  error|attributes.partner_id.blank: Partner ID is missing
+  error|attributes.user_uuid.blank: User UUID is missing
+  error|attributes.invoice_doc_number.blank: Invoice number is missing

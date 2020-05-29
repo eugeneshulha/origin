@@ -15,13 +15,13 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.first_name.blank') %>"
               type: required
               value: ""
-            - message: "First Name cannot be less than 3 characters"
+            - message: "<%= _('error|attributes.first_name.to_short') %>"
               type: min
               value: "3"
-            - message: "First Name cannot be more than 20 characters"
+            - message: "<%= _('error|attributes.first_name.too_long') %>"
               type: max
               value: "20"
 
@@ -33,13 +33,13 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.last_name.blank') %>"
               type: required
               value: ""
-            - message: "Last name cannot be less than 3 characters"
+            - message: "<%= _('error|attributes.last_name.to_short') %>"
               type: min
               value: "3"
-            - message: "Last name cannot be more than 20 characters"
+            - message: "<%= _('error|attributes.last_name.too_long') %>"
               type: max
               value: "20"
 
@@ -51,7 +51,7 @@ components:
           validation_type: string
           value: ""
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.email.blank') %>"
               type: required
               value: ""
 
@@ -76,7 +76,7 @@ components:
             - name: "<%= _('lbl|microsite 2') %>"
               value: 'b2b_client'
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.microsite.blank') %>"
               type: required
               value: ""
       - - atom: select
@@ -92,7 +92,7 @@ components:
             - name: "<%= _('lbl|language pl_PL') %>"
               value: pl_PL
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.language.blank') %>"
               type: required
               value: ""
 

@@ -29,7 +29,7 @@ components:
       - thead:
           - key: true
             name: "title"
-            caption: "<%= _('lbl|general privileges') %>"
+            caption: "<%= _('lbl|permission name') %>"
             label: null
             sortable: true
             hidden: false

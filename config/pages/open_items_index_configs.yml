@@ -1,4 +1,4 @@
-title: "page title|open items"
+title: "<%= _('page title|open items') %>"
 components:
   - uuid: "open_items_table"
     description: "Fields with an asterisk (*) are mandatory."
