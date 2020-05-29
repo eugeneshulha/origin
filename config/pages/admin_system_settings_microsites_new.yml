@@ -1,43 +1,29 @@
-title: "<%= _('page title|microsite maintenance') %>"
+title: "<%= _('page title|create microsites') %>"
 components:
-  - uuid: "microsites_create_form"
-    description: ""
+  - uuid: "microsite_create_form"
+    description: "<%= _('page title|create microsites') %>"
     method: GET
-    title: "<%= _('page title|microsite maintenance') %>"
+    title: "<%= _('page title|create microsites') %>"
     type: form
-    url: ""
-    data_url: "/v1/admin/system_settings/microsites"
+    url: "/v1/admin/system_settings/microsites/"
     elements:
-      thead:
-        - key: true
-          name: "name"
-          caption: "<%= _('lbl|microsite name') %>"
-          label: null
-          sortable: true
-          hidden: false
-          action: "link"
-        - key: true
-          name: "created_by"
-          caption: "<%= _('lbl|created by') %>"
-          label: null
-          sortable: true
-          hidden: false
-        - key: true
-          name: "updated_by"
-          caption: "<%= _('lbl|updated by') %>"
-          label: null
-          sortable: true
-          hidden: false
-
-
-        - atom: button
-          uuid: "cancel"
-          text: "<%= _('btn|cancel') %>"
-          type: text
-          action_type: button
-
-        - atom: button
-          uuid: "apply"
-          text: "<%= _('btn|apply') %>"
-          type: secondary
-          action_type: submit
+      - - atom: text
+          uuid: "title"
+          label: "<%= _('lbl|title') %>"
+          name: "username"
+          placeholder: "<%= _('plc|title') %>"
+          validation_type: string
+          value: ""
+          validations:
+            - message: "<%= _('error|attributes.title.blank') %>"
+              type: required
+              value: ""
+            - message: "<%= _('error|attributes.title.too_short') %>"
+              type: min
+              value: "3"
+            - message: "<%= _('error|attributes.title.too_long') %>"
+              type: max
+              value: "20"
+      - - atom: text
+          uuid: "sales_areas"
+          name: "sales_areas"
