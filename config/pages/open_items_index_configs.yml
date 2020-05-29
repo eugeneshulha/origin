@@ -15,13 +15,13 @@ components:
           hidden: false
           action: 'expand'
         - key: true
-          name: 'bill_date'
+          name: 'due_date'
           caption: "<%= _('lbl|due date') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
-          name: 'net_value'
+          name: 'amnt'
           caption: "<%= _('lbl|net value') %>"
           label: null
           sortable: true
