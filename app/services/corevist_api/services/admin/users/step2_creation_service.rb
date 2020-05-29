@@ -13,7 +13,8 @@ module CorevistAPI
           memo << role
         end
         user.roles = roles
-
+        user.reload
+        
         result(user)
       end
     end
