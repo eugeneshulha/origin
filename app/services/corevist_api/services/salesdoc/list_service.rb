@@ -15,7 +15,7 @@ module CorevistAPI
           array = filter_by_query(@rfc_result.data)
           array = sort_by_param(array)
 
-          result = paginate(salesdocs: array)
+          result = paginate(items: array)
         end
 
         result(result)
