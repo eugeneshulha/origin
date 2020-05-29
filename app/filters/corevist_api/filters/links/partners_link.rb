@@ -4,7 +4,7 @@ module CorevistAPI
       def perform(data)
         return if data.partners.blank?
 
-        data.query = data.query.joins(:assigned_partners)&.where(assigned_partners: data.partners.reduce(:or))
+        data.query = data.query.joins(:partners)&.where(partners: data.partners.reduce(:or))
       end
     end
   end
