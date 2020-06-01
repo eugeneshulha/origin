@@ -20,5 +20,5 @@ components:
               type: required
               value: ""
       - - atom: text
-          uuid: "sales_areas"
-          name: "sales_areas"
+          uuid: "sales_area_ids"
+          name: "sales_area_ids"

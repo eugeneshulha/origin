@@ -25,5 +25,5 @@ components:
               type: max
               value: "20"
       - - atom: text
-          uuid: "sales_areas"
-          name: "sales_areas"
+          uuid: "sales_area_ids"
+          name: "sales_area_ids"

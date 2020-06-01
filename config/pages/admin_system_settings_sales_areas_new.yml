@@ -1,43 +1,37 @@
-title: "<%= _('page title|sales_area maintenance') %>"
+title: "<%= _('page title|new sales area') %>"
 components:
   - uuid: "sales_areas_new_form"
     description: ""
     method: GET
-    title: "<%= _('page title|sales_area maintenance') %>"
+    title: "<%= _('title|new sales area') %>"
     type: form
     url: ""
     data_url: "/v1/admin/system_settings/sales_areas"
     elements:
-      thead:
-        - key: true
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+
+      - - atom: text
+          uuid: "title"
+          label: "<%= _('lbl|title') %>"
           name: "title"
-          caption: "<%= _('lbl|sales_area title') %>"
-          label: null
-          sortable: true
-          hidden: false
-          action: "link"
-        - key: true
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.title.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "description"
+          label: "<%= _('lbl|description') %>"
           name: "description"
-          caption: "<%= _('lbl|sales_area description') %>"
-          label: null
-          sortable: true
-          hidden: false
-        - key: true
+
+      - - atom: text
+          uuid: "active"
+          label: "<%= _('lbl|active') %>"
           name: "active"
-          caption: "<%= _('lbl|sales_area active') %>"
-          label: null
-          sortable: true
-          hidden: false
 
-
-        - atom: button
-          uuid: "cancel"
-          text: "<%= _('btn|cancel') %>"
-          type: text
-          action_type: button
-
-        - atom: button
-          uuid: "apply"
-          text: "<%= _('btn|apply') %>"
-          type: secondary
-          action_type: submit
+      - - atom: hidden
+          uuid: "doc_type_ids"
+          name: "doc_type_ids"
