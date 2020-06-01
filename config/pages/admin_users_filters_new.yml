@@ -1,32 +1,32 @@
-title: "Filter"
+title: "<%= _('title|filter') %>"
 components:
   - uuid: "filter_users_modal_form"
     description:
     method: GET
-    title:
+    title: "<%= _('title|filter') %>"
     type: form
     url: "/v1/salesdocs"
     elements:
       - - atom: text
-          uuid: 'username'
+          uuid: "username"
           label: Username
           name: "username"
           value: ""
 
       - - atom: text
-          uuid: 'first_name'
+          uuid: "first_name"
           label: "<%= _('lbl|first name') %>"
           name: "first_name"
           value: ""
 
       - - atom: text
-          uuid: 'last_name'
+          uuid: "last_name"
           label: "<%= _('lbl|last name') %>"
           name: "last_name"
           value: ""
 
       - - atom: text
-          uuid: 'email'
+          uuid: "email"
           label: "<%= _('lbl|email address') %>"
           name: "email"
           value: ""
