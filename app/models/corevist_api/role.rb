@@ -16,5 +16,9 @@ module CorevistAPI
     def to_json(*_args)
       super.merge!(permissions: permissions.to_a)
     end
+
+    def self.extra_column_names
+      super << 'permission_ids'
+    end
   end
 end

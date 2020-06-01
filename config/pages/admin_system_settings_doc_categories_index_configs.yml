@@ -1,0 +1,43 @@
+title: "<%= _('page title|edit doc_categories') %>"
+components:
+  - uuid: "doc_categories_edit_form"
+    description: ""
+    method: PATCH
+    title: "<%= _('title|edit doc_categories') %>"
+    type: form
+    url: ""
+    data_url: "/v1/admin/system_settings/doc_categories"
+    elements:
+      - - atom: text
+          uuid: "title"
+          label: "<%= _('lbl|title') %>"
+          name: "title"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.title.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "description"
+          label: "<%= _('lbl|description') %>"
+          name: "description"
+          validation_type: string
+
+      - - atom: text
+          uuid: "data"
+          label: "<%= _('lbl|data') %>"
+          name: "data"
+          validation_type: string
+
+      - - atom: button
+          uuid: "cancel"
+          text: "<%= _('btn|cancel') %>"
+          type: text
+          action_type: button
+
+        - atom: button
+          uuid: "apply"
+          text: "<%= _('btn|apply') %>"
+          type: secondary
+          action_type: submit

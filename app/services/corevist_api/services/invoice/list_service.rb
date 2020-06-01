@@ -1,18 +1,16 @@
-module CorevistAPI
-  module Services::Invoice
-    class ListService < CorevistAPI::Services::BaseServiceWithForm
+module CorevistAPI::Services::Invoice
+  class ListService < CorevistAPI::Services::BaseServiceWithForm
 
-      private
+    private
 
-      def perform
-        @rfc_result = rfc_service_for(:invoice_list, @form, @params).call
+    def perform
+      @rfc_result = rfc_service_for(:invoice_list, @form, @params).call
 
-        array = filter_by_query(@rfc_result.data)
-        array = sort_by_param(array)
+      array = filter_by_query(@rfc_result.data)
+      array = sort_by_param(array)
 
-        invoices = paginate(items: array)
-        result(invoices)
-      end
+      invoices = paginate(items: array)
+      result(invoices)
     end
   end
 end
