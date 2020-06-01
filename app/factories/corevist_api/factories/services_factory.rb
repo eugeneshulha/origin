@@ -42,6 +42,18 @@ module CorevistAPI
         admin_system_settings_sales_areas_update: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::UpdateService',
         admin_system_settings_sales_areas_destroy: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::DestroyService',
 
+        # Admin > SystemSettings > SAPMaintenance > SAPDowntimes
+        admin_system_settings_sap_maintenance_sap_downtimes_index: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::IndexService',
+        admin_system_settings_sap_maintenance_sap_downtimes_create: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::CreateService',
+        admin_system_settings_sap_maintenance_sap_downtimes_update: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::UpdateService',
+        admin_system_settings_sap_maintenance_sap_downtimes_destroy: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::DestroyService',
+
+        # Admin > SystemSettings > SAPMaintenance > SAPConnections
+        admin_system_settings_sap_maintenance_sap_connections_index: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::IndexService',
+        admin_system_settings_sap_maintenance_sap_connections_create: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::CreateService',
+        admin_system_settings_sap_maintenance_sap_connections_update: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::UpdateService',
+        admin_system_settings_sap_maintenance_sap_connections_destroy: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::DestroyService',
+
         admin_translations_index_filter: 'CorevistAPI::Services::Admin::Translations::FilterService',
         admin_translations_index: 'CorevistAPI::Services::Admin::Translations::IndexService',
         admin_translations_create: 'CorevistAPI::Services::Admin::Translations::CreateService',

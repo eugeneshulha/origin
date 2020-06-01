@@ -1,0 +1,59 @@
+title: "<%= _('page title|sap connections maintenance') %>"
+components:
+  - uuid: "sap_connections_index_form"
+    description: ""
+    method: GET
+    title: "<%= _('title|sap connections maintenance') %>"
+    type: form
+    url: ""
+    data_url: "/v1/admin/system_settings/sap_maintenance/sap_connections"
+    elements:
+      thead:
+        - key: true
+          name: "title"
+          caption: "<%= _('lbl|title') %>"
+          label: null
+          sortable: true
+          hidden: false
+          action: "link"
+        - key: true
+          name: "description"
+          caption: "<%= _('lbl|description') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "mshost"
+          caption: "<%= _('lbl|mshost') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "ashost"
+          caption: "<%= _('lbl|ashost') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "client"
+          caption: "<%= _('lbl|client') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "user"
+          caption: "<%= _('lbl|user') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "active"
+          caption: "<%= _('lbl|active') %>"
+          label: null
+          sortable: true
+          hidden: false

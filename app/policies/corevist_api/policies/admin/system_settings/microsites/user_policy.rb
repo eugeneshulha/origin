@@ -2,7 +2,7 @@ module CorevistAPI
   module Policies::Admin::SystemSettings::Microsites
     class UserPolicy < CorevistAPI::Policies::ApplicationPolicy
       def index?
-        true
+        user.authorized_for?('system_maintenance')
       end
 
       def create?

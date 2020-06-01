@@ -410,5 +410,17 @@ ActiveRecord::Base.transaction do
     user.roles = [view_orders_role]
   end.save
 
-end
+  connection_1 = {
+      title: 'DEMO SAP', description: '', mshost: '', ashost: '172.20.3.2', sysnr: '00', client: '400',
+      user: 'core_cpic', passwd: 'b2b4you', lang: 'EN', trace: '0', loglevel: '', active: false
+  }
 
+  CorevistAPI::SAPConnection.find_or_create_by(connection_1)
+
+  localhost_connection_2 = {
+      title: 'DEMO SAP', description: '', mshost: '', ashost: 'localhost', sysnr: '00', client: '400',
+      user: 'core_cpic', passwd: 'b2b4you', lang: 'EN', trace: '0', loglevel: '', active: true
+  }
+
+  CorevistAPI::SAPConnection.find_or_create_by(localhost_connection_2)
+end

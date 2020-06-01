@@ -1,5 +1,5 @@
 module CorevistAPI
-  module Policies::Admin::SystemSettings::SalesAreas
+  module Policies::Admin::SystemSettings::SAPMaintenance::SAPDowntimes
     class UserPolicy < CorevistAPI::Policies::ApplicationPolicy
       def index?
         user.authorized_for?('system_maintenance')

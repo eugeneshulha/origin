@@ -35,6 +35,18 @@ module CorevistAPI
         admin_system_settings_sales_areas_update: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::UpdateForm',
         admin_system_settings_sales_areas_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::DestroyForm',
 
+        # Admin > SystemSettings > SAPMaintenance > SAPDowntimes
+        admin_system_settings_sap_maintenance_sap_downtimes_index: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::IndexForm',
+        admin_system_settings_sap_maintenance_sap_downtimes_create: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::CreateForm',
+        admin_system_settings_sap_maintenance_sap_downtimes_update: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::UpdateForm',
+        # admin_system_settings_sap_maintenance_sap_downtimes_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::DestroyForm',
+
+        # Admin > SystemSettings > SAPMaintenance > SAPConnections
+        admin_system_settings_sap_maintenance_sap_connections_index: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::IndexForm',
+        admin_system_settings_sap_maintenance_sap_connections_create: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::CreateForm',
+        admin_system_settings_sap_maintenance_sap_connections_update: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::UpdateForm',
+        # admin_system_settings_sap_maintenance_sap_connections_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::DestroyForm',
+
         admin_translations_index: 'CorevistAPI::Forms::Admin::Translations::IndexForm',
         admin_translations_create: 'CorevistAPI::Forms::Admin::Translations::CreateForm',
         admin_translations_update: 'CorevistAPI::Forms::Admin::Translations::UpdateForm',
