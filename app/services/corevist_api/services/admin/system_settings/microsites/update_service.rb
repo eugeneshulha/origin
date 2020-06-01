@@ -12,7 +12,7 @@ module CorevistAPI
       end
 
       def depended_key
-        :sales_areas
+        :sales_area_ids
       end
     end
   end

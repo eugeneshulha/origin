@@ -19,6 +19,7 @@ components:
             - message: "<%= _('error|attributes.name.blank') %>"
               type: required
               value: ""
+
       - - atom: text
           uuid: "sales_area_ids"
           name: "sales_area_ids"
