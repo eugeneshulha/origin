@@ -16,6 +16,10 @@ module CorevistAPI
       super << 'sales_area_ids'
     end
 
+    def as_json(*_args)
+      super.merge!(sales_areas: sales_areas.to_a)
+    end
+
     private
 
     def check_territories(territory)

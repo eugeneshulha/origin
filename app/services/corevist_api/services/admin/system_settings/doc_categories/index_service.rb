@@ -1,19 +1,9 @@
 module CorevistAPI::Services::Admin::SystemSettings::DocCategories
   class IndexService < CorevistAPI::Services::Base::IndexService
     def perform
-      data = if @params[:sales_area_id].present?
-               sales_area = CorevistAPI::SalesArea.find_by(id: @params[:sales_area_id])
+      items = sort_by_param(filter_by_query(CorevistAPI::DocCategory.all))
 
-               raise CorevistAPI::ServiceException.new(not_found_msg) unless sales_area.present?
-
-               items = sort_by_param(filter_by_query(sales_area.doc_categories_list))
-               paginate(items: items).merge(sales_area_title: sales_area.title)
-             else
-               items = sort_by_param(filter_by_query(CorevistAPI::DocCategory.all))
-               paginate(items: items)
-             end
-
-      result(data)
+      result(paginate(items: items))
     end
   end
 end

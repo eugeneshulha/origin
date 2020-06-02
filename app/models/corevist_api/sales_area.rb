@@ -14,21 +14,11 @@ module CorevistAPI
     end
 
     def as_json(*_args)
-      {}.tap { |hash| %i[id title description selected].map { |key| hash[key] = send(key) } }
+      {}.tap { |hash| %i[id title description selected doc_types doc_categories].map { |key| hash[key] = send(key) } }
     end
 
     def self.extra_column_names
       super << 'doc_type_ids' << 'doc_category_ids'
-    end
-
-    def doc_types_list
-      assigned = doc_types.to_a
-      CorevistAPI::DocType.all.each { |p| p.selected = assigned.include?(p) }.map(&:to_json)
-    end
-
-    def doc_categories_list
-      assigned = doc_categories.to_a
-      CorevistAPI::DocCategory.all.each { |p| p.selected = assigned.include?(p) }.map(&:to_json)
     end
   end
 end
