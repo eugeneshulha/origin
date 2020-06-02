@@ -1,10 +1,10 @@
 module CorevistAPI
   module Services::Admin::SystemSettings::SAPMaintenance::SAPConnections
     class IndexService < CorevistAPI::Services::Base::IndexService
-      def perform
-        items = sort_by_param(filter_by_query(CorevistAPI::SAPConnection.all))
+      private
 
-        result(paginate(items: items))
+      def filter
+        result(CorevistAPI::SAPConnection.all)
       end
     end
   end

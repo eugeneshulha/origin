@@ -1,9 +1,9 @@
 module CorevistAPI::Services::Admin::SystemSettings::DocTypes
   class IndexService < CorevistAPI::Services::Base::IndexService
-    def perform
-      items = sort_by_param(filter_by_query(CorevistAPI::DocType.all))
+    private
 
-      result(paginate(items: items))
+    def filter
+      result(CorevistAPI::DocType.all)
     end
   end
 end
