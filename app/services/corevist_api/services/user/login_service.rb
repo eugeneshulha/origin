@@ -7,7 +7,7 @@ module CorevistAPI::Services::User
       resource = @params.warden.authenticate(@params.send(:auth_options))
       raise ServiceException.new('user not found') unless  resource
 
-      # get_assigned_partners(resource) if resource.assigned_partners.present?
+      get_assigned_partners(resource) if resource.assigned_partners.present?
 
       # FastGettext.locale = resource.language
       @params.sign_in(:user, resource)

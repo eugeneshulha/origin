@@ -13,7 +13,7 @@ module CorevistAPI
       CorevistAPI::Permission.all.each { |p| p.active = assigned.include?(p) }.map(&:to_json)
     end
 
-    def to_json(*_args)
+    def as_json(*_args)
       super.merge!(permissions: permissions.to_a)
     end
 

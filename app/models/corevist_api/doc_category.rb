@@ -10,7 +10,7 @@ module CorevistAPI
       !!selected
     end
 
-    def to_json(*_args)
+    def as_json(*_args)
       {}.tap { |hash| %i[id title description selected].map { |key| hash[key] = send(key) } }
     end
   end
