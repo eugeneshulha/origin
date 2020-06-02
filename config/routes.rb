@@ -85,6 +85,15 @@ CorevistAPI::Engine.routes.draw do
             get :configs, on: :member, to: 'sales_areas#edit'
           end
 
+          resources :doc_types, only: %i[index new create edit update show destroy], param: :uuid do
+            get :configs, on: :collection, to: 'doc_types#index_configs'
+            get :configs, on: :member, to: 'doc_types#edit'
+          end
+
+          resources :doc_categories, only: %i[index], param: :uuid do
+            get :configs, on: :collection, to: 'doc_categories#index_configs'
+          end
+
           resources :sap_maintenance, only: [] do
             get :configs, on: :collection, to: 'sap_maintenance#index_configs'
           end

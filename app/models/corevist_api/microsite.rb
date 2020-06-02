@@ -12,6 +12,10 @@ module CorevistAPI
       CorevistAPI::SalesArea.all.each { |p| p.selected = assigned.include?(p) }.map(&:to_json)
     end
 
+    def self.extra_column_names
+      super << 'sales_area_ids'
+    end
+
     private
 
     def check_territories(territory)

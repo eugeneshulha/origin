@@ -1,5 +1,5 @@
-module CorevistAPI
-  class Services::ServiceResult
+module CorevistAPI::Services
+  class ServiceResult
     attr_reader :errors
     attr_accessor :data
 

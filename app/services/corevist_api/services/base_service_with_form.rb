@@ -1,43 +1,41 @@
-module CorevistAPI
-  module Services
-    class BaseServiceWithForm < BaseService
-      attr_accessor :errors
+module CorevistAPI::Services
+  class BaseServiceWithForm < BaseService
+    attr_accessor :errors
 
-      def initialize(object, params)
-        @form = object
-        @params = params&.dup
-        @errors = []
+    def initialize(object, params)
+      @form = object
+      @params = params&.dup
+      @errors = []
+    end
+
+    def call
+      return perform if @form.valid?
+
+      invalid_object_error
+    end
+
+    def result(data = nil)
+      if @result.present?
+        @result.data = data
+        return @result
       end
 
-      def call
-        return perform if @form.valid?
+      @result = CorevistAPI::Services::ServiceResult.new(data)
+    end
 
-        invalid_object_error
-      end
+    private
 
-      def result(data = nil)
-        if @result.present?
-          @result.data = data
-          return @result
-        end
+    def invalid_object_error
+      raise CorevistAPI::ServiceException.new(@form.errors.full_messages)
+    end
 
-        @result = CorevistAPI::Services::ServiceResult.new(data)
-      end
+    def fields(object)
+      @form.instance_variable_names.map(&:unatify) & object.class.extra_column_names
+    end
 
-      private
-
-      def invalid_object_error
-        raise CorevistAPI::ServiceException.new(@form.errors.full_messages)
-      end
-
-      def fields(object)
-        @form.instance_variable_names.map(&:unatify) & object.class.extra_column_names
-      end
-
-      def user
-        id = @form.try(:uuid) || @form.try(:id)
-        CorevistAPI::User.find_by(uuid: id)
-      end
+    def user
+      id = @form.try(:uuid) || @form.try(:id)
+      CorevistAPI::User.find_by(uuid: id)
     end
   end
 end

@@ -35,6 +35,15 @@ module CorevistAPI
         admin_system_settings_sales_areas_update: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::UpdateForm',
         admin_system_settings_sales_areas_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::DestroyForm',
 
+        # Admin > SystemSettings > DocTypes
+        admin_system_settings_doc_types_index: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::IndexForm',
+        admin_system_settings_doc_types_create: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::CreateForm',
+        admin_system_settings_doc_types_update: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::UpdateForm',
+        admin_system_settings_doc_types_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::DestroyForm',
+
+        # Admin > SystemSettings > DocCategories
+        admin_system_settings_doc_categories_index: 'CorevistAPI::Forms::Admin::SystemSettings::DocCategories::IndexForm',
+
         # Admin > SystemSettings > SAPMaintenance > SAPDowntimes
         admin_system_settings_sap_maintenance_sap_downtimes_index: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::IndexForm',
         admin_system_settings_sap_maintenance_sap_downtimes_create: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::CreateForm',

@@ -42,6 +42,16 @@ module CorevistAPI
         admin_system_settings_sales_areas_update: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::UpdateService',
         admin_system_settings_sales_areas_destroy: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::DestroyService',
 
+        # Admin > SystemSettings > DocTypes
+        admin_system_settings_doc_types_index: 'CorevistAPI::Services::Admin::SystemSettings::DocTypes::IndexService',
+        admin_system_settings_doc_types_create: 'CorevistAPI::Services::Admin::SystemSettings::DocTypes::CreateService',
+        admin_system_settings_doc_types_show: 'CorevistAPI::Services::Admin::SystemSettings::DocTypes::ShowService',
+        admin_system_settings_doc_types_update: 'CorevistAPI::Services::Admin::SystemSettings::DocTypes::UpdateService',
+        admin_system_settings_doc_types_destroy: 'CorevistAPI::Services::Admin::SystemSettings::DocTypes::DestroyService',
+
+        # Admin > SystemSettings > DocCategories
+        admin_system_settings_doc_categories_index: 'CorevistAPI::Services::Admin::SystemSettings::DocCategories::IndexService',
+
         # Admin > SystemSettings > SAPMaintenance > SAPDowntimes
         admin_system_settings_sap_maintenance_sap_downtimes_index: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::IndexService',
         admin_system_settings_sap_maintenance_sap_downtimes_create: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::CreateService',
