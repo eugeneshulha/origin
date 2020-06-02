@@ -14,13 +14,16 @@ module CorevistAPI::Services
       invalid_object_error
     end
 
-    def result(data = nil)
+    def result(data = nil, options = {})
       if @result.present?
         @result.data = data
         return @result
       end
 
       @result = CorevistAPI::Services::ServiceResult.new(data)
+      options[:messages].each(&@result.messages.method(:<<)) if options[:messages].respond_to?(:each)
+      @result.messages << options[:message] if options[:message].present?
+      @result
     end
 
     private

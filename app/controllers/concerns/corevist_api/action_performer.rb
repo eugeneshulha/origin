@@ -14,7 +14,8 @@ module CorevistAPI
               params.merge!(scope: policy_scope(scope_model)) if respond_to?(:scope_model, true)
               result = service_for(performer_name, form, params).call
 
-              success(message, result.data)
+              m = result.messages.presence || message
+              success(m, result.data)
             end
           end
         end
@@ -27,7 +28,8 @@ module CorevistAPI
               params.merge!(scope: policy_scope(scope_model)) if respond_to?(:scope_model, true)
               result = service_for(performer_name, @obj, params).call
 
-              success(message, result.data)
+              m = result.messages.presence || message
+              success(m, result.data)
             end
           end
         end

@@ -17,6 +17,10 @@ module CorevistAPI
         "api.#{namespace}.infos.not_found"
       end
 
+      def did_not_change
+        _('error|object is not changed')
+      end
+
       def failed_destroy_msg
         "api.#{namespace}.errors.not_destroyed"
       end

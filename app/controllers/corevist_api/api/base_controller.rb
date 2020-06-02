@@ -27,16 +27,26 @@ module CorevistAPI::API
     end
 
     def handle_exception(exception)
-      # TODO: rewrite it. Base exceptions should not be under api.errors namespace
-      error("api.errors.#{exception}")
+      # TODO: rewrite it. Base exceptions should not be under _('error|...') namespace
+      error(_("error|#{exception}"))
 
-      Rails.logger.error exception.message
-      Rails.logger.error '-' * 70
-      Rails.logger.error exception.backtrace.join("\n")
+      log_exception(exception)
     end
 
     def handle_service_exception(exception)
       error(exception.message)
+
+      log_exception(exception)
+    end
+
+    private
+
+    def log_exception(exception)
+      Rails.logger.error "\n"
+      Rails.logger.error '-' * 70
+      Rails.logger.error exception.message
+      Rails.logger.error '-' * 70
+      Rails.logger.error exception.backtrace.join("\n")
     end
   end
 end
