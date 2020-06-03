@@ -4,6 +4,7 @@ navigationLinks:
     icon: "admin"
     caption: "<%= _('lbl|menu admin') %>"
     href: ""
+    sap_required: false
     subCategories:
       - uuid: "user_maintenance"
         icon: "catalog"
@@ -47,10 +48,23 @@ navigationLinks:
         href: "/admin/pages"
         permission: "content_maintenance"
 
+      - uuid: "sap_connections"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu sap connections') %>"
+        href: "/admin/system/sap_connections"
+        permission: "system_maintenance"
+
+      - uuid: "sap_downtimes"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu sap downtimes') %>"
+        href: "/admin/system/sap_downtimes"
+        permission: "system_maintenance"
+
   - uuid: "dashboard"
     icon: "dashboard"
     caption: "<%= _('lbl|menu dashboard') %>"
     href: "/dashboard"
+    sap_required: true
     subCategories: []
 
   - uuid: "orders"
@@ -58,6 +72,7 @@ navigationLinks:
     caption: "<%= _('lbl|menu orders') %>"
     href: "/orders"
     permission: "search_for_orders"
+    sap_required: true
     subCategories: []
 
   - uuid: "invoices"
@@ -65,6 +80,7 @@ navigationLinks:
     caption: "<%= _('lbl|menu invoices') %>"
     href: "/invoices"
     permission: "search_for_invoices"
+    sap_required: true
     subCategories: []
 
   - uuid: "open_items"
@@ -72,4 +88,5 @@ navigationLinks:
     caption: "<%= _('lbl|menu open items') %>"
     href: "/open_items"
     permission: "open_items"
+    sap_required: true
     subCategories: []

@@ -28,7 +28,9 @@ module CorevistAPI::Services::PageConfigs
     private
 
     def check_permissions(hash)
-      hash.select! { |item| item['permission'].blank? || current_user.authorized_for?(item['permission']) }
+      hash.select! do |item|
+        (item['permission'].blank? || current_user.authorized_for?(item['permission'])) && !(item['sap_required'] && is_sap_down?)
+      end
     end
   end
 end

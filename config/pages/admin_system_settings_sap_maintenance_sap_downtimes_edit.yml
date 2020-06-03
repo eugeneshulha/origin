@@ -1,0 +1,59 @@
+title: "<%= _('page title|edit sap downtime') %>"
+components:
+  - uuid: "sap_downtime_edit_form"
+    description: ""
+    method: POST
+    title: ""
+    type: form
+    url: "/v1/admin/system_settings/sap_maintenance/sap_downtimes"
+    elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+          label: "<%= _('lbl|uuid') %>"
+          validations:
+            - message: "<%= _('error|attributes.uuid.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "title"
+          label: "<%= _('lbl|title') %>"
+          name: "title"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.title.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "description"
+          name: "description"
+          label: "<%= _('lbl|description') %>"
+          placeholder: "<%= _('plc|description') %>"
+
+      - - atom: checkbox
+          uuid: "active"
+          name: "active"
+          label: "<%= _('lbl|active') %>"
+          placeholder: "<%= _('plc|active') %>"
+
+      - - atom: date
+          uuid: "down_from"
+          name: "down_from"
+          label: "<%= _('lbl|down_from') %>"
+          placeholder: "<%= _('plc|down_from') %>"
+          validations:
+            - message: "<%= _('error|attributes.down_from.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: date
+          uuid: "down_to"
+          name: "down_to"
+          label: "<%= _('lbl|down_to') %>"
+          placeholder: "<%= _('plc|down_to') %>"
+          validations:
+            - message: "<%= _('error|attributes.down_to.blank') %>"
+              type: required
+              value: ""

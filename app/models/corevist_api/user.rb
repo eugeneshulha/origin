@@ -30,6 +30,10 @@ module CorevistAPI
     TYPE_CUSTOMER_ADMIN = 'customer_admin'.freeze
     TYPE_SYSTEM_ADMIN   = 'system_admin'.freeze
 
+    def name
+      first_name + ' ' + last_name
+    end
+
     def assigned_partners
       partners.where(assigned: true)
     end
@@ -98,6 +102,10 @@ module CorevistAPI
 
     def authorized_for?(privilege)
       permissions.include?(privilege)
+    end
+
+    def not_authorized_for?(privilege)
+      !authorized_for?(privilege)
     end
 
     def permissions

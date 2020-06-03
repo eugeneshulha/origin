@@ -64,9 +64,13 @@ namespace :permissions do
   task create: :environment do
     file = File.join(CorevistAPI::Engine.root, "/config/permissions.yml")
 
-    permissions = YAML.load(File.read(file))
+    permissions = YAML.load(File.read(file))['permissions']
     permissions.each do |title|
-      CorevistAPI::Permission.find_or_create_by!(title: title)
+      permission = CorevistAPI::Permission.find_or_initialize_by(title: title)
+      next unless permission.new_record?
+
+      permission.save!
+      puts "Permission #{title} created!"
     end
   end
 
@@ -77,5 +81,36 @@ namespace :permissions do
 
     num = CorevistAPI::Permission.count
     puts "#{num} permissions have been recreated in database"
+  end
+
+  desc 'assign a permission to a user'
+  task assign: :environment do
+    require 'optparse'
+
+    options = {}
+    parser = OptionParser.new do |opts|
+      opts.banner = "Usage: rake app:permissions:assign [options]"
+      opts.on("-u", "--user ARG", String) { |u| options[:user] = u }
+      opts.on("-p", "--permission ARG", String) { |p| options[:permission] = p }
+    end
+
+    parser.parse!
+    parser.parse!
+
+    abort('please specify both user AND permission to assign') if options[:user].blank? && options[:permission].blank?
+
+    user = CorevistAPI::User.find_by(username: options[:user])
+    abort('user not found') unless user
+
+    permission = CorevistAPI::Permission.find_by(title: options[:permission])
+    abort('permission not found') unless permission
+
+    role = user.roles.first
+    abort('user does not have any role assigned') unless role
+    abort('permissions is already assigned') if role.permissions.include?(permission)
+
+    role.permissions << permission
+    puts "Permission #{permission.title} has been added to user #{user.name} to role #{role.title}"
+    exit
   end
 end

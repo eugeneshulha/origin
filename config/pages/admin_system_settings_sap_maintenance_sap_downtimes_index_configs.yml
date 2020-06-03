@@ -1,0 +1,45 @@
+title: "<%= _('page title|sap downtime maintenance') %>"
+components:
+  - uuid: "sap_connections_index_form"
+    description: ""
+    method: GET
+    title: "<%= _('title|sap connections maintenance') %>"
+    type: form
+    url: ""
+    data_url: "/v1/admin/system_settings/sap_maintenance/sap_downtimes"
+    elements:
+      thead:
+        - key: true
+          name: "title"
+          caption: "<%= _('lbl|title') %>"
+          label: null
+          sortable: true
+          hidden: false
+          action: "link"
+        - key: true
+          name: "description"
+          caption: "<%= _('lbl|description') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "down_from"
+          caption: "<%= _('lbl|down_from') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "down_to"
+          caption: "<%= _('lbl|down_to') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "active"
+          caption: "<%= _('lbl|active') %>"
+          label: null
+          sortable: true
+          hidden: false

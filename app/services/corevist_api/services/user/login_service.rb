@@ -7,7 +7,11 @@ module CorevistAPI::Services::User
       resource = @params.warden.authenticate(@params.send(:auth_options))
       raise ServiceException.new('user not found') unless  resource
 
-      get_assigned_partners(resource) if resource.assigned_partners.present?
+      if is_sap_down? && resource.not_authorized_for?('login_when_sap_is_down')
+        raise ServiceException.new('sap is down') unless  resource
+      end
+
+      get_assigned_partners(resource) if resource.assigned_partners.present? && is_sap_up?
 
       # FastGettext.locale = resource.language
       @params.sign_in(:user, resource)

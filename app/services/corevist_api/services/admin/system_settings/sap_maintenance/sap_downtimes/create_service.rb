@@ -4,7 +4,7 @@ module CorevistAPI
       private
 
       def object_class
-        CorevistAPI::SalesArea
+        CorevistAPI::SAPDowntime
       end
     end
   end

@@ -1,6 +1,7 @@
 module CorevistAPI::API
   class BaseController < ActionController::API
     before_action :authenticate_user!, except: [:not_found]
+    before_action :check_if_sap_is_down
     before_action :set_context
 
     include ActionController::MimeResponds
@@ -24,6 +25,12 @@ module CorevistAPI::API
 
     def set_context
       CorevistAPI::Context.current_user = current_user if current_user
+    end
+
+    def check_if_sap_is_down
+      if is_sap_down? && current_user&.not_authorized_for?('login_when_sap_is_down')
+        raise CorevistAPI::ServiceException.new('sap is down')
+      end
     end
 
     def handle_exception(exception)
