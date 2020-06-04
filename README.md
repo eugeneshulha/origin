@@ -1,28 +1,76 @@
 # CorevistApi
-Short description and motivation.
 
-## Usage
-How to use my plugin.
+## Rake tasks
+#### Translations
 
-## Installation
-Add this line to your application's Gemfile:
+Remove all translations from database
+```
+bundle exec rake app:translations:clear
+``` 
 
+Populate translations table with default translations
+```
+bundle exec rake app:translations:reset
+```
+
+#### Permissions
+
+Remove all permissions from database
+```
+bundle exec rake app:permissions:clear
+```
+
+Create permissions in database
+```
+bundle exec rake app:permissions:create
+```
+
+Recreate (remove and create) permissions
+```
+bundle exec rake app:permissions:reset
+```
+
+Add a specific permission to a selected user
 ```ruby
-gem 'corevist_api'
+bundle exec rake app:permissions:add -- -u <username> -p <permission_name>
+
+# Example: bundle exec rake app:permissions:add -- -u user_1 -p user_maintenance 
 ```
 
-And then execute:
-```bash
-$ bundle
+Remove a specific permission from a selected user
+```ruby
+bundle exec rake app:permissions:remove -- -u <username> -p <permission_name>
+
+# Example: bundle exec rake app:permissions:remove -- -u user_1 -p user_maintenance 
 ```
 
-Or install it yourself as:
-```bash
-$ gem install corevist_api
+#### Database
+ 
+Create databases from `database.yml` file
+```
+bundle exec rake db:create
 ```
 
-## Contributing
-Contribution directions go here.
+Drop databases
+```
+bundle exec rake db:drop
+```
+
+Run migrations
+```
+bundle exec rake db:migrate
+```
+
+Fill database with test data from `seeds.rb`
+```
+bundle exec rake app:db:seed
+```
+
+Recreate database with test data `db:drop` + `db:create` + `db:migrate` + `app:db:seed`
+```
+bundle exec rake db:rebuild
+```
+
 
 ## License
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
