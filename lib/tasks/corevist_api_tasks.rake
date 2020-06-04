@@ -1,3 +1,5 @@
+require 'optparse'
+
 namespace :db do
   desc 'Re-create database'
   task :rebuild do
@@ -83,13 +85,11 @@ namespace :permissions do
     puts "#{num} permissions have been recreated in database"
   end
 
-  desc 'assign a permission to a user'
-  task assign: :environment do
-    require 'optparse'
-
+  desc 'add a permission to a user'
+  task add: :environment do
     options = {}
     parser = OptionParser.new do |opts|
-      opts.banner = "Usage: rake app:permissions:assign [options]"
+      opts.banner = "Usage: rake app:permissions:add [options]"
       opts.on("-u", "--user ARG", String) { |u| options[:user] = u }
       opts.on("-p", "--permission ARG", String) { |p| options[:permission] = p }
     end
@@ -111,6 +111,36 @@ namespace :permissions do
 
     role.permissions << permission
     puts "Permission #{permission.title} has been added to user #{user.name} to role #{role.title}"
+    exit
+  end
+
+  desc 'remove permission a permission from a user'
+  task remove: :environment do
+    options = {}
+    parser = OptionParser.new do |opts|
+      opts.banner = "Usage: rake app:permissions:remove [options]"
+      opts.on("-u", "--user ARG", String) { |u| options[:user] = u }
+      opts.on("-p", "--permission ARG", String) { |p| options[:permission] = p }
+    end
+
+    parser.parse!
+    parser.parse!
+
+    abort('please specify both user AND permission to assign') if options[:user].blank? && options[:permission].blank?
+
+    user = CorevistAPI::User.find_by(username: options[:user])
+    abort('user not found') unless user
+
+    permission = CorevistAPI::Permission.find_by(title: options[:permission])
+    abort('permission not found') unless permission
+
+    removed = nil
+    user.roles.each do |role|
+      role.permissions.delete(permission) and (removed = true) if role.permissions.include?(permission)
+      puts "Permission #{permission.title} has been removed from user #{user.name} from role #{role.title}"
+    end
+
+    abort('The user does not have the permission') unless removed
     exit
   end
 end
