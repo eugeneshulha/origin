@@ -46,6 +46,7 @@ components:
           name: "sysnr"
           label: "<%= _('lbl|sysnr') %>"
           placeholder: "<%= _('plc|sysnr') %>"
+          validation_type: string
           validations:
             - message: "<%= _('error|attributes.sysnr.blank') %>"
               type: required
@@ -56,6 +57,7 @@ components:
           name: "client"
           label: "<%= _('lbl|client') %>"
           placeholder: "<%= _('plc|client') %>"
+          validation_type: string
           validations:
             - message: "<%= _('error|attributes.client.blank') %>"
               type: required
@@ -66,6 +68,7 @@ components:
           name: "user"
           label: "<%= _('lbl|user') %>"
           placeholder: "<%= _('plc|user') %>"
+          validation_type: string
           validations:
             - message: "<%= _('error|attributes.user.blank') %>"
               type: required
@@ -76,6 +79,7 @@ components:
           name: "passwd"
           label: "<%= _('lbl|passwd') %>"
           placeholder: "<%= _('plc|passwd') %>"
+          validation_type: string
           validations:
             - message: "<%= _('error|attributes.passwd.blank') %>"
               type: required
@@ -86,6 +90,7 @@ components:
           name: "lang"
           label: "<%= _('lbl|lang') %>"
           placeholder: "<%= _('plc|lang') %>"
+          validation_type: string
           validations:
             - message: "<%= _('error|attributes.lang.blank') %>"
               type: required
@@ -96,6 +101,7 @@ components:
           name: "trace"
           label: "<%= _('lbl|trace') %>"
           placeholder: "<%= _('plc|trace') %>"
+          validation_type: string
           validations:
             - message: "<%= _('error|attributes.trace.blank') %>"
               type: required
