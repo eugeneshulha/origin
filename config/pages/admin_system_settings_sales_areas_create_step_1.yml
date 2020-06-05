@@ -1,16 +1,13 @@
-title: ""
+title: "<%= _('page title|new sales area') %>"
 components:
-  - uuid: "sales_area_create_form"
+  - uuid: "sales_areas_new_form"
     description: ""
     method: POST
-    title: ""
+    title: "<%= _('title|new sales area') %>"
     type: form
-    url: "/v1/admin/system_settings/sales_areas/"
+    url: "/v1/admin/system_settings/sales_areas/<uuid>"
+    data_url: "/v1/admin/system_settings/sales_areas"
     elements:
-      - - atom: hidden
-          uuid: "uuid"
-          name: "uuid"
-
       - - atom: text
           uuid: "title"
           label: "<%= _('lbl|title') %>"
@@ -31,6 +28,6 @@ components:
           label: "<%= _('lbl|active') %>"
           name: "active"
 
-      - - atom: text
+      - - atom: hidden
           uuid: "doc_type_ids"
           name: "doc_type_ids"

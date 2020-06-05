@@ -31,15 +31,15 @@ module CorevistAPI
 
         # Admin > SystemSettings > SalesAreas
         admin_system_settings_sales_areas_index: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::IndexForm',
-        admin_system_settings_sales_areas_create: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::CreateForm',
+        admin_system_settings_sales_areas_create_step_1: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::Step1',
+        admin_system_settings_sales_areas_create_step_2: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::Step2',
+        admin_system_settings_sales_areas_create_step_3: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::Step3',
         admin_system_settings_sales_areas_update: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::UpdateForm',
         admin_system_settings_sales_areas_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::DestroyForm',
 
         # Admin > SystemSettings > DocTypes
         admin_system_settings_doc_types_index: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::IndexForm',
-        admin_system_settings_doc_types_create_step_1: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::Step1',
-        admin_system_settings_doc_types_create_step_2: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::Step2',
-        admin_system_settings_doc_types_create_step_3: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::Step3',
+        admin_system_settings_doc_types_create: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::CreateForm',
         admin_system_settings_doc_types_update: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::UpdateForm',
         admin_system_settings_doc_types_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::DestroyForm',
 

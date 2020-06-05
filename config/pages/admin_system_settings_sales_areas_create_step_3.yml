@@ -1,0 +1,26 @@
+title: "<%= _('page title|sales area doc categories') %>"
+components:
+  - uuid: "doc_categories_of_sales_area_form"
+    description: ""
+    method: POST
+    title: ""
+    type: form
+    url: "/v1/admin/system_settings/sales_areas/<uuid>"
+    elements:
+      - - atom: hidden
+          uuid: "doc_category_ids"
+          label: "<%= _('lbl|sales area doc types') %>"
+          name: "doc_category_ids"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.doc_category_ids.blank') %>"
+              type: required
+
+      - - atom: hidden
+          uuid: "uuid"
+          label: ID
+          name: "uuid"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.uuid.blank') %>"
+              type: required

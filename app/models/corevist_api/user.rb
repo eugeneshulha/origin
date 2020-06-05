@@ -109,7 +109,7 @@ module CorevistAPI
     end
 
     def permissions
-      roles.map { |role| role.permissions.pluck(:title) }.flatten.uniq
+      roles.includes(:permissions).map { |role| role.permissions.pluck(:title) }.flatten.uniq
     end
 
     def on_jwt_dispatch(_, payload)

@@ -38,8 +38,8 @@ module CorevistAPI
         # Admin > SystemSettings > SalesAreas
         admin_system_settings_sales_areas_index: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::IndexService',
         admin_system_settings_sales_areas_create_step_1: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::Step1Service',
-        admin_system_settings_sales_areas_create_step_2: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::Step1Service',
-        admin_system_settings_sales_areas_create_step_3: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::Step1Service',
+        admin_system_settings_sales_areas_create_step_2: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::Step2Service',
+        admin_system_settings_sales_areas_create_step_3: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::Step3Service',
         admin_system_settings_sales_areas_show: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::ShowService',
         admin_system_settings_sales_areas_update: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::UpdateService',
         admin_system_settings_sales_areas_destroy: 'CorevistAPI::Services::Admin::SystemSettings::SalesAreas::DestroyService',
