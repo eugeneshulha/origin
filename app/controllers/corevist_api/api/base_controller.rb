@@ -1,8 +1,8 @@
 module CorevistAPI::API
   class BaseController < ActionController::API
     before_action :authenticate_user!, except: [:not_found]
-    before_action :check_if_sap_is_down
     before_action :set_context
+    # before_action :check_if_sap_is_down
 
     include ActionController::MimeResponds
     include ActionController::Helpers

@@ -1,5 +1,5 @@
 module CorevistAPI::Services::Admin::SystemSettings::SalesAreas
-  class CreateService < CorevistAPI::Services::Base::CreateService
+  class Step3Service < CorevistAPI::Services::BaseService
     private
 
     def object_class

@@ -1,37 +1,19 @@
 title: "<%= _('page title|new sales area') %>"
 components:
-  - uuid: "sales_areas_new_form"
-    description: ""
+  - uuid: "step 1"
     method: GET
-    title: "<%= _('title|new sales area') %>"
-    type: form
-    url: ""
-    data_url: "/v1/admin/system_settings/sales_areas"
-    elements:
-      - - atom: hidden
-          uuid: "uuid"
-          name: "uuid"
+    title: "<%= _('title|sales area details') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=1"
 
-      - - atom: text
-          uuid: "title"
-          label: "<%= _('lbl|title') %>"
-          name: "title"
-          validation_type: string
-          validations:
-            - message: "<%= _('error|attributes.title.blank') %>"
-              type: required
-              value: ""
+  - uuid: "step 2"
+    method: GET
+    title: "<%= _('title|sales area doc types') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=2"
 
-      - - atom: text
-          uuid: "description"
-          label: "<%= _('lbl|description') %>"
-          name: "description"
-
-      - - atom: text
-          uuid: "active"
-          label: "<%= _('lbl|active') %>"
-          name: "active"
-
-      - - atom: hidden
-          uuid: "doc_type_ids"
-          name: "doc_type_ids"
+  - uuid: "step 3"
+    method: GET
+    title: "<%= _('title|sales area doc categories') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=3"
