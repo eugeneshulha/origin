@@ -8,6 +8,10 @@ components:
     url: "/v1/admin/system_settings/sales_areas/<uuid>"
     data_url: "/v1/admin/system_settings/sales_areas"
     elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+
       - - atom: text
           uuid: "title"
           label: "<%= _('lbl|title') %>"

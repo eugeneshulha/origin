@@ -3,7 +3,7 @@ module CorevistAPI::Services::Admin::SystemSettings::SalesAreas
     private
 
     def perform
-      object = CorevistAPI::SalesArea.find_by(title: @form&.title) || CorevistAPI::SalesArea.new
+      object = CorevistAPI::SalesArea.find_by(id: @form&.uuid) || CorevistAPI::SalesArea.new
       fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)&.strip) }
       raise CorevistAPI::ServiceException.new(object.errors.full_messages) unless object.save
 
