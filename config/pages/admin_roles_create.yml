@@ -10,6 +10,11 @@ components:
       - - atom: hidden
           uuid: "uuid"
           name: "uuid"
+
+      - - atom: hidden
+          uuid: "active"
+          name: "active"
+
       - - atom: text
           uuid: "title"
           label: "<%= _('lbl|role title') %>"
