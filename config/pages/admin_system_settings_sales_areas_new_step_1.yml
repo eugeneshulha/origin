@@ -27,10 +27,11 @@ components:
           label: "<%= _('lbl|description') %>"
           name: "description"
 
-      - - atom: text
+      - - atom: outside_checkbox
           uuid: "active"
-          label: "<%= _('lbl|active') %>"
           name: "active"
+          label: "<%= _('lbl|active') %>"
+          placeholder: "<%= _('plc|active') %>"
 
       - - atom: hidden
           uuid: "doc_type_ids"

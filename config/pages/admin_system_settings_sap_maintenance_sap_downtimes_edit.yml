@@ -32,7 +32,7 @@ components:
           label: "<%= _('lbl|description') %>"
           placeholder: "<%= _('plc|description') %>"
 
-      - - atom: checkbox
+      - - atom: outside_checkbox
           uuid: "active"
           name: "active"
           label: "<%= _('lbl|active') %>"

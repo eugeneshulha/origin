@@ -1,25 +1,25 @@
 title: "<%= _('page title|sales area doc types') %>"
 components:
   - uuid: "assigned_roles"
-      method: POST
-      title: ""
-      type: datatable
-      name: "doc_type_ids"
-      url: "/v1/admin/system_settings/sales_areas/<uuid>"
-      data_url: "/v1/admin/system_settings/doc_types"
-      elements:
-        thead:
-          - key: true,
-            name: 'id'
-            uuid: 'id'
-            caption: "<%= _('lbl|id') %>"
-            label: null
-            sortable: true
+    method: POST
+    title: ""
+    type: datatable
+    name: "doc_type_ids"
+    url: "/v1/admin/system_settings/sales_areas/<uuid>"
+    data_url: "/v1/admin/system_settings/doc_types"
+    elements:
+      thead:
+        - key: true,
+          name: 'id'
+          uuid: 'id'
+          caption: "<%= _('lbl|id') %>"
+          label: null
+          sortable: true
 
-          - key: true,
-            name: 'title'
-            uuid: 'title'
-            caption: "<%= _('lbl|title') %>"
-            label: null
-            sortable: true
-            action: 'expand'
+        - key: true,
+          name: 'title'
+          uuid: 'title'
+          caption: "<%= _('lbl|title') %>"
+          label: null
+          sortable: true
+          action: 'expand'

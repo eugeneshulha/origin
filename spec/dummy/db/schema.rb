@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_110920) do
+ActiveRecord::Schema.define(version: 2020_06_08_110920) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -174,7 +174,7 @@ ActiveRecord::Schema.define(version: 2020_06_02_110920) do
     t.string "lang"
     t.string "trace"
     t.string "loglevel"
-    t.boolean "active", default: false, null: false
+    t.boolean "active", default: false
     t.integer "env", default: 0, null: false
     t.string "created_by", default: "system", null: false
     t.string "updated_by", default: "system"

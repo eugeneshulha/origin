@@ -32,7 +32,7 @@ components:
           label: "<%= _('lbl|description') %>"
           placeholder: "<%= _('plc|description') %>"
 
-      - - atom: checkbox
+      - - atom: outside_checkbox
           uuid: "active"
           name: "active"
           label: "<%= _('lbl|active') %>"
@@ -121,3 +121,20 @@ components:
           name: "loglevel"
           label: "<%= _('lbl|loglevel') %>"
           placeholder: "<%= _('plc|loglevel') %>"
+
+      - - atom: select
+          uuid: "env"
+          label: "<%= _('lbl|environment') %>"
+          name: "env"
+          placeholder: "<%= _('plc|environment') %>"
+          validation_type: string
+          value: ""
+          options:
+            - name: "<%= _('lbl|env development') %>"
+              value: "0"
+            - name: "<%= _('lbl|env qa') %>"
+              value: "1"
+            - name: "<%= _('lbl|env test') %>"
+              value: "2"
+            - name: "<%= _('lbl|env production') %>"
+              value: "3"

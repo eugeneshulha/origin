@@ -16,14 +16,25 @@ components:
             - message: "<%= _('error|attributes.title.blank') %>"
               type: required
               value: ""
+            - message: "<%= _('error|attributes.title.too_short') %>"
+              type: min
+              value: "3"
+            - message: "<%= _('error|attributes.title.too_long') %>"
+              type: max
+              value: "20"
 
         - atom: text
           uuid: "description"
           name: "description"
           label: "<%= _('lbl|description') %>"
           placeholder: "<%= _('plc|description') %>"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.title.too_long') %>"
+              type: max
+              value: "40"
 
-      - - atom: checkbox
+      - - atom: outside_checkbox
           uuid: "active"
           name: "active"
           label: "<%= _('lbl|active') %>"
@@ -112,3 +123,20 @@ components:
           name: "loglevel"
           label: "<%= _('lbl|loglevel') %>"
           placeholder: "<%= _('plc|loglevel') %>"
+
+      - - atom: select
+          uuid: "env"
+          label: "<%= _('lbl|environment') %>"
+          name: "env"
+          placeholder: "<%= _('plc|environment') %>"
+          validation_type: string
+          value: ""
+          options:
+            - name: "<%= _('lbl|env development') %>"
+              value: "0"
+            - name: "<%= _('lbl|env qa') %>"
+              value: "1"
+            - name: "<%= _('lbl|env test') %>"
+              value: "2"
+            - name: "<%= _('lbl|env production') %>"
+              value: "3"
