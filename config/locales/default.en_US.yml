@@ -136,6 +136,8 @@ en_US:
   lbl|menu open items: Open Items
   lbl|menu microsite maintenance: Microsites
   lbl|menu sales area maintenance: Sales Areas
+  lbl|menu sap connections: SAP Connections
+  lbl|menu sap downtimes: SAP Downtimes
   lbl|permission name: Permission
   lbl|env development: Development
   lbl|env qa: QA
