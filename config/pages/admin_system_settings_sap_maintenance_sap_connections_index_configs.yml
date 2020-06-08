@@ -52,6 +52,13 @@ components:
           hidden: false
 
         - key: true
+          name: "env"
+          caption: "<%= _('lbl|environment') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
           name: "active"
           caption: "<%= _('lbl|active') %>"
           label: null

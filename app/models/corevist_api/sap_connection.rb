@@ -3,9 +3,10 @@ module CorevistAPI
     self.table_name = 'sap_connections'
     enum env: [:development, :qa, :test, :production]
 
-    scope :current, -> { where(active: true) }
+    scope :current, -> { where(active: true, env: Rails.env) }
 
     before_save :deactivate_the_rest
+    validates :title, uniqueness: { scope: :env,  message: N_('error|attributes.title.not_uniq') }
 
     private
 

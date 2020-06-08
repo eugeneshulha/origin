@@ -131,10 +131,14 @@ components:
           value: ""
           options:
             - name: "<%= _('lbl|env development') %>"
-              value: "0"
+              value: "development"
             - name: "<%= _('lbl|env qa') %>"
-              value: "1"
+              value: "qa"
             - name: "<%= _('lbl|env test') %>"
-              value: "2"
+              value: "test"
             - name: "<%= _('lbl|env production') %>"
-              value: "3"
+              value: "production"
+          validations:
+            - message: "<%= _('error|attributes.env.blank') %>"
+              type: required
+              value: ""
