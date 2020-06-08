@@ -23,6 +23,11 @@ components:
           uuid: "description"
           label: "<%= _('lbl|role description') %>"
           name: "description"
+
+      - - atom: hidden
+          uuid: "active"
+          name: "active"
+
       - - atom: text
           uuid: "permission_ids"
           name: "permission_ids"
