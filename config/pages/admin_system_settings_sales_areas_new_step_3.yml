@@ -7,20 +7,34 @@ components:
     type: form
     url: "/v1/admin/system_settings/sales_areas/<uuid>"
     elements:
-      - - atom: hidden
-          uuid: "doc_category_ids"
-          label: "<%= _('lbl|sales area doc types') %>"
-          name: "doc_category_ids"
-          validation_type: string
-          validations:
-            - message: "<%= _('error|attributes.doc_category_ids.blank') %>"
-              type: required
+      thead:
+        - key: true
+          name: 'id'
+          uuid: 'id'
+          caption: "<%= _('lbl|id') %>"
+          label: null
+          sortable: true
 
-      - - atom: hidden
-          uuid: "uuid"
-          label: ID
-          name: "uuid"
-          validation_type: string
-          validations:
-            - message: "<%= _('error|attributes.uuid.blank') %>"
-              type: required
+        - key: true
+          name: 'title'
+          uuid: 'title'
+          caption: "<%= _('lbl|title') %>"
+          label: null
+          sortable: true
+          action: 'expand'
+
+        - key: true
+          name: 'description'
+          uuid: 'description'
+          caption: "<%= _('lbl|description') %>"
+          label: null
+          sortable: true
+          action: 'expand'
+
+        - key: true
+          name: 'created_by'
+          uuid: 'created_by'
+          caption: "<%= _('lbl|created_by') %>"
+          label: null
+          sortable: true
+          action: 'expand'

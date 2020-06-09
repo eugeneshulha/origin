@@ -24,3 +24,9 @@ components:
           validations:
             - message: "<%= _('error|attributes.uuid.blank') %>"
               type: required
+
+      - - atom: hidden
+          uuid: "active"
+          label: ID
+          name: "active"
+          validation_type: string
