@@ -7,7 +7,7 @@ module CorevistAPI
     has_and_belongs_to_many :doc_categories
     has_and_belongs_to_many :doc_types
 
-    validates :name, uniqueness: { message: N_('error|attributes.name.not_uniq') }
+    validates :title, uniqueness: { message: N_('error|attributes.name.not_uniq') }
 
     attr_accessor :selected
 
