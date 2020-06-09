@@ -1,54 +1,55 @@
-module CorevistAPI
-  module Services::Invoice
-    class DisplayService < CorevistAPI::Services::BaseService
-      def call
-        perform!
+module CorevistAPI::Services::Invoice
+  class DisplayService < CorevistAPI::Services::BaseService
+    def call
+      perform!
+    end
+
+    private
+
+    def perform!
+      @rfc_result = rfc_service_for(:invoice_display, @object, @params).call
+
+      invoice = builder_for(:invoice, @rfc_result.data).build do |builder|
+        builder.with_configs
+        builder.with_items
+        builder.with_header
+        builder.with_prices
+        builder.with_partners
       end
 
-      private
+      invoice = prepare_response(invoice)
 
-      def perform!
-        @rfc_result = rfc_service_for(:invoice_display, @object, @params).call
+      result(invoice.as_json)
+    end
 
-        invoice = builder_for(:invoice, @rfc_result.data).build do |builder|
-          builder.with_configs
-          builder.with_items
-          builder.with_header
-          builder.with_prices
-          builder.with_partners
-        end
+    def prepare_response(doc)
+      price_components = {
+        title: 'Pricing details',
+        content_type: 'table',
+        data: doc.price_components.map do |pc|
+                { title: "label for #{pc.cond_type}", text: pc.value_formatted }
+              end
+      }
 
-        invoice = prepare_response(invoice)
-
-        result(invoice.as_json)
+      partners = doc.partners.map do |partner|
+        {
+          title: "Partner #{partner.function}",
+          text: "#{partner.street_address_1}, #{partner.street_address_2}, #{partner.street_address_3}"
+        }
       end
 
-      def prepare_response(doc)
-        price_components = {
-            title: "Pricing details",
-            content_type: 'table',
-            data: doc.price_components.map do |pc|
-              { title: "label for #{pc.cond_type}", text: pc.value_formatted }
-            end
-        }
+      doc_details = {
+        title: 'title for salesdoc',
+        data: [
+          *partners,
+          { title: 'Sales Area', text: @rfc_result.data['header'].sa },
+          { title: 'Doc type', text: @rfc_result.data['header'].doc_type }
+        ]
+      }
 
-        partners = doc.partners.map do |partner|
-          { title: "Partner #{partner.function}", text: "#{partner.street_address_1}, #{partner.street_address_2}, #{partner.street_address_3}" }
-        end
-
-        doc_details = {
-            title: "title for salesdoc",
-            data: [
-                *partners,
-                { title: 'Sales Area', text: @rfc_result.data['header'].sa },
-                { title: 'Doc type', text: @rfc_result.data['header'].doc_type }
-            ]
-        }
-
-        [].tap do |arr|
-          arr << price_components
-          arr << doc_details
-        end
+      [].tap do |arr|
+        arr << price_components
+        arr << doc_details
       end
     end
   end

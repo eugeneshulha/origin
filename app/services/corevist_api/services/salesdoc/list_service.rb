@@ -1,25 +1,23 @@
-module CorevistAPI
-  module Services::Salesdoc
-    class ListService < CorevistAPI::Services::BaseServiceWithForm
+module CorevistAPI::Services::Salesdoc
+  class ListService < CorevistAPI::Services::BaseServiceWithForm
 
-      private
+    private
 
-      def perform
-        if @params[:doc_number]
-          @rfc_result = service_for(:salesdocs_show, @form, @params).call
+    def perform
+      if @params[:doc_number]
+        @rfc_result = service_for(:salesdocs_show, @form, @params).call
 
-          result = @rfc_result.data
-        else
-          @rfc_result = rfc_service_for(:salesdoc_list, @form, @params).call
+        result = @rfc_result.data
+      else
+        @rfc_result = rfc_service_for(:salesdoc_list, @form, @params).call
 
-          array = filter_by_query(@rfc_result.data)
-          array = sort_by_param(array)
+        array = filter_by_query(@rfc_result.data)
+        array = sort_by_param(array)
 
-          result = paginate(salesdocs: array)
-        end
-
-        result(result)
+        result = paginate(items: array)
       end
+
+      result(result)
     end
   end
 end

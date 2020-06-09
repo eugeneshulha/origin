@@ -1,5 +1,5 @@
-module CorevistAPI
-  class Services::BaseService
+module CorevistAPI:: Services
+  class BaseService
     include CorevistAPI::Factories::FactoryInterface
     include CorevistAPI::Services::BaseServiceInterface
     include CorevistAPI::Services::Paginatable

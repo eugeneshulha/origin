@@ -7,6 +7,19 @@ module CorevistAPI
 
     validates_presence_of :name
 
+    def sales_areas_list
+      assigned = sales_areas.to_a
+      CorevistAPI::SalesArea.all.each { |p| p.selected = assigned.include?(p) }.map(&:to_json)
+    end
+
+    def self.extra_column_names
+      super << 'sales_area_ids'
+    end
+
+    def as_json(*_args)
+      super.merge!(sales_areas: sales_areas.to_a)
+    end
+    
     def to_s
       name
     end

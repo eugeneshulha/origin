@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_192741) do
+ActiveRecord::Schema.define(version: 2020_06_08_110920) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -68,6 +68,10 @@ ActiveRecord::Schema.define(version: 2020_05_15_192741) do
 
   create_table "microsites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.string "created_by", default: "system", null: false
+    t.string "updated_by", default: "system"
+    t.datetime "created_at", default: "2020-06-01 10:41:06", null: false
+    t.datetime "updated_at", default: "2020-06-01 10:41:06"
   end
 
   create_table "microsites_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -154,6 +158,38 @@ ActiveRecord::Schema.define(version: 2020_05_15_192741) do
     t.string "created_by"
     t.string "updated_by"
     t.boolean "active", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sap_connections", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "mshost"
+    t.string "ashost"
+    t.string "sysnr"
+    t.string "client"
+    t.string "user"
+    t.string "passwd"
+    t.string "lang"
+    t.string "trace"
+    t.string "loglevel"
+    t.boolean "active", default: false
+    t.integer "env", default: 0, null: false
+    t.string "created_by", default: "system", null: false
+    t.string "updated_by", default: "system"
+    t.datetime "created_at", default: "2020-06-02 12:56:22", null: false
+    t.datetime "updated_at", default: "2020-06-02 12:56:22"
+  end
+
+  create_table "sap_downtimes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "down_from"
+    t.datetime "down_to"
+    t.boolean "active", null: false
+    t.string "created_by"
+    t.string "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

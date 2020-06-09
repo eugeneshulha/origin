@@ -1,4 +1,4 @@
-title: "<%= _('page title|new user) %>"
+title: "<%= _('page title|new user') %>"
 components:
   - uuid: "step 1"
     method: GET

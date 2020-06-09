@@ -13,7 +13,7 @@ components:
           name: "id"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.partner_id.blank') %>"
               type: required
 
       - - atom: hidden
@@ -22,5 +22,5 @@ components:
           name: "user_uuid"
           validation_type: string
           validations:
-            - message: "<%= I18n.t('my_message') %>"
+            - message: "<%= _('error|attributes.user_uuid.blank') %>"
               type: required

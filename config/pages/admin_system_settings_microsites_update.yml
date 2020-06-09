@@ -1,0 +1,25 @@
+title: "<%= _('page title|update microsites') %>"
+components:
+  - uuid: "microsite_update_form"
+    description: "<%= _('page title|update microsites') %>"
+    method: PATCH
+    title: "<%= _('page title|update microsites') %>"
+    type: form
+    url: "/v1/admin/system_settings/microsites/<uuid>"
+    elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+      - - atom: text
+          uuid: "name"
+          label: "<%= _('lbl|microsites name') %>"
+          name: "name"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.name.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "sales_area_ids"
+          name: "sales_area_ids"

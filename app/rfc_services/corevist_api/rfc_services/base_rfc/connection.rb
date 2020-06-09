@@ -12,8 +12,9 @@ module CorevistAPI
     CLOSE_EXCEPTION = 'CONNECTION CLOSE EXCEPTION'.freeze
 
     def initialize
+      # SAPNW::Base.config = CorevistAPI::SAPConnection.current.as_json.with_indifferent_access
       SAPNW::Base.config = {
-          :ashost => "/H/saprouter.1stbasis.com/H/172.20.3.2",
+          :ashost => "172.20.3.2",
           :sysnr => "00",
           :client => "400",
           :user => "core_cpic",

@@ -11,3 +11,4 @@ permissions:
   - system_maintenance
   - content_maintenance
   - look_and_feel_maintenance
+  - login_when_sap_is_down

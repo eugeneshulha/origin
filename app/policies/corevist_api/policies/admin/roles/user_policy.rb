@@ -16,6 +16,10 @@ module CorevistAPI
       def destroy?
         create?
       end
+
+      def edit_configs?
+        user.authorized_for?('role_maintenance')
+      end
     end
   end
 end

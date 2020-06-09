@@ -1,36 +1,30 @@
-title: "Role display page"
+title: "<%= _('page title|sales area maintenance') %>"
 components:
-  - uuid: "roles_list_table"
+  - uuid: "sales_areas_index_form"
     description: ""
     method: GET
-    title: Assign roles to user
-    type: datatable
+    title: "<%= _('title|sales area maintenance') %>"
+    type: form
     url: ""
-    data_url: "/v1/admin/roles"
+    data_url: "/v1/admin/system_settings/sales_areas"
     elements:
       thead:
         - key: true
           name: "title"
-          caption: "Title"
+          caption: "<%= _('lbl|title') %>"
           label: null
           sortable: true
           hidden: false
           action: "link"
         - key: true
           name: "description"
-          caption: "description"
-          label: null
-          sortable: true
-          hidden: false
-        - key: true
-          name: "created_by"
-          caption: "created_by"
+          caption: "<%= _('lbl|description') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "active"
-          caption: "active"
+          caption: "<%= _('lbl|active') %>"
           label: null
           sortable: true
           hidden: false

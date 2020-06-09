@@ -1,44 +1,44 @@
-title: "Filter"
+title: "<%= _('title|filter') %>"
 components:
   - uuid: "filter_users_modal_form"
     description:
     method: GET
-    title:
+    title: "<%= _('title|filter') %>"
     type: form
     url: "/v1/salesdocs"
     elements:
       - - atom: text
-          uuid: 'username'
+          uuid: "username"
           label: Username
           name: "username"
           value: ""
 
       - - atom: text
-          uuid: 'first_name'
-          label: "<%= _('lbl|first name) %>"
+          uuid: "first_name"
+          label: "<%= _('lbl|first name') %>"
           name: "first_name"
           value: ""
 
       - - atom: text
-          uuid: 'last_name'
-          label: "<%= _('lbl|last name) %>"
+          uuid: "last_name"
+          label: "<%= _('lbl|last name') %>"
           name: "last_name"
           value: ""
 
       - - atom: text
-          uuid: 'email'
-          label: "<%= _('lbl|email address) %>"
+          uuid: "email"
+          label: "<%= _('lbl|email address') %>"
           name: "email"
           value: ""
 
       - - atom: button
-          text: "<%= _('btn|cancel) %>"
+          text: "<%= _('btn|cancel') %>"
           type: text
           action_type: button
           name: "apply"
 
         - atom: button
-          text: "<%= _('btn|apply) %>"
+          text: "<%= _('btn|apply') %>"
           type: secondary
           action_type: submit
           name: "apply"

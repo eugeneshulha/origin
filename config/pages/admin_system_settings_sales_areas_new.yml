@@ -1,0 +1,19 @@
+title: "<%= _('page title|new sales area') %>"
+components:
+  - uuid: "step 1"
+    method: GET
+    title: "<%= _('title|sales area details') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=1"
+
+  - uuid: "step 2"
+    method: GET
+    title: "<%= _('title|sales area doc types') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=2"
+
+  - uuid: "step 3"
+    method: GET
+    title: "<%= _('title|sales area doc categories') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=3"

@@ -30,6 +30,10 @@ module CorevistAPI
     TYPE_CUSTOMER_ADMIN = 'customer_admin'.freeze
     TYPE_SYSTEM_ADMIN   = 'system_admin'.freeze
 
+    def name
+      first_name + ' ' + last_name
+    end
+
     def assigned_partners
       partners.where(assigned: true)
     end
@@ -100,8 +104,12 @@ module CorevistAPI
       permissions.include?(privilege)
     end
 
+    def not_authorized_for?(privilege)
+      !authorized_for?(privilege)
+    end
+
     def permissions
-      roles.map { |role| role.permissions.pluck(:title) }.flatten.uniq
+      roles.includes(:permissions).map { |role| role.permissions.pluck(:title) }.flatten.uniq
     end
 
     def on_jwt_dispatch(_, payload)

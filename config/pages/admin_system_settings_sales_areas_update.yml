@@ -1,0 +1,36 @@
+title: ""
+components:
+  - uuid: "sales_area_update_form"
+    description: ""
+    method: POST
+    title: ""
+    type: form
+    url: "/v1/admin/system_settings/sales_areas/"
+    elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+
+      - - atom: text
+          uuid: "title"
+          label: "<%= _('lbl|title') %>"
+          name: "title"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.title.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "description"
+          label: "<%= _('lbl|description') %>"
+          name: "description"
+
+      - - atom: text
+          uuid: "active"
+          label: "<%= _('lbl|active') %>"
+          name: "active"
+
+      - - atom: text
+          uuid: "doc_types"
+          name: "doc_types"

@@ -1,13 +1,15 @@
 module CorevistAPI
-  module Services
-    class Base::UpdateService< CorevistAPI::Services::BaseServiceWithForm
+  module Services::Base
+    class UpdateService < CorevistAPI::Services::BaseServiceWithForm
 
       def perform
-        object = object_class.find_by_id(@form.id)
+        object = object_class.find_by(id: @form.uuid)
         raise CorevistAPI::ServiceException.new(not_found_msg) unless object
 
         fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)) }
-        object.updated_by = current_user.id
+        return result(object, message: did_not_change) unless object.changed?
+
+        object.updated_by = current_user.id if object.respond_to?(:updated_by)
 
         raise CorevistAPI::ServiceException.new(object.errors.full_messages) unless object.save
 

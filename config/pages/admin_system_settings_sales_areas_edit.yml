@@ -1,0 +1,43 @@
+title: "<%= _('page title|edit sales_area') %>"
+components:
+  - uuid: "sales_areas_edit_form"
+    description: ""
+    method: PATCH
+    title: "<%= _('title|edit sales_area') %>"
+    type: form
+    url: ""
+    data_url: "/v1/admin/system_settings/sales_areas"
+    elements:
+      - - atom: text
+          uuid: "title"
+          label: "<%= _('lbl|title') %>"
+          name: "title"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.title.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "description"
+          label: "<%= _('lbl|description') %>"
+          name: "description"
+          validation_type: string
+
+      - - atom: text
+          uuid: "active"
+          label: "<%= _('lbl|active') %>"
+          name: "active"
+          validation_type: string
+
+      - - atom: button
+          uuid: "cancel"
+          text: "<%= _('btn|cancel') %>"
+          type: text
+          action_type: button
+
+        - atom: button
+          uuid: "apply"
+          text: "<%= _('btn|apply') %>"
+          type: secondary
+          action_type: submit

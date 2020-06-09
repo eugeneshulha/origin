@@ -11,7 +11,7 @@ components:
           uuid: "cst_translation"
           label: "<%= _('lbl|custom translation') %>"
           name: "cst_translation"
-          value: "po_number"
+          value: ""
 
         - atom: text
           uuid: "locale"

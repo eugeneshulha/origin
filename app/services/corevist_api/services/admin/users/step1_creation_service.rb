@@ -1,19 +1,17 @@
-module CorevistAPI
-  module Services
-    class Admin::Users::Step1CreationService< CorevistAPI::Services::BaseServiceWithForm
-      private
+module CorevistAPI::Services::Admin::Users
+  class Step1CreationService < CorevistAPI::Services::BaseServiceWithForm
+    private
 
-      def perform
-        object = CorevistAPI::User.find_by(uuid: @form&.uuid) || CorevistAPI::User.new
-        fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)&.strip) }
-        raise CorevistAPI::ServiceException.new(object.errors.full_messages) unless object.save
+    def perform
+      object = CorevistAPI::User.find_by(uuid: @form&.uuid) || CorevistAPI::User.new
+      fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)&.strip) }
+      raise CorevistAPI::ServiceException.new(object.errors.full_messages) unless object.save
 
-        result(object)
-      end
+      result(object)
+    end
 
-      def obtain_object
-        CorevistAPI::User.new
-      end
+    def obtain_object
+      CorevistAPI::User.new
     end
   end
 end

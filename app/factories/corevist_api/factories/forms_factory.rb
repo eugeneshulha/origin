@@ -18,8 +18,45 @@ module CorevistAPI
         admin_roles_index: 'CorevistAPI::Forms::Admin::Roles::IndexForm',
         admin_roles_create: 'CorevistAPI::Forms::Admin::Roles::CreateForm',
         admin_roles_update: 'CorevistAPI::Forms::Admin::Roles::UpdateForm',
-        admin_roles_show: 'CorevistAPI::Forms::Admin::Roles::ShowForm',
+        admin_roles_edit: 'CorevistAPI::Forms::Admin::Roles::EditForm',
         admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
+
+        admin_permissions_index: 'CorevistAPI::Forms::Admin::Permissions::IndexForm',
+
+        # Admin > SystemSettings > Microsites
+        admin_system_settings_microsites_index: 'CorevistAPI::Forms::Admin::SystemSettings::Microsites::IndexForm',
+        admin_system_settings_microsites_create: 'CorevistAPI::Forms::Admin::SystemSettings::Microsites::CreateForm',
+        admin_system_settings_microsites_update: 'CorevistAPI::Forms::Admin::SystemSettings::Microsites::UpdateForm',
+        admin_system_settings_microsites_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::Microsites::DestroyForm',
+
+        # Admin > SystemSettings > SalesAreas
+        admin_system_settings_sales_areas_index: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::IndexForm',
+        admin_system_settings_sales_areas_create_step_1: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::Step1',
+        admin_system_settings_sales_areas_create_step_2: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::Step2',
+        admin_system_settings_sales_areas_create_step_3: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::Step3',
+        admin_system_settings_sales_areas_update: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::UpdateForm',
+        admin_system_settings_sales_areas_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SalesAreas::DestroyForm',
+
+        # Admin > SystemSettings > DocTypes
+        admin_system_settings_doc_types_index: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::IndexForm',
+        admin_system_settings_doc_types_create: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::CreateForm',
+        admin_system_settings_doc_types_update: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::UpdateForm',
+        admin_system_settings_doc_types_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::DocTypes::DestroyForm',
+
+        # Admin > SystemSettings > DocCategories
+        admin_system_settings_doc_categories_index: 'CorevistAPI::Forms::Admin::SystemSettings::DocCategories::IndexForm',
+
+        # Admin > SystemSettings > SAPMaintenance > SAPDowntimes
+        admin_system_settings_sap_maintenance_sap_downtimes_index: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::IndexForm',
+        admin_system_settings_sap_maintenance_sap_downtimes_create: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::CreateForm',
+        admin_system_settings_sap_maintenance_sap_downtimes_update: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::UpdateForm',
+        # admin_system_settings_sap_maintenance_sap_downtimes_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPDowntimes::DestroyForm',
+
+        # Admin > SystemSettings > SAPMaintenance > SAPConnections
+        admin_system_settings_sap_maintenance_sap_connections_index: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::IndexForm',
+        admin_system_settings_sap_maintenance_sap_connections_create: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::CreateForm',
+        admin_system_settings_sap_maintenance_sap_connections_update: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::UpdateForm',
+        # admin_system_settings_sap_maintenance_sap_connections_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::DestroyForm',
 
         admin_translations_index: 'CorevistAPI::Forms::Admin::Translations::IndexForm',
         admin_translations_create: 'CorevistAPI::Forms::Admin::Translations::CreateForm',

@@ -1,0 +1,144 @@
+title: "<%= _('page title|edit sap connection') %>"
+components:
+  - uuid: "sap_connection_edit_form"
+    description: ""
+    method: POST
+    title: ""
+    type: form
+    url: "/v1/admin/system_settings/sap_maintenance/sap_connections"
+    elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+          label: "<%= _('lbl|uuid') %>"
+          validations:
+            - message: "<%= _('error|attributes.uuid.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "title"
+          label: "<%= _('lbl|title') %>"
+          name: "title"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.title.blank') %>"
+              type: required
+              value: ""
+
+        - atom: text
+          uuid: "description"
+          name: "description"
+          label: "<%= _('lbl|description') %>"
+          placeholder: "<%= _('plc|description') %>"
+
+      - - atom: outside_checkbox
+          uuid: "active"
+          name: "active"
+          label: "<%= _('lbl|active') %>"
+          placeholder: "<%= _('plc|active') %>"
+
+        - atom: text
+          uuid: "mshost"
+          name: "mshost"
+          label: "<%= _('lbl|mshost') %>"
+          placeholder: "<%= _('plc|mshost') %>"
+
+      - - atom: text
+          uuid: "ashost"
+          name: "ashost"
+          label: "<%= _('lbl|ashost') %>"
+          placeholder: "<%= _('plc|ashost') %>"
+
+        - atom: text
+          uuid: "sysnr"
+          name: "sysnr"
+          label: "<%= _('lbl|sysnr') %>"
+          placeholder: "<%= _('plc|sysnr') %>"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.sysnr.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "client"
+          name: "client"
+          label: "<%= _('lbl|client') %>"
+          placeholder: "<%= _('plc|client') %>"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.client.blank') %>"
+              type: required
+              value: ""
+
+        - atom: text
+          uuid: "user"
+          name: "user"
+          label: "<%= _('lbl|user') %>"
+          placeholder: "<%= _('plc|user') %>"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.user.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "passwd"
+          name: "passwd"
+          label: "<%= _('lbl|passwd') %>"
+          placeholder: "<%= _('plc|passwd') %>"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.passwd.blank') %>"
+              type: required
+              value: ""
+
+        - atom: text
+          uuid: "lang"
+          name: "lang"
+          label: "<%= _('lbl|lang') %>"
+          placeholder: "<%= _('plc|lang') %>"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.lang.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: text
+          uuid: "trace"
+          name: "trace"
+          label: "<%= _('lbl|trace') %>"
+          placeholder: "<%= _('plc|trace') %>"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.trace.blank') %>"
+              type: required
+              value: ""
+
+        - atom: text
+          uuid: "loglevel"
+          name: "loglevel"
+          label: "<%= _('lbl|loglevel') %>"
+          placeholder: "<%= _('plc|loglevel') %>"
+
+      - - atom: select
+          uuid: "env"
+          label: "<%= _('lbl|environment') %>"
+          name: "env"
+          placeholder: "<%= _('plc|environment') %>"
+          validation_type: string
+          value: ""
+          options:
+            - name: "<%= _('lbl|env development') %>"
+              value: "development"
+            - name: "<%= _('lbl|env qa') %>"
+              value: "qa"
+            - name: "<%= _('lbl|env test') %>"
+              value: "test"
+            - name: "<%= _('lbl|env production') %>"
+              value: "production"
+          validations:
+            - message: "<%= _('error|attributes.env.blank') %>"
+              type: required
+              value: ""

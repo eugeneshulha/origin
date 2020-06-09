@@ -1,0 +1,42 @@
+title: "<%= _('page title|edit role') %>"
+components:
+  - uuid: "roles_new_form"
+    description: ""
+    method: GET
+    title: "<%= _('title|edit role') %>"
+    type: datatable
+    url: ""
+    data_url: "/v1/admin/roles"
+    elements:
+      - atom: text
+        uuid: "title"
+        label: "<%= _('lbl|title') %>"
+        name: "username"
+        placeholder: "<%= _('plc|title') %>"
+        validation_type: string
+        value: ""
+        validations:
+          - message: "<%= _('error|attributes.title.blank') %>"
+            type: required
+            value: ""
+          - message: "<%= _('error|attributes.title.too_short') %>"
+            type: min
+            value: "3"
+          - message: "<%= _('error|attributes.title.too_long') %>"
+            type: max
+            value: "20"
+
+      - thead:
+          - key: true
+            name: "title"
+            caption: "<%= _('lbl|permission name') %>"
+            label: null
+            sortable: true
+            hidden: false
+            action: "link"
+          - key: true
+            name: "description"
+            caption: "<%= _('lbl|description') %>"
+            label: null
+            sortable: true
+            hidden: false

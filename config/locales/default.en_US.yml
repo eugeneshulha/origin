@@ -16,6 +16,10 @@ en_US:
   page title|assigned partners: Assigned partners
   page title|edit user: Edit user
   page title|new user: New user
+  page title|new role: New role
+  page title|edit role: Edit role
+  page title|sap connections maintenance: SAP maintenance
+  page title|sap downtimes maintenance: SAP downtimes
 
   title|login: Login
   title|recent orders: Recent Orders
@@ -130,6 +134,26 @@ en_US:
   lbl|menu orders: Orders
   lbl|menu invoices: Invoices
   lbl|menu open items: Open Items
+  lbl|menu microsite maintenance: Microsites
+  lbl|menu sales area maintenance: Sales Areas
+  lbl|menu sap connections: SAP Connections
+  lbl|menu sap downtimes: SAP Downtimes
+  lbl|permission name: Permission
+  lbl|env development: Development
+  lbl|env qa: QA
+  lbl|env test: Test
+  lbl|env production: Production
+  lbl|environment: Environment
+  lbl|active: Active
+  lbl|mshost: MShost
+  lbl|ashost: AShost
+  lbl|sysnr: Sys number
+  lbl|client: Client
+  lbl|user: User
+  lbl|passwd: Password
+  lbl|lang: Language
+  lbl|trace: Trace
+  lbl|loglevel: Log level
 
   plc|username: Username
   plc|password: Password
@@ -152,6 +176,19 @@ en_US:
   plc|select number format: Select number format
   plc|select date format: Select date format
   plc|select time format: Select time format
+  plc|title: Title
+  plc|environment: Environment
+  plc|description: Description
+  plc|active: Active
+  plc|mshost: MShost
+  plc|ashost: AShost
+  plc|sysnr: Sys number
+  plc|client: Client
+  plc|user: User
+  plc|passwd: Password
+  plc|lang: Language
+  plc|trace: Trace
+  plc|loglevel: Log level
 
   btn|login: Login
   btn|cancel: Cancel
@@ -192,3 +229,9 @@ en_US:
   error|attributes.number_format.blank: Number format can not be blank
   error|attributes.date_format.blank: Date format can not be blank
   error|attributes.time_format.blank: Time format can not be blank
+  error|attributes.role_ids.blank: Select at least one role
+  error|attributes.text.blank: Message can not be blank
+  error|attributes.salesdoc_doc_number.blank: Salesdoc number is missing
+  error|attributes.partner_id.blank: Partner ID is missing
+  error|attributes.user_uuid.blank: User UUID is missing
+  error|attributes.invoice_doc_number.blank: Invoice number is missing

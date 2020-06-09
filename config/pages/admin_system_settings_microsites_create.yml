@@ -1,0 +1,24 @@
+title: "<%= _('page title|create microsites') %>"
+components:
+  - uuid: "microsite_create_form"
+    description: "<%= _('page title|create microsites') %>"
+    method: GET
+    title: "<%= _('page title|create microsites') %>"
+    type: form
+    url: "/v1/admin/system_settings/microsites/"
+    elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+      - - atom: text
+          uuid: "name"
+          label: "<%= _('lbl|microsites name') %>"
+          name: "name"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.name.blank') %>"
+              type: required
+              value: ""
+      - - atom: text
+          uuid: "sales_area_ids"
+          name: "sales_area_ids"

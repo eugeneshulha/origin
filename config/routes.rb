@@ -63,14 +63,54 @@ CorevistAPI::Engine.routes.draw do
           resources :partners, only: %i[index destroy], controller: 'users/partners'
         end
 
-        resources :roles, only: %i[index new create edit update show destroy], param: :uuid do
+        resources :roles, only: %i[index new create update show destroy], param: :uuid do
           get :configs, on: :collection, to: 'roles#index_configs'
-          get :configs, on: :member, to: 'roles#show_configs'
+          get :configs, on: :member, to: 'roles#edit'
         end
 
-        resources :translations, only: %i[index create update edit destroy], param: :uuid do
+        resources :permissions, only: %i[index]
+
+        resources :translations, only: %i[index new create update edit destroy], param: :uuid do
           get :configs, on: :collection, to: 'translations#index_configs'
+          get :configs, on: :member, to: 'translations#edit'
           get 'filters/new', on: :collection, to: 'translations/filters#new'
+        end
+
+        namespace :system_settings do
+          resources :microsites, only: %i[index new create update show destroy], param: :uuid do
+            get :configs, on: :collection, to: 'microsites#index_configs'
+            get :configs, on: :member, to: 'microsites#edit'
+          end
+
+          resources :sales_areas, only: %i[index new create update show destroy], param: :uuid do
+            get :configs, on: :collection, to: 'sales_areas#index_configs'
+            get :configs, on: :member, to: 'sales_areas#edit'
+          end
+
+          resources :doc_types, only: %i[index new create edit update show destroy], param: :uuid do
+            get :configs, on: :collection, to: 'doc_types#index_configs'
+            get :configs, on: :member, to: 'doc_types#edit'
+          end
+
+          resources :doc_categories, only: %i[index], param: :uuid do
+            get :configs, on: :collection, to: 'doc_categories#index_configs'
+          end
+
+          resources :sap_maintenance, only: [] do
+            get :configs, on: :collection, to: 'sap_maintenance#index_configs'
+          end
+
+          namespace :sap_maintenance do
+            resources :sap_connections, only: %i[index new create update show destroy], param: :uuid do
+              get :configs, on: :collection, to: 'sap_connections#index_configs'
+              get :configs, on: :member, to: 'sap_connections#edit'
+            end
+
+            resources :sap_downtimes, only: %i[index new create update show destroy], param: :uuid do
+              get :configs, on: :collection, to: 'sap_downtimes#index_configs'
+              get :configs, on: :member, to: 'sap_downtimes#edit'
+            end
+          end
         end
       end
 

@@ -1,5 +1,5 @@
-module CorevistAPI
-  class Services::User::RegistrationService < CorevistAPI::Services::BaseServiceWithForm
+module CorevistAPI::Services::User
+  class RegistrationService < CorevistAPI::Services::BaseServiceWithForm
     private
 
     def perform
