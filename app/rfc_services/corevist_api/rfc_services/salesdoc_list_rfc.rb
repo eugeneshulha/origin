@@ -16,6 +16,7 @@ module CorevistAPI
       NET_VALUE: :net_value,
       OUTPUT_TYPES: :output_types,
       PO_NR: :po_number,
+      INV_NR: :invoice_number,
       QTY: :quantity,
       RDD: :req_del_date,
       REFERENCE: :reference,
@@ -51,7 +52,7 @@ module CorevistAPI
           TA_GROUP => '0'
         }
       }.tap do |hash|
-        %i[sold_to_number salesdoc_number].each do |key|
+        %i[sold_to_number salesdoc_number invoice_number].each do |key|
           if @object.value_for_key(key).present?
             hash[SEARCH_CRITERIA][MAPPER.key(key).to_s] = @object.value_for_key(key).add_leading_zeros
           end

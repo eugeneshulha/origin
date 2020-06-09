@@ -20,6 +20,12 @@ components:
         validation_type: string
         value: ""
       - atom: text
+        uuid: "invoice_number"
+        label: invoice_number
+        name: "invoice_number"
+        validation_type: string
+        value: ""
+      - atom: text
         uuid: "material"
         label: Material
         name: "material"

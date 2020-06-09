@@ -45,7 +45,7 @@ components:
         value: ""
       - atom: text
         uuid: "delivery_number"
-        label: Order number
+        label: Delivery number
         name: "delivery_number"
         validation_type: string
         value: ""

@@ -6,6 +6,7 @@ components:
     title: ""
     type: form
     url: "/v1/admin/system_settings/sales_areas/<uuid>"
+    data_url: "/v1/admin/system_settings/doc_categories"
     elements:
       thead:
         - key: true
