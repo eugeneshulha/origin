@@ -16,6 +16,10 @@ module CorevistAPI
       def update?
         create?
       end
+
+      def download?
+        create?
+      end
     end
   end
 end

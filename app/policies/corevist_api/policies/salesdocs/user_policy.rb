@@ -10,7 +10,7 @@ module CorevistAPI
       end
 
       def new?
-        true
+        user.authorized_for?('view_orders')
       end
 
       def show?

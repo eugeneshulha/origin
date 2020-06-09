@@ -20,6 +20,10 @@ module CorevistAPI
       def validation_for(attribute, validation)
         CorevistAPI::Factories::ValidationsFactory.instance.for(attribute, validation)
       end
+
+      def downloader_for(attribute, *args)
+        CorevistAPI::Factories::DownloadersFactory.instance.for(attribute, *args)
+      end
     end
   end
 end

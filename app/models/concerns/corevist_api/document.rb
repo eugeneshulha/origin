@@ -52,7 +52,7 @@ module CorevistAPI
         {
             display: "#{name}_display",
             list: "#{name}_list",
-            sort_items: "sort_#{name}_items"
+            sort_items: "#{name.pluralize}_items_index"
         }
       end
     end
