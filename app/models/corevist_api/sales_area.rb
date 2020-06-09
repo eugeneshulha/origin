@@ -1,5 +1,7 @@
 module CorevistAPI
   class SalesArea < ApplicationRecord
+    default_scope { includes(:doc_types, :doc_categories) }
+
     self.table_name = 'sales_areas'
 
     has_many :partners

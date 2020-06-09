@@ -8,11 +8,6 @@ module CorevistAPI
     validates_uniqueness_of :title
     validates_presence_of :title
 
-    def permissions_list
-      assigned = permissions.to_a
-      CorevistAPI::Permission.all.each { |p| p.active = assigned.include?(p) }.map(&:to_json)
-    end
-
     def as_json(*_args)
       super.merge!(permissions: permissions.to_a)
     end

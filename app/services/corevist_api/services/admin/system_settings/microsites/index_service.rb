@@ -3,7 +3,7 @@ module CorevistAPI::Services::Admin::SystemSettings::Microsites
     private
 
     def filter
-      result(CorevistAPI::Microsite.all)
+      result(CorevistAPI::Microsite.includes(:users).all)
     end
   end
 end
