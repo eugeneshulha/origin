@@ -19,6 +19,10 @@ module CorevistAPI
     def as_json(*_args)
       super.merge!(sales_areas: sales_areas.to_a)
     end
+    
+    def to_s
+      name
+    end
 
     private
 

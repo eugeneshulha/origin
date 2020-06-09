@@ -8,5 +8,9 @@ module CorevistAPI
     # self association
     has_many :associated_partners, class_name: 'Partner', foreign_key: 'parent_partner_id', dependent: :destroy
     belongs_to :parent_partner, class_name: 'Partner', optional: true
+
+    def to_s
+      number
+    end
   end
 end
