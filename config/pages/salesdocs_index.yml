@@ -26,6 +26,12 @@ components:
         validation_type: string
         value: ""
       - atom: text
+        uuid: "delivery_number"
+        label: delivery_number
+        name: "delivery_number"
+        validation_type: string
+        value: ""
+      - atom: text
         uuid: "material"
         label: Material
         name: "material"

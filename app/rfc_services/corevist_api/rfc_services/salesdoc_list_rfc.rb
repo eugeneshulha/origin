@@ -15,6 +15,7 @@ module CorevistAPI
       MAT: :material,
       NET_VALUE: :net_value,
       OUTPUT_TYPES: :output_types,
+      DEL_NR: :delivery_number,
       PO_NR: :po_number,
       INV_NR: :invoice_number,
       QTY: :quantity,
@@ -52,7 +53,7 @@ module CorevistAPI
           TA_GROUP => '0'
         }
       }.tap do |hash|
-        %i[sold_to_number salesdoc_number invoice_number].each do |key|
+        %i[sold_to_number salesdoc_number invoice_number delivery_number].each do |key|
           if @object.value_for_key(key).present?
             hash[SEARCH_CRITERIA][MAPPER.key(key).to_s] = @object.value_for_key(key).add_leading_zeros
           end
