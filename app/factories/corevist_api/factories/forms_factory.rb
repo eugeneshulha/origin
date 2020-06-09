@@ -71,8 +71,9 @@ module CorevistAPI
         sessions_create: 'CorevistAPI::Forms::User::Login',
         open_items_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
 
-        sort_salesdoc_items: 'CorevistAPI::Forms::Document::SortItemsForm',
-        sort_invoice_items: 'CorevistAPI::Forms::Document::SortItemsForm',
+        invoices_items_index: 'CorevistAPI::Forms::Invoice::Items::Index',
+        salesdocs_items_index: 'CorevistAPI::Forms::Salesdoc::Items::Index',
+
         output_types_index: 'CorevistAPI::Forms::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Forms::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',

@@ -1,9 +1,9 @@
 module CorevistAPI
   module Factories
-    class DownloadManagersFactory < BaseFactory
+    class DownloadersFactory < BaseFactory
       def initialize
         @storage = {
-          csv: 'CorevistAPI::Managers::Download::Csv'
+          csv: 'CorevistAPI::Downloaders::Csv'
         }
       end
     end

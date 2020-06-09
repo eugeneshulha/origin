@@ -16,10 +16,6 @@ module CorevistAPI
       def show?
         user.authorized_for?('view_invoices')
       end
-
-      def download?
-        user.authorized_for?('download_invoices')
-      end
     end
   end
 end

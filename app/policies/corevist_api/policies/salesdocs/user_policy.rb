@@ -10,15 +10,11 @@ module CorevistAPI
       end
 
       def new?
-        true
+        user.authorized_for?('view_orders')
       end
 
       def show?
         user.authorized_for?('view_orders')
-      end
-
-      def download?
-        user.authorized_for?('download_orders')
       end
     end
   end

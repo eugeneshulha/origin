@@ -1,10 +1,10 @@
 module CorevistAPI
-  module Downloads
+  module Downloadable
     extend ActiveSupport::Concern
 
     included do |base|
       form_performer_for :download
-      base.prepend(Download)
+      base.prepend(CorevistAPI::Downloadable::Download)
     end
 
     module Download
@@ -13,6 +13,7 @@ module CorevistAPI
       def download
         raise CorevistAPI::ServiceException.new(_(ERROR_WRONG_FORMAT)) if wrong_format?
 
+        params[:doc_number] = params["#{@obj.model_name.element}_doc_number"]
         super
       end
 
@@ -28,8 +29,8 @@ module CorevistAPI
         return super unless action_name.to_sym == :download
 
         objects = data[controller_name.to_sym] || data[:items]
-        manager = download_manager_for(format, objects, type: controller_name)
-        send_data(manager.download, type: manager.type, filename: manager.filename)
+        manager = downloader_for(format, objects, type: controller_name)
+        send_data(manager.download, type: manager.file_type, filename: manager.filename)
       end
 
       def wrong_format?

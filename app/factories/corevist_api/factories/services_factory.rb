@@ -84,7 +84,9 @@ module CorevistAPI
         page_configs_navigation: 'CorevistAPI::Services::PageConfigs::Navigation',
         open_items_index: 'CorevistAPI::Services::OpenItems::SearchService',
 
-        sort_document_items: 'CorevistAPI::Services::Document::SortItemsService',
+        invoices_items_index: 'CorevistAPI::Services::Invoice::Items::Index',
+        salesdocs_items_index: 'CorevistAPI::Services::Salesdoc::Items::Index',
+
         output_types_index: 'CorevistAPI::Services::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Services::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Services::AccountDetails::Show',

@@ -1,6 +1,4 @@
 CorevistAPI::Engine.routes.draw do
-  CorevistAPI::RouteDrawer.set_context(self).draw_routes
-
   scope :api, defaults: { format: :json } do
     scope :v1 do
       devise_for :users, class_name: "CorevistAPI::User", module: :devise, singular: :user,
@@ -39,7 +37,9 @@ CorevistAPI::Engine.routes.draw do
       resources :invoices, only: %i[new show index], param: :doc_number do
         get :configs, on: :collection, to: 'invoices#index_configs'
         get 'filters/new', on: :collection, to: 'invoices/filters#new'
-        resources :items, only: [:index], controller: 'invoices/items'
+        resources :items, only: [:index], controller: 'invoices/items' do
+          post :download, to: 'invoices/items#download', on: :collection
+        end
         resources :questions, only: %i[new create], controller: 'invoices/questions'
         resources :output_types, only: %i[index show], param: :output_type_id, controller: 'invoices/output_types'
       end
@@ -47,7 +47,9 @@ CorevistAPI::Engine.routes.draw do
       resources :salesdocs, only: %i[new show index], param: :doc_number do
         get :configs, on: :collection, to: 'salesdocs#index_configs'
         get 'filters/new', on: :collection, to: 'salesdocs/filters#new'
-        resources :items, only: [:index], controller: 'salesdocs/items'
+        resources :items, only: [:index], controller: 'salesdocs/items' do
+          post :download, to: 'salesdocs/items#download', on: :collection
+        end
         resources :questions, only: %i[new create], controller: 'salesdocs/questions'
         resources :output_types, only: %i[index show], param: :output_type_id, controller: 'salesdocs/output_types'
       end

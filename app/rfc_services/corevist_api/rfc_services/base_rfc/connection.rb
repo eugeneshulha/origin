@@ -14,13 +14,13 @@ module CorevistAPI
     def initialize
       # SAPNW::Base.config = CorevistAPI::SAPConnection.current.as_json.with_indifferent_access
       SAPNW::Base.config = {
-          :ashost => "172.20.3.2",
-          :sysnr => "00",
-          :client => "400",
-          :user => "core_cpic",
-          :passwd => "b2b4you",
-          :lang => 'EN',
-          :trace => 0
+          ashost: Rails.env.development? ? 'localhost' : '172.20.3.2',
+          sysnr: "00",
+          client: "400",
+          user: "core_cpic",
+          passwd: "b2b4you",
+          lang: 'EN',
+          trace: 0
       }.with_indifferent_access
     end
 

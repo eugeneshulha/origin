@@ -1,0 +1,47 @@
+components:
+  - uuid: "filter_items_form"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: POST
+    title: Registration
+    type: form
+    url: "/v1/registrations"
+    elements:
+      - - atom: text
+          uuid: "doc_number"
+          name: "doc_number"
+          validation_type: string
+          value: ""
+          validations:
+            - message: "doc_number is required"
+              type: required
+              value: ""
+        - atom: text
+          uuid: "due_date"
+          name: "due_date"
+          validation_type: string
+          value: ""
+        - atom: text
+          uuid: "q"
+          name: "q"
+          validation_type: string
+          value: ""
+        - atom: text
+          uuid: "sort_by"
+          name: "sort_by"
+          validation_type: string
+          value: ""
+        - atom: text
+          uuid: "order"
+          name: "order"
+          validation_type: string
+          value: ""
+        - atom: text
+          uuid: "page"
+          name: "page"
+          validation_type: string
+          value: ""
+        - atom: text
+          uuid: "page_size"
+          name: "page_size"
+          validation_type: string
+          value: ""

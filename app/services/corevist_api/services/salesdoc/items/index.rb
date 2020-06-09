@@ -1,10 +1,10 @@
-module CorevistAPI::Services::Document
-  class SortItemsService < CorevistAPI::Services::BaseServiceWithForm
+module CorevistAPI::Services::Salesdoc::Items
+  class Index < CorevistAPI::Services::BaseServiceWithForm
 
     private
 
     def perform
-      @rfc_result = rfc_service_for(obj.api_names[:display], @object, @params).call
+      @rfc_result = call_rfc
 
       document = builder_for(obj.model_name.element, @rfc_result.data).build do |builder|
         builder.with_configs
@@ -21,14 +21,18 @@ module CorevistAPI::Services::Document
       result(hash)
     end
 
+    def call_rfc
+      rfc_service_for(:salesdoc_display, @object, @params).call
+    end
+
     def obj
       @params[:controller]
-        .gsub('/api/v1/', '::_')
-        .gsub('/items', '')
-        .singularize
-        .camelize
-        .constantize
-        .new
+          .gsub('/api/v1/', '::_')
+          .gsub('/items', '')
+          .singularize
+          .camelize
+          .constantize
+          .new
     end
   end
 end
