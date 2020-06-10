@@ -9,7 +9,7 @@ module CorevistAPI::Services
     end
 
     def call
-      return perform if @form.valid?
+      return perform if @form.errors.blank? && @form.valid?
 
       invalid_object_error
     end

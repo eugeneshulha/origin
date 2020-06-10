@@ -1,43 +1,19 @@
-title: "<%= _('page title|edit sales_area') %>"
+title: "<%= _('page title|edit sales area') %>"
 components:
-  - uuid: "sales_areas_edit_form"
-    description: ""
-    method: PATCH
-    title: "<%= _('title|edit sales_area') %>"
-    type: form
-    url: ""
-    data_url: "/v1/admin/system_settings/sales_areas"
-    elements:
-      - - atom: text
-          uuid: "title"
-          label: "<%= _('lbl|title') %>"
-          name: "title"
-          validation_type: string
-          validations:
-            - message: "<%= _('error|attributes.title.blank') %>"
-              type: required
-              value: ""
+  - uuid: "step 1"
+    method: GET
+    title: "<%= _('title|sales area details') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=1"
 
-      - - atom: text
-          uuid: "description"
-          label: "<%= _('lbl|description') %>"
-          name: "description"
-          validation_type: string
+  - uuid: "step 2"
+    method: GET
+    title: "<%= _('title|sales area doc types') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=2"
 
-      - - atom: text
-          uuid: "active"
-          label: "<%= _('lbl|active') %>"
-          name: "active"
-          validation_type: string
-
-      - - atom: button
-          uuid: "cancel"
-          text: "<%= _('btn|cancel') %>"
-          type: text
-          action_type: button
-
-        - atom: button
-          uuid: "apply"
-          text: "<%= _('btn|apply') %>"
-          type: secondary
-          action_type: submit
+  - uuid: "step 3"
+    method: GET
+    title: "<%= _('title|sales area doc categories') %>"
+    type: step
+    data_url: "/v1/admin/system_settings/sales_areas/new?step=3"

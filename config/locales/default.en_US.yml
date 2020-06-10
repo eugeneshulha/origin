@@ -235,3 +235,6 @@ en_US:
   error|attributes.partner_id.blank: Partner ID is missing
   error|attributes.user_uuid.blank: User UUID is missing
   error|attributes.invoice_doc_number.blank: Invoice number is missing
+  error|attributes.from_date.blank: From date value is missing
+  error|attributes.to_date.blank: TO date value is missing
+  error|please specify a criteria to search: Please specify a criteria to search

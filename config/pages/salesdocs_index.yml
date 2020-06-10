@@ -8,6 +8,13 @@ components:
     url: "/v1/salesdocs"
     elements:
       - atom: text
+        uuid: "search_criteria"
+        label: search_criteria
+        name: "search_criteria"
+        validation_type: string
+        value: ""
+
+      - atom: text
         uuid: "po_number"
         label: PO number
         name: "po_number"
