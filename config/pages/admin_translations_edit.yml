@@ -34,11 +34,6 @@ components:
           label: "<%= _('lbl|cst_translation') %>"
           name: "cst_translation"
           validation_type: string
-          validations:
-            - message: "<%= _('error|attributes.cst_translation.blank') %>"
-              type: required
-              value: ""
-
 
       - - atom: text
           uuid: "status"
