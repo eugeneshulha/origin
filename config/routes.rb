@@ -37,6 +37,8 @@ CorevistAPI::Engine.routes.draw do
       resources :invoices, only: %i[new show index], param: :doc_number do
         get :configs, on: :collection, to: 'invoices#index_configs'
         get 'filters/new', on: :collection, to: 'invoices/filters#new'
+        post :download, to: 'invoices#download', on: :collection
+
         resources :items, only: [:index], controller: 'invoices/items' do
           post :download, to: 'invoices/items#download', on: :collection
         end
@@ -47,6 +49,8 @@ CorevistAPI::Engine.routes.draw do
       resources :salesdocs, only: %i[new show index], param: :doc_number do
         get :configs, on: :collection, to: 'salesdocs#index_configs'
         get 'filters/new', on: :collection, to: 'salesdocs/filters#new'
+        post :download, to: 'salesdocs#download', on: :collection
+
         resources :items, only: [:index], controller: 'salesdocs/items' do
           post :download, to: 'salesdocs/items#download', on: :collection
         end

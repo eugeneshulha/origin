@@ -1,9 +1,9 @@
-title: "<%= _('page title|new sales area') %>"
+title: ""
 components:
   - uuid: "sales_areas_new_form"
     description: ""
     method: POST
-    title: "<%= _('title|new sales area') %>"
+    title: ""
     type: form
     url: "/v1/admin/system_settings/sales_areas/<uuid>"
     data_url: "/v1/admin/system_settings/sales_areas"

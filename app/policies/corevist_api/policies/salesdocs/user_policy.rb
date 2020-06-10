@@ -16,6 +16,10 @@ module CorevistAPI
       def show?
         user.authorized_for?('view_orders')
       end
+
+      def download?
+        true
+      end
     end
   end
 end
