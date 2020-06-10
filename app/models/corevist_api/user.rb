@@ -13,9 +13,9 @@ module CorevistAPI
                             join_table: 'assignable_roles_users',
                             association_foreign_key: 'role_id'
     has_many :jwt_tokens, dependent: :destroy
-    belongs_to :user_type
+    belongs_to :user_type, optional: true
     belongs_to :user_classification, optional: true
-    belongs_to :microsite
+    belongs_to :microsite, optional: true
 
     before_create :set_uuid
 

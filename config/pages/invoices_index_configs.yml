@@ -1,4 +1,4 @@
-title: "page title|search for invoice"
+title: "<%= _('page title|search for invoice') %>"
 components:
   - uuid: "search_invoice_table"
     description: "Fields with an asterisk (*) are mandatory."
