@@ -21,11 +21,11 @@ module CorevistAPI
     end
 
     def created_by
-      CorevistAPI::User.find_by(id: self.read_attribute(:created_by))&.name || self.read_attribute(:created_by)
+      CorevistAPI::User.find_by(id: self.read_attribute(:created_by))&.username || self.read_attribute(:created_by)
     end
 
     def updated_by
-      CorevistAPI::User.find_by(id: self.read_attribute(:updated_by))&.name || self.read_attribute(:updated_by)
+      CorevistAPI::User.find_by(id: self.read_attribute(:updated_by))&.username || self.read_attribute(:updated_by)
     end
 
     private
