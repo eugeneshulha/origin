@@ -63,6 +63,7 @@ CorevistAPI::Engine.routes.draw do
       # admin panel
       namespace :admin do
         resources :users, only: %i[index new create edit update show destroy], param: :uuid do
+          post :download, to: 'users#download', on: :collection
           get :configs, on: :collection, to: 'users#index_configs'
           get :configs, on: :member, to: 'users#show_configs'
           get 'filters/new', on: :collection, to: 'users/filters#new'

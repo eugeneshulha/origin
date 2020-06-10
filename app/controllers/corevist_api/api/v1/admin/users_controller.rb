@@ -1,7 +1,10 @@
 module CorevistAPI
   module API::V1
     class Admin::UsersController < Admin::BaseController
+      include CorevistAPI::Downloadable
+
       before_action :check_step, only: :create
+      before_action :dispatch_object
 
       form_performer_for :index, :show, :create, :update, :destroy
       configs_for :new, :index, :show, :edit
@@ -22,6 +25,10 @@ module CorevistAPI
 
       def scope_model
         User
+      end
+
+      def dispatch_object
+        @obj = ('CorevistAPI::' + controller_name.singularize.capitalize).safe_constantize.new
       end
     end
   end

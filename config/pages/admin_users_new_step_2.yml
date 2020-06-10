@@ -6,7 +6,6 @@ components:
     type: datatable
     name: "role_ids"
     url: "/v1/assigned_roles"
-    selected_rows: []
     data_url: "/v1/"
     elements:
       thead:
