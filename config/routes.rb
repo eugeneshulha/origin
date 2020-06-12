@@ -131,6 +131,11 @@ CorevistAPI::Engine.routes.draw do
       end
 
       resources :site_configs, only: [:index]
+
+      scope :cart do
+        post :simulate, to: 'carts#simulate'
+        post :create, to: 'carts#create'
+      end
     end
   end
 

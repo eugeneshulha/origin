@@ -79,7 +79,11 @@ module CorevistAPI
         account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',
         payments_create: 'CorevistAPI::Forms::Invoice::Pay',
         salesdocs_questions_create: 'CorevistAPI::Forms::Salesdoc::Question::Create',
-        invoices_questions_create: 'CorevistAPI::Forms::Invoice::Question::Create'
+        invoices_questions_create: 'CorevistAPI::Forms::Invoice::Question::Create',
+
+        # Carts
+        carts_simulate: 'CorevistAPI::Forms::Carts::SimulateForm',
+        carts_create: 'CorevistAPI::Forms::Carts::CreateForm'
       }
     end
   end

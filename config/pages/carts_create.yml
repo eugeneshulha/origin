@@ -1,0 +1,32 @@
+title: "<%= _('page title|create cart') %>"
+components:
+  - uuid: "cart_create_form"
+    description: "<%= _('page title|create cart') %>"
+    method: POST
+    title: "<%= _('page title|create cart') %>"
+    type: form
+    url: "/v1/carts/create"
+    elements:
+      - - atom: hidden
+          uuid: "doc_type"
+          name: "doc_type"
+
+      - - atom: hidden
+          uuid: "sales_area"
+          name: "sales_area"
+          
+      - - atom: hidden
+          uuid: "rdd"
+          name: "rdd"
+
+      - - atom: hidden
+          uuid: "po_number"
+          name: "po_number"
+
+      - - atom: text
+          uuid: "items"
+          name: "items"
+          
+      - - atom: text
+          uuid: "partners"
+          name: "partners"

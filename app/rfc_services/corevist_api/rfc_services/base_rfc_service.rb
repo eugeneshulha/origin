@@ -101,6 +101,7 @@ module CorevistAPI
           open_items: '/COREVIST/OPEN_ITEMS',
           get_pdf: '/COREVIST/GET_PDF',
           pay_bill: '/COREVIST/PAY_BILL',
+          salesdoc_create: '/COREVIST/SALESDOC_CREATE'
         }[method]
       end
 

@@ -96,7 +96,11 @@ module CorevistAPI
         site_configs_index: 'CorevistAPI::Services::SiteConfigs::Index',
 
         login: 'CorevistAPI::Services::User::LoginService',
-        refresh_token: 'CorevistAPI::Services::Token::RefreshService'
+        refresh_token: 'CorevistAPI::Services::Token::RefreshService',
+
+        # Cart
+        carts_simulate: 'CorevistAPI::Services::Carts::SimulateService',
+        carts_create: 'CorevistAPI::Services::Carts::CreateService'
       }
     end
   end
