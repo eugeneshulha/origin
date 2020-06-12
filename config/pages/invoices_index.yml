@@ -14,9 +14,9 @@ components:
         validation_type: string
         value: ""
       - atom: text
-        uuid: "payer"
+        uuid: "payer_number"
         label: Payer
-        name: "payer"
+        name: "payer_number"
         validation_type: string
         value: ""
       - atom: date

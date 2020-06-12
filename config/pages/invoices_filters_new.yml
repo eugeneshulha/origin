@@ -22,7 +22,7 @@ components:
             - name: "<%= _('lbl|order number') %>"
               value: "salesdoc_number"
             - name: "<%= _('lbl|payer number') %>"
-              value: "payer"
+              value: "payer_number"
             - name: "<%= _('lbl|delivery number') %>"
               value: "delivery_number"
 

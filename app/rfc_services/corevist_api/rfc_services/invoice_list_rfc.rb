@@ -26,7 +26,7 @@ module CorevistAPI
         }
       }
 
-      hash[SEARCH_CRITERIA][PAYER_NR]      = @object.value_for_key(:payer).add_leading_zeros            if @object.value_for_key(:payer)
+      hash[SEARCH_CRITERIA][PAYER_NR]      = @object.value_for_key(:payer_number).add_leading_zeros     if @object.value_for_key(:payer_number)
       hash[SEARCH_CRITERIA][MAT]           = @object.value_for_key(:material).to_s                      if @object.value_for_key(:material)
       hash[SEARCH_CRITERIA][FROM_DOC_DATE] = @object.value_for_key(:from_date).to_s                     if @object.value_for_key(:from_date)
       hash[SEARCH_CRITERIA][TO_DOC_DATE]   = @object.value_for_key(:to_date).to_s                       if @object.value_for_key(:to_date)
