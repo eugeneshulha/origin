@@ -3,6 +3,8 @@ module CorevistAPI
     self.table_name = 'sap_connections'
     enum env: [:development, :qa, :test, :production]
 
+    include CorevistAPI::UserTrackable
+
     scope :current, -> { where(active: true, env: Rails.env) }
 
     before_save :deactivate_the_rest

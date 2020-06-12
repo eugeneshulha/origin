@@ -2,6 +2,8 @@ module CorevistAPI
   class User < ApplicationRecord
     attr_reader :access_exp, :refresh_exp, :token
 
+    include CorevistAPI::UserTrackable
+
     devise :database_authenticatable, :recoverable, :jwt_authenticatable, jwt_revocation_strategy: JWTBlacklist
 
     self.table_name = 'users'

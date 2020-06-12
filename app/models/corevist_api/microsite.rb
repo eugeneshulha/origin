@@ -2,8 +2,10 @@ module CorevistAPI
   class Microsite < ApplicationRecord
     self.table_name = 'microsites'
 
+    include CorevistAPI::UserTrackable
+
     has_and_belongs_to_many :territories, before_add: :check_territories
-    has_and_belongs_to_many :sales_areas
+    has_and_belongs_to_many :sales_areas, -> { distinct }
     has_many :users
 
     validates_presence_of :name
@@ -18,14 +20,6 @@ module CorevistAPI
     
     def to_s
       name
-    end
-
-    def created_by
-      CorevistAPI::User.find_by(id: self.read_attribute(:created_by))&.username || self.read_attribute(:created_by)
-    end
-
-    def updated_by
-      CorevistAPI::User.find_by(id: self.read_attribute(:updated_by))&.username || self.read_attribute(:updated_by)
     end
 
     private

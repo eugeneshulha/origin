@@ -1,13 +1,24 @@
 # populate user classifications
 ActiveRecord::Base.transaction do
   %w[distributor dealer enterprise].each do |c|
-    CorevistAPI::UserClassification.find_or_create_by(id: c)
+    if CorevistAPI::UserClassification.find_by(id: c)
+      puts "User classification #{c} found"
+    else
+      CorevistAPI::UserClassification.create!(id: c)
+      puts "User classification #{c} created"
+    end
   end
 
   # populate user types
   # C: customer and customer-admin, I: internal employee, S: system admin
   { customer: 'C', customer_admin: 'C', translation_admin: 'C', system_admin: 'S', internal_employee: 'I' }.each do |k, v|
     CorevistAPI::UserType.find_or_create_by(title: k, value: v)
+    if CorevistAPI::UserType.find_by(title: k, value: v)
+      puts "User type #{k} found"
+    else
+      if CorevistAPI::UserType.find_by(title: k, value: v)
+      puts "User type #{k} created!"
+    end
   end
 
   # populate microsites
