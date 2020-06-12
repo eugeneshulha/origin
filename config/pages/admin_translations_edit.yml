@@ -33,7 +33,6 @@ components:
           uuid: "cst_translation"
           label: "<%= _('lbl|cst_translation') %>"
           name: "cst_translation"
-          validation_type: string
 
       - - atom: text
           uuid: "status"
