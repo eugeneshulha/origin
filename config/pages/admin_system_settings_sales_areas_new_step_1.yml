@@ -36,3 +36,9 @@ components:
       - - atom: hidden
           uuid: "doc_type_ids"
           name: "doc_type_ids"
+
+      - - atom: button
+          uuid: "button_1"
+          text: "<%= _('btn|next') %>"
+          type: primary
+          action_type: submit

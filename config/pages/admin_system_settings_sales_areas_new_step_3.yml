@@ -1,4 +1,4 @@
-title: "<%= _('page title|sales area doc categories') %>"
+title: ""
 components:
   - uuid: "doc_categories_of_sales_area_form"
     description: ""
