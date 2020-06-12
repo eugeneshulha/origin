@@ -7,6 +7,10 @@ components:
     type: form
     url: "/v1/admin/translations/"
     elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+
       - - atom: text
           uuid: "key"
           label: "<%= _('lbl|key') %>"
