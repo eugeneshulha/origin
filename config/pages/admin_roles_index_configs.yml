@@ -30,7 +30,8 @@ components:
           hidden: false
         - key: true
           name: "active"
-          caption: "<%= _('lbl|is active') %>"
+          caption: "<%= _('lbl|active') %>"
+          datatype: boolean
           label: null
           sortable: true
           hidden: false

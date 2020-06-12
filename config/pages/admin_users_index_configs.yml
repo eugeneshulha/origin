@@ -73,6 +73,7 @@ components:
         - key: true
           name: "active"
           caption: "active"
+          datatype: boolean
           label: null
           sortable: true
           hidden: true

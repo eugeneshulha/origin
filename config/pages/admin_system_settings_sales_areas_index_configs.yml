@@ -16,15 +16,18 @@ components:
           sortable: true
           hidden: false
           action: "link"
+
         - key: true
           name: "description"
           caption: "<%= _('lbl|description') %>"
           label: null
           sortable: true
           hidden: false
+
         - key: true
           name: "active"
           caption: "<%= _('lbl|active') %>"
+          datatype: boolean
           label: null
           sortable: true
           hidden: false

@@ -16,30 +16,36 @@ components:
           sortable: true
           hidden: false
           action: "link"
+
         - key: true
           name: "cst_translation"
           caption: "<%= _('lbl|custom translation') %>"
           label: null
           sortable: true
           hidden: false
+
         - key: true
           name: "locale"
           caption: "<%= _('lbl|locale') %>"
           label: null
           sortable: true
           hidden: false
+
         - key: true
           name: "microsite_id"
           caption: "<%= _('lbl|microsite') %>"
           label: null
           sortable: true
           hidden: false
+
         - key: true
           name: "status"
           caption: "<%= _('lbl|status') %>"
           label: null
+          datatype: boolean
           sortable: true
           hidden: false
+
         - key: true
           name: "df_translation"
           caption: "<%= _('lbl|default translation') %>"

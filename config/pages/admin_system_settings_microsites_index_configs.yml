@@ -22,6 +22,7 @@ components:
           label: null
           sortable: true
           hidden: false
+
         - key: true
           name: "updated_by"
           caption: "<%= _('lbl|updated by') %>"
@@ -29,6 +30,13 @@ components:
           sortable: true
           hidden: false
 
+        - key: true
+          name: "updated_by"
+          caption: "<%= _('lbl|updated by') %>"
+          label: null
+          datatype: boolean
+          sortable: true
+          hidden: false
 
         - atom: button
           uuid: "cancel"
