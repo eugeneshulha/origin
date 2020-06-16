@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 2020_06_08_110920) do
     t.string "name", null: false
     t.string "created_by", default: "system", null: false
     t.string "updated_by", default: "system"
-    t.datetime "created_at", default: "2020-06-01 10:41:06", null: false
-    t.datetime "updated_at", default: "2020-06-01 10:41:06"
+    t.datetime "created_at", default: "2020-06-16 07:50:09", null: false
+    t.datetime "updated_at", default: "2020-06-16 07:50:09"
   end
 
   create_table "microsites_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -178,8 +178,8 @@ ActiveRecord::Schema.define(version: 2020_06_08_110920) do
     t.integer "env", default: 0, null: false
     t.string "created_by", default: "system", null: false
     t.string "updated_by", default: "system"
-    t.datetime "created_at", default: "2020-06-02 12:56:22", null: false
-    t.datetime "updated_at", default: "2020-06-02 12:56:22"
+    t.datetime "created_at", default: "2020-06-16 07:50:09", null: false
+    t.datetime "updated_at", default: "2020-06-16 07:50:09"
   end
 
   create_table "sap_downtimes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -12,16 +12,9 @@ module CorevistAPI
     CLOSE_EXCEPTION = 'CONNECTION CLOSE EXCEPTION'.freeze
 
     def initialize
-      # SAPNW::Base.config = CorevistAPI::SAPConnection.current.as_json.with_indifferent_access
-      SAPNW::Base.config = {
-          ashost: Rails.env.development? ? 'localhost' : '172.20.3.2',
-          sysnr: "00",
-          client: "400",
-          user: "core_cpic",
-          passwd: "b2b4you",
-          lang: 'EN',
-          trace: 0
-      }.with_indifferent_access
+      CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute) unless CorevistAPI::SAPConnection.current
+
+      SAPNW::Base.config = CorevistAPI::SAPConnection.current.connection_params
     end
 
     def open

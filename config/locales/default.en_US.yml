@@ -238,3 +238,4 @@ en_US:
   error|attributes.from_date.blank: From date value is missing
   error|attributes.to_date.blank: TO date value is missing
   error|please specify a criteria to search: Please specify a criteria to search
+  error|sales area has assigned partners: Sales area has assigned partners hence can not be deleted. Please

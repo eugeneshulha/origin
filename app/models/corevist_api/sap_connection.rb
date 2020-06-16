@@ -5,10 +5,15 @@ module CorevistAPI
 
     include CorevistAPI::UserTrackable
 
-    scope :current, -> { where(active: true, env: Rails.env) }
+    scope :current, -> { find_by(active: true, env: Rails.env) }
 
     before_save :deactivate_the_rest
     validates :title, uniqueness: { scope: :env,  message: N_('error|attributes.title.not_uniq') }
+
+    def connection_params
+      p = %i[ashost sysnr client user passwd lang trace]
+      self.as_json.with_indifferent_access.slice(*p)
+    end
 
     private
 

@@ -16,104 +16,75 @@ ActiveRecord::Base.transaction do
     if CorevistAPI::UserType.find_by(title: k, value: v)
       puts "User type #{k} found"
     else
-      if CorevistAPI::UserType.find_by(title: k, value: v)
+      CorevistAPI::UserType.create!(title: k, value: v)
       puts "User type #{k} created!"
     end
   end
 
   # populate microsites
-  microsite_1 = CorevistAPI::Microsite.find_or_create_by(name: 'microsite_1')
+  microsite_1 = CorevistAPI::Microsite.find_by(name: 'microsite_1')
+  if microsite_1.blank?
+    microsite_1 = CorevistAPI::Microsite.create(name: 'microsite_1')
+    puts "Microsite \"#{microsite_1.name}\" created!"
+  end
 
   # populate territories
   CorevistAPI::Territory.find_or_create_by(title: 'US blue chips, North West', territory: :W01) do |territory|
-    territory.microsites << CorevistAPI::Microsite.first
+    territory.microsites = [CorevistAPI::Microsite.first]
   end.save
 
-  sales_area_1 = CorevistAPI::SalesArea.find_or_create_by(
-    title: '30001000',
-    created_by: 'seeds'
-  )
+  sales_areas = %w[30001000 30001200 30001400 10001000]
+  sales_areas.each_with_index do |s_a, index|
+    sales_area = CorevistAPI::SalesArea.find_by(title: s_a)
+    instance_variable_set("@sales_area_#{index}", sales_area) && next if sales_area
 
-  sales_area_2 = CorevistAPI::SalesArea.find_or_create_by(
-    title: '30001200',
-    created_by: 'seeds'
-  )
+    sales_area = CorevistAPI::SalesArea.create!(title: s_a, created_by: 'system')
+    instance_variable_set("@sales_area_#{index}", sales_area)
+    puts "Sales area \"#{sales_area.title}\" created!"
+  end
 
-  sales_area_3 = CorevistAPI::SalesArea.find_or_create_by(
-    title: '30001400',
-    created_by: 'seeds'
-  )
+  #
+  # list of permissions to build permissions and roles
+  # Permission name "view_orders" gets converted to role View Orders
+  # Roles in seeds file are stored in variables created from permission name
+  # Permission name "pay_invoices" -> Role variable @pay_invoices_role
+  #
+  permissions = %w[
+      open_items
+      search_for_invoices
+      search_for_orders
+      view_invoices
+      view_orders
+      pay_invoices
+      translation_maintenance
+      user_maintenance
+      role_maintenance
+      system_maintenance
+      content_maintenance
+      look_and_feel_maintenance
+      login_when_sap_is_down
+    ]
 
-  sales_area_4 = CorevistAPI::SalesArea.find_or_create_by(
-    title: '10001000',
-    created_by: 'seeds'
-  )
+  permissions.each do |title|
+    if CorevistAPI::Permission.find_by(title: title)
+      puts "Permission #{title} exists!"
+    else
+      CorevistAPI::Permission.create!(title: title)
+      puts "Permission #{title} created!"
+    end
+  end
 
-  role_1 = CorevistAPI::Role.find_or_create_by!(
-    title: 'Create Roles',
-    description: 'That role lets you create roles',
-    created_by: 'seeds'
-  )
-
-  role_2 = CorevistAPI::Role.find_or_create_by!(
-    title: 'View Roles',
-    description: 'That role lets you create roles',
-    created_by: 'seeds'
-  )
-
-  role_4 = CorevistAPI::Role.find_or_create_by!(
-    title: 'No view invoices',
-    description: 'That role lets you create roles',
-    created_by: 'seeds'
-  )
-
-  open_items_role = CorevistAPI::Role.find_or_create_by!(
-      title: 'Open Items',
-      description: 'That role lets you see Open Items',
-      created_by: 'seeds'
-  )
-
-  role_maintenance_role = CorevistAPI::Role.find_or_create_by!(
-      title: 'Role Maintenance',
-      description: 'That role lets you manage roles',
-      created_by: 'seeds'
-  )
-
-  search_for_invoices_role = CorevistAPI::Role.find_or_create_by!(
-      title: 'Search for invoices',
-      description: 'That role lets you Search for invoices',
-      created_by: 'seeds'
-  )
-
-  search_for_orders_role = CorevistAPI::Role.find_or_create_by!(
-      title: 'Search for Orders',
-      description: 'That role lets you Search for Orders',
-      created_by: 'seeds'
-  )
-
-  translation_maintenance_role = CorevistAPI::Role.find_or_create_by!(
-      title: 'Translation Maintenance',
-      description: 'That role lets you manage translation',
-      created_by: 'seeds'
-  )
-
-  user_maintenance_role = CorevistAPI::Role.find_or_create_by!(
-      title: 'Roles Maintenance',
-      description: 'That role lets you manage roles',
-      created_by: 'seeds'
-  )
-
-  view_invoices_role = CorevistAPI::Role.find_or_create_by!(
-      title: 'View Invoices',
-      description: 'That role lets you View Invoices',
-      created_by: 'seeds'
-  )
-
-  view_orders_role = CorevistAPI::Role.find_or_create_by!(
-      title: 'View Orders',
-      description: 'That role lets you View Orders',
-      created_by: 'seeds'
-  )
+  permissions.each do |title|
+    if (role = CorevistAPI::Role.find_by(title: title.titleize))
+      instance_variable_set("@#{title}_role", role)
+      puts "Role '#{title.titleize}' found!"
+    else
+      role = CorevistAPI::Role.create!(title: title.titleize)
+      role.permissions = [CorevistAPI::Permission.find_by(title: title)]
+      instance_variable_set("@#{title}_role", role)
+      puts "Role #{title.titleize} created!"
+    end
+  end
 
   doc_type = CorevistAPI::DocType.find_or_create_by!(
     title: 'TA',
@@ -123,10 +94,7 @@ ActiveRecord::Base.transaction do
 
   %w[C I H M O P U B A].each do |c|
     dc = CorevistAPI::DocCategory.find_or_create_by!(id: c, created_by: 'seeds')
-    dc.sales_areas << sales_area_1
-    dc.sales_areas << sales_area_2
-    dc.sales_areas << sales_area_3
-    dc.sales_areas << sales_area_4
+    dc.sales_areas = [@sales_area_0, @sales_area_1, @sales_area_2, @sales_area_3]
   end
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_1') do |user|
@@ -139,25 +107,10 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [role_1]
+    user.roles = CorevistAPI::Role.all
   end.save
 
-  permissions = %w[ open_items
-      search_for_invoices
-      search_for_orders
-      view_invoices
-      view_orders
-      pay_invoices
-      translation_maintenance
-      user_maintenance
-      role_maintenance
-      system_maintenance
-      content_maintenance
-      look_and_feel_maintenance
-    ]
-  permissions.each do |title|
-    CorevistAPI::Permission.find_or_create_by!(title: title)
-  end
+  @user_1 = CorevistAPI::User.find_by(username: 'user_1')
 
   CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |user|
     user.password = '123123123'
@@ -169,99 +122,46 @@ ActiveRecord::Base.transaction do
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
     user.phone = '123456789'
-    user.roles = [role_1]
+    user.roles = CorevistAPI::Role.all
   end.save
 
-  CorevistAPI::Partner.new.tap do |payer|
-    payer.user = CorevistAPI::User.find_by_username('user_1')
-    payer.sales_area = sales_area_1
-    payer.number = '0000003000'
-    payer.function = 'RG'
+  CorevistAPI::Partner.find_or_initialize_by(number: '0000003000', sales_area_id: @sales_area_0.id, user_id: @user_1.id, function: 'RG') do |payer|
     payer.state = 'NE'
     payer.country = 'US'
     payer.city = 'New York'
     payer.assigned = true
   end.save
 
-  CorevistAPI::Partner.new.tap do |payer|
-    payer.user = CorevistAPI::User.find_by_username('user_1')
-    payer.sales_area = sales_area_1
-    payer.number = '0000003001'
-    payer.function = 'RG'
+  CorevistAPI::Partner.find_or_initialize_by(number: '0000003001', sales_area_id: @sales_area_0.id, user_id: @user_1.id, function: 'RG') do |payer|
     payer.state = 'NE'
     payer.country = 'US'
     payer.city = 'New York'
     payer.assigned = true
   end.save
 
-  CorevistAPI::Partner.new.tap do |payer|
-    payer.user = CorevistAPI::User.find_by_username('user_1')
-    payer.sales_area = sales_area_1
-    payer.number = '0000003001'
-    payer.function = 'AG'
+  CorevistAPI::Partner.find_or_initialize_by(number: '0000003001', sales_area_id: @sales_area_0.id, user_id: @user_1.id, function: 'AG') do |payer|
     payer.state = 'NE'
     payer.country = 'US'
     payer.city = 'New York'
     payer.assigned = true
   end.save
 
-  CorevistAPI::Partner.new.tap do |payer|
-    payer.user = CorevistAPI::User.find_by_username('user_1')
-    payer.sales_area = sales_area_1
-    payer.number = '0000003050'
-    payer.function = 'RG'
+  CorevistAPI::Partner.find_or_initialize_by(number: '0000003050', sales_area_id: @sales_area_0.id, user_id: @user_1.id, function: 'RG') do |payer|
     payer.state = 'NE'
     payer.country = 'US'
     payer.city = 'New York'
     payer.assigned = true
   end.save
 
-  CorevistAPI::Partner.new.tap do |sold_to|
-    sold_to.user = CorevistAPI::User.find_by_username('user_1')
-    sold_to.sales_area = sales_area_1
-    sold_to.number = '0000003000'
-    sold_to.function = 'AG'
-    sold_to.state = 'NE'
-    sold_to.country = 'US'
-    sold_to.city = 'New York'
-    sold_to.assigned = true
+  CorevistAPI::Partner.find_or_initialize_by(number: '0000003000', sales_area_id: @sales_area_0.id, user_id: @user_1.id, function: 'AG') do |payer|
+    payer.state = 'NE'
+    payer.country = 'US'
+    payer.city = 'New York'
+    payer.assigned = true
   end.save
 
-  doc_type.sales_areas.delete_all
-
-  role_1.permissions.delete_all
-  role_2.permissions.delete_all
-  role_4.permissions.delete_all
-  open_items_role.permissions.delete_all
-  role_maintenance_role.permissions.delete_all
-  search_for_invoices_role.permissions.delete_all
-  search_for_orders_role.permissions.delete_all
-  translation_maintenance_role.permissions.delete_all
-  user_maintenance_role.permissions.delete_all
-  view_invoices_role.permissions.delete_all
-  view_orders_role.permissions.delete_all
-
-  microsite_1.sales_areas << sales_area_1
-  microsite_1.sales_areas << sales_area_2
-  microsite_1.sales_areas << sales_area_3
-  microsite_1.sales_areas << sales_area_4
-
-  doc_type.sales_areas << sales_area_1
-  doc_type.sales_areas << sales_area_2
-  doc_type.sales_areas << sales_area_3
-  doc_type.sales_areas << sales_area_4
-
-  role_1.permissions << CorevistAPI::Permission.all
-  role_2.permissions << CorevistAPI::Permission.all
-  view_invoices_role.permissions << CorevistAPI::Permission.find_by(title: 'view_invoices')
-  open_items_role.permissions << CorevistAPI::Permission.find_by(title: 'open_items')
-  role_maintenance_role.permissions << CorevistAPI::Permission.find_by(title: 'role_maintenance')
-  search_for_invoices_role.permissions << CorevistAPI::Permission.find_by(title: 'search_for_invoices')
-  search_for_orders_role.permissions << CorevistAPI::Permission.find_by(title: 'search_for_orders')
-  translation_maintenance_role.permissions << CorevistAPI::Permission.find_by(title: 'translation_maintenance')
-  user_maintenance_role.permissions << CorevistAPI::Permission.find_by(title: 'user_maintenance')
-  view_invoices_role.permissions << CorevistAPI::Permission.find_by(title: 'view_invoices')
-  view_orders_role.permissions << CorevistAPI::Permission.find_by(title: 'view_orders')
+  microsite_1.sales_areas = [@sales_area_0, @sales_area_1, @sales_area_2, @sales_area_3]
+  doc_type.sales_areas = [@sales_area_0, @sales_area_1, @sales_area_2, @sales_area_3]
 
   CorevistAPI::User.find_or_initialize_by(username: 'b2b') do |user|
     user.username = 'b2b'
@@ -273,7 +173,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [role_1]
+    user.roles = CorevistAPI::Role.all
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_view_invoices') do |user|
@@ -286,7 +186,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [view_invoices_role]
+    user.roles = [@view_invoices_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_no_view_invoices') do |user|
@@ -299,7 +199,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [role_4]
+    user.roles = [@open_items_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_invoices') do |user|
@@ -312,7 +212,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [search_for_invoices_role]
+    user.roles = [@search_for_invoices_role]
   end.save
 
 
@@ -327,7 +227,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [open_items_role]
+    user.roles = [@open_items_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_role_maintenance') do |user|
@@ -340,7 +240,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [role_maintenance_role]
+    user.roles = [@role_maintenance_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_invoices') do |user|
@@ -353,7 +253,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [search_for_invoices_role]
+    user.roles = [@search_for_invoices_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_orders') do |user|
@@ -366,7 +266,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [search_for_orders_role]
+    user.roles = [@search_for_orders_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_translation_maintenance') do |user|
@@ -379,7 +279,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [translation_maintenance_role]
+    user.roles = [@translation_maintenance_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_user_maintenance') do |user|
@@ -392,7 +292,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [user_maintenance_role]
+    user.roles = [@user_maintenance_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_view_invoices') do |user|
@@ -405,7 +305,7 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [view_invoices_role]
+    user.roles = [@view_invoices_role]
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_view_orders') do |user|
@@ -418,19 +318,19 @@ ActiveRecord::Base.transaction do
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
-    user.roles = [view_orders_role]
+    user.roles = [@view_orders_role]
   end.save
 
   connection_1 = {
       title: 'DEMO SAP', description: '', mshost: '', ashost: '172.20.3.2', sysnr: '00', client: '400',
-      user: 'core_cpic', passwd: 'b2b4you', lang: 'EN', trace: '0', loglevel: '', active: false
+      user: 'core_cpic', passwd: 'b2b4you', lang: 'EN', trace: '0', loglevel: '', active: true, env: :qa
   }
 
   CorevistAPI::SAPConnection.find_or_create_by(connection_1)
 
   localhost_connection_2 = {
       title: 'DEMO SAP', description: '', mshost: '', ashost: 'localhost', sysnr: '00', client: '400',
-      user: 'core_cpic', passwd: 'b2b4you', lang: 'EN', trace: '0', loglevel: '', active: true
+      user: 'core_cpic', passwd: 'b2b4you', lang: 'EN', trace: '0', loglevel: '', active: true, env: :development
   }
 
   CorevistAPI::SAPConnection.find_or_create_by(localhost_connection_2)

@@ -35,7 +35,7 @@ module CorevistAPI::API
 
     def handle_exception(exception)
       # TODO: rewrite it. Base exceptions should not be under _('error|...') namespace
-      error(_("error|#{exception}"))
+      error(_("#{exception}"))
 
       log_exception(exception)
     end
