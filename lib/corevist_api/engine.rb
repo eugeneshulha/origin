@@ -1,7 +1,10 @@
+
 module CorevistAPI
   class Engine < ::Rails::Engine
     isolate_namespace CorevistAPI
     engine_name 'corevist_api'
+
+    include CorevistAPI::Factories::FactoryInterface
 
     config.railties_order = [CorevistAPI::Engine, :main_app, :all]
     config.active_job.queue_adapter = :sidekiq
@@ -15,6 +18,12 @@ module CorevistAPI
         app.config.assets.paths << File.join(CorevistAPI::Engine.root, 'vendor/assets/corevist_api/', sub, '/')
         app.config.assets.paths << File.join(CorevistAPI::Engine.root, 'app/assets/corevist_api/', sub, '/')
       end
+    end
+
+    initializer 'connect_to_sap' do
+      service = service_for(:connect_to_sap)
+      result = service.call
+      CorevistAPI::Context.current_connection = result.data
     end
 
     initializer :translations do

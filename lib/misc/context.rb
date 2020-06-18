@@ -22,19 +22,25 @@ module CorevistAPI
       # Default methods will just translate method calls into proper calls to Context::Base.
       # Default calls can be overridden to add additional behavior.
 
-      define_method "current_user=" do |value|
-        set(:current_user, value)
-      end
+      methods = %i[current_user current_connection]
 
-      define_method :current_user do
-        get(:current_user)
+      methods.each do |method|
+        define_method "#{method}=" do |value|
+          set(method, value)
+        end
+
+        define_method method do
+          get(method)
+        end
       end
 
       delegate :[], :[]=, to: :data, allow_nil: true
 
       # Clears context data.
-      def clear
-        Thread.current[:context] = nil
+      def clear(*keys)
+        keys.each do |k|
+          Thread.current[:context][k.to_sym] = nil
+        end
       end
 
       private

@@ -111,6 +111,7 @@ CorevistAPI::Engine.routes.draw do
             resources :sap_connections, only: %i[index new create update show destroy], param: :uuid do
               get :configs, on: :collection, to: 'sap_connections#index_configs'
               get :configs, on: :member, to: 'sap_connections#edit'
+              get :ping, on: :member, to: 'sap_connections#ping'
             end
 
             resources :sap_downtimes, only: %i[index new create update show destroy], param: :uuid do

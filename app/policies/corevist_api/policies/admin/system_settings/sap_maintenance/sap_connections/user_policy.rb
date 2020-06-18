@@ -16,6 +16,10 @@ module CorevistAPI
       def destroy?
         index?
       end
+
+      def ping?
+        index?
+      end
     end
   end
 end

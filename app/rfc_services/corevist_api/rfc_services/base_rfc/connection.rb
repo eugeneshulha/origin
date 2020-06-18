@@ -3,7 +3,6 @@ require 'sapnwrfc'
 
 module CorevistAPI
   class RFCServices::BaseRFC::Connection
-    include Singleton
     include CorevistAPI::RFCServices::BaseRFC::WithHelpers
     include NewRelic::Agent::MethodTracer
 
@@ -11,24 +10,46 @@ module CorevistAPI
 
     CLOSE_EXCEPTION = 'CONNECTION CLOSE EXCEPTION'.freeze
 
-    def initialize
-      CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute) unless CorevistAPI::SAPConnection.current
+    def initialize(configs = {})
+      unless CorevistAPI::SAPConnection.current
+        CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute)
+      end
 
-      SAPNW::Base.config = CorevistAPI::SAPConnection.current.connection_params
+      SAPNW::Base.config = configs.presence || CorevistAPI::SAPConnection.current.connection_params
     end
 
     def open
-      return @connection if @connection.present?
+      return self if !config_changed? && @connection.present?
 
       trace_execution_scoped(['Custom/SAP/init_rfc_connection']) do
         @connection ||= SAPNW::Base.rfc_connect
       end
 
       log_new_connection('RFC_NEW_CONNECTION', sprintf("%010d", rand(9999999999)), Time.now - 0)
+      self
     end
 
     def function(name)
       @connection.discover(name).new_function_call
+    end
+
+    def ping
+      @connection.ping
+
+      log_new_connection('RFC_CONNECTION_PING', sprintf("%010d", rand(9999999999)), Time.now - 0)
+    rescue Exception => exc
+      Rails.logger.tagged('PING EXCEPTION') do
+        log_error(exc)
+      end
+    end
+
+    def reset_server_context
+      @connection.handle&.reset_server_context
+
+    rescue Exception => exc
+      Rails.logger.tagged('RESET SERVER CONTEXT EXCEPTION') do
+        log_error(exc)
+      end
     end
 
     def close
@@ -38,6 +59,11 @@ module CorevistAPI
       Rails.logger.tagged(CLOSE_EXCEPTION) do
         log_error(exc)
       end
+    end
+
+    def config_changed?
+      rfc_config = CorevistAPI::SAPConnection.current.connection_params
+      rfc_config.keys.any? { |field| rfc_config[field] != SAPNW::Base.config[field].to_s }
     end
 
     private

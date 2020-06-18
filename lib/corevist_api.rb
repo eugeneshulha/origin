@@ -9,6 +9,7 @@ require 'sapnwrfc'
 require 'sidekiq'
 require 'config'
 require 'rack/cors'
+require_relative '../app/factories/corevist_api/factories/factory_interface'
 require 'corevist_api/engine'
 require 'gettext_i18n_rails'
 

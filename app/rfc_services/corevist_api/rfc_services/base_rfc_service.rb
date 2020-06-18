@@ -50,6 +50,10 @@ module CorevistAPI
               dump_input
             end
 
+            with_benchmark(:res_con_time) do
+              reset_server_context
+            end
+
             with_benchmark(:call_time) do
               execute_function
             end

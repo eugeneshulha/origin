@@ -17,8 +17,14 @@ module CorevistAPI::API
 
     respond_to :json
 
+    helper_method :current_connection
+
     def not_found
       error_404('api.errors.not_found')
+    end
+
+    def current_connection
+      CorevistAPI::Context.current_connection
     end
 
     private

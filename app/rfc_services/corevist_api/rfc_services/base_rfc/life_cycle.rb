@@ -48,12 +48,16 @@ module CorevistAPI
       end
     end
 
+    def reset_server_context
+      @connection.reset_server_context
+    end
+
     def set_connection
-      @connection = CorevistAPI::RFCServices::BaseRFC::Connection.instance.open
+      @connection = CorevistAPI::Context.current_connection
     end
 
     def set_function
-      @function = CorevistAPI::RFCServices::BaseRFC::Connection.instance.function(@func_name)
+      @function = CorevistAPI::Context.current_connection.function(@func_name)
     end
 
     def result

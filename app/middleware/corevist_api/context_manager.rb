@@ -8,7 +8,7 @@ module CorevistAPI
 
     def call(env)
       @status, @headers, @response = @app.call(env)
-      CorevistAPI::Context.clear
+      CorevistAPI::Context.clear(:current_user)
       [@status, @headers, @response]
     end
   end

@@ -67,6 +67,7 @@ module CorevistAPI
         admin_system_settings_sap_maintenance_sap_connections_show: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::ShowService',
         admin_system_settings_sap_maintenance_sap_connections_update: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::UpdateService',
         admin_system_settings_sap_maintenance_sap_connections_destroy: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::DestroyService',
+        admin_system_settings_sap_maintenance_sap_connections_ping: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::PingService',
 
         admin_translations_index_filter: 'CorevistAPI::Services::Admin::Translations::FilterService',
         admin_translations_index: 'CorevistAPI::Services::Admin::Translations::IndexService',
@@ -100,7 +101,10 @@ module CorevistAPI
 
         # Cart
         carts_simulate: 'CorevistAPI::Services::Carts::SimulateService',
-        carts_create: 'CorevistAPI::Services::Carts::CreateService'
+        carts_create: 'CorevistAPI::Services::Carts::CreateService',
+
+        # SAP
+        connect_to_sap: 'CorevistAPI::Services::ConnectToSAPService'
       }
     end
   end
