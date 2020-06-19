@@ -21,9 +21,13 @@ module CorevistAPI
     end
 
     initializer 'connect_to_sap' do
-      service = service_for(:connect_to_sap)
-      result = service.call
-      CorevistAPI::Context.current_connection = result.data
+      begin
+        service = service_for(:connect_to_sap)
+        result = service.call
+        CorevistAPI::Context.current_connection = result.data
+      rescue SAPNW::RFC::ConnectionException => e
+        # CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute)
+      end
     end
 
     initializer :translations do
