@@ -22,7 +22,7 @@ module CorevistAPI
 
         result(status: connection.ping)
       rescue SAPNW::RFC::ConnectionException => e
-        r = result(status: false)
+        result(status: false)
       end
     end
   end
