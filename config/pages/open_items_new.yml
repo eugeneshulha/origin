@@ -42,6 +42,11 @@ components:
               type: max
               value: "20"
 
+        - atom: button
+          text: "<%= _('btn|submit') %>"
+          type: secondary
+          action_type: submit
+
         - thead:
             - key: true
               name: 'inv'
