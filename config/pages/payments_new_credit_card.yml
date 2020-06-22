@@ -1,0 +1,30 @@
+- - atom: text
+    uuid: "cc_number"
+    label: "<%= _('lbl|credit card number') %>"
+    name: "cc_number"
+    validation_type: string
+    value: ""
+- - atom: text
+    uuid: "cc_name"
+    label: "<%= _('lbl|credit card name') %>"
+    name: "cc_name"
+    validation_type: string
+    value: ""
+- - atom: text
+    uuid: "cc_month"
+    label: "<%= _('lbl|credit card month') %>"
+    name: "cc_month"
+    validation_type: string
+    value: ""
+- - atom: text
+    uuid: "cc_year"
+    label: "<%= _('lbl|credit card year') %>"
+    name: "cc_year"
+    validation_type: string
+    value: ""
+- - atom: text
+    uuid: "cc_cvv"
+    label: "<%= _('lbl|credit card cvv') %>"
+    name: "cc_cvv"
+    validation_type: string
+    value: ""
