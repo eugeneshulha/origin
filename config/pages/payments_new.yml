@@ -15,6 +15,10 @@ components:
           options:
             - name: Credit card
               value: 'c'
+            - name: Delego
+              value: 'd'
+            - name: eCheck
+              value: 'e'
           validations:
             - message: "<%= I18n.t('my_message') %>"
               type: required
@@ -37,3 +41,24 @@ components:
             - message: "Reference cannot be more than 20 characters"
               type: max
               value: "20"
+
+        - thead:
+            - key: true
+              name: 'inv'
+              caption: "<%= _('lbl|invoice number') %>"
+              label: null
+              sortable: true
+              hidden: false
+              action: 'expand'
+            - key: true
+              name: 'due_date'
+              caption: "<%= _('lbl|due date') %>"
+              label: null
+              sortable: true
+              hidden: false
+            - key: true
+              name: 'amnt'
+              caption: "<%= _('lbl|net value') %>"
+              label: null
+              sortable: true
+              hidden: false
