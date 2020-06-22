@@ -2,6 +2,7 @@ module CorevistAPI::API
   class BaseController < ActionController::API
     before_action :authenticate_user!, except: [:not_found]
     before_action :set_context
+    before_action :establish_sap_connection
     before_action :check_if_sap_is_down
 
     include ActionController::MimeResponds
@@ -21,6 +22,16 @@ module CorevistAPI::API
 
     def not_found
       error_404('api.errors.not_found')
+    end
+
+    def establish_sap_connection
+      return if current_connection.present?
+
+      service = service_for(:connect_to_sap)
+      result = service.call
+      CorevistAPI::Context.current_connection = result.data
+    rescue SAPNW::RFC::ConnectionException => e
+      CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute)
     end
 
     def current_connection

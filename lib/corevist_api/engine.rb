@@ -20,17 +20,6 @@ module CorevistAPI
       end
     end
 
-    initializer 'connect_to_sap' do
-      begin
-        next unless ActiveRecord::Base.connected?
-        service = service_for(:connect_to_sap)
-        result = service.call
-        CorevistAPI::Context.current_connection = result.data
-      rescue SAPNW::RFC::ConnectionException => e
-        # CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute)
-      end
-    end
-
     initializer :translations do
       default_locales = %i[en_US de_DE fr_FR es_ES da_DK sv_SE nl_BE nl_NL ru_RU pt_BR zh_CN pt_PT pl_PL it_IT fr_CA]
       FastGettext.add_text_domain(:api, type: :db, model: CorevistAPI::Translation)

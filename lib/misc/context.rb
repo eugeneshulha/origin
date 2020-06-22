@@ -39,7 +39,7 @@ module CorevistAPI
       # Clears context data.
       def clear(*keys)
         keys.each do |k|
-          Thread.current[:context][k.to_sym] = nil
+          Thread.current[:context].try(:[], k.to_sym).try(:'=', nil)
         end
       end
 
