@@ -63,13 +63,16 @@ module CorevistAPI
         admin_translations_update: 'CorevistAPI::Forms::Admin::Translations::UpdateForm',
         admin_translations_destroy: 'CorevistAPI::Forms::Admin::Translations::DestroyForm',
 
+        # Open Items
+        open_items_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
+        open_items_create: 'CorevistAPI::Forms::OpenItems::CreateForm',
+
         user_registration: 'CorevistAPI::Forms::User::Registration',
         set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',
         invoices_index: 'CorevistAPI::Forms::Invoice::ListForm',
         salesdocs_index: 'CorevistAPI::Forms::Salesdoc::ListForm',
         partners_index: 'CorevistAPI::Forms::Admin::Partners::IndexForm',
         sessions_create: 'CorevistAPI::Forms::User::Login',
-        open_items_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
 
         invoices_items_index: 'CorevistAPI::Forms::Invoice::Items::Index',
         salesdocs_items_index: 'CorevistAPI::Forms::Salesdoc::Items::Index',
@@ -77,7 +80,6 @@ module CorevistAPI
         output_types_index: 'CorevistAPI::Forms::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Forms::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',
-        payments_create: 'CorevistAPI::Forms::Invoice::Pay',
         salesdocs_questions_create: 'CorevistAPI::Forms::Salesdoc::Question::Create',
         invoices_questions_create: 'CorevistAPI::Forms::Invoice::Question::Create',
 

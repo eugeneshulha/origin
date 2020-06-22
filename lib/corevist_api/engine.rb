@@ -22,6 +22,7 @@ module CorevistAPI
 
     initializer 'connect_to_sap' do
       begin
+        next unless ActiveRecord::Base.connected?
         service = service_for(:connect_to_sap)
         result = service.call
         CorevistAPI::Context.current_connection = result.data

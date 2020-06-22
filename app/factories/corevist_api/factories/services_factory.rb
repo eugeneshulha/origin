@@ -83,7 +83,10 @@ module CorevistAPI
         partners_index: 'CorevistAPI::Services::Admin::Partners::IndexService',
         page_configs_read: 'CorevistAPI::Services::PageConfigs::Read',
         page_configs_navigation: 'CorevistAPI::Services::PageConfigs::Navigation',
-        open_items_index: 'CorevistAPI::Services::OpenItems::SearchService',
+
+        # Open Items
+        open_items_index: 'CorevistAPI::Services::OpenItems::IndexService',
+        open_items_create: 'CorevistAPI::Services::OpenItems::CreateService',
 
         invoices_items_index: 'CorevistAPI::Services::Invoice::Items::Index',
         salesdocs_items_index: 'CorevistAPI::Services::Salesdoc::Items::Index',
@@ -91,7 +94,6 @@ module CorevistAPI
         output_types_index: 'CorevistAPI::Services::Document::OutputTypesList',
         show_output_type: 'CorevistAPI::Services::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Services::AccountDetails::Show',
-        payments_create: 'CorevistAPI::Services::Invoice::Pay',
         invoices_questions_create: 'CorevistAPI::Services::Invoice::Question::Create',
         salesdocs_questions_create: 'CorevistAPI::Services::Salesdoc::Question::Create',
         site_configs_index: 'CorevistAPI::Services::SiteConfigs::Index',

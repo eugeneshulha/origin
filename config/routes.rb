@@ -26,7 +26,6 @@ CorevistAPI::Engine.routes.draw do
       resources :account_details, only: [:show], param: :user_id
       resources :accounts, only: [:show], param: :user_id
 
-      resources :payments, only: %i[new create]
       resource :dashboard, only: %i[new] do
         get :navigation, to: 'dashboards#navigation'
       end
@@ -127,9 +126,11 @@ CorevistAPI::Engine.routes.draw do
         get 'filters/configs', on: :collection, to: 'partners/filters#index_configs'
       end
 
-      resources :open_items, only: [:index] do
+      resources :open_items, only: [:index, :new, :create] do
         get :configs, on: :collection, to: 'open_items#index_configs'
       end
+
+      resources :payments, only: %i[index]
 
       resources :site_configs, only: [:index]
 
