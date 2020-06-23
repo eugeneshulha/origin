@@ -9,8 +9,6 @@ module CorevistAPI
         fields(object).each { |field| object.public_send("#{field}=", @form.public_send(field)) }
         return result(object, message: did_not_change) unless object.changed?
 
-        object.updated_by = current_user.id if object.respond_to?(:updated_by)
-
         raise CorevistAPI::ServiceException.new(object.errors.full_messages) unless object.save
 
         result(object)

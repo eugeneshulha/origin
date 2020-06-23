@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_08_110920) do
+ActiveRecord::Schema.define(version: 2020_06_23_110920) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -213,6 +213,7 @@ ActiveRecord::Schema.define(version: 2020_06_08_110920) do
     t.string "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "created_by"
     t.index ["key", "locale"], name: "index_translations_on_key_and_locale"
     t.index ["microsite_id"], name: "index_translations_on_microsite_id"
   end
