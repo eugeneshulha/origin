@@ -12,7 +12,7 @@ module CorevistAPI
 
     def initialize(configs = {})
       unless CorevistAPI::SAPConnection.current
-        CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute)
+        CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute, active: true)
       end
 
       SAPNW::Base.config = configs.presence || CorevistAPI::SAPConnection.current.connection_params

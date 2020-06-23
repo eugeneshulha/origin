@@ -25,13 +25,13 @@ module CorevistAPI::API
     end
 
     def establish_sap_connection
-      return if current_connection.present?
+      return if current_connection.present? || is_sap_down?
 
       service = service_for(:connect_to_sap)
       result = service.call
       CorevistAPI::Context.current_connection = result.data
     rescue SAPNW::RFC::ConnectionException => e
-      CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute)
+      CorevistAPI::SAPDowntime.create(down_from: Time.zone.now, down_to: Time.zone.now + 10.minute, active: true)
     end
 
     def current_connection
