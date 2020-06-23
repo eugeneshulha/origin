@@ -40,4 +40,4 @@ date_formats:
   CI: '%Y/%m/%d'
   SW: '%Y-%m-%d'
 
-self_url: http://localhost:3001/
+self_url: http://localhost:3001
