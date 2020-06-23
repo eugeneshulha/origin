@@ -14,7 +14,13 @@ components:
               value: ""
           - - atom: text
               uuid: "cc_name"
-              label: "<%= _('lbl|credit card name') %>"
+              label: "<%= _('lbl|credit card first name') %>"
+              name: "cc_name"
+              validation_type: string
+              value: ""
+          - - atom: text
+              uuid: "cc_name"
+              label: "<%= _('lbl|credit card last name') %>"
               name: "cc_name"
               validation_type: string
               value: ""
