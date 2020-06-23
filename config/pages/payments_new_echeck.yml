@@ -1,6 +1,14 @@
-- - atom: text
-    uuid: "cc_number"
-    label: "<%= _('lbl|credit card number') %>"
-    name: "cc_number"
-    validation_type: string
-    value: ""
+title: ""
+components:
+    - uuid: "new_credit_card_form"
+      description:
+      method: GET
+      title: ""
+      type: form
+      elements:
+          - - atom: text
+              uuid: "cc_number"
+              label: "<%= _('lbl|credit card number') %>"
+              name: "cc_number"
+              validation_type: string
+              value: ""
