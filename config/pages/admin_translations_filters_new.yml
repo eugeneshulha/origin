@@ -31,6 +31,12 @@ components:
           name: "microsite_id"
           value: ""
 
+      - - atom: text
+          uuid: "df_translation"
+          label: "<%= _('lbl|default translation') %>"
+          name: "df_translation"
+          value: ""
+
       - - atom: button
           uuid: "cancel"
           text: "<%= _('btn|cancel') %>"
