@@ -6,7 +6,8 @@ module CorevistAPI
         c: :credit_card,
         i: :invoice,
         p: :pay_pal,
-        d: :delego
+        d: :delego,
+        e: :echeck
     }.freeze
 
     private
