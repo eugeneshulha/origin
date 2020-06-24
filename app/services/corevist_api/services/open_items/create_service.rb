@@ -3,7 +3,6 @@ module CorevistAPI::Services::OpenItems
     private
 
     def perform
-      binding.pry
       rfc_result = rfc_service_for(:open_items, @form, @params).call
 
       items = rfc_result.data[:open_items].select do |item|
