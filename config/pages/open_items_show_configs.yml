@@ -1,0 +1,23 @@
+title: "<%= _('page title|payment confirmation') %>"
+components:
+  - uuid: "invoice_payment_confirmation"
+    method: POST
+    type: form
+    title: "<%= _('title|thank you for payment') %>"
+    description: ""
+    url: "/v1/auth"
+    elements:
+      - atom: plain_text
+        uuid: "email"
+        label: "<%= _('msg|confirmation email is sent to') %>"
+        name: "email"
+
+      - atom: plain_text
+        uuid: "reference"
+        label: "<%= _('msg|your order number is') %>"
+        name: "reference"
+
+      - atom: button
+        text: "<%= _('btn|dashboard') %>"
+        type: secondary
+        action_type: submit

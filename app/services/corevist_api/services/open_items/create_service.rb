@@ -3,6 +3,7 @@ module CorevistAPI::Services::OpenItems
     private
 
     def perform
+      binding.pry
       rfc_result = rfc_service_for(:open_items, @form, @params).call
 
       items = rfc_result.data[:open_items].select do |item|
@@ -25,11 +26,12 @@ module CorevistAPI::Services::OpenItems
       if @rfc_result.data[:payment_doc_number]
         spreedly.capture_amount(@form.auth_token) if @form.pay_with_cc?
         Mailer.pay_invoices_confirmation(CorevistAPI::Context.current_user.uuid, @rfc_result.data[:payment_doc_number]).deliver_later
+
+        resp = { email: CorevistAPI::Context.current_user.email }.merge(@rfc_result.data.to_h)
+        result(resp)
       else
         raise ServiceException.new('Something is wrong with your payment')
       end
-
-      result(@rfc_result.data)
     end
 
     def spreedly
