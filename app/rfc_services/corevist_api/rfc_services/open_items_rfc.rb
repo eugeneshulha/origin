@@ -35,7 +35,6 @@ module CorevistAPI
     private
 
     def payer_number
-      binding.pry
       (@object.send(:payer_number) || user.payers.first&.number).add_leading_zeros
     end
   end
