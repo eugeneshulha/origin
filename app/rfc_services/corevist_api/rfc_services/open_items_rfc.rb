@@ -35,7 +35,8 @@ module CorevistAPI
     private
 
     def payer_number
-      (@object.instance_variable_get(:@payer_number) || user.payers.first&.number).add_leading_zeros
+      binding.pry
+      (@object.send(:payer_number) || user.payers.first&.number).add_leading_zeros
     end
   end
 end
