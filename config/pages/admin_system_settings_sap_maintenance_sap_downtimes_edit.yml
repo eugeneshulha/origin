@@ -74,7 +74,7 @@ components:
               type: required
               value: ""
 
-      - - atom: time
+      - - atom: timezone
           uuid: "timezone"
           name: "timezone"
           label: "<%= _('lbl|timezone') %>"
