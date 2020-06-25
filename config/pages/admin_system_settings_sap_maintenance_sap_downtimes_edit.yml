@@ -11,10 +11,6 @@ components:
           uuid: "uuid"
           name: "uuid"
           label: "<%= _('lbl|uuid') %>"
-          validations:
-            - message: "<%= _('error|attributes.uuid.blank') %>"
-              type: required
-              value: ""
 
       - - atom: text
           uuid: "title"
@@ -39,21 +35,51 @@ components:
           placeholder: "<%= _('plc|active') %>"
 
       - - atom: date
-          uuid: "down_from"
-          name: "down_from"
-          label: "<%= _('lbl|down_from') %>"
-          placeholder: "<%= _('plc|down_from') %>"
+          uuid: "down_from_date"
+          name: "down_from_date"
+          label: "<%= _('lbl|down from date') %>"
+          placeholder: "<%= _('plc|down from date') %>"
           validations:
-            - message: "<%= _('error|attributes.down_from.blank') %>"
+            - message: "<%= _('error|attributes.down_from_date.blank') %>"
+              type: required
+              value: ""
+
+        - atom: time
+          uuid: "down_from_time"
+          name: "down_from_time"
+          label: "<%= _('lbl|down from time') %>"
+          placeholder: "<%= _('plc|down from time') %>"
+          validations:
+            - message: "<%= _('error|attributes.down_from_time.blank') %>"
               type: required
               value: ""
 
       - - atom: date
-          uuid: "down_to"
-          name: "down_to"
-          label: "<%= _('lbl|down_to') %>"
-          placeholder: "<%= _('plc|down_to') %>"
+          uuid: "down_to_date"
+          name: "down_to_date"
+          label: "<%= _('lbl|down to date') %>"
+          placeholder: "<%= _('plc|down to date') %>"
           validations:
-            - message: "<%= _('error|attributes.down_to.blank') %>"
+            - message: "<%= _('error|attributes.down_to_date.blank') %>"
+              type: required
+              value: ""
+
+        - atom: time
+          uuid: "down_to_time"
+          name: "down_to_time"
+          label: "<%= _('lbl|down to time') %>"
+          placeholder: "<%= _('plc|down to time') %>"
+          validations:
+            - message: "<%= _('error|attributes.down_to_time.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: time
+          uuid: "timezone"
+          name: "timezone"
+          label: "<%= _('lbl|timezone') %>"
+          placeholder: "<%= _('plc|timezone') %>"
+          validations:
+            - message: "<%= _('error|attributes.timezone.blank') %>"
               type: required
               value: ""
