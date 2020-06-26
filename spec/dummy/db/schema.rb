@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_121540) do
+ActiveRecord::Schema.define(version: 2020_06_26_110920) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
@@ -137,8 +137,8 @@ ActiveRecord::Schema.define(version: 2020_06_23_121540) do
     t.string "name", null: false
     t.string "created_by", default: "system", null: false
     t.string "updated_by", default: "system"
-    t.datetime "created_at", default: "2020-06-16 07:50:09", null: false
-    t.datetime "updated_at", default: "2020-06-16 07:50:09"
+    t.datetime "created_at", default: "2020-06-22 15:08:13", null: false
+    t.datetime "updated_at", default: "2020-06-22 15:08:13"
   end
 
   create_table "microsites_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -245,20 +245,23 @@ ActiveRecord::Schema.define(version: 2020_06_23_121540) do
     t.integer "env", default: 0, null: false
     t.string "created_by", default: "system", null: false
     t.string "updated_by", default: "system"
-    t.datetime "created_at", default: "2020-06-16 07:50:09", null: false
-    t.datetime "updated_at", default: "2020-06-16 07:50:09"
+    t.datetime "created_at", default: "2020-06-22 15:08:13", null: false
+    t.datetime "updated_at", default: "2020-06-22 15:08:13"
   end
 
   create_table "sap_downtimes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.datetime "down_from"
-    t.datetime "down_to"
     t.boolean "active", null: false
     t.string "created_by"
     t.string "updated_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "down_from_time"
+    t.time "down_to_time"
+    t.date "down_to_date"
+    t.date "down_from_date"
+    t.string "timezone"
   end
 
   create_table "territories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
