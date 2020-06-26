@@ -5,7 +5,7 @@ module CorevistAPI
 
     include CorevistAPI::UserTrackable
 
-    scope :current, -> { find_by(active: true, env: Rails.env) }
+    scope :current, -> { where(active: true, env: Rails.env).first }
 
     before_save :deactivate_the_rest
     validates :title, uniqueness: { scope: :env,  message: N_('error|attributes.title.not_uniq') }
