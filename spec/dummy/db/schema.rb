@@ -10,13 +10,80 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_110920) do
+ActiveRecord::Schema.define(version: 2020_06_23_121540) do
 
   create_table "assignable_roles_users", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "role_id"
     t.bigint "user_id"
     t.index ["role_id"], name: "index_assignable_roles_users_on_role_id"
     t.index ["user_id"], name: "index_assignable_roles_users_on_user_id"
+  end
+
+  create_table "cart_extensions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "cart_uuid", null: false
+    t.string "name"
+    t.string "value"
+    t.string "created_by", default: "system", null: false
+    t.string "updated_by", default: "system"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_uuid"], name: "fk_rails_cd2d7bdc77"
+  end
+
+  create_table "cart_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "cart_uuid", null: false
+    t.string "material", null: false
+    t.string "quantity", null: false
+    t.string "rdd"
+    t.string "unit"
+    t.string "ref_doc_nr"
+    t.string "ref_doc_cat"
+    t.string "ref_item_nr"
+    t.string "created_by", default: "system", null: false
+    t.string "updated_by", default: "system"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_uuid"], name: "fk_rails_cd114eadac"
+  end
+
+  create_table "cart_partners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "cart_uuid", null: false
+    t.string "number"
+    t.string "function"
+    t.string "item_number", default: "000000"
+    t.string "created_by", default: "system", null: false
+    t.string "updated_by", default: "system"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_uuid"], name: "fk_rails_bf0b6be179"
+  end
+
+  create_table "carts", primary_key: "uuid", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.string "po_number"
+    t.bigint "doc_type_id"
+    t.bigint "sales_area_id"
+    t.string "rdd"
+    t.string "valid_from", default: "00000000"
+    t.string "valid_to", default: "00000000"
+    t.string "delivery_block"
+    t.string "phone"
+    t.string "flags"
+    t.string "ref_doc_nr"
+    t.string "ref_doc_cat"
+    t.string "text_ids"
+    t.string "item_text_ids"
+    t.boolean "customer_material", default: true
+    t.integer "price_print_flag"
+    t.boolean "active", default: false, null: false
+    t.string "created_by", default: "system", null: false
+    t.string "updated_by", default: "system"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doc_type_id"], name: "index_carts_on_doc_type_id"
+    t.index ["sales_area_id"], name: "index_carts_on_sales_area_id"
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "doc_categories", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,8 +137,8 @@ ActiveRecord::Schema.define(version: 2020_06_23_110920) do
     t.string "name", null: false
     t.string "created_by", default: "system", null: false
     t.string "updated_by", default: "system"
-    t.datetime "created_at", default: "2020-06-22 15:08:13", null: false
-    t.datetime "updated_at", default: "2020-06-22 15:08:13"
+    t.datetime "created_at", default: "2020-06-16 07:50:09", null: false
+    t.datetime "updated_at", default: "2020-06-16 07:50:09"
   end
 
   create_table "microsites_sales_areas", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -178,8 +245,8 @@ ActiveRecord::Schema.define(version: 2020_06_23_110920) do
     t.integer "env", default: 0, null: false
     t.string "created_by", default: "system", null: false
     t.string "updated_by", default: "system"
-    t.datetime "created_at", default: "2020-06-22 15:08:13", null: false
-    t.datetime "updated_at", default: "2020-06-22 15:08:13"
+    t.datetime "created_at", default: "2020-06-16 07:50:09", null: false
+    t.datetime "updated_at", default: "2020-06-16 07:50:09"
   end
 
   create_table "sap_downtimes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -270,4 +337,7 @@ ActiveRecord::Schema.define(version: 2020_06_23_110920) do
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
+  add_foreign_key "cart_extensions", "carts", column: "cart_uuid", primary_key: "uuid", on_delete: :cascade
+  add_foreign_key "cart_items", "carts", column: "cart_uuid", primary_key: "uuid", on_delete: :cascade
+  add_foreign_key "cart_partners", "carts", column: "cart_uuid", primary_key: "uuid", on_delete: :cascade
 end
