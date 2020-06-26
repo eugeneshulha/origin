@@ -70,13 +70,13 @@ components:
               type: required
               value: ""
 
-
-      - - atom: timezone
-          uuid: "timezone"
-          name: "timezone"
-          label: "<%= _('lbl|timezone') %>"
-          placeholder: "<%= _('plc|timezone') %>"
-          validations:
-            - message: "<%= _('error|attributes.timezone.blank') %>"
-              type: required
-              value: ""
+#
+#      - - atom: timezone
+#          uuid: "timezone"
+#          name: "timezone"
+#          label: "<%= _('lbl|timezone') %>"
+#          placeholder: "<%= _('plc|timezone') %>"
+#          validations:
+#            - message: "<%= _('error|attributes.timezone.blank') %>"
+#              type: required
+#              value: ""
