@@ -24,15 +24,29 @@ components:
           hidden: false
 
         - key: true
-          name: "down_from"
-          caption: "<%= _('lbl|down_from') %>"
+          name: "down_from_date"
+          caption: "<%= _('lbl|down from date') %>"
           label: null
           sortable: true
           hidden: false
 
         - key: true
-          name: "down_to"
-          caption: "<%= _('lbl|down_to') %>"
+          name: "down_to_date"
+          caption: "<%= _('lbl|down to date') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "down_from_time"
+          caption: "<%= _('lbl|down from time') %>"
+          label: null
+          sortable: true
+          hidden: false
+
+        - key: true
+          name: "down_to_time"
+          caption: "<%= _('lbl|down to time') %>"
           label: null
           sortable: true
           hidden: false
