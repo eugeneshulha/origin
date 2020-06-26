@@ -18,6 +18,12 @@ es_ES:
   page title|new user: Nuevo Usuario
   page title|new role: Nuevo rol
   page title|edit role: Editar rol
+  page title|sap connections maintenance: Mantenimiento de SAP
+  page title|sap downtimes maintenance: Tiempos de inactividad de SAP
+  page title|edit sap downtime: Editar el tiempo de inactividad de SAP
+  page title|microsite maintenance: Mantenimiento de micrositios
+  page title|sales area maintenance: Mantenimiento de áreas de venta.
+
 
   title|login: Iniciar sesión
   title|recent orders: órdenes recientes
@@ -103,13 +109,13 @@ es_ES:
   lbl|status: Estado
   lbl|default translation: Traducción por defecto
   lbl|user classification: Clasificación
-  lbl|user classification dealer:  Comerciante
-  lbl|user classification distributor:  Distribuidor
+  lbl|user classification dealer:  Comerciante
+  lbl|user classification distributor:  Distribuidor
   lbl|password confirmation: confirmación de contraseña
   lbl|user type: Tipo de usuario
-  lbl|time zone:  Zona horaria
-  lbl|number format:  Formato numérico
-  lbl|date format:  Formato de fecha
+  lbl|time zone:  Zona horaria
+  lbl|number format:  Formato numérico
+  lbl|date format:  Formato de fecha
   lbl|time format: Formato de tiempo
   lbl|id: CARNÉ DE IDENTIDAD
   lbl|title: Título
@@ -132,10 +138,33 @@ es_ES:
   lbl|menu orders: Pedidos
   lbl|menu invoices: Facturas
   lbl|menu open items: Artículos abiertos
-  lbl|menu microsite maintenance: Microsites
+  lbl|menu microsite maintenance: Micrositios
   lbl|menu sales area maintenance: Áreas de ventas
-  lbl|permission name: Permission
-  plc|title: Title
+  lbl|menu sap connections: Conexiones SAP
+  lbl|menu sap downtimes: Tiempos de inactividad de SAP
+  lbl|permission name: Permiso
+  lbl|env development: Desarrollo
+  lbl|env qa: QA
+  lbl|env test: Prueba
+  lbl|env production: Producción
+  lbl|environment: Ambiente
+  lbl|active: Activo
+  lbl|mshost: MShost
+  lbl|ashost: AShost
+  lbl|sysnr: Número de sistema
+  lbl|client: Cliente
+  lbl|user: Usuario
+  lbl|passwd: Contraseña
+  lbl|lang: Idioma
+  lbl|trace: Rastro
+  lbl|loglevel: Nivel de registro
+  lbl|down from date: Partir de la fecha
+  lbl|down to date: Hasta la fecha
+  lbl|down from time: De vez
+  lbl|down to time: Al tiempo
+  lbl|microsite name: Nombre del micrositio
+  lbl|updated by: Actualizado por
+
 
   plc|username: Nombre de usuario
   plc|password: Contraseña
@@ -158,6 +187,19 @@ es_ES:
   plc|select number format: Seleccionar formato de número
   plc|select date format: Seleccionar formato de fecha
   plc|select time format: Seleccionar formato de hora
+  plc|title: Título
+  plc|environment: Ambiente
+  plc|description: Descripción
+  plc|active: Activo
+  plc|mshost: MShost
+  plc|ashost: AShost
+  plc|sysnr: Número de sistema
+  plc|client: Cliente
+  plc|user: Usuario
+  plc|passwd: Contraseña
+  plc|lang: Idioma
+  plc|trace: Rastro
+  plc|loglevel: Nivel de registro
 
   btn|login: Iniciar sesión
   btn|cancel: Cancelar
@@ -199,8 +241,12 @@ es_ES:
   error|attributes.date_format.blank: El formato de fecha no puede estar en blanco
   error|attributes.time_format.blank: El formato de hora no puede estar en blanco
   error|attributes.role_ids.blank: Seleccione al menos un rol
-  error|attributes.text.blank: El mensaje no puede estar en blanco
-  error|attributes.salesdoc_doc_number.blank: Falta el número de documento de ventas
+  error|attributes.text.blank: El mensaje no puede estar en blanco.
+  error|attributes.salesdoc_doc_number.blank: Falta el número de Salesdoc
   error|attributes.partner_id.blank: Falta la ID de socio
   error|attributes.user_uuid.blank: Falta el UUID del usuario
   error|attributes.invoice_doc_number.blank: Falta el número de factura
+  error|attributes.from_date.blank: Falta el valor de la fecha
+  error|attributes.to_date.blank: Falta el valor de fecha TO
+  error|please specify a criteria to search: Por favor, especifique un criterio para buscar
+  error|sales area has assigned partners: El área de ventas ha asignado socios, por lo tanto, no se puede eliminar.

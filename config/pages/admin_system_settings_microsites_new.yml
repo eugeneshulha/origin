@@ -9,9 +9,9 @@ components:
     elements:
       - - atom: text
           uuid: "title"
-          label: "<%= _('lbl|title') %>"
+          label: "<%= _('lbl|microsite name') %>"
           name: "username"
-          placeholder: "<%= _('plc|title') %>"
+          placeholder: "<%= _('plc|microsite name') %>"
           validation_type: string
           value: ""
           validations:

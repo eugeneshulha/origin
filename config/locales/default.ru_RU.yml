@@ -1,27 +1,33 @@
 ru_RU:
   page title|login: Страница авторизации
   page title|dashboard: Приборная панель
-  page title|open items: Открытые элементы
+  page title|open items: Открытые счета
   page title|search for invoice: Поиск счета
   page title|search for orders: Поиск заказов
   page title|search for partners: Поиск партнеров
-  page title|invoice: Выставленный счет
-  page title|salesdoc: Заказ
+  page title|invoice: Счет-фактура
+  page title|salesdoc: Документ
   page title|role maintenance: Ролевое обслуживание
-  page title|registration: Регистрация
+  page title|registration: Постановка на учет
   page title|translation maintenance: Обслуживание переводов
   page title|new translation: Новый перевод
   page title|edit translation: Редактировать перевод
   page title|user details: Данные пользователя
   page title|assigned partners: Назначенные партнеры
-  page title|edit user: Редактировать пользователя
+  page title|edit user: Изменить пользователя
   page title|new user: Новый пользователь
-  page title|new role: Создание роли
-  page title|edit role: Редактирование роли
+  page title|new role: Новая роль
+  page title|edit role: Изменить роль
+  page title|sap connections maintenance: Обслуживание SAP
+  page title|sap downtimes maintenance: SAP простоя
+  page title|edit sap downtime: Изменить время простоя SAP
+  page title|microsite maintenance: Обслуживание микросайтов
+  page title|sales area maintenance: Обслуживание торговых площадей
+
 
   title|login: Авторизоваться
-  title|recent orders: Недавние заказы
-  title|open items: Открытые элементы
+  title|recent orders: Последние Заказы
+  title|open items: Открытые позиции
   title|filter: Фильтр
   title|have a question: Есть вопрос?
   title|contact about salesdoc: Свяжитесь с нами по поводу этого заказа
@@ -44,14 +50,14 @@ ru_RU:
   lbl|po number: Номер заказа
   lbl|po: ПО
   lbl|ship status: Статус судна
-  lbl|net value: Всего
-  lbl|invoice: Выставленный счет
-  lbl|due date: Срок сдачи
+  lbl|net value: Общее количество
+  lbl|invoice: Счет-фактура
+  lbl|due date: Срок
   lbl|material number: Номер материала
   lbl|order number: Порядковый номер
   lbl|payer number: Номер плательщика
   lbl|delivery number: Номер доставки
-  lbl|search criteria value: Ценность
+  lbl|search criteria value: Стоимость
   lbl|from date: С даты
   lbl|to date: Назначить свидание
   lbl|payer: плательщик
@@ -70,17 +76,17 @@ ru_RU:
   lbl|description: Описание
   lbl|rdd: РДД
   lbl|quantity: Количество
-  lbl|sales uom: Отдел продаж
+  lbl|sales uom: Продажи UOM
   lbl|item category: Категория товара
   lbl|net price: Цена нетто
   lbl|per: в
-  lbl|your message: Твое сообщение
+  lbl|your message: Ваше сообщение
   lbl|partner number: Число
-  lbl|partner name: имя
+  lbl|partner name: название
   lbl|city: город
   lbl|postal code: Почтовый индекс
   lbl|role name: Название роли
-  lbl|created by: Создан
+  lbl|created by: Создано
   lbl|is active: Активный?
   lbl|first name: Имя
   lbl|last name: Фамилия
@@ -91,28 +97,28 @@ ru_RU:
   lbl|microsite 2: микросайт 2
   lbl|language: язык
   lbl|language en_US: английский
-  lbl|language pl_PL: польский
+  lbl|language pl_PL: полировать
   lbl|company name: Название компании
   lbl|street: улица
   lbl|phone: Телефон
   lbl|overdue: просроченный
   lbl|outstanding: выдающийся
-  lbl|custom translation: Пользовательский перевод
+  lbl|custom translation: Индивидуальный перевод
   lbl|locale: место действия
   lbl|key: ключ
   lbl|status: Положение дел
   lbl|default translation: Перевод по умолчанию
   lbl|user classification: классификация
-  lbl|user classification dealer:  дилер
-  lbl|user classification distributor:  дистрибьютор
+  lbl|user classification dealer:  дилер
+  lbl|user classification distributor:  Распределитель
   lbl|password confirmation: Подтверждение пароля
   lbl|user type: Тип пользователя
-  lbl|time zone:  Часовой пояс
-  lbl|number format:  Числовой формат
-  lbl|date format:  Формат даты
+  lbl|time zone:  Часовой пояс
+  lbl|number format:  Числовой формат
+  lbl|date format:  Формат даты
   lbl|time format: Формат времени
   lbl|id: ID
-  lbl|title: Название
+  lbl|title: заглавие
   lbl|partner AG number: Продано на номер
   lbl|partner WE number: Корабль на номер
   lbl|postal address 1: Почтовый адрес 1
@@ -120,29 +126,52 @@ ru_RU:
   lbl|postal address 3: Почтовый адрес 3
   lbl|country: Страна
   lbl|sales area id: ID торговой зоны
-  lbl|actions: Действия
+  lbl|actions: действия
   lbl|menu admin: Администратор
-  lbl|menu system: Системные
-  lbl|menu user maintenance: Пользователи
+  lbl|menu system: система
+  lbl|menu user maintenance: пользователей
   lbl|menu role maintenance: Роли
   lbl|menu translations maintenance: Переводы
-  lbl|menu look and feel maintenance: Смотреть и чувствовать
-  lbl|menu content maintenance: Содержание
-  lbl|menu dashboard: Приборная панель
-  lbl|menu orders: Заказы
+  lbl|menu look and feel maintenance: Смотри и чувствуй
+  lbl|menu content maintenance: содержание
+  lbl|menu dashboard: Панель приборов
+  lbl|menu orders: заказы
   lbl|menu invoices: Счета-фактуры
-  lbl|menu open items: Открытые элементы
-  lbl|menu microsite maintenance: Микросайт
+  lbl|menu open items: Открытые позиции
+  lbl|menu microsite maintenance: Microsites
   lbl|menu sales area maintenance: Торговые площади
-  lbl|permission name: Разрешение
-  plc|title: Заголовок
+  lbl|menu sap connections: SAP Connections
+  lbl|menu sap downtimes: SAP простоя
+  lbl|permission name: разрешение
+  lbl|env development: развитие
+  lbl|env qa: контроль качества
+  lbl|env test: Тест
+  lbl|env production: производство
+  lbl|environment: Окружающая среда
+  lbl|active: активный
+  lbl|mshost: MShost
+  lbl|ashost: AShost
+  lbl|sysnr: Номер системы
+  lbl|client: клиент
+  lbl|user: пользователь
+  lbl|passwd: пароль
+  lbl|lang: язык
+  lbl|trace: след
+  lbl|loglevel: Уровень журнала
+  lbl|down from date: С даты
+  lbl|down to date: Назначить свидание
+  lbl|down from time: От времени
+  lbl|down to time: Ко времени
+  lbl|microsite name: Название микросайта
+  lbl|updated by: Обновлено
+
 
   plc|username: имя пользователя
   plc|password: пароль
   plc|select search criteria: Выберите критерии поиска
   plc|your message: Введите ваше сообщение здесь
   plc|partner number: Число
-  plc|partner name: имя
+  plc|partner name: название
   plc|city: город
   plc|postal code: Почтовый индекс
   plc|select user classification: Выберите классификацию пользователей
@@ -158,10 +187,23 @@ ru_RU:
   plc|select number format: Выберите формат номера
   plc|select date format: Выберите формат даты
   plc|select time format: Выберите формат времени
+  plc|title: заглавие
+  plc|environment: Окружающая среда
+  plc|description: Описание
+  plc|active: активный
+  plc|mshost: MShost
+  plc|ashost: AShost
+  plc|sysnr: Номер системы
+  plc|client: клиент
+  plc|user: пользователь
+  plc|passwd: пароль
+  plc|lang: язык
+  plc|trace: след
+  plc|loglevel: Уровень журнала
 
   btn|login: Авторизоваться
   btn|cancel: Отмена
-  btn|apply: Применять
+  btn|apply: Подать заявление
   btn|send email: Отправить письмо
   btn|reset password: Сброс пароля
   btn|update password: Обновить пароль
@@ -200,7 +242,11 @@ ru_RU:
   error|attributes.time_format.blank: Формат времени не может быть пустым
   error|attributes.role_ids.blank: Выберите хотя бы одну роль
   error|attributes.text.blank: Сообщение не может быть пустым
-  error|attributes.salesdoc_doc_number.blank: Номер торгового документа отсутствует
+  error|attributes.salesdoc_doc_number.blank: Номер Salesdoc отсутствует
   error|attributes.partner_id.blank: Идентификатор партнера отсутствует
   error|attributes.user_uuid.blank: UUID пользователя отсутствует
   error|attributes.invoice_doc_number.blank: Номер счета отсутствует
+  error|attributes.from_date.blank: С даты отсутствует значение
+  error|attributes.to_date.blank: Значение даты TO отсутствует
+  error|please specify a criteria to search: Пожалуйста, укажите критерии для поиска
+  error|sales area has assigned partners: Торговая зона имеет назначенных партнеров, поэтому не может быть удалена.

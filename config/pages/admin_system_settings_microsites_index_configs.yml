@@ -24,8 +24,8 @@ components:
           hidden: false
 
         - key: true
-          name: "updated_by"
-          caption: "<%= _('lbl|updated by') %>"
+          name: "created_by"
+          caption: "<%= _('lbl|created by') %>"
           label: null
           sortable: true
           hidden: false

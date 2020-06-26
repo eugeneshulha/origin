@@ -21,6 +21,8 @@ en_US:
   page title|sap connections maintenance: SAP maintenance
   page title|sap downtimes maintenance: SAP downtimes
   page title|edit sap downtime: Edit SAP downtime
+  page title|microsite maintenance: Microsites maintenance
+  page title|sales area maintenance: Sales areas maintenance
 
 
   title|login: Login
@@ -160,6 +162,9 @@ en_US:
   lbl|down to date: To date
   lbl|down from time: From time
   lbl|down to time: To time
+  lbl|microsite name: Microsite name
+  lbl|updated by: Updated by
+
 
   plc|username: Username
   plc|password: Password
@@ -244,4 +249,4 @@ en_US:
   error|attributes.from_date.blank: From date value is missing
   error|attributes.to_date.blank: TO date value is missing
   error|please specify a criteria to search: Please specify a criteria to search
-  error|sales area has assigned partners: Sales area has assigned partners hence can not be deleted. Please
+  error|sales area has assigned partners: Sales area has assigned partners hence can not be deleted.
