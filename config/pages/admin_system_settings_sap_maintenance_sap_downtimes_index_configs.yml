@@ -1,9 +1,9 @@
-title: "<%= _('page title|sap downtime maintenance') %>"
+title: "<%= _('page title|sap downtimes maintenance') %>"
 components:
   - uuid: "sap_connections_index_form"
     description: ""
     method: GET
-    title: "<%= _('title|sap connections maintenance') %>"
+    title: ""
     type: form
     url: ""
     data_url: "/v1/admin/system_settings/sap_maintenance/sap_downtimes"

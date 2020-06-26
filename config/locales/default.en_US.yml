@@ -20,6 +20,8 @@ en_US:
   page title|edit role: Edit role
   page title|sap connections maintenance: SAP maintenance
   page title|sap downtimes maintenance: SAP downtimes
+  page title|edit sap downtime: Edit SAP downtime
+
 
   title|login: Login
   title|recent orders: Recent Orders
@@ -154,6 +156,10 @@ en_US:
   lbl|lang: Language
   lbl|trace: Trace
   lbl|loglevel: Log level
+  lbl|down from date: From date
+  lbl|down to date: To date
+  lbl|down from time: From time
+  lbl|down to time: To time
 
   plc|username: Username
   plc|password: Password
