@@ -21,7 +21,7 @@ module CorevistAPI::Services::Token
       return result.fail!(MSG_INVALID_USER) if (user = fetch_user(payload[CorevistAPI::User::KEY_SUB])).blank?
       return result.fail!(MSG_NO_REFRESH_TOKENS) if (token = fetch_token(user, payload[CorevistAPI::User::KEY_JTI])).blank?
 
-      JWTBlacklist.invalidate_token(token)
+      CorevistAPI::JWTBlacklist.invalidate_token(token)
       result(resource: user)
     end
 
@@ -30,7 +30,7 @@ module CorevistAPI::Services::Token
     end
 
     def double_use?(jti)
-      JWTBlacklist.find_by(jti: jti).present?
+      CorevistAPI::JWTBlacklist.find_by(jti: jti).present?
     end
 
     def fetch_user(id)
