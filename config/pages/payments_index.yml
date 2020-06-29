@@ -1,0 +1,57 @@
+title: "Payments list"
+components:
+  - uuid: "payments_index_form"
+    description: "Fields with an asterisk (*) are mandatory."
+    method: GET
+    title: ""
+    type: form
+    url: "/v1/payments"
+    elements:
+      - atom: text
+        uuid: "search_criteria"
+        label: search_criteria
+        name: "search_criteria"
+        validation_type: string
+        value: ""
+
+      - atom: text
+        uuid: "payer_number"
+        label: payer_number
+        name: "payer_number"
+        validation_type: string
+        value: ""
+
+      - atom: text
+        uuid: "comp_code"
+        label: comp_code
+        name: "comp_code"
+        validation_type: string
+        value: ""
+
+      - atom: text
+        uuid: "from_amount"
+        label: from_amount
+        name: "from_amount"
+        validation_type: string
+        value: ""
+
+      - atom: text
+        uuid: "to_amount"
+        label: to_amount
+        name: "to_amount"
+        validation_type: string
+        value: ""
+
+      - atom: date
+        uuid: "from_date"
+        label: From date
+        name: "from_date"
+        validation_type: string
+        value: ""
+
+      - atom: date
+        uuid: "to_date"
+        label: To date
+        name: "to_date"
+        validation_type: string
+        value: ""

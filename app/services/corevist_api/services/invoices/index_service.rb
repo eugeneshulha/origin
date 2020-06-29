@@ -1,5 +1,5 @@
-module CorevistAPI::Services::Invoice
-  class ListService < CorevistAPI::Services::BaseServiceWithForm
+module CorevistAPI::Services::Invoices
+  class IndexService < CorevistAPI::Services::BaseServiceWithForm
 
     private
 

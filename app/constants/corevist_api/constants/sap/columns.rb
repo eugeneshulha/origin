@@ -144,5 +144,9 @@ module CorevistAPI
     ITEM_NUM            = 'ITEM_NUM'
     PAY_AMNT            = 'PAY_AMNT'
     PAYMENT_DOC_NO      = 'PAYMENT_DOC_NO'
+    FROM_AMOUNT         = 'FROM_AMOUNT'
+    TO_AMOUNT           = 'TO_AMOUNT'
+    FROM_DATE           = 'FROM_DATE'
+    TO_DATE             = 'TO_DATE'
   end
 end

@@ -25,7 +25,7 @@ module CorevistAPI::API
     end
 
     def establish_sap_connection
-      return if current_connection.present? || is_sap_down?
+      return if current_connection&.connection.present? || is_sap_down?
 
       service = service_for(:connect_to_sap)
       result = service.call

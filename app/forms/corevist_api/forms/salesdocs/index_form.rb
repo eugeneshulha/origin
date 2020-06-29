@@ -1,5 +1,5 @@
 module CorevistAPI
-  class Forms::Salesdoc::ListForm < CorevistAPI::Forms::BaseForm
+  class Forms::Salesdocs::IndexForm < CorevistAPI::Forms::BaseForm
     validate_component :salesdoc_filter_form, on_page: :salesdocs_index
 
     FIELD_DEPENDENCY = {

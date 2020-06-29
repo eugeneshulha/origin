@@ -13,6 +13,7 @@ module CorevistAPI
         salesdoc_create: 'CorevistAPI::RFCServices::SalesdocCreateRFC',
         salesdoc_display: 'CorevistAPI::RFCServices::SalesdocDisplayRFC',
         salesdoc_list: 'CorevistAPI::RFCServices::SalesdocListRFC',
+        payments_list: 'CorevistAPI::RFCServices::PaymentsListRFC',
         truncate_rfc: 'CorevistAPI::RFCServices::Truncations::RfcService'
       }
     end

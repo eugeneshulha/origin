@@ -26,6 +26,7 @@ module CorevistAPI
         admin_roles_index_filter: 'CorevistAPI::Services::Admin::Roles::FilterService',
         admin_roles_destroy: 'CorevistAPI::Services::Admin::Roles::DestroyService',
 
+        # Admin > Permissions
         admin_permissions_index: 'CorevistAPI::Services::Admin::Permissions::IndexService',
 
         # Admin > SystemSettings > Microsites
@@ -69,37 +70,48 @@ module CorevistAPI
         admin_system_settings_sap_maintenance_sap_connections_destroy: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::DestroyService',
         admin_system_settings_sap_maintenance_sap_connections_ping: 'CorevistAPI::Services::Admin::SystemSettings::SAPMaintenance::SAPConnections::PingService',
 
+        # Admin > Translations
         admin_translations_index_filter: 'CorevistAPI::Services::Admin::Translations::FilterService',
         admin_translations_index: 'CorevistAPI::Services::Admin::Translations::IndexService',
         admin_translations_create: 'CorevistAPI::Services::Admin::Translations::CreateService',
         admin_translations_update: 'CorevistAPI::Services::Admin::Translations::UpdateService',
         admin_translations_destroy: 'CorevistAPI::Services::Admin::Translations::DestroyService',
 
-        user_registration: 'CorevistAPI::Services::User::RegistrationService',
-        invoices_show: 'CorevistAPI::Services::Invoice::DisplayService',
-        salesdocs_show: 'CorevistAPI::Services::Salesdoc::DisplayService',
-        invoices_index: 'CorevistAPI::Services::Invoice::ListService',
-        salesdocs_index: 'CorevistAPI::Services::Salesdoc::ListService',
-        partners_index: 'CorevistAPI::Services::Admin::Partners::IndexService',
-        page_configs_read: 'CorevistAPI::Services::PageConfigs::Read',
-        page_configs_navigation: 'CorevistAPI::Services::PageConfigs::Navigation',
-
         # Open Items
         open_items_index: 'CorevistAPI::Services::OpenItems::IndexService',
         open_items_create: 'CorevistAPI::Services::OpenItems::CreateService',
 
-        invoices_items_index: 'CorevistAPI::Services::Invoice::Items::Index',
-        salesdocs_items_index: 'CorevistAPI::Services::Salesdoc::Items::Index',
+        # Invoices
+        invoices_index: 'CorevistAPI::Services::Invoices::IndexService',
+        invoices_items_index: 'CorevistAPI::Services::Invoices::Items::IndexService',
+        invoices_show: 'CorevistAPI::Services::Invoices::ShowService',
+        invoices_questions_create: 'CorevistAPI::Services::Invoices::Questions::CreateService',
+
+        # Salesdocs
+        salesdocs_index: 'CorevistAPI::Services::Salesdocs::IndexService',
+        salesdocs_items_index: 'CorevistAPI::Services::Salesdocs::Items::IndexService',
+        salesdocs_show: 'CorevistAPI::Services::Salesdocs::ShowService',
+        salesdocs_questions_create: 'CorevistAPI::Services::Salesdocs::Question::CreateService',
+
+        # Payments
+        payments_index: 'CorevistAPI::Services::Payments::IndexService',
+        payments_items_index: 'CorevistAPI::Services::Payments::Items::IndexService',
+        payments_show: 'CorevistAPI::Services::Payments::ShowService',
+        payments_questions_create: 'CorevistAPI::Services::Payments::Questions::CreateService',
+
 
         output_types_index: 'CorevistAPI::Services::Document::OutputTypesList',
-        show_output_type: 'CorevistAPI::Services::Document::ShowOutputType',
+        output_types_show: 'CorevistAPI::Services::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Services::AccountDetails::Show',
-        invoices_questions_create: 'CorevistAPI::Services::Invoice::Question::Create',
-        salesdocs_questions_create: 'CorevistAPI::Services::Salesdoc::Question::Create',
         site_configs_index: 'CorevistAPI::Services::SiteConfigs::Index',
+
+        partners_index: 'CorevistAPI::Services::Admin::Partners::IndexService',
+        page_configs_read: 'CorevistAPI::Services::PageConfigs::Read',
+        page_configs_navigation: 'CorevistAPI::Services::PageConfigs::Navigation',
 
         login: 'CorevistAPI::Services::User::LoginService',
         refresh_token: 'CorevistAPI::Services::Token::RefreshService',
+        user_registration: 'CorevistAPI::Services::User::RegistrationService',
 
         # Cart
         carts_simulate: 'CorevistAPI::Services::Carts::SimulateService',

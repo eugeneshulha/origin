@@ -1,5 +1,5 @@
-module CorevistAPI::Services::Salesdoc::Question
-  class Create < CorevistAPI::Services::BaseServiceWithForm
+module CorevistAPI::Services::Salesdocs::Questions
+  class CreateService < CorevistAPI::Services::BaseServiceWithForm
     private
 
     def perform

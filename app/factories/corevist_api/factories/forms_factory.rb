@@ -2,6 +2,7 @@ module CorevistAPI
   class Factories::FormsFactory < CorevistAPI::Factories::BaseFactory
     def initialize
       @storage = {
+        # Admin > Users
         admin_users_create_step_1: 'CorevistAPI::Forms::Admin::Users::Step1',
         admin_users_create_step_2: 'CorevistAPI::Forms::Admin::Users::Step2',
         admin_users_create_step_3: 'CorevistAPI::Forms::Admin::Users::Step3',
@@ -15,12 +16,14 @@ module CorevistAPI
         admin_users_partners_index: 'CorevistAPI::Forms::Admin::Users::Partners::IndexForm',
         admin_users_partners_destroy: 'CorevistAPI::Forms::Admin::Users::Partners::DestroyForm',
 
+        # Admin > Roles
         admin_roles_index: 'CorevistAPI::Forms::Admin::Roles::IndexForm',
         admin_roles_create: 'CorevistAPI::Forms::Admin::Roles::CreateForm',
         admin_roles_update: 'CorevistAPI::Forms::Admin::Roles::UpdateForm',
         admin_roles_edit: 'CorevistAPI::Forms::Admin::Roles::EditForm',
         admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
 
+        # Admin > Permissions
         admin_permissions_index: 'CorevistAPI::Forms::Admin::Permissions::IndexForm',
 
         # Admin > SystemSettings > Microsites
@@ -58,6 +61,7 @@ module CorevistAPI
         admin_system_settings_sap_maintenance_sap_connections_update: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::UpdateForm',
         # admin_system_settings_sap_maintenance_sap_connections_destroy: 'CorevistAPI::Forms::Admin::SystemSettings::SAPMaintenance::SAPConnections::DestroyForm',
 
+        # Admin > Translations
         admin_translations_index: 'CorevistAPI::Forms::Admin::Translations::IndexForm',
         admin_translations_create: 'CorevistAPI::Forms::Admin::Translations::CreateForm',
         admin_translations_update: 'CorevistAPI::Forms::Admin::Translations::UpdateForm',
@@ -67,25 +71,33 @@ module CorevistAPI
         open_items_index: 'CorevistAPI::Forms::OpenItems::IndexForm',
         open_items_create: 'CorevistAPI::Forms::OpenItems::CreateForm',
 
-        user_registration: 'CorevistAPI::Forms::User::Registration',
-        set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',
-        invoices_index: 'CorevistAPI::Forms::Invoice::ListForm',
-        salesdocs_index: 'CorevistAPI::Forms::Salesdoc::ListForm',
-        partners_index: 'CorevistAPI::Forms::Admin::Partners::IndexForm',
-        sessions_create: 'CorevistAPI::Forms::User::Login',
+        # Invoices
+        invoices_index: 'CorevistAPI::Forms::Invoices::IndexForm',
+        invoices_items_index: 'CorevistAPI::Forms::Invoices::Items::IndexForm',
+        invoices_questions_create: 'CorevistAPI::Forms::Invoices::Questions::CreateForm',
 
-        invoices_items_index: 'CorevistAPI::Forms::Invoice::Items::Index',
-        salesdocs_items_index: 'CorevistAPI::Forms::Salesdoc::Items::Index',
+        # Salesdocs
+        salesdocs_index: 'CorevistAPI::Forms::Salesdocs::IndexForm',
+        salesdocs_items_index: 'CorevistAPI::Forms::Salesdocs::Items::IndexForm',
+        salesdocs_questions_create: 'CorevistAPI::Forms::Salesdocs::Questions::CreateForm',
 
-        output_types_index: 'CorevistAPI::Forms::Document::OutputTypesList',
-        show_output_type: 'CorevistAPI::Forms::Document::ShowOutputType',
-        account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',
-        salesdocs_questions_create: 'CorevistAPI::Forms::Salesdoc::Question::Create',
-        invoices_questions_create: 'CorevistAPI::Forms::Invoice::Question::Create',
+        # Payments
+        payments_index: 'CorevistAPI::Forms::Payments::IndexForm',
+        payments_items_index: 'CorevistAPI::Forms::Payments::Items::IndexForm',
+        payments_questions_create: 'CorevistAPI::Forms::Payments::Question::CreateForm',
 
         # Carts
         carts_simulate: 'CorevistAPI::Forms::Carts::SimulateForm',
-        carts_create: 'CorevistAPI::Forms::Carts::CreateForm'
+        carts_create: 'CorevistAPI::Forms::Carts::CreateForm',
+
+
+        user_registration: 'CorevistAPI::Forms::User::Registration',
+        set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',
+        partners_index: 'CorevistAPI::Forms::Admin::Partners::IndexForm',
+        sessions_create: 'CorevistAPI::Forms::User::Login',
+        output_types_index: 'CorevistAPI::Forms::Document::OutputTypesList',
+        output_types_show: 'CorevistAPI::Forms::Document::ShowOutputType',
+        account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',
       }
     end
   end

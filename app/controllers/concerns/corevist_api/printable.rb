@@ -10,8 +10,8 @@ module CorevistAPI
       form_performer_for :index
 
       def show
-        form = form_for(:show_output_type, params)
-        service = service_for(:show_output_type, form, params)
+        form = form_for(:output_types_show, params)
+        service = service_for(:output_types_show, form, params)
         @result = service.call
 
         file = File.new('data.pdf', 'wb')

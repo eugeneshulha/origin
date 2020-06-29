@@ -1,5 +1,5 @@
-module CorevistAPI::Services::Invoice
-  class DisplayService < CorevistAPI::Services::BaseService
+module CorevistAPI::Services::Invoices
+  class ShowService < CorevistAPI::Services::BaseService
     def call
       perform!
     end

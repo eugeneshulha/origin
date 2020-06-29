@@ -5,7 +5,8 @@ module CorevistAPI
         @storage = {
           partner: 'CorevistAPI::Builders::PartnerBuilder',
           salesdoc: 'CorevistAPI::Builders::SalesdocBuilder',
-          invoice: 'CorevistAPI::Builders::InvoiceBuilder'
+          invoice: 'CorevistAPI::Builders::InvoiceBuilder',
+          payment: 'CorevistAPI::Builders::PaymentBuilder'
         }
       end
     end

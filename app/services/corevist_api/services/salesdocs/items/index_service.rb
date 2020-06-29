@@ -1,5 +1,5 @@
-module CorevistAPI::Services::Salesdoc::Items
-  class Index < CorevistAPI::Services::BaseServiceWithForm
+module CorevistAPI::Services::Salesdocs::Items
+  class IndexService < CorevistAPI::Services::BaseServiceWithForm
 
     private
 
