@@ -1,0 +1,70 @@
+title: "<%= _('title|filter') %>"
+components:
+  - uuid: "filter_payment_modal_form"
+    description:
+    method: GET
+    title: "<%= _('title|filter') %>"
+    type: form
+    url: "/v1/payments"
+    elements:
+      - - atom: select
+          uuid: "search_option"
+          label: "<%= _('lbl|search criteria') %>"
+          name: "search_criteria"
+          placeholder: "<%= _('plc|select search criteria') %>"
+          validation_type: string
+          value: ""
+          options:
+            - name: "<%= _('lbl|sold to number') %>"
+              value: "sold_to_number"
+            - name: "<%= _('lbl|ship to number') %>"
+              value: "ship_to_number"
+            - name: "<%= _('lbl|po number') %>"
+              value: "po_number"
+            - name: "<%= _('lbl|material number') %>"
+              value: "material"
+            - name: "<%= _('lbl|invoice number') %>"
+              value: "invoice_number"
+            - name: "<%= _('lbl|delivery number') %>"
+              value: "delivery_number"
+
+        - atom: text
+          uuid: "search_criteria_value"
+          label: "<%= _('lbl|search criteria value') %>"
+          name: "search_criteria_value"
+          value: ""
+
+      - - atom: date
+          label: "<%= _('lbl|from date') %>"
+          name: "from_date"
+          value: ""
+
+        - atom: date
+          label: "<%= _('lbl|to date') %>"
+          name: "to_date"
+          value: ""
+
+      - - atom: select
+          label: "<%= _('lbl|ship date') %>"
+          uuid: "status"
+          name: "status"
+          value: "ALL"
+          options:
+            - name: "<%= _('lbl|ship status ALL') %>"
+              value: "ALL"
+            - name: "<%= _('lbl|ship status NSHP') %>"
+              value: "NSHP"
+            - name: "<%= _('lbl|ship status SHIP') %>"
+              value: "SHIP"
+
+      - - atom: button
+          uuid: "cancel"
+          text: "<%= _('btn|cancel') %>"
+          type: text
+          action_type: button
+
+        - atom: button
+          uuid: "apply"
+          text: "<%= _('btn|apply') %>"
+          type: secondary
+          action_type: submit

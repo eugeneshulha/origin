@@ -2,8 +2,10 @@ permissions:
   - open_items
   - search_for_invoices
   - search_for_orders
+  - search_for_payments
   - view_invoices
   - view_orders
+  - view_payments
   - pay_invoices
   - translation_maintenance
   - user_maintenance

@@ -33,8 +33,12 @@ CorevistAPI::Engine.routes.draw do
       # registrations
       resources :registrations, only: %i[new create]
 
-      resources :invoices, only: %i[new show index], param: :doc_number do
+      #
+      # TODO: payments/invoices/salesdocs should be refactored!!
+      #
+      resources :invoices, only: %i[show index], param: :doc_number do
         get :configs, on: :collection, to: 'invoices#index_configs'
+        get :configs, on: :member, to: 'invoices#show_configs'
         get 'filters/new', on: :collection, to: 'invoices/filters#new'
         post :download, to: 'invoices#download', on: :collection
 
@@ -45,8 +49,9 @@ CorevistAPI::Engine.routes.draw do
         resources :output_types, only: %i[index show], param: :output_type_id, controller: 'invoices/output_types'
       end
 
-      resources :salesdocs, only: %i[new show index], param: :doc_number do
+      resources :salesdocs, only: %i[show index], param: :doc_number do
         get :configs, on: :collection, to: 'salesdocs#index_configs'
+        get :configs, on: :member, to: 'salesdocs#show_configs'
         get 'filters/new', on: :collection, to: 'salesdocs/filters#new'
         post :download, to: 'salesdocs#download', on: :collection
 
@@ -55,6 +60,19 @@ CorevistAPI::Engine.routes.draw do
         end
         resources :questions, only: %i[new create], controller: 'salesdocs/questions'
         resources :output_types, only: %i[index show], param: :output_type_id, controller: 'salesdocs/output_types'
+      end
+
+      resources :payments, only: %i[show index], param: :doc_number do
+        get :configs, on: :collection, to: 'payments#index_configs'
+        get :configs, on: :member, to: 'payments#show_configs'
+        get 'filters/new', on: :collection, to: 'payments/filters#new'
+        post :download, to: 'payments#download', on: :collection
+
+        resources :items, only: [:index], controller: 'payments/items' do
+          post :download, to: 'payments/items#download', on: :collection
+        end
+        resources :questions, only: %i[new create], controller: 'payments/questions'
+        resources :output_types, only: %i[index show], param: :output_type_id, controller: 'payments/output_types'
       end
 
       get 'status', to: 'statuses#status'
@@ -129,9 +147,9 @@ CorevistAPI::Engine.routes.draw do
       resources :open_items, only: [:index, :new, :create] do
         get :configs, on: :collection, to: 'open_items#index_configs'
         get :configs, on: :member, to: 'open_items#show_configs'
-      end
 
-      resources :payments, only: %i[new]
+        resources :payment_methods, only: %i[new]
+      end
 
       resources :site_configs, only: [:index]
 

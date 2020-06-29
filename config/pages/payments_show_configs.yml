@@ -1,0 +1,61 @@
+title: "<%= _('page title|payment') %>"
+components:
+  - uuid: "payment_table"
+    method: GET
+    type: datatable
+    name: "payment_table"
+    url: "/v1/payments"
+    data_url: "/v1/payments/<doc_number>"
+    elements:
+      thead:
+        - key: true
+          name: 'item_number'
+          caption: "<%= _('lbl|item number') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'material'
+          caption: "<%= _('lbl|material') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'description'
+          caption: "<%= _('lbl|description') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'rdd'
+          caption: "<%= _('lbl|rdd') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'net_value'
+          caption: "<%= _('lbl|net value') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'quantity'
+          caption: "<%= _('lbl|quantity') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'sales_uom'
+          caption: "<%= _('lbl|sales uom') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'item_cat'
+          caption: "<%= _('lbl|item category') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'net_price'
+          caption: "<%= _('lbl|net price') %>"
+          label: null
+          sortable: true
+        - key: true
+          name: 'per'
+          caption: "<%= _('lbl|per') %>"
+          label: null
+          sortable: true
+

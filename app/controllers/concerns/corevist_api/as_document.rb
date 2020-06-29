@@ -7,7 +7,7 @@ module CorevistAPI
 
       form_performer_for :index
       obj_performer_for :show
-      configs_for :new, :index
+      configs_for :show, :index
 
       private
 
