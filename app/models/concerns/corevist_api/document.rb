@@ -48,11 +48,10 @@ module CorevistAPI
       end
 
       def api_names
-        name = self.model_name.element
+        name = self.model_name.element.pluralize
         {
-            display: "#{name}_display",
-            list: "#{name}_list",
-            sort_items: "#{name.pluralize}_items_index"
+            display: "#{name}_show",
+            sort_items: "#{name}_items_index"
         }
       end
     end

@@ -148,7 +148,7 @@ CorevistAPI::Engine.routes.draw do
         get :configs, on: :collection, to: 'open_items#index_configs'
         get :configs, on: :member, to: 'open_items#show_configs'
 
-        resources :payment_methods, only: %i[new]
+        get 'payment_methods/new', on: :collection, to: 'open_items/payment_methods#new'
       end
 
       resources :site_configs, only: [:index]

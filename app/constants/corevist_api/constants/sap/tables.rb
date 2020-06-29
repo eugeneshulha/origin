@@ -25,5 +25,10 @@ module CorevistAPI
     SEARCH_CRITERIA         = 'SEARCH_CRITERIA'
     SHIPMENTS               = 'SHIPMENTS'
     USER_DATA               = 'USER_DATA'
+    PAYMENTS                = 'PAYMENTS'
+    PAYMENT_SEARCH_CRITERIA = 'PAYMENT_SEARCH_CRITERIA'
+    PAID_ITEMS              = 'PAID_ITEMS'
+    COMP_CODES              = 'COMP_CODES'
+    ES_PAYMENTS_OUT         = 'ES_PAYMENTS_OUT'
   end
 end
