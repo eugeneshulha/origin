@@ -1,36 +1,44 @@
-title: "<%= _('page title|edit doc_type') %>"
+title: "<%= _('page title|doc type maintenance') %>"
 components:
-  - uuid: "doc_types_edit_form"
+  - uuid: "doc_type_list_form"
     description: ""
-    method: PATCH
-    title: "<%= _('title|edit doc_type') %>"
+    method: GET
+    title: "<%= _('page title|doc type maintenance') %>"
     type: form
     url: ""
     data_url: "/v1/admin/system_settings/doc_types"
     elements:
-      - - atom: text
-          uuid: "title"
-          label: "<%= _('lbl|title') %>"
+      thead:
+        - key: true
           name: "title"
-          validation_type: string
-          validations:
-            - message: "<%= _('error|attributes.title.blank') %>"
-              type: required
-              value: ""
+          caption: "<%= _('lbl|title') %>"
+          label: null
+          sortable: true
+          action: "link"
 
-      - - atom: text
-          uuid: "description"
-          label: "<%= _('lbl|description') %>"
+        - key: true
           name: "description"
-          validation_type: string
+          caption: "<%= _('lbl|description') %>"
+          label: null
+          sortable: true
+          action: "link"
 
-      - - atom: text
-          uuid: "data"
-          label: "<%= _('lbl|data') %>"
-          name: "data"
-          validation_type: string
+        - key: true
+          name: "created_by"
+          caption: "<%= _('lbl|created by') %>"
+          label: null
+          sortable: true
+          hidden: false
 
-      - - atom: button
+        - key: true
+          name: "updated_by"
+          caption: "<%= _('lbl|updated by') %>"
+          label: null
+          datatype: boolean
+          sortable: true
+          hidden: false
+
+        - atom: button
           uuid: "cancel"
           text: "<%= _('btn|cancel') %>"
           type: text
