@@ -1,6 +1,13 @@
 # CorevistApi
 
 ## Rake tasks
+#### Users
+Activate a user
+```
+bundle exec rake app:users:activate -- -u <username>
+``` 
+
+
 #### Translations
 
 Remove all translations from database
