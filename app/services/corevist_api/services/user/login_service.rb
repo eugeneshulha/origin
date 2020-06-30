@@ -5,7 +5,8 @@ module CorevistAPI::Services::User
 
     def perform
       resource = @params.warden.authenticate(@params.send(:auth_options))
-      raise CorevistAPI::ServiceException.new('user not found') unless  resource
+      raise CorevistAPI::ServiceException.new(_('error|user not found')) unless  resource
+      raise CorevistAPI::ServiceException.new(_('error|user is inactive')) unless resource.active?
 
       if is_sap_down? && resource.not_authorized_for?('login_when_sap_is_down')
         raise CorevistAPI::ServiceException.new('sap is down') unless  resource

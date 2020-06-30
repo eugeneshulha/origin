@@ -7,11 +7,15 @@ module CorevistAPI
       before_update :set_updator
 
       def created_by
-        CorevistAPI::User.find_by(id: self.read_attribute(:created_by))&.username || self.read_attribute(:created_by)
+        return self.read_attribute(:created_by) if self.read_attribute(:created_by).to_i < 1
+
+        CorevistAPI::User.find_by(id: self.read_attribute(:created_by))&.username
       end
 
       def updated_by
-        CorevistAPI::User.find_by(id: self.read_attribute(:updated_by))&.username || self.read_attribute(:updated_by)
+        return self.read_attribute(:updated_by) if self.read_attribute(:updated_by).to_i < 1
+
+        CorevistAPI::User.find_by(id: self.read_attribute(:updated_by))&.username
       end
 
       private

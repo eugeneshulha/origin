@@ -111,7 +111,7 @@ module CorevistAPI
     end
 
     def permissions
-      roles.includes(:permissions).map { |role| role.permissions.pluck(:title) }.flatten.uniq
+      roles.where(active: true).includes(:permissions).map { |role| role.permissions.pluck(:title) }.flatten.uniq
     end
 
     def on_jwt_dispatch(_, payload)

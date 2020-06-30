@@ -17,6 +17,28 @@ namespace :users do
     CorevistAPI::JwtToken.where('refresh_exp < ?', Time.now.utc).delete_all
     CorevistAPI::JWTBlacklist.where('exp < ?', Time.now.utc).delete_all
   end
+
+  desc 'Activate a user'
+  task activate: :environment do
+    options = {}
+    parser = OptionParser.new do |opts|
+      opts.banner = "Usage: rake app:users:activate [options]"
+      opts.on("-u", "--user ARG", String) { |u| options[:user] = u }
+    end
+
+    parser.parse!
+    parser.parse!
+
+    abort('please specify a user') if options[:user].blank?
+
+    user = CorevistAPI::User.find_by(username: options[:user])
+    abort('user is not found') unless user
+
+    user.active = true
+    puts user.save ? "User #{user.username} activated!" : 'Error during activation'
+
+    exit
+  end
 end
 
 namespace :translations do
