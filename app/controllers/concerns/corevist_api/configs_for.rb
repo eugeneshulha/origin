@@ -22,7 +22,7 @@ module CorevistAPI
             end
           end
 
-          skip_before_action :establish_sap_connection, :check_if_sap_is_down, only: actions
+          skip_before_action :establish_sap_connection, only: actions
         end
       end
     end

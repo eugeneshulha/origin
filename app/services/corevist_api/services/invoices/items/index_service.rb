@@ -1,5 +1,5 @@
 module CorevistAPI::Services::Invoices::Items
-  class IndexService < CorevistAPI::Services::Salesdoc::Items::Index
+  class IndexService < CorevistAPI::Services::Salesdocs::Items::IndexService
     private
 
     def call_rfc

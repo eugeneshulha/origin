@@ -5,7 +5,7 @@ module CorevistAPI
       obj_performer_for :show, :destroy
       configs_for :index, :edit, :new
 
-      skip_before_action :check_if_sap_is_down
+      skip_before_action :establish_sap_connection
     end
   end
 end

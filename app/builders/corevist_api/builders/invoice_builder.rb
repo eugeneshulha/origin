@@ -2,23 +2,6 @@ module CorevistAPI
   module Builders
     class InvoiceBuilder < CorevistAPI::Builders::BaseBuilder
       MAX_ADDRESSES_COUNT = 3
-      MAPPING = {
-          bil_date: :billing_date,
-          tax: :tax,
-          status: :status,
-          due_date: :due_date,
-          comp_code: :company_code,
-          doc_nr: :doc_number,
-          doc_type: :doc_type,
-          doc_cat: :doc_category,
-          sa: :sales_area,
-          po_number: :po_number,
-          curr: :currency,
-          net_value: :net_value,
-          payment_terms: :payment_terms,
-          paymt_t_text: :payment_terms_text,
-          sales_order: :sales_order
-      }.with_indifferent_access
 
       def build
         yield(self)
@@ -26,30 +9,19 @@ module CorevistAPI
       end
 
       def with_header
-        header.instance_variables.each do |h|
-          v = h.to_s.tr('@', '')
-          next unless MAPPING[v]
-
-          @object.header.send("#{MAPPING[v]}=", h.instance_variable_get("@#{v}"))
-        end
+        sap_field_mapper_for(:invoice, :header).each { |k,v| @object.header.send("#{v}=", header.send(k)) }
       end
 
       def with_items
         items.inject(@object.items) do |memo, _item|
-          # TODO: move to a salesdoc item builder.
+          # TODO: move to a invoice item builder.
           item = CorevistAPI::Invoice::Item.new
-          item.cond_uom = _item.cond_uom
-          item.description = _item.descr.force_encoding(Encoding::UTF_8)
-          item.item_category = _item.item_cat
-          item.item_number = _item.item_nr
-          item.material = _item.mat
-          item.net_price = _item.net_price
-          item.net_value = _item.net_value
-          item.parent_item = _item.parent_item
-          item.per = _item.per
-          item.quantity = _item.qty
-          item.sales_order = _item.sales_order
-          item.sales_uom = _item.sales_uom
+
+          sap_field_mapper_for(:invoice, :item).each do |k,v|
+            value = _item.send(k).respond_to?(:force_encoding) ? _item.send(k).force_encoding(Encoding::UTF_8) : _item.send(k)
+            item.send("#{v}=", value)
+          end
+
           memo << item
         end
       end

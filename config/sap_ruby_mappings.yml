@@ -1,0 +1,120 @@
+sap_ruby_mappings:
+  payment:
+    payment:
+      amnt: :amount
+      amntdc: :amount_in_doc_currency
+      ass_nr: :assignment_number
+      cc_number: :cc_number
+      cc_type: :cc_type
+      curr: :currency
+      db_cr_ind: :debit_or_credit
+      description: :description
+      doc_curr: :doc_currency
+      fi_dtype: :fiscal_type
+      item_text: :item_text
+      pay_doc_fisc_year: :fiscal_year
+      pay_doc_no: :payment_number
+      payment_date: :payment_date
+      rc: :reason_code
+
+    item:
+      amnt: :amount
+      amntdc: :amount_in_doc_currency
+      ass_nr: :assignment_number
+      curr: :currency
+      db_cr_ind: :debit_or_credit
+      description: :description
+      doc_curr: :document_currency
+      fi_dtype: :fiscal_type
+      inv_amntdc: :invoice_amount
+      inv_doc_fisc_year: :invoice_fiscal_year
+      inv_doc_no: :invoice_number
+      inv_obj_type: :obj_type
+      item_text: :item_text
+      pay_doc_fisc_year: :payment_fiscal_year
+      pay_doc_no: :payment_number
+      pstng_date: :posting_date
+
+  salesdoc:
+    header:
+      doc_nr: :doc_number
+      doc_type: :doc_type
+      doc_cat: :doc_category
+      sa: :sales_area
+      po_nr: :po_number
+      doc_date: :doc_date
+      rdd: :rdd
+      curr: :currency
+      net_value: :net_value
+      payment_terms: :payment_terms
+      paymt_t_text: :payment_terms_text
+      ship_status: :ship_status
+      credit_status: :credit_status
+      no_copy_reason: :no_copy_reason
+      no_chg_reason: :no_change_reason
+      no_cwref_reason: :no_cwref_reason
+      po_type: :po_type
+      change_date: :change_date
+      change_nr: :change_number
+      contact_info: :contact_info
+      pfinv: :proforma_invoice_number
+      inv: :invoice_number
+      valid_from: :valid_from
+      valid_to: :valid_to
+      ref_doc_nr: :ref_doc_number
+
+    item:
+      cond_uom: :cond_uom
+      cust_mat: :customer_material
+      descr: :description
+      item_cat: :item_category
+      item_nr: :item_number
+      mat: :material
+      net_price: :net_price
+      net_value: :net_value
+      no_chg_reason: :no_change_reason
+      no_copy_reason: :no_copy_reason
+      no_cwref_reason: :no_cwref_reason
+      parent_item: :parent_item
+      parent_item_use: :parent_item_use
+      per: :per
+      plant: :plant
+      qty: :quantity
+      rdd: :rdd
+      ref_item_nr: :ref_item_number
+      reference: :reference
+      rej_reason: :rejection_reason
+      sales_uom: :sales_uom
+
+
+  invoice:
+    header:
+      bill_date: :billing_date
+      tax: :tax
+      status: :status
+      due_date: :due_date
+      comp_code: :company_code
+      doc_nr: :doc_number
+      doc_type: :doc_type
+      doc_cat: :doc_category
+      sa: :sales_area
+      po_number: :po_number
+      curr: :currency
+      net_value: :net_value
+      payment_terms: :payment_terms
+      paymt_t_text: :payment_terms_text
+      sales_order: :sales_order
+
+    item:
+      cond_uom: :cond_uom
+      descr: :description
+      item_cat: :item_category
+      item_nr: :item_number
+      mat: :material
+      net_price: :net_price
+      net_value: :net_value
+      parent_item: :parent_item
+      per: :per
+      qty: :quantity
+      sales_order: :sales_order
+      sales_uom: :sales_uom

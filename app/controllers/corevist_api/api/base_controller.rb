@@ -3,7 +3,6 @@ module CorevistAPI::API
     before_action :authenticate_user!, except: [:not_found]
     before_action :set_context
     before_action :establish_sap_connection
-    before_action :check_if_sap_is_down
 
     include ActionController::MimeResponds
     include ActionController::Helpers
@@ -25,7 +24,8 @@ module CorevistAPI::API
     end
 
     def establish_sap_connection
-      return if current_connection&.connection.present? || is_sap_down?
+      return if current_connection&.connection.present?
+      check_if_sap_is_down
 
       service = service_for(:connect_to_sap)
       result = service.call

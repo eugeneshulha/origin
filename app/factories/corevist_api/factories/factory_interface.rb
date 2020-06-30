@@ -24,6 +24,10 @@ module CorevistAPI
       def downloader_for(attribute, *args)
         CorevistAPI::Factories::DownloadersFactory.instance.for(attribute, *args)
       end
+
+      def sap_field_mapper_for(attribute, args = [])
+        CorevistAPI::Factories::SAPFieldsMappersFactory.instance.for(attribute, *args)
+      end
     end
   end
 end

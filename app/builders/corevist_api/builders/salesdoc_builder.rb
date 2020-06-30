@@ -2,33 +2,6 @@ module CorevistAPI
   module Builders
     class SalesdocBuilder < CorevistAPI::Builders::BaseBuilder
       MAX_ADDRESSES_COUNT = 3
-      MAPPING = {
-          doc_nr: :doc_number,
-          doc_type: :doc_type,
-          doc_cat: :doc_category,
-          sa: :sales_area,
-          po_nr: :po_number,
-          doc_date: :doc_date,
-          rdd: :rdd,
-          curr: :currency,
-          net_value: :net_value,
-          payment_terms: :payment_terms,
-          paymt_t_text: :payment_terms_text,
-          ship_status: :ship_status,
-          credit_status: :credit_status,
-          no_copy_reason: :no_copy_reason,
-          no_chg_reason: :no_change_reason,
-          no_cwref_reason: :no_cwref_reason,
-          po_type: :po_type,
-          change_date: :change_date,
-          change_nr: :change_number,
-          contact_info: :contact_info,
-          pfinv: :proforma_invoice_number,
-          inv: :invoice_number,
-          valid_from: :valid_from,
-          valid_to: :valid_to,
-          ref_doc_nr: :ref_doc_number
-      }.with_indifferent_access
 
       def build
         yield(self)
@@ -36,41 +9,19 @@ module CorevistAPI
       end
 
       def with_header
-        header.instance_variables.each do |h|
-          v = h.to_s.tr('@', '')
-          next unless MAPPING[v]
-
-          @object.header.send("#{MAPPING[v]}=", header.instance_variable_get(h))
-        end
+        sap_field_mapper_for(:salesdoc, :header).each { |k,v| @object.header.send("#{v}=", header.send(k)) }
       end
 
       def with_items
         items.inject(@object.items) do |memo, _item|
-
           # TODO: move to a salesdoc item builder.
           item = CorevistAPI::Salesdoc::Item.new
-          item.cond_uom = _item.cond_uom
-          item.customer_material = _item.cust_mat
-          item.description = _item.descr.force_encoding(Encoding::UTF_8)
-          item.item_category = _item.item_cat
-          item.item_number = _item.item_nr
-          item.material = _item.mat
-          item.net_price = _item.net_price
-          item.net_value = _item.net_value
-          item.no_change_reason = _item.no_chg_reason
-          item.no_copy_reason = _item.no_copy_reason
-          item.no_cwref_reason = _item.no_cwref_reason
-          item.parent_item = _item.parent_item
-          item.parent_item_use = _item.parent_item_use
-          item.per = _item.per
-          item.plant = _item.plant
-          item.quantity = _item.qty
-          item.rdd = _item.rdd
-          item.ref_item_number = _item.ref_item_nr
-          item.reference = _item.reference
-          item.rejection_reason = _item.rej_reason
-          item.sales_uom = _item.sales_uom
-          item.ship_status = _item.ship_status
+
+          sap_field_mapper_for(:salesdoc, :item).each do |k,v|
+            value = _item.send(k).respond_to?(:force_encoding) ? _item.send(k).force_encoding(Encoding::UTF_8) : _item.send(k)
+            item.send("#{v}=", value)
+          end
+
           memo << item
         end
       end
