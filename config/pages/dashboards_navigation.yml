@@ -36,6 +36,12 @@ navigationLinks:
         href: "/admin/sales_areas"
         permission: "system_maintenance"
 
+      - uuid: "doc_type_maintenance"
+        icon: "catalog"
+        caption: "<%= _('lbl|menu doc type maintenance') %>"
+        href: "/admin/doc_types"
+        permission: "doc_type_maintenance"
+
       - uuid: "look_and_feel_maintenance"
         icon: "catalog"
         caption: "<%= _('lbl|menu look and feel maintenance') %>"
