@@ -8,50 +8,32 @@ components:
     url: "/v1/partners"
     elements:
       - - atom: text
-          label: "<%= _('lbl|payer number') %>"
-          name: "payer_number"
-          uuid: "payer_number"
-          placeholder: "<%= _('plc|payer number') %>"
-          validation_type: string
-          value: ""
-          validations:
-            - message: "<%= _('error|attributes.text.blank') %>"
-              type: required
-              value: ""
-
-        - atom: text
-          label: "<%= _('lbl|company code') %>"
-          name: "comp_code"
-          uuid: "comp_code"
-          placeholder: "<%= _('plc|company code') %>"
-          value: ""
-
-      - - atom: date
-          uuid: "from_date"
-          label: "<%= _('lbl|from date') %>"
-          name: "from_date"
-          validation_type: string
-          value: ""
-
-        - atom: date
-          uuid: "to_date"
-          label: "<%= _('lbl|to date') %>"
-          name: "to_date"
+          label: "<%= _('lbl|partner number') %>"
+          name: "number"
+          uuid: "number"
+          placeholder: "<%= _('plc|partner number') %>"
           validation_type: string
           value: ""
 
       - - atom: text
-          uuid: "from_amount"
-          label: "<%= _('lbl|from amount') %>"
-          name: "from_amount"
-          validation_type: string
+          label: "<%= _('lbl|partner name') %>"
+          name: "name"
+          uuid: "name"
+          placeholder: "<%= _('plc|partner name') %>"
+          value: ""
+
+      - - atom: text
+          label: "<%= _('lbl|city') %>"
+          name: "city"
+          uuid: "city"
+          placeholder: "<%= _('plc|city') %>"
           value: ""
 
         - atom: text
-          uuid: "to_amount"
-          label: "<%= _('lbl|to amount') %>"
-          name: "to_amount"
-          validation_type: string
+          label: "<%= _('lbl|postal code') %>"
+          name: "postal_code"
+          uuid: "postal_code"
+          placeholder: "<%= _('plc|postal code') %>"
           value: ""
 
       - - atom: button

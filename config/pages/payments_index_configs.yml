@@ -7,51 +7,45 @@ components:
     elements:
       thead:
         - key: true
-          name: 'doc_number'
-          caption: "<%= _('lbl|doc number') %>"
+          name: 'payment_number'
+          caption: "<%= _('lbl|payment number') %>"
           label: null
           sortable: true
           hidden: false
           action: 'link'
         - key: true
-          name: 'doc_type'
-          caption: "<%= _('lbl|doc type') %>"
+          name: 'payment_date'
+          caption: "<%= _('lbl|payment date') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
-          name: 'doc_date'
-          caption: "<%= _('lbl|doc date') %>"
+          name: 'amount_in_doc_currency'
+          caption: "<%= _('lbl|amount in doc currency') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
-          name: 'po_number'
-          caption: "<%= _('lbl|po') %>"
+          name: 'doc_currency'
+          caption: "<%= _('lbl|doc currency') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
-          name: 'ship_status'
-          caption: "<%= _('lbl|ship status') %>"
+          name: 'assignment_number'
+          caption: "<%= _('lbl|assignment number') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
-          name: 'net_value'
-          caption: "<%= _('lbl|net value') %>"
+          name: 'debit_or_credit'
+          caption: "<%= _('lbl|debit or credit') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
-          name: 'sold_to_number'
-          caption: "<%= _('lbl|sold to number') %>"
-          label: null
-          sortable: true
-          hidden: true
-        - key: true
-          name: 'sold_to_description'
-          caption: "<%= _('lbl|sold to descr') %>"
+          name: 'fiscal_year'
+          caption: "<%= _('lbl|fiscal year') %>"
           label: null
           sortable: true
           hidden: true
