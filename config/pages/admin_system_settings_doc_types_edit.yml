@@ -24,7 +24,7 @@ components:
           name: "description"
           validation_type: string
 
-      - - atom: text
+      - - atom: textarea
           uuid: "data"
           label: "<%= _('lbl|data') %>"
           name: "data"

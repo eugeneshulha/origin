@@ -1,9 +1,9 @@
-title: "<%= _('page title|edit doc_type') %>"
+title: "<%= _('page title|new doc_type') %>"
 components:
   - uuid: "doc_types_edit_form"
     description: ""
     method: GET
-    title: "<%= _('title|edit doc_type') %>"
+    title: ""
     type: form
     url: ""
     data_url: "/v1/admin/system_settings/doc_types"
@@ -24,7 +24,7 @@ components:
           name: "description"
           validation_type: string
 
-      - - atom: text
+      - - atom: textarea
           uuid: "data"
           label: "<%= _('lbl|data') %>"
           name: "data"
