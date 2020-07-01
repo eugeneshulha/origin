@@ -7,19 +7,23 @@ module CorevistAPI
         end
 
         def index_configs?
-          true
+          index?
         end
 
         def create?
-          user.authorized_for?('translation_maintenance')
+          index?
         end
 
         def destroy?
-          create?
+          index?
         end
 
         def update?
-          create?
+          index?
+        end
+
+        def download?
+          index?
         end
       end
     end

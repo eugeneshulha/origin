@@ -98,6 +98,7 @@ CorevistAPI::Engine.routes.draw do
           get :configs, on: :collection, to: 'translations#index_configs'
           get :configs, on: :member, to: 'translations#edit'
           get 'filters/new', on: :collection, to: 'translations/filters#new'
+          post :download, to: 'translations#download', on: :collection
         end
 
         namespace :system_settings do
