@@ -89,6 +89,14 @@ navigationLinks:
     sap_required: true
     subCategories: []
 
+  - uuid: "payments"
+    icon: "payments"
+    caption: "<%= _('lbl|payments') %>"
+    href: "/payments"
+    permission: "payments"
+    sap_required: true
+    subCategories: []
+
   - uuid: "open_items"
     icon: "open-items"
     caption: "<%= _('lbl|menu open items') %>"
