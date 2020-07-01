@@ -15,6 +15,7 @@ components:
           validations:
             - message: "<%= _('error|attributes.role_ids.blank') %>"
               type: required
+
       - - atom: hidden
           uuid: "uuid"
           label: ID
