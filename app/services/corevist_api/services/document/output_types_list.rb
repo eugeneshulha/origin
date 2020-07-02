@@ -4,7 +4,7 @@ module CorevistAPI::Services::Document
     private
 
     def perform
-      @rfc_result = rfc_service_for(obj.api_names[:display], @object, @params).call
+      @rfc_result = rfc_service_for("#{obj.model_name.element}_display", @object, @params).call
 
       document = builder_for(obj.model_name.element, @rfc_result.data).build(&:with_configs)
 
