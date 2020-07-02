@@ -91,7 +91,7 @@ navigationLinks:
 
   - uuid: "payments"
     icon: "payments"
-    caption: "<%= _('lbl|payments') %>"
+    caption: "<%= _('lbl|menu payments') %>"
     href: "/payments"
     permission: "search_for_payments"
     sap_required: true

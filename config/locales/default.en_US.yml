@@ -24,7 +24,12 @@ en_US:
   page title|microsite maintenance: Microsites maintenance
   page title|sales area maintenance: Sales areas maintenance
   page title|assigned roles: Assigned roles
-
+  page title|search for payments: Search for Payments
+  page title|new sap downtime: New SAP Downtime
+  page title|new sales area: New sales area
+  page title|edit sales area: Edit sales area
+  page title|new sap connection: New SAP Connection
+  page title|edit sap connection: Edit SAP Connection
 
   title|login: Login
   title|recent orders: Recent Orders
@@ -40,6 +45,9 @@ en_US:
   title|assignable roles: Assignable roles
   title|sold tos: Sold tos
   title|ship tos: Ship tos
+  title|sales area details: Sales area details
+  title|sales area doc types: Assigned doc types
+  title|sales area doc categories: Assigned doc categories
 
   lbl|username: Username
   lbl|password: Password
@@ -143,6 +151,8 @@ en_US:
   lbl|menu sales area maintenance: Sales Areas
   lbl|menu sap connections: SAP Connections
   lbl|menu sap downtimes: SAP Downtimes
+  lbl|menu payments: Payments
+  lbl|menu doc type maintenance: Doc types
   lbl|permission name: Permission
   lbl|env development: Development
   lbl|env qa: QA
@@ -165,7 +175,16 @@ en_US:
   lbl|down to time: To time
   lbl|microsite name: Microsite name
   lbl|updated by: Updated by
-
+  lbl|company code: Company code
+  lbl|from amount: From amount
+  lbl|to amount: To amount
+  lbl|payment number: Payment number
+  lbl|payment date: Payment date
+  lbl|amount in doc currency: Amount
+  lbl|doc currency: Currency
+  lbl|assignment number: Assignment number
+  lbl|fiscal year: Fiscal year
+  lbl|invoices: Invoices
 
   plc|username: Username
   plc|password: Password

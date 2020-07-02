@@ -4,69 +4,78 @@ es_ES:
   page title|open items: Artículos abiertos
   page title|search for invoice: Buscar factura
   page title|search for orders: Buscar pedidos
-  page title|search for partners: Busca socios
+  page title|search for partners: La búsqueda de socios
   page title|invoice: Factura
   page title|salesdoc: Salesdoc
-  page title|role maintenance: Mantenimiento de roles
+  page title|role maintenance: mantenimiento de papel
   page title|registration: Registro
-  page title|translation maintenance: Mantenimiento de traducciones
-  page title|new translation: Nueva traducción
+  page title|translation maintenance: mantenimiento traducciones
+  page title|new translation: nueva traducción
   page title|edit translation: Editar traducción
   page title|user details: Detalles de usuario
-  page title|assigned partners: Socios asignados
+  page title|assigned partners: socios asignados
   page title|edit user: Editar usuario
   page title|new user: Nuevo Usuario
   page title|new role: Nuevo rol
-  page title|edit role: Editar rol
-  page title|sap connections maintenance: Mantenimiento de SAP
-  page title|sap downtimes maintenance: Tiempos de inactividad de SAP
-  page title|edit sap downtime: Editar el tiempo de inactividad de SAP
-  page title|microsite maintenance: Mantenimiento de micrositios
-  page title|sales area maintenance: Mantenimiento de áreas de venta.
-
+  page title|edit role: función de edición
+  page title|sap connections maintenance: el mantenimiento de SAP
+  page title|sap downtimes maintenance: los tiempos de parada de SAP
+  page title|edit sap downtime: Modificar el tiempo de inactividad de SAP
+  page title|microsite maintenance: mantenimiento micrositios
+  page title|sales area maintenance: áreas de venta de mantenimiento
+  page title|assigned roles: roles asignados
+  page title|search for payments: Búsqueda de Pagos
+  page title|new sap downtime: Nueva SAP tiempo de inactividad
+  page title|new sales area: Nueva área de ventas
+  page title|edit sales area: área de edición ventas
+  page title|new sap connection: Nueva conexión SAP
+  page title|edit sap connection: Editar conexión SAP
 
   title|login: Iniciar sesión
   title|recent orders: órdenes recientes
   title|open items: Artículos abiertos
   title|filter: Filtrar
   title|have a question: ¿Tengo una pregunta?
-  title|contact about salesdoc: Contáctenos sobre este pedido
+  title|contact about salesdoc: Póngase en contacto con nosotros acerca de este orden
   title|contact about invoice: Contáctenos sobre esta factura
   title|reset password: Restablecer su contraseña
   title|edit translation: Editar traducción
   title|user details: Detalles de usuario
-  title|assigned roles: Roles asignados
-  title|assignable roles: Roles asignables
-  title|sold tos: Vendido tos
-  title|ship tos: Barco tos
+  title|assigned roles: roles asignados
+  title|assignable roles: funciones asignables
+  title|sold tos: tos vendidos
+  title|ship tos: tos de buques
+  title|sales area details: Detalles del área de ventas
+  title|sales area doc types: doc tipos asignados
+  title|sales area doc categories: doc categorías asignadas
 
   lbl|username: Nombre de usuario
   lbl|password: Contraseña
   lbl|confirm password: Confirmación de contraseña
   lbl|new password: Nueva contraseña
-  lbl|doc number: Número de doc.
-  lbl|doc type: Tipo de documento
-  lbl|doc date: Fecha de doc.
+  lbl|doc number: número de doc
+  lbl|doc type: tipo doc
+  lbl|doc date: fecha Doc
   lbl|po number: Numero postal
   lbl|po: correos
-  lbl|ship status: Estado del barco
+  lbl|ship status: el estado de la nave
   lbl|net value: Total
   lbl|invoice: Factura
   lbl|due date: Fecha de vencimiento
   lbl|material number: Número material
   lbl|order number: Número de orden
-  lbl|payer number: Número de pagador
+  lbl|payer number: número pagador
   lbl|delivery number: Número de entrega
   lbl|search criteria value: Valor
   lbl|from date: Partir de la fecha
   lbl|to date: Hasta la fecha
   lbl|payer: Pagador
-  lbl|payer name: Nombre del pagador
-  lbl|sold to number: Vendido al número
-  lbl|sold to descr: Vendido a descripción
+  lbl|payer name: nombre del pagador
+  lbl|sold to number: Vendido a varios
+  lbl|sold to descr: Vendido a la descripción
   lbl|search criteria: Criterio de búsqueda
-  lbl|ship to number: Enviar a número
-  lbl|invoice number: Número de factura
+  lbl|ship to number: Envíe a la serie
+  lbl|invoice number: número de factura
   lbl|ship date: Fecha de envío
   lbl|ship status ALL: Todas
   lbl|ship status NSHP: No enviado
@@ -76,8 +85,8 @@ es_ES:
   lbl|description: Descripción
   lbl|rdd: RDD
   lbl|quantity: Cantidad
-  lbl|sales uom: UOM de ventas
-  lbl|item category: Categoría de artículo
+  lbl|sales uom: ventas UOM
+  lbl|item category: Categoría del artículo
   lbl|net price: Precio neto
   lbl|per: Por
   lbl|your message: Tu mensaje
@@ -92,9 +101,9 @@ es_ES:
   lbl|last name: Apellido
   lbl|email address: Dirección de correo electrónico
   lbl|customer number: Número de cliente
-  lbl|microsite: Micrositio
-  lbl|microsite 1: micrositio 1
-  lbl|microsite 2: micrositio 2
+  lbl|microsite: microsite
+  lbl|microsite 1: microsite 1
+  lbl|microsite 2: microsite 2
   lbl|language: Idioma
   lbl|language en_US: Inglés
   lbl|language pl_PL: polaco
@@ -103,45 +112,47 @@ es_ES:
   lbl|phone: Teléfono
   lbl|overdue: Atrasado
   lbl|outstanding: Excepcional
-  lbl|custom translation: Traducción personalizada
+  lbl|custom translation: traducción personalizada
   lbl|locale: Lugar
   lbl|key: Llave
   lbl|status: Estado
-  lbl|default translation: Traducción por defecto
+  lbl|default translation: traducción por defecto
   lbl|user classification: Clasificación
-  lbl|user classification dealer:  Comerciante
-  lbl|user classification distributor:  Distribuidor
+  lbl|user classification dealer: Comerciante
+  lbl|user classification distributor: Distribuidor
   lbl|password confirmation: confirmación de contraseña
   lbl|user type: Tipo de usuario
-  lbl|time zone:  Zona horaria
-  lbl|number format:  Formato numérico
-  lbl|date format:  Formato de fecha
+  lbl|time zone: Zona horaria
+  lbl|number format: Formato numérico
+  lbl|date format: Formato de fecha
   lbl|time format: Formato de tiempo
   lbl|id: CARNÉ DE IDENTIDAD
   lbl|title: Título
-  lbl|partner AG number: Vendido al número
-  lbl|partner WE number: Enviar a número
-  lbl|postal address 1: Dirección postal 1
-  lbl|postal address 2: Dirección postal 2
-  lbl|postal address 3: Dirección postal 3
+  lbl|partner AG number: Vendido a varios
+  lbl|partner WE number: Envíe a la serie
+  lbl|postal address 1: dirección postal 1
+  lbl|postal address 2: dirección postal 2
+  lbl|postal address 3: dirección postal 3
   lbl|country: País
-  lbl|sales area id: ID del área de ventas
+  lbl|sales area id: ID de área de ventas
   lbl|actions: Comportamiento
   lbl|menu admin: Administración
   lbl|menu system: Sistema
-  lbl|menu user maintenance: Los usuarios
+  lbl|menu user maintenance: usuarios
   lbl|menu role maintenance: Roles
-  lbl|menu translations maintenance: Traducciones
+  lbl|menu translations maintenance: traducciones
   lbl|menu look and feel maintenance: Mira y siente
   lbl|menu content maintenance: Contenido
   lbl|menu dashboard: Tablero
   lbl|menu orders: Pedidos
   lbl|menu invoices: Facturas
   lbl|menu open items: Artículos abiertos
-  lbl|menu microsite maintenance: Micrositios
+  lbl|menu microsite maintenance: micrositios
   lbl|menu sales area maintenance: Áreas de ventas
-  lbl|menu sap connections: Conexiones SAP
-  lbl|menu sap downtimes: Tiempos de inactividad de SAP
+  lbl|menu sap connections: Conexiones de SAP
+  lbl|menu sap downtimes: Los tiempos de parada de SAP
+  lbl|menu payments: pagos
+  lbl|menu doc type maintenance: tipos Doc
   lbl|permission name: Permiso
   lbl|env development: Desarrollo
   lbl|env qa: QA
@@ -151,7 +162,7 @@ es_ES:
   lbl|active: Activo
   lbl|mshost: MShost
   lbl|ashost: AShost
-  lbl|sysnr: Número de sistema
+  lbl|sysnr: número sys
   lbl|client: Cliente
   lbl|user: Usuario
   lbl|passwd: Contraseña
@@ -161,39 +172,48 @@ es_ES:
   lbl|down from date: Partir de la fecha
   lbl|down to date: Hasta la fecha
   lbl|down from time: De vez
-  lbl|down to time: Al tiempo
-  lbl|microsite name: Nombre del micrositio
+  lbl|down to time: en cuando
+  lbl|microsite name: nombre del micrositio
   lbl|updated by: Actualizado por
-
+  lbl|company code: Codigo de compañia
+  lbl|from amount: desde cantidad
+  lbl|to amount: Al monto
+  lbl|payment number: número de pago
+  lbl|payment date: Fecha de pago
+  lbl|amount in doc currency: Cantidad
+  lbl|doc currency: Moneda
+  lbl|assignment number: número de asignación
+  lbl|fiscal year: Año fiscal
+  lbl|invoices: Facturas
 
   plc|username: Nombre de usuario
   plc|password: Contraseña
-  plc|select search criteria: Seleccionar criterios de búsqueda
+  plc|select search criteria: Seleccione los criterios de búsqueda
   plc|your message: Introduzca su mensaje aquí
   plc|partner number: Número
   plc|partner name: Nombre
   plc|city: Ciudad
   plc|postal code: Código postal
-  plc|select user classification: Seleccionar clasificación de usuario
+  plc|select user classification: Seleccione la clasificación de usuario
   plc|first name: Nombre de pila
   plc|last name: Apellido
   plc|email address: Dirección de correo electrónico
   plc|phone: Teléfono
   plc|password confirmation: confirmación de contraseña
-  plc|microsite: Micrositio
+  plc|microsite: microsite
   plc|user type: Tipo de usuario
   plc|select language: Seleccione el idioma
   plc|select time zone: Selecciona la zona horaria
-  plc|select number format: Seleccionar formato de número
-  plc|select date format: Seleccionar formato de fecha
-  plc|select time format: Seleccionar formato de hora
+  plc|select number format: Seleccione el formato de número
+  plc|select date format: Formato de fecha
+  plc|select time format: Seleccione el formato de hora
   plc|title: Título
   plc|environment: Ambiente
   plc|description: Descripción
   plc|active: Activo
   plc|mshost: MShost
   plc|ashost: AShost
-  plc|sysnr: Número de sistema
+  plc|sysnr: número sys
   plc|client: Cliente
   plc|user: Usuario
   plc|passwd: Contraseña
@@ -204,49 +224,51 @@ es_ES:
   btn|login: Iniciar sesión
   btn|cancel: Cancelar
   btn|apply: Aplicar
+  btn|next: Presentar y el próximo
   btn|send email: Enviar correo electrónico
   btn|reset password: Restablecer la contraseña
   btn|update password: Actualiza contraseña
-  btn|submit registration: Enviar registro
+  btn|submit registration: presentar el registro
 
   link|forgot password: ¿Olvidaste tu contraseña?
   link|create account: Crea una cuenta
 
   error|attributes.password.blank: La contraseña no puede estar en blanco
   error|attributes.password.too_short: La contraseña es demasiado corta
-  error|attributes.password.too_long: La contraseña es muy larga
-  error|attributes.reset_password_token.blank: Falta el token
+  error|attributes.password.too_long: La contraseña es demasiado larga
+  error|attributes.reset_password_token.blank: Token falta
   error|attributes.username.blank: nombre de usuario no puede estar en blanco
-  error|attributes.username.too_short: El nombre de usuario es demasiado corto.
-  error|attributes.username.too_long: El nombre de usuario es demasiado largo.
-  error|attributes.text.min_max: La longitud de su mensaje no puede ser inferior a% {min} y superior a% {max} caracteres
+  error|attributes.username.too_short: Nombre de usuario es demasiado corto
+  error|attributes.username.too_long: Nombre de usuario es demasiado largo
+  error|attributes.text.min_max: Longitud de su mensaje no puede ser inferior a% {min} y más de% {max} caracteres
   error|attributes.new_password.blank: La nueva contraseña no puede estar en blanco
-  error|attributes.uuid.blank: Falta el valor de UUID
-  error|attributes.key.blank: El valor clave no puede estar en blanco
-  error|attributes.cst_translation.blank: La traducción personalizada no puede estar en blanco
+  error|attributes.uuid.blank: valor UUID no se encuentra
+  error|attributes.key.blank: valor de la clave no puede estar en blanco
+  error|attributes.cst_translation.blank: traducción personalizada no puede estar en blanco
   error|attributes.first_name.blank: El nombre no puede estar en blanco
-  error|attributes.first_name.too_short: El nombre es muy corto
-  error|attributes.first_name.too_long: El nombre es muy largo
-  error|attributes.last_name.blank: El apellido no puede estar en blanco
-  error|attributes.last_name.too_short: El apellido es demasiado corto
-  error|attributes.last_name.too_long: El apellido es demasiado largo
-  error|attributes.email.too_long: El correo electrónico es demasiado largo.
+  error|attributes.first_name.too_short: Nombre es demasiado corta
+  error|attributes.first_name.too_long: En primer nombre es demasiado largo
+  error|attributes.last_name.blank: Apellido no puede estar en blanco
+  error|attributes.last_name.too_short: Apellido es demasiado corta
+  error|attributes.last_name.too_long: Apellido es demasiado largo
+  error|attributes.email.too_long: El correo electrónico es demasiado largo
   error|attributes.email.blank: El correo electrónico no puede estar en blanco
-  error|attributes.password_confirmation.blank: La confirmación de contraseña no puede estar en blanco
+  error|attributes.password_confirmation.blank: Confirmación de la contraseña no puede estar en blanco
   error|attributes.microsite.blank: Microsite no puede estar en blanco
-  error|attributes.user_type.blank: El tipo de usuario no puede estar en blanco
-  error|attributes.language.blank: El idioma no puede estar en blanco
-  error|attributes.time_zone.blank: La zona horaria no puede estar en blanco
-  error|attributes.number_format.blank: El formato de número no puede estar en blanco
-  error|attributes.date_format.blank: El formato de fecha no puede estar en blanco
-  error|attributes.time_format.blank: El formato de hora no puede estar en blanco
-  error|attributes.role_ids.blank: Seleccione al menos un rol
-  error|attributes.text.blank: El mensaje no puede estar en blanco.
-  error|attributes.salesdoc_doc_number.blank: Falta el número de Salesdoc
-  error|attributes.partner_id.blank: Falta la ID de socio
-  error|attributes.user_uuid.blank: Falta el UUID del usuario
-  error|attributes.invoice_doc_number.blank: Falta el número de factura
-  error|attributes.from_date.blank: Falta el valor de la fecha
-  error|attributes.to_date.blank: Falta el valor de fecha TO
+  error|attributes.user_type.blank: Tipo de usuario no puede estar en blanco
+  error|attributes.language.blank: El lenguaje no puede estar en blanco
+  error|attributes.time_zone.blank: zona horaria no puede estar en blanco
+  error|attributes.number_format.blank: Formato de número no puede estar en blanco
+  error|attributes.date_format.blank: formato de fecha no puede estar en blanco
+  error|attributes.time_format.blank: Formato de hora no puede estar en blanco
+  error|attributes.role_ids.blank: Seleccionar al menos una función
+  error|attributes.text.blank: Mensaje no puede estar en blanco
+  error|attributes.salesdoc_doc_number.blank: número Salesdoc falta
+  error|attributes.partner_id.blank: Compañero ID no existe
+  error|attributes.user_uuid.blank: UUID del usuario no se encuentra
+  error|attributes.invoice_doc_number.blank: número de factura no se encuentra
+  error|attributes.from_date.blank: A partir de la fecha valor no se encuentra
+  error|attributes.to_date.blank: valor de fecha a falta
   error|please specify a criteria to search: Por favor, especifique un criterio para buscar
-  error|sales area has assigned partners: El área de ventas ha asignado socios, por lo tanto, no se puede eliminar.
+  error|sales area has assigned partners: área de ventas ha por lo tanto, no puede ser borrada socios asignados.
+  error|no mappings found: Error de servidor interno. No se han encontrado campo asignador

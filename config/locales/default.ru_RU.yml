@@ -1,29 +1,35 @@
-ru_RU:
+en_US:
   page title|login: Страница авторизации
-  page title|dashboard: Приборная панель
-  page title|open items: Открытые счета
-  page title|search for invoice: Поиск счета
+  page title|dashboard: Панель приборов
+  page title|open items: Открытые позиции
+  page title|search for invoice: Поиск по фактуре
   page title|search for orders: Поиск заказов
   page title|search for partners: Поиск партнеров
   page title|invoice: Счет-фактура
-  page title|salesdoc: Документ
-  page title|role maintenance: Ролевое обслуживание
+  page title|salesdoc: Salesdoc
+  page title|role maintenance: обслуживание роли
   page title|registration: Постановка на учет
-  page title|translation maintenance: Обслуживание переводов
+  page title|translation maintenance: обслуживание Переводы
   page title|new translation: Новый перевод
-  page title|edit translation: Редактировать перевод
+  page title|edit translation: Редактирование перевода
   page title|user details: Данные пользователя
   page title|assigned partners: Назначенные партнеры
   page title|edit user: Изменить пользователя
   page title|new user: Новый пользователь
   page title|new role: Новая роль
   page title|edit role: Изменить роль
-  page title|sap connections maintenance: Обслуживание SAP
-  page title|sap downtimes maintenance: SAP простоя
-  page title|edit sap downtime: Изменить время простоя SAP
-  page title|microsite maintenance: Обслуживание микросайтов
-  page title|sales area maintenance: Обслуживание торговых площадей
-
+  page title|sap connections maintenance: обслуживание SAP
+  page title|sap downtimes maintenance: SAP простои
+  page title|edit sap downtime: Изменение времени простоя SAP
+  page title|microsite maintenance: обслуживание Microsites
+  page title|sales area maintenance: обслуживание торговых площадей
+  page title|assigned roles: Назначенные роли
+  page title|search for payments: Поиск платежей
+  page title|new sap downtime: Новый SAP Простои
+  page title|new sales area: Новая торговая площадь
+  page title|edit sales area: Область редактирования продаж
+  page title|new sap connection: Новое соединение SAP
+  page title|edit sap connection: Редактирование SAP Connection
 
   title|login: Авторизоваться
   title|recent orders: Последние Заказы
@@ -31,45 +37,48 @@ ru_RU:
   title|filter: Фильтр
   title|have a question: Есть вопрос?
   title|contact about salesdoc: Свяжитесь с нами по поводу этого заказа
-  title|contact about invoice: Свяжитесь с нами по поводу этого счета
+  title|contact about invoice: Свяжитесь с нами по этому счету
   title|reset password: Сбросить пароль
-  title|edit translation: Редактировать перевод
+  title|edit translation: Редактирование перевода
   title|user details: Данные пользователя
   title|assigned roles: Назначенные роли
   title|assignable roles: Назначаемые роли
-  title|sold tos: Продано
-  title|ship tos: Корабль
+  title|sold tos: Продан тос
+  title|ship tos: Судовая тос
+  title|sales area details: подробнее Торговая площадь
+  title|sales area doc types: Назначенные типы Doc
+  title|sales area doc categories: Назначенные категории Doc
 
   lbl|username: имя пользователя
   lbl|password: пароль
   lbl|confirm password: Подтверждение пароля
   lbl|new password: Новый пароль
-  lbl|doc number: Номер документа
-  lbl|doc type: Тип документа
-  lbl|doc date: Дата документа
-  lbl|po number: Номер заказа
+  lbl|doc number: номер Doc
+  lbl|doc type: Тип Doc
+  lbl|doc date: дата Doc
+  lbl|po number: номер заказа
   lbl|po: ПО
-  lbl|ship status: Статус судна
+  lbl|ship status: статус судов
   lbl|net value: Общее количество
   lbl|invoice: Счет-фактура
   lbl|due date: Срок
   lbl|material number: Номер материала
   lbl|order number: Порядковый номер
-  lbl|payer number: Номер плательщика
+  lbl|payer number: номер плательщика
   lbl|delivery number: Номер доставки
   lbl|search criteria value: Стоимость
   lbl|from date: С даты
   lbl|to date: Назначить свидание
   lbl|payer: плательщик
-  lbl|payer name: Имя плательщика
-  lbl|sold to number: Продано на номер
-  lbl|sold to descr: Продано к описанию
+  lbl|payer name: наименование плательщика
+  lbl|sold to number: Продан на номер
+  lbl|sold to descr: Продан в описании
   lbl|search criteria: Критерий поиска
-  lbl|ship to number: Корабль на номер
+  lbl|ship to number: Корабль номер
   lbl|invoice number: Номер счета
-  lbl|ship date: Дата отправки
+  lbl|ship date: дата отправки
   lbl|ship status ALL: Все
-  lbl|ship status NSHP: Не отправлен
+  lbl|ship status NSHP: Не поставляется
   lbl|ship status SHIP: Высылаем
   lbl|item number: Номер предмета
   lbl|material: материал
@@ -77,7 +86,7 @@ ru_RU:
   lbl|rdd: РДД
   lbl|quantity: Количество
   lbl|sales uom: Продажи UOM
-  lbl|item category: Категория товара
+  lbl|item category: категория товара
   lbl|net price: Цена нетто
   lbl|per: в
   lbl|your message: Ваше сообщение
@@ -85,7 +94,7 @@ ru_RU:
   lbl|partner name: название
   lbl|city: город
   lbl|postal code: Почтовый индекс
-  lbl|role name: Название роли
+  lbl|role name: имя роли
   lbl|created by: Создано
   lbl|is active: Активный?
   lbl|first name: Имя
@@ -103,29 +112,29 @@ ru_RU:
   lbl|phone: Телефон
   lbl|overdue: просроченный
   lbl|outstanding: выдающийся
-  lbl|custom translation: Индивидуальный перевод
+  lbl|custom translation: Пользовательский перевод
   lbl|locale: место действия
   lbl|key: ключ
   lbl|status: Положение дел
-  lbl|default translation: Перевод по умолчанию
+  lbl|default translation: По умолчанию перевод
   lbl|user classification: классификация
-  lbl|user classification dealer:  дилер
-  lbl|user classification distributor:  Распределитель
+  lbl|user classification dealer: дилер
+  lbl|user classification distributor: Распределитель
   lbl|password confirmation: Подтверждение пароля
   lbl|user type: Тип пользователя
-  lbl|time zone:  Часовой пояс
-  lbl|number format:  Числовой формат
-  lbl|date format:  Формат даты
-  lbl|time format: Формат времени
-  lbl|id: ID
+  lbl|time zone: Часовой пояс
+  lbl|number format: Числовой формат
+  lbl|date format: Формат даты
+  lbl|time format: формат времени
+  lbl|id: МНЕ БЫ
   lbl|title: заглавие
-  lbl|partner AG number: Продано на номер
-  lbl|partner WE number: Корабль на номер
+  lbl|partner AG number: Продан на номер
+  lbl|partner WE number: Корабль номер
   lbl|postal address 1: Почтовый адрес 1
   lbl|postal address 2: Почтовый адрес 2
   lbl|postal address 3: Почтовый адрес 3
   lbl|country: Страна
-  lbl|sales area id: ID торговой зоны
+  lbl|sales area id: Торговая площадь ID
   lbl|actions: действия
   lbl|menu admin: Администратор
   lbl|menu system: система
@@ -139,9 +148,11 @@ ru_RU:
   lbl|menu invoices: Счета-фактуры
   lbl|menu open items: Открытые позиции
   lbl|menu microsite maintenance: Microsites
-  lbl|menu sales area maintenance: Торговые площади
+  lbl|menu sales area maintenance: Области продаж
   lbl|menu sap connections: SAP Connections
-  lbl|menu sap downtimes: SAP простоя
+  lbl|menu sap downtimes: SAP Простои
+  lbl|menu payments: платежи
+  lbl|menu doc type maintenance: типы Doc
   lbl|permission name: разрешение
   lbl|env development: развитие
   lbl|env qa: контроль качества
@@ -151,30 +162,39 @@ ru_RU:
   lbl|active: активный
   lbl|mshost: MShost
   lbl|ashost: AShost
-  lbl|sysnr: Номер системы
+  lbl|sysnr: Sys номер
   lbl|client: клиент
   lbl|user: пользователь
   lbl|passwd: пароль
   lbl|lang: язык
   lbl|trace: след
-  lbl|loglevel: Уровень журнала
+  lbl|loglevel: уровень протокола
   lbl|down from date: С даты
   lbl|down to date: Назначить свидание
   lbl|down from time: От времени
   lbl|down to time: Ко времени
-  lbl|microsite name: Название микросайта
+  lbl|microsite name: Microsite имя
   lbl|updated by: Обновлено
-
+  lbl|company code: Код компании
+  lbl|from amount: От суммы
+  lbl|to amount: Для суммы
+  lbl|payment number: номер платежа
+  lbl|payment date: дата платежа
+  lbl|amount in doc currency: Количество
+  lbl|doc currency: валюта
+  lbl|assignment number: номер Назначение
+  lbl|fiscal year: Отчетный год
+  lbl|invoices: Счета-фактуры
 
   plc|username: имя пользователя
   plc|password: пароль
   plc|select search criteria: Выберите критерии поиска
-  plc|your message: Введите ваше сообщение здесь
+  plc|your message: Введите Ваше сообщение здесь
   plc|partner number: Число
   plc|partner name: название
   plc|city: город
   plc|postal code: Почтовый индекс
-  plc|select user classification: Выберите классификацию пользователей
+  plc|select user classification: Выбор классификации пользователей
   plc|first name: Имя
   plc|last name: Фамилия
   plc|email address: Адрес электронной почты
@@ -183,7 +203,7 @@ ru_RU:
   plc|microsite: Microsite
   plc|user type: Тип пользователя
   plc|select language: Выберите язык
-  plc|select time zone: Выберите часовой пояс
+  plc|select time zone: Выбор часового пояса
   plc|select number format: Выберите формат номера
   plc|select date format: Выберите формат даты
   plc|select time format: Выберите формат времени
@@ -193,60 +213,62 @@ ru_RU:
   plc|active: активный
   plc|mshost: MShost
   plc|ashost: AShost
-  plc|sysnr: Номер системы
+  plc|sysnr: Sys номер
   plc|client: клиент
   plc|user: пользователь
   plc|passwd: пароль
   plc|lang: язык
   plc|trace: след
-  plc|loglevel: Уровень журнала
+  plc|loglevel: уровень протокола
 
   btn|login: Авторизоваться
   btn|cancel: Отмена
   btn|apply: Подать заявление
-  btn|send email: Отправить письмо
+  btn|next: Отправить и рядом
+  btn|send email: Отправить по электронной почте
   btn|reset password: Сброс пароля
-  btn|update password: Обновить пароль
-  btn|submit registration: Отправить регистрацию
+  btn|update password: пароль Обновление
+  btn|submit registration: Подтвердить регистрацию
 
   link|forgot password: Забыли Ваш пароль?
   link|create account: Завести аккаунт
 
   error|attributes.password.blank: Пароль не может быть пустым
   error|attributes.password.too_short: Пароль слишком короткий
-  error|attributes.password.too_long: Пароль слишком длинный
+  error|attributes.password.too_long: Пароль слишком долго
   error|attributes.reset_password_token.blank: Токен отсутствует
   error|attributes.username.blank: Имя пользователя не может быть пустым
-  error|attributes.username.too_short: Имя пользователя слишком короткое
-  error|attributes.username.too_long: Имя пользователя слишком длинное
-  error|attributes.text.min_max: Длина вашего сообщения не может быть менее% {min} и более% {max} символов
+  error|attributes.username.too_short: Имя пользователя слишком коротка
+  error|attributes.username.too_long: Имя пользователя слишком долго
+  error|attributes.text.min_max: Длина вашего сообщения не может быть меньше, чем% {мин} и более% {макс} символов
   error|attributes.new_password.blank: Новый пароль не может быть пустым
-  error|attributes.uuid.blank: Значение UUID отсутствует
+  error|attributes.uuid.blank: UUID значение отсутствует
   error|attributes.key.blank: Значение ключа не может быть пустым
   error|attributes.cst_translation.blank: Пользовательский перевод не может быть пустым
   error|attributes.first_name.blank: Имя не может быть пустым
-  error|attributes.first_name.too_short: Имя слишком короткое
+  error|attributes.first_name.too_short: Имя слишком коротка
   error|attributes.first_name.too_long: Имя слишком длинное
-  error|attributes.last_name.blank: Фамилия не может быть пустой
-  error|attributes.last_name.too_short: Фамилия слишком короткая
-  error|attributes.last_name.too_long: Фамилия слишком длинная
-  error|attributes.email.too_long: Электронная почта слишком длинная
+  error|attributes.last_name.blank: Фамилия не может быть пустым
+  error|attributes.last_name.too_short: Фамилия слишком коротка
+  error|attributes.last_name.too_long: Фамилия слишком долго
+  error|attributes.email.too_long: Электронная почта является слишком долго
   error|attributes.email.blank: Email не может быть пустым
   error|attributes.password_confirmation.blank: Подтверждение пароля не может быть пустым
-  error|attributes.microsite.blank: Микросайт не может быть пустым
+  error|attributes.microsite.blank: Microsite не может быть пустым
   error|attributes.user_type.blank: Тип пользователя не может быть пустым
   error|attributes.language.blank: Язык не может быть пустым
   error|attributes.time_zone.blank: Часовой пояс не может быть пустым
   error|attributes.number_format.blank: Числовой формат не может быть пустым
   error|attributes.date_format.blank: Формат даты не может быть пустым
   error|attributes.time_format.blank: Формат времени не может быть пустым
-  error|attributes.role_ids.blank: Выберите хотя бы одну роль
+  error|attributes.role_ids.blank: Выберите по крайней мере одну роль
   error|attributes.text.blank: Сообщение не может быть пустым
-  error|attributes.salesdoc_doc_number.blank: Номер Salesdoc отсутствует
+  error|attributes.salesdoc_doc_number.blank: номер Salesdoc отсутствует
   error|attributes.partner_id.blank: Идентификатор партнера отсутствует
-  error|attributes.user_uuid.blank: UUID пользователя отсутствует
+  error|attributes.user_uuid.blank: UUID Пользователь отсутствует
   error|attributes.invoice_doc_number.blank: Номер счета отсутствует
-  error|attributes.from_date.blank: С даты отсутствует значение
-  error|attributes.to_date.blank: Значение даты TO отсутствует
-  error|please specify a criteria to search: Пожалуйста, укажите критерии для поиска
-  error|sales area has assigned partners: Торговая зона имеет назначенных партнеров, поэтому не может быть удалена.
+  error|attributes.from_date.blank: От даты стоимости отсутствует
+  error|attributes.to_date.blank: В стоимость дата отсутствует
+  error|please specify a criteria to search: Пожалуйста, задать критерий для поиска
+  error|sales area has assigned partners: Область продаж присвоенные партнеры, следовательно, не могут быть удалены.
+  error|no mappings found: Внутренняя ошибка сервера. Нет поля картографа FOUND

@@ -1,0 +1,274 @@
+de_DE:
+  page title|login: Loginseite
+  page title|dashboard: Instrumententafel
+  page title|open items: Offene Posten
+  page title|search for invoice: Suchen Sie nach Rechnung
+  page title|search for orders: Suche nach Aufträgen
+  page title|search for partners: Suche nach Partnern
+  page title|invoice: Rechnung
+  page title|salesdoc: Salesdoc
+  page title|role maintenance: Rollenpflege
+  page title|registration: Anmeldung
+  page title|translation maintenance: Übersetzungen Wartung
+  page title|new translation: neue Übersetzung
+  page title|edit translation: Bearbeiten Übersetzung
+  page title|user details: Nutzerdetails
+  page title|assigned partners: Assigned Partner
+  page title|edit user: Benutzer bearbeiten
+  page title|new user: Neuer Benutzer
+  page title|new role: Neue Rolle
+  page title|edit role: Rolle bearbeiten
+  page title|sap connections maintenance: SAP Wartung
+  page title|sap downtimes maintenance: SAP Ausfallzeiten
+  page title|edit sap downtime: Bearbeiten SAP Ausfallzeiten
+  page title|microsite maintenance: Micro Wartung
+  page title|sales area maintenance: Verkaufsflächen Wartung
+  page title|assigned roles: zugewiesenen Rollen
+  page title|search for payments: Suche nach Zahlungen
+  page title|new sap downtime: Neue SAP-Downtime
+  page title|new sales area: Neue Verkaufsfläche
+  page title|edit sales area: Bearbeiten Verkaufsfläche
+  page title|new sap connection: Neue SAP-Anbindung
+  page title|edit sap connection: Bearbeiten SAP-Anbindung
+
+  title|login: Anmeldung
+  title|recent orders: letzte Bestellungen
+  title|open items: Offene Posten
+  title|filter: Filter
+  title|have a question: Eine Frage haben?
+  title|contact about salesdoc: Kontaktieren Sie uns über diesen Auftrag
+  title|contact about invoice: Kontaktieren Sie uns über diese Rechnung
+  title|reset password: Setze dein Passwort zurück
+  title|edit translation: Bearbeiten Übersetzung
+  title|user details: Nutzerdetails
+  title|assigned roles: zugewiesenen Rollen
+  title|assignable roles: zuweisbare Rollen
+  title|sold tos: verkauft tos
+  title|ship tos: Schiff tos
+  title|sales area details: Verkaufsfläche Details
+  title|sales area doc types: Assigned doc-Typen
+  title|sales area doc categories: Assigned doc Kategorien
+
+  lbl|username: Nutzername
+  lbl|password: Passwort
+  lbl|confirm password: Passwort Bestätigung
+  lbl|new password: Neues Kennwort
+  lbl|doc number: Doc-Nummer
+  lbl|doc type: Doc-Typ
+  lbl|doc date: Doc Datum
+  lbl|po number: Bestellnummer
+  lbl|po: PO
+  lbl|ship status: Schiffsstatus
+  lbl|net value: Gesamt
+  lbl|invoice: Rechnung
+  lbl|due date: Geburtstermin
+  lbl|material number: Artikelnummer
+  lbl|order number: Bestellnummer
+  lbl|payer number: Payer Nummer
+  lbl|delivery number: Lieferscheinnummer
+  lbl|search criteria value: Wert
+  lbl|from date: Ab Datum
+  lbl|to date: Miteinander ausgehen
+  lbl|payer: Zahler
+  lbl|payer name: Payer Name
+  lbl|sold to number: Verkauft an Nummer
+  lbl|sold to descr: Verkauft Beschreibung
+  lbl|search criteria: Suchkriterium
+  lbl|ship to number: Schiff Nummer
+  lbl|invoice number: Rechnungsnummer
+  lbl|ship date: Versanddatum
+  lbl|ship status ALL: Alles
+  lbl|ship status NSHP: Nicht ausgeliefert
+  lbl|ship status SHIP: versendet
+  lbl|item number: Artikelnummer
+  lbl|material: Material
+  lbl|description: Beschreibung
+  lbl|rdd: RDD
+  lbl|quantity: Menge
+  lbl|sales uom: Der Umsatz UOM
+  lbl|item category: Artikel im Bereich
+  lbl|net price: Nettopreis
+  lbl|per: Pro
+  lbl|your message: Deine Nachricht
+  lbl|partner number: Nummer
+  lbl|partner name: Name
+  lbl|city: Stadt
+  lbl|postal code: Postleitzahl
+  lbl|role name: Rollenname
+  lbl|created by: Erstellt von
+  lbl|is active: Aktiv?
+  lbl|first name: Vorname
+  lbl|last name: Nachname
+  lbl|email address: E-Mail-Addresse
+  lbl|customer number: Kundennummer
+  lbl|microsite: Micro
+  lbl|microsite 1: Micro 1
+  lbl|microsite 2: Micro 2
+  lbl|language: Sprache
+  lbl|language en_US: Englisch
+  lbl|language pl_PL: Polieren
+  lbl|company name: Name der Firma
+  lbl|street: Straße
+  lbl|phone: Telefon
+  lbl|overdue: Überfällig
+  lbl|outstanding: Hervorragend
+  lbl|custom translation: benutzerdefinierte Übersetzung
+  lbl|locale: Schauplatz
+  lbl|key: Schlüssel
+  lbl|status: Status
+  lbl|default translation: Standard-Übersetzung
+  lbl|user classification: Einstufung
+  lbl|user classification dealer: Händler
+  lbl|user classification distributor: Verteiler
+  lbl|password confirmation: Passwort Bestätigung
+  lbl|user type: Benutzertyp
+  lbl|time zone: Zeitzone
+  lbl|number format: Zahlenformat
+  lbl|date format: Datumsformat
+  lbl|time format: Zeitformat
+  lbl|id: ICH WÜRDE
+  lbl|title: Titel
+  lbl|partner AG number: Verkauft an Nummer
+  lbl|partner WE number: Schiff Nummer
+  lbl|postal address 1: Zustelladresse 1
+  lbl|postal address 2: Anschrift 2
+  lbl|postal address 3: Anschrift 3
+  lbl|country: Land
+  lbl|sales area id: Verkaufsfläche ID
+  lbl|actions: Aktionen
+  lbl|menu admin: Administrator
+  lbl|menu system: System
+  lbl|menu user maintenance: Benutzer
+  lbl|menu role maintenance: Rollen
+  lbl|menu translations maintenance: Übersetzungen
+  lbl|menu look and feel maintenance: Look and Feel
+  lbl|menu content maintenance: Inhalt
+  lbl|menu dashboard: Instrumententafel
+  lbl|menu orders: Aufträge
+  lbl|menu invoices: Rechnungen
+  lbl|menu open items: Offene Posten
+  lbl|menu microsite maintenance: Micro
+  lbl|menu sales area maintenance: Vertriebsbereiche
+  lbl|menu sap connections: SAP-Verbindungen
+  lbl|menu sap downtimes: SAP Ausfälle
+  lbl|menu payments: Zahlungen
+  lbl|menu doc type maintenance: Doc-Typ
+  lbl|permission name: Genehmigung
+  lbl|env development: Entwicklung
+  lbl|env qa: QA
+  lbl|env test: Prüfung
+  lbl|env production: Produktion
+  lbl|environment: Umgebung
+  lbl|active: Aktiv
+  lbl|mshost: mshost
+  lbl|ashost: AsHost
+  lbl|sysnr: Sys-Nummer
+  lbl|client: Klient
+  lbl|user: Benutzer
+  lbl|passwd: Passwort
+  lbl|lang: Sprache
+  lbl|trace: Spur
+  lbl|loglevel: Protokollebene
+  lbl|down from date: Ab Datum
+  lbl|down to date: Miteinander ausgehen
+  lbl|down from time: Von Zeit
+  lbl|down to time: Zur Zeit
+  lbl|microsite name: Micro Name
+  lbl|updated by: aktualisiert von
+  lbl|company code: Buchungskreis
+  lbl|from amount: von Menge
+  lbl|to amount: betrags
+  lbl|payment number: Zahlungsnummer
+  lbl|payment date: Zahlungsdatum
+  lbl|amount in doc currency: Menge
+  lbl|doc currency: Währung
+  lbl|assignment number: Zuordnungsnummer
+  lbl|fiscal year: Fiskaljahr
+  lbl|invoices: Rechnungen
+
+  plc|username: Nutzername
+  plc|password: Passwort
+  plc|select search criteria: Suchkriterien auswählen
+  plc|your message: Geben Sie Ihre Nachricht hier
+  plc|partner number: Nummer
+  plc|partner name: Name
+  plc|city: Stadt
+  plc|postal code: Postleitzahl
+  plc|select user classification: Wählen Sie Benutzerklassifizierung
+  plc|first name: Vorname
+  plc|last name: Nachname
+  plc|email address: E-Mail-Addresse
+  plc|phone: Telefon
+  plc|password confirmation: Passwort Bestätigung
+  plc|microsite: Micro
+  plc|user type: Benutzertyp
+  plc|select language: Sprache auswählen
+  plc|select time zone: Wähle Zeitzone aus
+  plc|select number format: Wählen Sie Zahlenformat
+  plc|select date format: Datumsformat auswählen
+  plc|select time format: Zeitformat auswählen
+  plc|title: Titel
+  plc|environment: Umgebung
+  plc|description: Beschreibung
+  plc|active: Aktiv
+  plc|mshost: mshost
+  plc|ashost: AsHost
+  plc|sysnr: Sys-Nummer
+  plc|client: Klient
+  plc|user: Benutzer
+  plc|passwd: Passwort
+  plc|lang: Sprache
+  plc|trace: Spur
+  plc|loglevel: Protokollebene
+
+  btn|login: Anmeldung
+  btn|cancel: Stornieren
+  btn|apply: Anwenden
+  btn|next: Senden und weiter zum nächsten
+  btn|send email: E-Mail senden
+  btn|reset password: Passwort zurücksetzen
+  btn|update password: Kennwort aktualisieren
+  btn|submit registration: Senden Registrierung
+
+  link|forgot password: Passwort vergessen?
+  link|create account: Ein Konto erstellen
+
+  error|attributes.password.blank: Das Passwort darf nicht leer sein
+  error|attributes.password.too_short: Das Passwort ist zu kurz
+  error|attributes.password.too_long: Das Passwort ist zu lang
+  error|attributes.reset_password_token.blank: Token fehlt
+  error|attributes.username.blank: Benutzername darf nicht leer sein
+  error|attributes.username.too_short: Benutzername ist zu kurz
+  error|attributes.username.too_long: Benutzername ist zu lang
+  error|attributes.text.min_max: Länge Ihrer Nachricht kann nicht kleiner sein als% {min} und mehr als% {max} Zeichen
+  error|attributes.new_password.blank: Neues Passwort darf nicht leer sein
+  error|attributes.uuid.blank: UUID Wert fehlt
+  error|attributes.key.blank: Schlüsselwert darf nicht leer sein
+  error|attributes.cst_translation.blank: Benutzerdefinierte Übersetzung darf nicht leer sein
+  error|attributes.first_name.blank: Vorname darf nicht leer sein
+  error|attributes.first_name.too_short: Vorname ist zu kurz
+  error|attributes.first_name.too_long: Vorname ist zu lang
+  error|attributes.last_name.blank: Nachname darf nicht leer sein
+  error|attributes.last_name.too_short: Nachname ist zu kurz
+  error|attributes.last_name.too_long: Nachname ist zu lang
+  error|attributes.email.too_long: E-Mail ist zu lang
+  error|attributes.email.blank: E-Mail kann nicht leer sein
+  error|attributes.password_confirmation.blank: Passwortbestätigung darf nicht leer sein
+  error|attributes.microsite.blank: Micro darf nicht leer sein
+  error|attributes.user_type.blank: Benutzertyp kann nicht leer sein
+  error|attributes.language.blank: Die Sprache kann nicht leer sein
+  error|attributes.time_zone.blank: Zeitzone kann nicht leer sein
+  error|attributes.number_format.blank: Zahlenformat kann nicht leer sein
+  error|attributes.date_format.blank: Datumsformat kann nicht leer sein
+  error|attributes.time_format.blank: Zeitformat kann nicht leer sein
+  error|attributes.role_ids.blank: Wählen Sie mindestens eine Rolle
+  error|attributes.text.blank: Nachricht kann nicht leer sein
+  error|attributes.salesdoc_doc_number.blank: Salesdoc Nummer fehlt
+  error|attributes.partner_id.blank: Partner-ID fehlt
+  error|attributes.user_uuid.blank: User-UUID fehlt
+  error|attributes.invoice_doc_number.blank: Rechnungsnummer fehlt
+  error|attributes.from_date.blank: Von Datum Wert fehlt
+  error|attributes.to_date.blank: Bis heute Wert fehlt
+  error|please specify a criteria to search: Bitte geben Sie eine Kriterien suchen
+  error|sales area has assigned partners: Verkaufsfläche hat daher zugeordneten Partner können nicht gelöscht werden.
+  error|no mappings found: Interner Serverfehler. Kein Feld Mapper GEFUNDEN
