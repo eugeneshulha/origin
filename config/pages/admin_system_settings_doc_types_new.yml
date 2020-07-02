@@ -29,15 +29,3 @@ components:
           label: "<%= _('lbl|data') %>"
           name: "data"
           validation_type: string
-
-      - - atom: button
-          uuid: "cancel"
-          text: "<%= _('btn|cancel') %>"
-          type: text
-          action_type: button
-
-        - atom: button
-          uuid: "apply"
-          text: "<%= _('btn|apply') %>"
-          type: secondary
-          action_type: submit
