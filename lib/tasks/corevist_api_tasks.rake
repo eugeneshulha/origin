@@ -19,6 +19,24 @@ namespace :users do
   end
 
   desc 'Activate a user'
+  task populate_formats: :environment do
+    users = CorevistAPI::User.where(date_format: nil).or(CorevistAPI::User.where(time_format: nil)).or(
+        CorevistAPI::User.where(number_format: nil)
+    )
+
+    num = users.count do |user|
+      %i[date_format time_format number_format].each do |field|
+        user.send("#{field}=", Settings.send(field.to_s.pluralize).to_h.values.first) if user.read_attribute(field).blank?
+      end
+
+      next unless user.changed?
+      user.save
+    end
+
+    puts "#{num} users were updated."
+  end
+
+  desc 'Activate a user'
   task activate: :environment do
     options = {}
     parser = OptionParser.new do |opts|

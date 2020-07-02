@@ -43,14 +43,14 @@ bundle exec rake app:permissions:reset
 ```
 
 Add a specific permission to a selected user
-```ruby
+```
 bundle exec rake app:permissions:add -- -u <username> -p <permission_name>
 
 # Example: bundle exec rake app:permissions:add -- -u user_1 -p user_maintenance 
 ```
 
 Remove a specific permission from a selected user
-```ruby
+```
 bundle exec rake app:permissions:remove -- -u <username> -p <permission_name>
 
 # Example: bundle exec rake app:permissions:remove -- -u user_1 -p user_maintenance 

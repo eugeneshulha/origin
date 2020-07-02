@@ -98,6 +98,7 @@ ActiveRecord::Base.transaction do
   end
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_1') do |user|
+    user.active = true
     user.username = 'user_1'
     user.password = '123123123'
     user.email = 'yury.matusevich@corevist.com'
@@ -113,6 +114,7 @@ ActiveRecord::Base.transaction do
   @user_1 = CorevistAPI::User.find_by(username: 'user_1')
 
   CorevistAPI::User.find_or_initialize_by(username: 'dummy_user') do |user|
+    user.active = true
     user.password = '123123123'
     user.email = 'yury.matusevich@corevist.com'
     user.first_name = 'First name'
@@ -164,6 +166,7 @@ ActiveRecord::Base.transaction do
   doc_type.sales_areas = [@sales_area_0, @sales_area_1, @sales_area_2, @sales_area_3]
 
   CorevistAPI::User.find_or_initialize_by(username: 'b2b') do |user|
+    user.active = true
     user.username = 'b2b'
     user.password = '123123123'
     user.email = 'yury.matusevich@corevist.com'
@@ -177,6 +180,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_view_invoices') do |user|
+    user.active = true
     user.username = 'user_view_invoices'
     user.password = '123123123'
     user.email = 'yury.matusevich@corevist.com'
@@ -190,6 +194,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_no_view_invoices') do |user|
+    user.active = true
     user.username = 'user_no_view_invoices'
     user.password = '123123123'
     user.email = 'yury.matusevich@corevist.com'
@@ -203,6 +208,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_invoices') do |user|
+    user.active = true
     user.username = 'user_search_for_invoices'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
@@ -218,6 +224,7 @@ ActiveRecord::Base.transaction do
 
   # /api/v1/open_items  error payer  does not exist in allowed comp.codes
   CorevistAPI::User.find_or_initialize_by(username: 'user_open_items') do |user|
+    user.active = true
     user.username = 'user_open_items'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
@@ -231,6 +238,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_role_maintenance') do |user|
+    user.active = true
     user.username = 'user_role_maintenance'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
@@ -244,6 +252,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_invoices') do |user|
+    user.active = true
     user.username = 'user_search_for_invoices'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
@@ -257,6 +266,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_orders') do |user|
+    user.active = true
     user.username = 'user_search_for_orders'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
@@ -270,6 +280,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_translation_maintenance') do |user|
+    user.active = true
     user.username = 'user_translation_maintenance'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
@@ -283,6 +294,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_user_maintenance') do |user|
+    user.active = true
     user.username = 'user_user_maintenance'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
@@ -296,6 +308,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_view_invoices') do |user|
+    user.active = true
     user.username = 'user_view_invoices'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
@@ -309,6 +322,7 @@ ActiveRecord::Base.transaction do
   end.save
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_view_orders') do |user|
+    user.active = true
     user.username = 'user_view_orders'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
