@@ -11,6 +11,13 @@ namespace :db do
   end
 end
 
+namespace :sap_downtimes do
+  desc 'Delete all SAP downtimes'
+  task :clear do
+    CorevistAPI::SAPDowntime.delete_all
+  end
+end
+
 namespace :users do
   desc 'Remove stale jwt tokens'
   task remove_stale_tokens: :environment do
