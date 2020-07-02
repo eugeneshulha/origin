@@ -93,6 +93,37 @@ namespace :translations do
     num = CorevistAPI::Translation.count
     puts "#{num} translations have been created in database"
   end
+
+  desc 'Reset translations table'
+  task create: :environment do
+    default_translation_files = Dir[*File.join(CorevistAPI::Engine.root, "/config/locales/default.*.yml")]
+
+    begin
+      default_translation_files.each do |t_file|
+        translations = YAML.load(File.read(t_file))
+        locale = translations.keys.first
+        translations[locale].each do |k, v|
+          next if v.blank?
+
+          @translation = CorevistAPI::Translation.find_or_initialize_by(key: k, locale: locale) do |t|
+            t.df_translation =  v
+            t.microsite_id = nil
+            t.cst_translation = nil
+            t.status = 1
+          end
+
+          @translation.save!
+        end
+      end
+
+    rescue ActiveRecord::RecordNotSaved => e
+      puts "There was in issue with translation key: #{@translation.key}, tr: #{@translation.df_translation}"
+      puts e.message
+    end
+
+    num = CorevistAPI::Translation.count
+    puts "#{num} translations have been created in database"
+  end
 end
 
 namespace :permissions do
