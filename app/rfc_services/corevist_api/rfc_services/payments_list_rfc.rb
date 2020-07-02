@@ -30,8 +30,8 @@ module CorevistAPI
         h[FROM_DATE]   = @object.value_for_key(:from_date).to_s                 if @object.value_for_key(:from_date)
         h[TO_DATE]     = @object.value_for_key(:to_date).to_s                   if @object.value_for_key(:to_date)
         h[COMP_CODE]   = @object.value_for_key(:comp_code).to_s                 if @object.value_for_key(:comp_code)
-        h[FROM_AMOUNT] = @object.value_for_key(:from_amount).add_leading_zeros  if @object.value_for_key(:from_amount)
-        h[TO_AMOUNT]   = @object.value_for_key(:to_amount).add_leading_zeros    if @object.value_for_key(:to_amount)
+        h[FROM_AMOUNT] = @object.value_for_key(:from_amount).presence || 0.0
+        h[TO_AMOUNT]   = @object.value_for_key(:to_amount).presence || 0.0
       end
       hash
     end

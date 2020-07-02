@@ -49,14 +49,14 @@ components:
           label: "<%= _('lbl|from amount') %>"
           name: "from_amount"
           validation_type: string
-          value: ""
+          value: "0.0"
 
         - atom: text
           uuid: "to_amount"
           label: "<%= _('lbl|to amount') %>"
           name: "to_amount"
           validation_type: string
-          value: ""
+          value: "0.0"
 
       - - atom: button
           text: "<%= _('btn|cancel') %>"
