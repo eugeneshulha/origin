@@ -29,7 +29,7 @@ module CorevistAPI::Services::Salesdocs
         title: 'Pricing details',
         content_type: 'table',
         data: doc.price_components.map do |pc|
-                { title: "label for #{pc.cond_type}", text: pc.value_formatted }
+                { title: "label for #{pc.cond_type}", text: pc.value }
               end
       }
 

@@ -10,9 +10,10 @@ module CorevistAPI
 
             define_method field do
               n_format = CorevistAPI::Context.current_user.number_format
-              return read_attribute(field) unless n_format
+              value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
+              return send(field) unless n_format
 
-              self.read_attribute(field).to_s.amount_to_user_format(n_format)
+              value.to_s.amount_to_user_format(n_format)
             end
           end
         end
@@ -22,9 +23,10 @@ module CorevistAPI
 
             define_method field do
               d_format = CorevistAPI::Context.current_user.date_format
-              return read_attribute(field) unless d_format
+              value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
+              return value unless d_format
 
-              self.read_attribute(field).to_s.date_to_user_format(d_format)
+              value.to_s.date_to_user_format(d_format)
             end
           end
         end
@@ -34,9 +36,10 @@ module CorevistAPI
 
             define_method field do
               t_format = CorevistAPI::Context.current_user.time_format
-              return read_attribute(field) unless t_format
+              value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
+              return value unless t_format
 
-              self.read_attribute(field).to_s.date_to_user_format(t_format)
+              value.to_s.date_to_user_format(t_format)
             end
           end
         end
@@ -47,9 +50,10 @@ module CorevistAPI
             define_method field do
               t_format = CorevistAPI::Context.current_user.time_format
               d_format = CorevistAPI::Context.current_user.date_format
-              return read_attribute(field) unless t_format || d_format
+              value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
+              return value unless t_format || d_format
 
-              self.read_attribute(field).to_s.date_to_user_format("#{d_format} #{t_format}")
+              value.to_s.date_to_user_format("#{d_format} #{t_format}")
             end
           end
         end
