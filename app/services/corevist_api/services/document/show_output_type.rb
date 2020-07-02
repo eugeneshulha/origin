@@ -4,17 +4,10 @@ module CorevistAPI::Services::Document
     private
 
     def perform
-      @rfc_result = rfc_service_for(:salesdoc_display, @object, @params).call
+      @rfc_result = rfc_service_for("#{obj.model_name.element}_display", @object, @params).call
+      document = builder_for(obj.model_name.element, @rfc_result.data).build(&:with_header)
 
-      salesdoc = builder_for(:salesdoc, @rfc_result.data).build do |builder|
-        builder.with_header
-        builder.with_configs
-        builder.with_items
-        builder.with_prices
-        builder.with_partners
-      end
-
-      @rfc_result = rfc_service_for(:get_pdf, salesdoc, @params).call
+      @rfc_result = rfc_service_for(:get_pdf, document, @params).call
 
       result(@rfc_result.data[:pdf])
     end

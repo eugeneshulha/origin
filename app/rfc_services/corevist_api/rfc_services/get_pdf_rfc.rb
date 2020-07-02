@@ -18,7 +18,7 @@ module CorevistAPI
           PRINTER_ID => Settings.dig(:sap, :output_types, output_type, :printer_id).to_s,
           METHOD => Settings.dig(:sap, :output_types, output_type, :special_method).to_s,
           LANG => 'E',
-          DOC_CAT => @object.header.doc_category,
+          DOC_CAT => @object.header.doc_category.to_s,
           DOC_NR => @object.doc_number.add_leading_zeros,
           OUTPUT_TYPE => output_type
         }
