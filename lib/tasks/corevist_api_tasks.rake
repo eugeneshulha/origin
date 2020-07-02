@@ -11,13 +11,6 @@ namespace :db do
   end
 end
 
-namespace :sap_downtimes do
-  desc 'Delete all SAP downtimes'
-  task :clear do
-    CorevistAPI::SAPDowntime.delete_all
-  end
-end
-
 namespace :users do
   desc 'Remove stale jwt tokens'
   task remove_stale_tokens: :environment do
@@ -171,5 +164,13 @@ namespace :permissions do
 
     abort('The user does not have the permission') unless removed
     exit
+  end
+end
+
+namespace :sap_downtimes do
+  desc 'Delete all SAP downtimes'
+  task clear: :environment do
+    size = CorevistAPI::SAPDowntime.delete_all
+    puts "#{size} donwtimes has been removed"
   end
 end

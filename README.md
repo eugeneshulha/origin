@@ -7,6 +7,11 @@ Activate a user
 bundle exec rake app:users:activate -- -u <username>
 ``` 
 
+#### SAP Maintenance
+Remove all downtimes
+```
+bundle exec rake app:sap_downtimes:clear
+``` 
 
 #### Translations
 
