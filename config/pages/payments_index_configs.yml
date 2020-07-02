@@ -12,7 +12,6 @@ components:
           label: null
           sortable: true
           hidden: false
-          action: 'link'
         - key: true
           name: 'payment_date'
           caption: "<%= _('lbl|payment date') %>"
@@ -38,14 +37,15 @@ components:
           sortable: true
           hidden: false
         - key: true
-          name: 'debit_or_credit'
-          caption: "<%= _('lbl|debit or credit') %>"
-          label: null
-          sortable: true
-          hidden: false
-        - key: true
           name: 'fiscal_year'
           caption: "<%= _('lbl|fiscal year') %>"
           label: null
           sortable: true
           hidden: true
+        - key: true
+          name: 'invoices'
+          caption: "<%= _('lbl|invoices') %>"
+          label: null
+          sortable: true
+          hidden: true
+          action: 'link'

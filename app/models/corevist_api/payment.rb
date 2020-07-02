@@ -11,5 +11,9 @@ module CorevistAPI
     def initialize
       @items = []
     end
+
+    def as_json
+      super.except("items").merge({ invoices: items.map(&:invoice_number) })
+    end
   end
 end
