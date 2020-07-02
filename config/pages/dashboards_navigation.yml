@@ -93,7 +93,7 @@ navigationLinks:
     icon: "payments"
     caption: "<%= _('lbl|payments') %>"
     href: "/payments"
-    permission: "payments"
+    permission: "search_for_payments"
     sap_required: true
     subCategories: []
 
