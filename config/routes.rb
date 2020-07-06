@@ -24,7 +24,7 @@ CorevistAPI::Engine.routes.draw do
       end
 
       resources :account_details, only: [:show], param: :user_id
-      resources :accounts, only: [:show], param: :user_id
+      resources :accounts, only: [:show, :edit], param: :user_id
 
       resource :dashboard, only: %i[new] do
         get :navigation, to: 'dashboards#navigation'

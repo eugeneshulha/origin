@@ -1,6 +1,8 @@
 module CorevistAPI
   class Role < ApplicationRecord
     self.table_name = 'roles'
+    default_scope { includes(:permissions) }
+
     include CorevistAPI::UserTrackable
 
     has_and_belongs_to_many :users
