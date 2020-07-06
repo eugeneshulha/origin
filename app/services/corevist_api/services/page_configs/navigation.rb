@@ -8,7 +8,9 @@ module CorevistAPI::Services::PageConfigs
       raise ActionController::RoutingError.new('configs not found') unless File.exist?(@path)
     end
 
-    def call
+    private
+
+    def perform
       file = YAML.safe_load(ERB.new(File.read(@path)).result(binding))
 
       # Check high-level tabs

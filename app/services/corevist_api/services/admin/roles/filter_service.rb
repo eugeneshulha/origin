@@ -1,6 +1,8 @@
 module CorevistAPI::Services::Admin::Roles
   class FilterService < CorevistAPI::Services::BaseService
-    def call
+    private
+
+    def perform
       filter_result = CorevistAPI::Filters::RoleFilter.new(@params, @object).run
       result(filter_result.data)
     end

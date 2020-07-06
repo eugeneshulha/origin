@@ -6,7 +6,9 @@ module CorevistAPI::Services::Admin::Users
       WE: 5
     }.freeze
 
-    def call
+    private
+
+    def perform
       result_steps = []
 
       result_steps << 2 if @params[:role_ids].present?

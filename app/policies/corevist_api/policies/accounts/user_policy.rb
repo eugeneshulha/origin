@@ -14,7 +14,7 @@ module CorevistAPI
         end
 
         def resolve
-          scope
+          scopeN
         end
       end
     end

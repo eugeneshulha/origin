@@ -6,13 +6,9 @@ module CorevistAPI::Services::Token
     MSG_INVALID_USER      = 'api.errors.token.refresh.invalid_user'.freeze
     MSG_NO_REFRESH_TOKENS = 'api.errors.token.refresh.no_refresh_tokens'.freeze
 
-    def call
-      perform!
-    end
-
     private
 
-    def perform!
+    def perform
       return result.fail!(MSG_EMPTY_TOKEN) if @object.blank?
 
       payload = Warden::JWTAuth::TokenDecoder.new.call(@object)

@@ -5,7 +5,9 @@ module CorevistAPI:: Services
       @errors = []
     end
 
-    def call
+    private
+
+    def perform
       connection_configs = CorevistAPI::SAPConnection.find_by(id: @params[:uuid]) if @params[:uuid]
       connection_configs ||= CorevistAPI::SAPConnection.current
       raise ServiceException(_('error|no configs found for connection')) unless connection_configs

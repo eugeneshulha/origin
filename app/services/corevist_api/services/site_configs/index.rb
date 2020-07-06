@@ -1,10 +1,5 @@
 module CorevistAPI::Services::SiteConfigs
   class Index < CorevistAPI::Services::BaseService
-
-    def call
-      perform
-    end
-
     private
 
     def perform

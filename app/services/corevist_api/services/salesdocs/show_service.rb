@@ -1,13 +1,8 @@
 module CorevistAPI::Services::Salesdocs
   class ShowService < CorevistAPI::Services::BaseService
-
-    def call
-      perform!
-    end
-
     private
 
-    def perform!
+    def perform
       @rfc_result = rfc_service_for(:salesdoc_display, @object, @params).call
 
       salesdoc = builder_for(:salesdoc, @rfc_result.data).build do |builder|

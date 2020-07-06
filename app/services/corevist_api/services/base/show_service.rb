@@ -1,7 +1,9 @@
 module CorevistAPI
   module Services::Base
     class ShowService < CorevistAPI::Services::BaseService
-      def call
+      private
+
+      def perform
         object = object_class.find_by(id: @params[:uuid])
 
         raise CorevistAPI::ServiceException.new(not_found_msg) unless object

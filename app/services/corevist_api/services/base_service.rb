@@ -13,6 +13,10 @@ module CorevistAPI:: Services
     end
 
     def call
+      perform
+    end
+
+    def perform
       raise NotImplementedError
     end
 

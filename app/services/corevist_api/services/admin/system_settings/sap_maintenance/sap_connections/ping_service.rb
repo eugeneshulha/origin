@@ -6,13 +6,9 @@ module CorevistAPI
         @errors = []
       end
 
-      def call
-        perform!
-      end
-
       private
 
-      def perform!
+      def perform
         connection = if CorevistAPI::SAPConnection.current&.id.to_s == @params[:uuid]
           CorevistAPI::Context.current_connection
         else

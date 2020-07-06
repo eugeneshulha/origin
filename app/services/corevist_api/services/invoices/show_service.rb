@@ -1,12 +1,9 @@
 module CorevistAPI::Services::Invoices
   class ShowService < CorevistAPI::Services::BaseService
-    def call
-      perform!
-    end
 
     private
 
-    def perform!
+    def perform
       @rfc_result = rfc_service_for(:invoice_display, @object, @params).call
 
       invoice = builder_for(:invoice, @rfc_result.data).build do |builder|
