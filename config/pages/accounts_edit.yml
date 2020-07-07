@@ -112,7 +112,7 @@ components:
               type: required
               value: ""
 
-        - atom: select
+      - - atom: select
           uuid: "language"
           label: "<%= _('lbl|language') %>"
           name: "language"
