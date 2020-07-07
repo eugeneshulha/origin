@@ -1,7 +1,7 @@
 module CorevistAPI
   module Forms::Accounts
     class UpdateForm < CorevistAPI::Forms::BaseForm
-      validate_component :account_update_form, on_page: :accounts_update
+      validate_component :user_profile_form, on_page: :accounts_edit
 
     end
   end

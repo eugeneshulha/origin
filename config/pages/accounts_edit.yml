@@ -111,6 +111,8 @@ components:
             - message: "<%= _('error|attributes.password_confirmation.blank') %>"
               type: required
               value: ""
+            - message: "<%= _('error|attributes.password.confirmation') %>"
+              type: confirmation
 
       - - atom: select
           uuid: "language"
