@@ -1,0 +1,168 @@
+title: "<%= _('page title|update role') %>"
+components:
+  - uuid: "account_update_form"
+    description: "<%= _('page title|update profile') %>"
+    method: GET
+    title: "<%= _('page title|update profile') %>"
+    type: form
+    url: "/v1/accounts"
+    elements:
+      - - atom: hidden
+          uuid: "uuid"
+          label: uuid
+          name: "uuid"
+          validation_type: string
+          value: ""
+
+      - - atom: text
+          uuid: "username"
+          label: "<%= _('lbl|username') %>"
+          name: "username"
+          placeholder: "<%= _('plc|username') %>"
+          validation_type: string
+          readonly: true
+          value: ""
+          validations:
+            - message: "<%= _('error|attributes.username.blank') %>"
+              type: required
+              value: ""
+            - message: "<%= _('error|attributes.username.too_short') %>"
+              type: min
+              value: "3"
+            - message: "<%= _('error|attributes.username.too_long') %>"
+              type: max
+              value: "20"
+
+      - - atom: text
+          uuid: "first_name"
+          label: "<%= _('lbl|first name') %>"
+          name: "first_name"
+          placeholder: "<%= _('plc|first name') %>"
+          validation_type: string
+          value: ""
+          validations:
+            - message: "<%= _('error|attributes.first_name.blank') %>"
+              type: required
+              value: ""
+            - message: "<%= _('error|attributes.first_name.to_short') %>"
+              type: min
+              value: "3"
+            - message: "<%= _('error|attributes.first_name.too_long') %>"
+              type: max
+              value: "20"
+        - atom: text
+          uuid: "last_name"
+          label: "<%= _('lbl|last name') %>"
+          name: "last_name"
+          placeholder: "<%= _('plc|last name') %>"
+          validation_type: string
+          value: ""
+          validations:
+            - message: "<%= _('error|attributes.last_name.blank') %>"
+              type: required
+              value: ""
+            - message: "<%= _('error|attributes.last_name.to_short') %>"
+              type: min
+              value: "3"
+            - message: "<%= _('error|attributes.last_name.too_long') %>"
+              type: max
+              value: "20"
+
+      - - atom: text
+          uuid: "email"
+          label: "<%= _('lbl|email address') %>"
+          name: "email"
+          placeholder: "<%= _('plc|email address') %>"
+          validation_type: string
+          value: ""
+          validations:
+            - message: "<%= _('error|attributes.email.blank') %>"
+              type: required
+              value: ""
+
+        - atom: text
+          uuid: "phone"
+          label: "<%= _('lbl|phone') %>"
+          name: "phone"
+          placeholder: "<%= _('plc|phone') %>"
+          validation_type: string
+          value: ""
+
+      - - atom: text
+          uuid: "password"
+          label: "<%= _('lbl|password') %>"
+          name: "password"
+          placeholder: "<%= _('plc|password') %>"
+          validation_type: string
+
+        - atom: text
+          uuid: "password_confirmation"
+          label: "<%= _('lbl|password confirmation') %>"
+          name: "password_confirmation"
+          placeholder: "<%= _('plc|password confirmation') %>"
+          validation_type: string
+
+        - atom: select
+          uuid: "language"
+          label: "<%= _('lbl|language') %>"
+          name: "language"
+          placeholder: "<%= _('plc|select language') %>"
+          validation_type: string
+          value: "pl_PL"
+          options: []
+          validations:
+            - message: "<%= _('error|attributes.language.blank') %>"
+              type: required
+              value: ""
+
+        - atom: select
+          uuid: "time_zone"
+          label: "<%= _('lbl|time zone') %>"
+          name: "time_zone"
+          placeholder: "<%= _('plc|select time zone') %>"
+          validation_type: string
+          value: ""
+          options: []
+          validations:
+            - message: "<%= _('error|attributes.time_zone.blank') %>"
+              type: required
+              value: ""
+
+      - - atom: select
+          uuid: "number_format"
+          label: "<%= _('lbl|number format') %>"
+          name: "number_format"
+          placeholder: "<%= _('plc|select number format') %>"
+          validation_type: string
+          value: ""
+          options: []
+          validations:
+            - message: "<%= _('error|attributes.number_format.blank') %>"
+              type: required
+              value: ""
+
+        - atom: select
+          uuid: "date_format"
+          label: "<%= _('lbl|date format') %>"
+          name: "date_format"
+          placeholder: "<%= _('plc|select date format') %>"
+          validation_type: string
+          value: ""
+          options: []
+          validations:
+            - message: "<%= _('error|attributes.date_format.blank') %>"
+              type: required
+              value: ""
+
+        - atom: select
+          uuid: "time_format"
+          label: "<%= _('lbl|time format') %>"
+          name: "time_format"
+          placeholder: "<%= _('plc|select time format') %>"
+          validation_type: string
+          value: ""
+          options: []
+          validations:
+            - message: "<%= _('error|attributes.time_format.blank') %>"
+              type: required
+              value: ""

@@ -90,6 +90,9 @@ module CorevistAPI
         carts_simulate: 'CorevistAPI::Forms::Carts::SimulateForm',
         carts_create: 'CorevistAPI::Forms::Carts::CreateForm',
 
+        # Accounts
+        accounts_update: 'CorevistAPI::Forms::Accounts::UpdateForm',
+
 
         user_registration: 'CorevistAPI::Forms::User::Registration',
         set_new_password: 'CorevistAPI::Forms::User::SetNewPassword',

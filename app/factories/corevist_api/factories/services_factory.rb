@@ -101,6 +101,7 @@ module CorevistAPI
 
         # Accounts/Profiles
         accounts_show: 'CorevistAPI::Services::Accounts::ShowService',
+        accounts_update: 'CorevistAPI::Services::Accounts::UpdateService',
 
         output_types_index: 'CorevistAPI::Services::Document::OutputTypesList',
         output_types_show: 'CorevistAPI::Services::Document::ShowOutputType',
