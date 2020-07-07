@@ -176,9 +176,3 @@ components:
             - message: "<%= _('error|attributes.time_format.blank') %>"
               type: required
               value: ""
-
-      - - atom: button
-          uuid: "button_1"
-          text: "<%= _('btn|next') %>"
-          type: primary
-          action_type: submit
