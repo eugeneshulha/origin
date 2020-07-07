@@ -53,6 +53,7 @@ ActiveRecord::Base.transaction do
       open_items
       search_for_invoices
       search_for_orders
+      search_for_payments
       view_invoices
       view_orders
       pay_invoices
@@ -61,6 +62,7 @@ ActiveRecord::Base.transaction do
       role_maintenance
       system_maintenance
       content_maintenance
+      doc_type_maintenance
       look_and_feel_maintenance
       login_when_sap_is_down
     ]
