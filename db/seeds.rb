@@ -81,7 +81,7 @@ ActiveRecord::Base.transaction do
       instance_variable_set("@#{title}_role", role)
       puts "Role '#{title.titleize}' found!"
     else
-      role = CorevistAPI::Role.create!(title: title.titleize)
+      role = CorevistAPI::Role.create!(title: title.titleize, active: true)
       role.permissions = [CorevistAPI::Permission.find_by(title: title)]
       instance_variable_set("@#{title}_role", role)
       puts "Role #{title.titleize} created!"
