@@ -14,7 +14,7 @@ module CorevistAPI
           param = item.send(@params[:sort_by])
           next if param.nil?
 
-          param.downcase! if param.respond_to?(:downcase)
+          next param.downcase if param.respond_to?(:downcase) && !item.respond_to?(:sort_type )
           next param unless item.respond_to?(:sort_type )
 
           case item.sort_type(@params[:sort_by].to_sym)
