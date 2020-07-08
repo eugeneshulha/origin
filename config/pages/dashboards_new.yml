@@ -61,7 +61,7 @@ components:
     elements:
       thead:
         - key: true
-          name: 'inv'
+          name: 'invoice_number'
           caption: "<%= _('lbl|invoice number') %>"
           label: null
           sortable: true
@@ -74,7 +74,7 @@ components:
           sortable: true
           hidden: false
         - key: true
-          name: 'amnt'
+          name: 'amount'
           caption: "<%= _('lbl|net value') %>"
           label: null
           sortable: true
