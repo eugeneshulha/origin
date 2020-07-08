@@ -13,7 +13,7 @@ components:
           name: "username"
           caption: "Username"
           label: null
-          sortable: true
+          sortable: false
           hidden: false
           action: "link"
         - key: true
