@@ -21,26 +21,26 @@ module CorevistAPI::Services::Invoices
 
     def prepare_response(doc)
       price_components = {
-        title: 'Pricing details',
+        title: _('title|pricing details'),
         content_type: 'table',
         data: doc.price_components.map do |pc|
-                { title: "label for #{pc.cond_type}", text: pc.value }
+                { title: _("lbl|cond type #{pc.cond_type}"), text: pc.value }
               end
       }
 
       partners = doc.partners.map do |partner|
         {
-          title: "Partner #{partner.function}",
+          title: _("title|partner #{partner.function}"),
           text: "#{partner.street_address_1}, #{partner.street_address_2}, #{partner.street_address_3}"
         }
       end
 
       doc_details = {
-        title: 'title for salesdoc',
+        title: _("title|salesdoc details"),
         data: [
           *partners,
-          { title: 'Sales Area', text: @rfc_result.data['header'].sa },
-          { title: 'Doc type', text: @rfc_result.data['header'].doc_type }
+          { title: _("lbl|sales area"), text: @rfc_result.data['header'].sa },
+          { title: _('lbl|doc type'), text: @rfc_result.data['header'].doc_type }
         ]
       }
 

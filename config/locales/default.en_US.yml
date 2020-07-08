@@ -48,6 +48,13 @@ en_US:
   title|sales area details: Sales area details
   title|sales area doc types: Assigned doc types
   title|sales area doc categories: Assigned doc categories
+  title|pricing details: Pricing
+  title|partner WE: Ship to
+  title|partner AG: Sold to
+  title|partner RG: Payer
+  title|salesdoc details: Details
+  title|deliveries details: Deliveries
+
 
   lbl|username: Username
   lbl|password: Password
@@ -185,6 +192,8 @@ en_US:
   lbl|assignment number: Assignment number
   lbl|fiscal year: Fiscal year
   lbl|invoices: Invoices
+  lbl|cond type &NET: Subtotal
+  lbl|cond type &TOT: Grand total
 
   plc|username: Username
   plc|password: Password

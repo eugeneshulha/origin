@@ -40,8 +40,8 @@ module CorevistAPI
               sales_area: sales_area,
               user: CorevistAPI::Context.current_user,
               function: partner.fct,
-              postal_addresses: postal_addresses.select { |x| x.nr == partner.addr_nr },
-              street_addresses: street_addresses.select { |x| x.nr == partner.addr_nr }
+              postal_addresses: postal_addresses.select { |x| x.nr == partner.nr },
+              street_addresses: street_addresses.select { |x| x.nr == partner.nr }
           }
 
           partner = builder_for(:partner, partner_params).build do |builder|
