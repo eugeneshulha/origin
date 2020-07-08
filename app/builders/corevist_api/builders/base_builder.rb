@@ -13,7 +13,8 @@ module CorevistAPI
       end
 
       def build
-        raise NotImplementedError
+        yield(self)
+        @object
       end
 
       def method_missing(method, *args, &block)

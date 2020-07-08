@@ -6,7 +6,8 @@ module CorevistAPI
           partner: 'CorevistAPI::Builders::PartnerBuilder',
           salesdoc: 'CorevistAPI::Builders::SalesdocBuilder',
           invoice: 'CorevistAPI::Builders::InvoiceBuilder',
-          payment: 'CorevistAPI::Builders::PaymentBuilder'
+          payment: 'CorevistAPI::Builders::PaymentBuilder',
+          open_item: 'CorevistAPI::Builders::OpenItemBuilder'
         }
       end
     end

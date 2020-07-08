@@ -1,12 +1,7 @@
 module CorevistAPI
   module Builders
-    class PartnerBuilder < BaseBuilder
+    class PartnerBuilder < CorevistAPI::Builders::BaseBuilder
       MAX_ADDRESSES_COUNT = 3
-
-      def build
-        yield(self)
-        @object
-      end
 
       def with_base_params
         @object.sales_area = sales_area

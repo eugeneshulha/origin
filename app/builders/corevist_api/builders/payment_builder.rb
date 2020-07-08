@@ -1,10 +1,6 @@
 module CorevistAPI
   module Builders
     class PaymentBuilder < CorevistAPI::Builders::BaseBuilder
-      def build
-        yield(self)
-        @object
-      end
 
       def with_base_params
         sap_field_mapper_for(:payment, :payment).each { |k,v| @object.send("#{v}=", @params[:payment].send(k)) }

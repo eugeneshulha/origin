@@ -7,6 +7,7 @@ require File.join(CorevistAPI::Engine.root, 'app/models/corevist_api/salesdoc/de
 module CorevistAPI
   class Salesdoc
     include CorevistAPI::Document
+    include CorevistAPI::FormatConversion
 
     # TODO: move to concerns/corevist_api/document.rb if relevant for any other document type
     attr_accessor :deliveries

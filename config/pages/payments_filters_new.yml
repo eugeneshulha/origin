@@ -7,13 +7,13 @@ components:
     type: form
     url: "/v1/payments"
     elements:
-      - - atom: text
+      - - atom: select
           label: "<%= _('lbl|payer number') %>"
           name: "payer_number"
           uuid: "payer_number"
           placeholder: "<%= _('plc|payer number') %>"
           validation_type: string
-          value: ""
+          options: []
           validations:
             - message: "<%= _('error|attributes.payer_number.blank') %>"
               type: required

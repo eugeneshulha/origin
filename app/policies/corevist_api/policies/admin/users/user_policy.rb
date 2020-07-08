@@ -6,7 +6,7 @@ module CorevistAPI
       end
 
       def show?
-        create?
+        !(CorevistAPI::Context.current_user == @user)
       end
 
       def destroy?

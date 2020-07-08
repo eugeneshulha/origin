@@ -3,11 +3,6 @@ module CorevistAPI
     class InvoiceBuilder < CorevistAPI::Builders::BaseBuilder
       MAX_ADDRESSES_COUNT = 3
 
-      def build
-        yield(self)
-        @object
-      end
-
       def with_header
         sap_field_mapper_for(:invoice, :header).each { |k,v| @object.header.send("#{v}=", header.send(k)) }
       end
