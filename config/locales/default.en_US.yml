@@ -30,6 +30,7 @@ en_US:
   page title|edit sales area: Edit sales area
   page title|new sap connection: New SAP Connection
   page title|edit sap connection: Edit SAP Connection
+  page title|my profile: My profile
 
   title|login: Login
   title|recent orders: Recent Orders
@@ -54,7 +55,6 @@ en_US:
   title|partner RG: Payer
   title|salesdoc details: Details
   title|deliveries details: Deliveries
-
 
   lbl|username: Username
   lbl|password: Password
@@ -194,6 +194,17 @@ en_US:
   lbl|invoices: Invoices
   lbl|cond type &NET: Subtotal
   lbl|cond type &TOT: Grand total
+  lbl|sales area: Sales Area
+  lbl|number format US: 9,999,999.99
+  lbl|number format DE: 9.999.999,99
+  lbl|number format CH: 9'999'999.99
+  lbl|time format 24h: 24h hh:mm:ss
+  lbl|time format 12h: 12h hh:mm:ss AM/PM
+  lbl|date format US: mm/dd/yyyy
+  lbl|date format EU: dd.mm.yyyy
+  lbl|date format CI: yyyy/mm/dd
+  lbl|date format SW: yyyy-mm-dd
+
 
   plc|username: Username
   plc|password: Password
