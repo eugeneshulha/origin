@@ -26,7 +26,10 @@ module CorevistAPI::Services::AccountDetails
         memo
       end
 
-      balance.each { |b| b[:amount] = b[:amount].to_s.to_amount_with_format(result[:accounting_data]&.cc_curr) }
+      balance.each do |b|
+        next unless b[:amount]
+        b[:amount] = b[:amount].to_s&.to_amount_with_format(result[:accounting_data]&.cc_curr)
+      end
 
       data = {
           balance: balance,
