@@ -33,6 +33,7 @@ module CorevistAPI::API
       CorevistAPI::Context.current_connection = result.data
     rescue SAPNW::RFC::ConnectionException => e
       CorevistAPI::SAPDowntime.create(
+          title: 'system',
           down_from_date: Time.zone.now.to_date,
           down_to_date: Time.zone.now.to_date,
           down_from_time: Time.zone.now.to_time,

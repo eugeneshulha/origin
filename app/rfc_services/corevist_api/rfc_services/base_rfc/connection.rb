@@ -13,6 +13,7 @@ module CorevistAPI
     def initialize(configs = {})
       unless CorevistAPI::SAPConnection.current
         CorevistAPI::SAPDowntime.create(
+            title: 'system',
             down_from_date: Time.zone.now.to_date,
             down_to_date: Time.zone.now.to_date,
             down_from_time: Time.zone.now.to_time,
