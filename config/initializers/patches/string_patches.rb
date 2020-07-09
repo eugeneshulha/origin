@@ -26,7 +26,7 @@ class String
   end
 
   def b2b_sales_area
-    sprintf("%1$s-%2$s-%3$s", self[0..3], self[4..5], self[6..7])
+    sprintf("%1$s-%2$s-%3$s", selformat[0..3], selformat[4..5], selformat[6..7])
   end
 
   def contains_non_numeric_characters?
@@ -84,7 +84,7 @@ class String
     if self =~ /^!|^0000/
       nil
     else
-      Date.new(self[0..3].to_i, self[4..5].to_i, self[6..7].to_i)
+      Date.new(selformat[0..3].to_i, selformat[4..5].to_i, selformat[6..7].to_i)
     end
   end
 
@@ -132,7 +132,7 @@ class String
   def view_amount_to_ruby(f=Settings.number_format_US, d=2)
     if self.strip.empty?
       nil    # nothing entered
-    elsif d == 0 && self.index(f[0].chr)
+    elsif d == 0 && self.index(format[0].chr)
       # if it contains decimals for non-decimal currencies: return as-is
       self
     else
@@ -141,10 +141,10 @@ class String
       # 2. replace the decimal separator (sub)
       # TODO check that they are in the correct spots ?
       if d > 0
-        aux = self.gsub(f[1].chr, '').sub(f[0].chr, '.')
+        aux = self.gsub(format[1].chr, '').sub(format[0].chr, '.')
       else
         # no step 2
-        aux = self.gsub(f[1].chr, '')
+        aux = self.gsub(format[1].chr, '')
       end
       # convert string to an integer
       begin
@@ -184,7 +184,7 @@ class String
   def view_quantity_to_ruby(f=Const::App.number_format_US, dec=true)
     if self.strip.empty?
       nil   # nothing entered
-    elsif !dec && self.index(f[0].chr)
+    elsif !dec && self.index(format[0].chr)
       # if it contains decimals for non-decimal units: return as-is
       self
     else
@@ -193,10 +193,10 @@ class String
       # 2. replace the decimal separator (sub)
       # TODO check that they are in the correct spots ?
       if dec
-        aux = self.gsub(f[1].chr, '').sub(f[0].chr, '.')
+        aux = self.gsub(format[1].chr, '').sub(format[0].chr, '.')
       else
         # no step 2
-        aux = self.gsub(f[1].chr, '')
+        aux = self.gsub(format[1].chr, '')
       end
       # convert string to an integer
       begin
@@ -271,9 +271,13 @@ class String
   end
 
   def user_format_to_numeric
-    ActiveSupport::NumberHelper.number_to_delimited(Float(self), delimiter: '').to_f
+    format = CorevistAPI::Context.current_user&.number_format
+
+    num = self.gsub(format[1].chr, '').sub(format[0].chr, '.')
+    Float(num)
   rescue
     self
+
   end
 
   def is_numeric?
