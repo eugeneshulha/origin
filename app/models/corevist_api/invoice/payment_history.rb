@@ -5,7 +5,7 @@ module CorevistAPI
 
       attr_accessor :date, :amount, :text
 
-      format_number :amount
+      format_amount :amount
       format_date :date
     end
   end

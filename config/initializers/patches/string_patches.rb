@@ -257,12 +257,22 @@ class String
     remove(AT_SIGN)
   end
 
-  def amount_to_user_format(format)
-    n = 2
-    sprintf("%0.#{n}f", Float(self)).sub('.', format[0].chr).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{format[1].chr}")
+  def to_number_with_format
+    format = CorevistAPI::Context.current_user.number_format
+
+    sprintf("%0.0f", Float(self)).sub('.', format[0].chr).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{format[1].chr}")
   end
 
-  def date_to_user_format(format)
+  def to_amount_with_format(currency_sym)
+    format = CorevistAPI::Context.current_user&.number_format
+    return self unless format
+
+    decimals = Settings.decimals[currency_sym] || 2
+
+    sprintf("%0.#{decimals}f", Float(self)).sub('.', format[0].chr).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{format[1].chr}")
+  end
+
+  def to_date_with_format(format)
     return self if self.blank?
 
     Date.parse(self).strftime(format)
@@ -270,7 +280,7 @@ class String
     self
   end
 
-  def user_format_to_numeric
+  def user_format_to_number
     format = CorevistAPI::Context.current_user&.number_format
 
     num = self.gsub(format[1].chr, '').sub(format[0].chr, '.')

@@ -7,7 +7,7 @@ module CorevistAPI
 
       class << self
 
-        %i[numeric date].each do |type|
+        %i[number date].each do |type|
           define_method :"sort_as_#{type}" do |*fields|
             fields.each do |field|
               @sort_as[field] = type

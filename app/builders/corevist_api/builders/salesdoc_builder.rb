@@ -17,6 +17,8 @@ module CorevistAPI
             item.send("#{v}=", value)
           end
 
+          item.currency = header.curr
+
           memo << item
         end
       end
@@ -67,7 +69,7 @@ module CorevistAPI
           component.rate = _component.rate
           component.per = _component.per
           component.unit = _component.unit
-          component.runit = _component.runit
+          component.currency = _component.runit
           component.calc_type = _component.calct
 
           if _component.item_nr.to_i.zero?

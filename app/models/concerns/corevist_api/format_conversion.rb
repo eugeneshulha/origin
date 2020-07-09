@@ -3,18 +3,19 @@ module CorevistAPI
     extend ActiveSupport::Concern
 
     included do
-      class << self
+      include CorevistAPI::Sortable
 
+      class << self
         def format_number(*fields)
+          sort_as_number *fields
+
           fields.each do |field|
 
             define_method field do
               begin
-                n_format = CorevistAPI::Context.current_user.number_format
                 _value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
-                return send(field) unless n_format
 
-                _value.to_s.amount_to_user_format(n_format)
+                _value.to_s.to_number_with_format
               rescue ArgumentError
                 return _value
               end
@@ -22,7 +23,22 @@ module CorevistAPI
           end
         end
 
+        def format_amount(*fields)
+          sort_as_number *fields
+
+          fields.each do |field|
+
+            define_method field do
+              _value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
+              _curr = self.respond_to?(:read_attribute) ? read_attribute(:currency) : instance_variable_get("@#{currency}")
+              _value.to_s.to_amount_with_format(_curr)
+            end
+          end
+        end
+
         def format_date(*fields)
+          sort_as_date *fields
+
           fields.each do |field|
 
             define_method field do
@@ -30,12 +46,14 @@ module CorevistAPI
               _value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
               return _value unless d_format
 
-              _value.to_s.date_to_user_format(d_format)
+              _value.to_s.to_date_with_format(d_format)
             end
           end
         end
 
         def format_time(*fields)
+          sort_as_date *fields
+
           fields.each do |field|
 
             define_method field do
@@ -43,12 +61,14 @@ module CorevistAPI
               _value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
               return _value unless t_format
 
-              _value.to_s.date_to_user_format(t_format)
+              _value.to_s.to_date_with_format(t_format)
             end
           end
         end
 
         def format_datetime(*fields)
+          sort_as_date *fields
+
           fields.each do |field|
 
             define_method field do
@@ -57,7 +77,7 @@ module CorevistAPI
               _value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
               return _value unless t_format || d_format
 
-              _value.to_s.date_to_user_format("#{d_format} #{t_format}")
+              _value.to_s.to_date_with_format("#{d_format} #{t_format}")
             end
           end
         end

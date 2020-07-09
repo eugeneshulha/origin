@@ -7,9 +7,9 @@ module CorevistAPI
                   # Invoice list
     sort_as_date :bill_date
                     # Salesdoc list
-    sort_as_numeric :doc_number, :item_number,:sales_area,:net_value, :quantity, :sold_to_number, :ship_to_number
+    sort_as_number :doc_number, :item_number,:sales_area,:net_value, :quantity, :sold_to_number, :ship_to_number
                     # Invoice list
-    sort_as_numeric :doc_nr, :sa, :tax, :item_nr, :qty, :payer_nr, :sales_order
+    sort_as_number :doc_nr, :sa, :tax, :item_nr, :qty, :payer_nr, :sales_order
 
     def initialize(_, data)
       data.each do |k, v|

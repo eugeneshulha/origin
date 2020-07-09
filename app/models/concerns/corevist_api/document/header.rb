@@ -9,7 +9,7 @@ module CorevistAPI
                     # array to parse
                     :texts
 
-      format_number :net_value
+      format_amount :net_value
     end
   end
 end

@@ -1,7 +1,6 @@
 module CorevistAPI
   class OpenItem
     include CorevistAPI::FormatConversion
-    include CorevistAPI::Sortable
 
     attr_accessor :invoice_number, :posting_date, :due_date, :amount, :amount_in_doc_currency, :currency, :doc_currency,
         :fi_number, :fi_doc_type, :year, :obj_type, :debit_or_credit, :reason_code, :text, :assignment_number,
@@ -11,8 +10,7 @@ module CorevistAPI
     attr_accessor :debit
 
     format_date :posting_date, :due_date
-    sort_as_date :posting_date, :due_date
-    format_number :amount, :amount_in_doc_currency, :due_today, :paid_amount
+    format_amount :amount, :amount_in_doc_currency, :due_today, :paid_amount
 
     def initialize
       @debit = true
@@ -20,7 +18,7 @@ module CorevistAPI
 
     def as_json
       {
-        invoice_number: self.invoice_number,
+        invoice_number: self.invoice_number.drop_leading_zeros,
         posting_date: self.posting_date,
         due_date: self.due_date,
         amount: self.amount,

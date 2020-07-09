@@ -2,7 +2,6 @@ module CorevistAPI
   class Salesdoc
     class Item
       include CorevistAPI::FormatConversion
-      include CorevistAPI::Sortable
 
       attr_accessor :customer_material,
                     :no_copy_reason, :ref_item_number,
@@ -11,9 +10,7 @@ module CorevistAPI
                     :shipping_lines, :characteristics, :parent_item_use
 
       format_date :rdd
-      sort_as_date :rdd
-      format_number :net_price, :net_value
-      sort_as_numeric :net_price, :net_value
+      format_amount :net_price, :net_value
 
       def as_json
         {
@@ -38,6 +35,7 @@ module CorevistAPI
             reference: self.reference,
             rejection_reason: self.rejection_reason,
             sales_uom: self.sales_uom,
+            currency: self.currency,
         }
       end
     end
