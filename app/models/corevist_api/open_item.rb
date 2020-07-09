@@ -1,7 +1,8 @@
 module CorevistAPI
   class OpenItem
     include CorevistAPI::FormatConversion
-    
+    include CorevistAPI::Sortable
+
     attr_accessor :invoice_number, :posting_date, :due_date, :amount, :amount_in_doc_currency, :currency, :doc_currency,
         :fi_number, :fi_doc_type, :year, :obj_type, :debit_or_credit, :reason_code, :text, :assignment_number,
         :partially_paid, :payable, :selected, :payment_amount, :due_today, :payment_terms, :payment_t_text,
@@ -10,6 +11,7 @@ module CorevistAPI
     attr_accessor :debit
 
     format_date :posting_date, :due_date
+    sort_as_date :posting_date, :due_date
     format_number :amount, :amount_in_doc_currency, :due_today, :paid_amount
 
     def initialize
