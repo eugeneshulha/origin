@@ -36,7 +36,7 @@ time_formats:
 
 date_formats:
   US: '%m/%d/%Y'
-  EU: '%d.%m.%d'
+  EU: '%d.%m.%Y'
   CI: '%Y/%m/%d'
   SW: '%Y-%m-%d'
 
