@@ -53,17 +53,15 @@ module CorevistAPI
           TA_GROUP => '0'
         }
       }.tap do |hash|
-        %i[sold_to_number salesdoc_number invoice_number delivery_number].each do |key|
-          if @object.value_for_key(key).present?
-            hash[SEARCH_CRITERIA][MAPPER.key(key).to_s] = @object.value_for_key(key).add_leading_zeros
-          end
-        end
+        hash[SEARCH_CRITERIA][SOLD_TO_NR] = @object.value_for_key(:sold_to_number).add_leading_zeros if @object.value_for_key(:sold_to_number).present?
+        hash[SEARCH_CRITERIA][INV_NR] = @object.value_for_key(:invoice_number).add_leading_zeros if @object.value_for_key(:invoice_number).present?
+        hash[SEARCH_CRITERIA][DEL_NR] = @object.value_for_key(:delivery_number).add_leading_zeros if @object.value_for_key(:delivery_number).present?
 
-        %i[ship_status material from_date to_date po_number].each do |key|
-          if @object.value_for_key(key).present?
-            hash[SEARCH_CRITERIA][MAPPER.key(key).to_s] = @object.value_for_key(key)
-          end
-        end
+        hash[SEARCH_CRITERIA][SHIP_STATUS] = @object.value_for_key(:ship_status) if @object.value_for_key(:ship_status).present?
+        hash[SEARCH_CRITERIA][MAT] = @object.value_for_key(:material) if @object.value_for_key(:material).present?
+        hash[SEARCH_CRITERIA][FROM_DOC_DATE] = @object.value_for_key(:from_date) if @object.value_for_key(:from_date).present?
+        hash[SEARCH_CRITERIA][TO_DOC_DATE] = @object.value_for_key(:to_date) if @object.value_for_key(:to_date).present?
+        hash[SEARCH_CRITERIA][PO_NR] = @object.value_for_key(:po_number) if @object.value_for_key(:po_number).present?
 
         hash[SEARCH_CRITERIA][MY] = 'T' if @object.value_for_key(:my)
         hash[SEARCH_CRITERIA][MAX_RESULTS] = @object.value_for_key(:my) ? '50' : '12000'
