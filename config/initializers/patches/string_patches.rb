@@ -258,7 +258,8 @@ class String
   end
 
   def amount_to_user_format(format)
-    ActiveSupport::NumberHelper.number_to_delimited(Float(self), delimiter: format.first, separator: format.last)
+    n = 2
+    sprintf("%0.#{n}f", Float(self)).sub('.', format[0].chr).gsub(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1#{format[1].chr}")
   end
 
   def date_to_user_format(format)

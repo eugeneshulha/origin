@@ -19,15 +19,6 @@ module CorevistAPI
                 return _value
               end
             end
-
-            define_method "#{field}="do |_value|
-              n_format = CorevistAPI::Context.current_user.number_format
-
-              _value = _value.to_s.amount_to_user_format(n_format)
-              self.respond_to?(:write_attribute) ? write_attribute(field, _value) : instance_variable_set("@#{field}", _value)
-
-              _value
-            end
           end
         end
 
@@ -40,14 +31,6 @@ module CorevistAPI
               return _value unless d_format
 
               _value.to_s.date_to_user_format(d_format)
-            end
-
-            define_method "#{field}="do |_value|
-              d_format = CorevistAPI::Context.current_user.date_format
-              _value = _value.to_s.date_to_user_format(d_format)
-              self.respond_to?(:write_attribute) ? write_attribute(field, _value) : instance_variable_set("@#{field}", _value)
-
-              _value
             end
           end
         end
@@ -62,14 +45,6 @@ module CorevistAPI
 
               _value.to_s.date_to_user_format(t_format)
             end
-
-            define_method "#{field}="do |_value|
-              t_format = CorevistAPI::Context.current_user.time_format
-              _value = _value.to_s.date_to_user_format(t_format)
-              self.respond_to?(:write_attribute) ? write_attribute(field, _value) : instance_variable_set("@#{field}", _value)
-
-              _value
-            end
           end
         end
 
@@ -83,16 +58,6 @@ module CorevistAPI
               return _value unless t_format || d_format
 
               _value.to_s.date_to_user_format("#{d_format} #{t_format}")
-            end
-
-            define_method "#{field}="do |_value|
-              t_format = CorevistAPI::Context.current_user.time_format
-              d_format = CorevistAPI::Context.current_user.date_format
-
-              _value = _value.to_s.date_to_user_format("#{d_format} #{t_format}")
-              self.respond_to?(:write_attribute) ? write_attribute(field, _value) : instance_variable_set("@#{field}", _value)
-
-              _value
             end
           end
         end
