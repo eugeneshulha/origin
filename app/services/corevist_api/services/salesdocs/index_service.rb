@@ -11,10 +11,19 @@ module CorevistAPI::Services::Salesdocs
       else
         @rfc_result = rfc_service_for(:salesdoc_list, @form, @params).call
 
-        array = filter_by_query(@rfc_result.data)
+        salesdocs = @rfc_result.data.inject([]) do |memo, doc|
+          salesdoc = builder_for(:basic_salesdoc, doc).build do |builder|
+            builder.with_header
+            builder.with_additional_data
+          end
+
+          memo << salesdoc
+        end
+
+        array = filter_by_query(salesdocs)
         array = sort_by_param(array)
 
-        result = paginate(items: array)
+        result = paginate(items: array.map { |x| x.as_json(:short) })
       end
 
       result(result)

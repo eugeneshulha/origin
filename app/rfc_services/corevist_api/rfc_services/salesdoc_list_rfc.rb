@@ -74,14 +74,7 @@ module CorevistAPI
       super
 
       @data = get_function_param(SALES_DOCUMENTS).map do |invoice|
-        invoice = map_params(invoice)
         RfcResultEntry.new(self.class.name.demodulize.underscore, invoice)
-      end
-    end
-
-    def map_params(invoice)
-      invoice.each_with_object({}) do |(k, v), memo|
-        memo[MAPPER[k.to_sym].to_s] = v.try(:force_encoding, Encoding::UTF_8)
       end
     end
   end

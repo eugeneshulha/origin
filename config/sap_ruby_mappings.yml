@@ -86,6 +86,21 @@ sap_ruby_mappings:
       rej_reason: :rejection_reason
       sales_uom: :sales_uom
 
+    data_from_search:
+      sold_to_descr: :sold_to_description
+      sold_to_nr: :sold_to_number
+      mat: :material
+      output_types: :output_types
+      del_nr: :delivery_number
+      qty: :quantity
+      sales_uom: :sales_uom
+      ship_to_descr: :ship_to_description
+      ship_to_nr: :ship_to_number
+      to_doc_date: :to_date
+      from_doc_date: :from_date
+      item_nr: :item_number
+      reference: :reference
+
 
   invoice:
     header:
