@@ -13,7 +13,7 @@ module CorevistAPI::Services::OpenItems
         memo << open_item
       end
 
-      objects = objects.select { |open_item| @params[:items].include?(open_item.invoice_number) } if @params[:items].present?
+      objects = objects.select { |open_item| @params[:items].include?(open_item.invoice_number.drop_leading_zeros) } if @params[:items].present?
       array = sort_by_param(
         filter_by_query(objects)
       )
