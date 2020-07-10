@@ -11,68 +11,44 @@ components:
       thead:
         - key: true
           name: "username"
-          caption: "Username"
+          caption: "<%= _('lbl|username') %>"
           label: null
-          sortable: false
+          sortable: true
           hidden: false
           action: "link"
         - key: true
           name: "first_name"
-          caption: "first_name"
+          caption: "<%= _('lbl|first name') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "last_name"
-          caption: "last_name"
+          caption: "<%= _('lbl|last name') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "email"
-          caption: "email"
+          caption: "<%= _('lbl|email address') %>"
           label: null
           sortable: true
           hidden: false
         - key: true
           name: "phone"
-          caption: "phone"
+          caption: "<%= _('lbl|phone') %>"
           label: null
-          sortable: true
+          sortable: false
           hidden: false
-        - key: true
-          name: "date_format"
-          caption: "date_format"
-          label: null
-          sortable: true
-          hidden: false
-        - key: true
-          name: "number_format"
-          caption: "number_format"
-          label: null
-          sortable: true
-          hidden: true
-        - key: true
-          name: "time_format"
-          caption: "time_format"
-          label: null
-          sortable: true
-          hidden: true
-        - key: true
-          name: "time_zone"
-          caption: "time_zone"
-          label: null
-          sortable: true
-          hidden: true
         - key: true
           name: "language"
-          caption: "language"
+          caption: "<%= _('lbl|locale') %>"
           label: null
-          sortable: true
+          sortable: false
           hidden: true
         - key: true
           name: "active"
-          caption: "active"
+          caption: "<%= _('lbl|active') %>"
           datatype: boolean
           label: null
           sortable: true
