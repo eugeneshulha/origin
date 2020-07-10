@@ -70,8 +70,8 @@ module CorevistAPI::Services::User
             rfc_partner: rfc_partner_data,
             sales_data: partners_sales_data,
             function: p_to_build.fct,
-            postal_addresses: @rfc_result.data[:postal_addresses],
-            street_addresses: @rfc_result.data[:street_addresses],
+            postal_addresses: @rfc_result.data[:postal_addresses].select { |x| x.nr == p_to_build.nr },
+            street_addresses: @rfc_result.data[:street_addresses].select { |x| x.nr == p_to_build.nr },
             assigned: false
           }
 
