@@ -8,14 +8,14 @@ components:
     elements:
       thead:
         - key: true
-          name: 'doc_nr'
+          name: 'doc_number'
           caption: "<%= _('lbl|invoice') %>"
           label: null
           sortable: true
           hidden: false
           action: 'expand'
         - key: true
-          name: 'bill_date'
+          name: 'billing_date'
           caption: "<%= _('lbl|due date') %>"
           label: null
           sortable: true
@@ -40,13 +40,13 @@ components:
           sortable: true
           hidden: false
         - key: true
-          name: 'payer_nr'
+          name: 'payer_number'
           caption: "<%= _('lbl|payer') %>"
           label: null
           sortable: true
           hidden: true
         - key: true
-          name: 'payer_descr'
+          name: 'payer_description'
           caption: "<%= _('lbl|payer name') %>"
           label: null
           sortable: true

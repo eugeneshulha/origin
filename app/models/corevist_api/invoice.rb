@@ -41,6 +41,7 @@ module CorevistAPI
           sales_order: self.sales_order,
           payment_status: self.payment_status,
           due_status: self.due_status,
+          po_number: self.po_number,
 
           item_number: self.item_number,
           material: self.material,
