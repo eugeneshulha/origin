@@ -18,6 +18,7 @@ module CorevistAPI
     belongs_to :user_type, optional: true
     belongs_to :user_classification, optional: true
     belongs_to :microsite, optional: true
+    has_many :carts, dependent: :destroy
 
     before_create :set_uuid
 
@@ -138,6 +139,10 @@ module CorevistAPI
 
     def warden_options
       { scope: :user, store: true, event: :authentication, run_callbacks: true }
+    end
+
+    def last_active_cart
+      carts.find_by(active: true)
     end
 
     private

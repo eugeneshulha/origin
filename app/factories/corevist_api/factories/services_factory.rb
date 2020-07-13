@@ -117,8 +117,7 @@ module CorevistAPI
         user_registration: 'CorevistAPI::Services::User::RegistrationService',
 
         # Cart
-        carts_simulate: 'CorevistAPI::Services::Carts::SimulateService',
-        carts_create: 'CorevistAPI::Services::Carts::CreateService',
+        carts_get_last_active: 'CorevistAPI::Services::Carts::GetLastActiveService',
 
         # SAP
         connect_to_sap: 'CorevistAPI::Services::ConnectToSAPService'

@@ -12,6 +12,8 @@ module CorevistAPI
     has_many :items, class_name: 'CorevistAPI::Cart::Item', foreign_key: :cart_uuid
     has_many :partners, class_name: 'CorevistAPI::Cart::Partner', foreign_key: :cart_uuid
     has_many :extensions, class_name: 'CorevistAPI::Cart::Extension', foreign_key: :cart_uuid
+    belongs_to :doc_type
+    belongs_to :sales_area
 
     validates_uniqueness_of :title, scope: :user_id
 

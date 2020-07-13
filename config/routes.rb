@@ -154,9 +154,9 @@ CorevistAPI::Engine.routes.draw do
 
       resources :site_configs, only: [:index]
 
-      scope :cart do
-        post :simulate, to: 'carts#simulate'
-        post :create, to: 'carts#create'
+      resources :carts, param: :uuid do
+        get :get_last_active, on: :collection, to: 'carts#get_last_active'
+        post :submit, on: :member, to: 'carts#submit'
       end
     end
   end
