@@ -3,6 +3,7 @@ require File.join(CorevistAPI::Engine.root, 'app/models/corevist_api/salesdoc/sh
 require File.join(CorevistAPI::Engine.root, 'app/models/corevist_api/salesdoc/header.rb')
 require File.join(CorevistAPI::Engine.root, 'app/models/corevist_api/salesdoc/tracking_number.rb')
 require File.join(CorevistAPI::Engine.root, 'app/models/corevist_api/salesdoc/delivery.rb')
+require File.join(CorevistAPI::Engine.root, 'app/models/corevist_api/salesdoc/item_data.rb')
 
 module CorevistAPI
   class Salesdoc
@@ -10,11 +11,7 @@ module CorevistAPI
     include CorevistAPI::FormatConversion
 
     # TODO: move to concerns/corevist_api/document.rb if relevant for any other document type
-    attr_accessor :deliveries,
-
-                  # from search
-                  :sold_to_description, :sold_to_number, :material, :output_types, :delivery_number, :item_number,
-                  :quantity, :sales_uom, :ship_to_description, :ship_to_number, :to_date, :from_date, :reference
+    attr_accessor :deliveries, :item_data
 
     delegate  :doc_date, :rdd, :inco_terms1, :inco_terms2, :ship_status, :credit_status, :po_type, :change_number,
               :change_date, :contact_info, :invoice_number, :proforma_invoice_number, :total_value,
@@ -22,9 +19,14 @@ module CorevistAPI
               :doc_number, :doc_type,  :doc_category, :sales_area, :po_number, :payment_terms, :payment_terms_text,
               :net_value, :currency, to: :header
 
+
+    delegate :sold_to_description, :sold_to_number, :material, :output_types, :delivery_number, :item_number,
+             :quantity, :sales_uom, :ship_to_description, :ship_to_number, :to_date, :from_date, :reference, to: :item_data
+
     def initialize
       super
       @deliveries = []
+      @item_data = CorevistAPI::Salesdoc::ItemData.new
     end
 
     def as_json(mode = :short)
@@ -56,7 +58,7 @@ module CorevistAPI
           ship_to_description: self.ship_to_description,
           ship_to_number: self.ship_to_number.drop_leading_zeros,
           to_date: self.to_date,
-          from_date: self.from_date,
+          from_date: self.from_date
       }
     end
   end

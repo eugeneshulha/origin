@@ -14,7 +14,7 @@ module CorevistAPI::Services::Salesdocs
         salesdocs = @rfc_result.data.inject([]) do |memo, doc|
           salesdoc = builder_for(:basic_salesdoc, doc).build do |builder|
             builder.with_header
-            builder.with_additional_data
+            builder.with_item_data
           end
 
           memo << salesdoc

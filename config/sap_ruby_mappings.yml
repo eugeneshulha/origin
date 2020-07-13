@@ -86,7 +86,7 @@ sap_ruby_mappings:
       rej_reason: :rejection_reason
       sales_uom: :sales_uom
 
-    data_from_search:
+    item_data:
       sold_to_descr: :sold_to_description
       sold_to_nr: :sold_to_number
       mat: :material
@@ -119,6 +119,8 @@ sap_ruby_mappings:
       payment_terms: :payment_terms
       paymt_t_text: :payment_terms_text
       sales_order: :sales_order
+      payment_status: :payment_status
+      due_status: :due_status
 
     item:
       cond_uom: :cond_uom
@@ -133,6 +135,15 @@ sap_ruby_mappings:
       qty: :quantity
       sales_order: :sales_order
       sales_uom: :sales_uom
+
+    item_data:
+      item_nr: :item_number
+      mat: :material
+      qty: :quantity
+      sales_uom: :sales_uom
+      cond_uom: :cond_uom
+      payer_nr: :payer_number
+      payer_descr: :payer_description
 
   open_item:
     item:

@@ -6,10 +6,18 @@ module CorevistAPI::Services::Invoices
     def perform
       @rfc_result = rfc_service_for(:invoice_list, @form, @params).call
 
-      array = filter_by_query(@rfc_result.data)
-      array = sort_by_param(array)
+      invoices = @rfc_result.data.inject([]) do |memo, doc|
+        invoice = builder_for(:basic_invoice, doc).build do |builder|
+          builder.with_header
+          builder.with_item_data
+        end
 
-      invoices = paginate(items: array)
+        memo << invoice
+      end
+
+      invoices = filter_by_query(invoices)
+      invoices = sort_by_param(invoices)
+      invoices = paginate(items: invoices.map { |x| x.as_json(:short) })
       result(invoices)
     end
   end

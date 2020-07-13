@@ -5,8 +5,8 @@ module CorevistAPI
         sap_field_mapper_for(:salesdoc, :header).each { |k,v| @object.header.send("#{v}=", @params.instance_variable_get(:"@#{k}")) }
       end
 
-      def with_additional_data
-        sap_field_mapper_for(:salesdoc, :data_from_search).each { |k,v| @object.send("#{v}=", @params.instance_variable_get(:"@#{k}")) }
+      def with_item_data
+        sap_field_mapper_for(:salesdoc, :item_data).each { |k,v| @object.item_data.send("#{v}=", @params.instance_variable_get(:"@#{k}")) }
       end
 
       private

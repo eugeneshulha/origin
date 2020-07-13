@@ -30,7 +30,7 @@ module CorevistAPI
 
             define_method field do
               _value = self.respond_to?(:read_attribute) ? read_attribute(field) : instance_variable_get("@#{field}")
-              _curr = self.respond_to?(:read_attribute) ? read_attribute(:currency) : instance_variable_get("@#{currency}")
+              _curr = self.respond_to?(:read_attribute) ? read_attribute(:currency) : instance_variable_get('@currency')
               _value.to_s.to_amount_with_format(_curr)
             end
           end

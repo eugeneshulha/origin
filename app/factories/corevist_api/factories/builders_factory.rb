@@ -8,7 +8,8 @@ module CorevistAPI
           invoice: 'CorevistAPI::Builders::InvoiceBuilder',
           payment: 'CorevistAPI::Builders::PaymentBuilder',
           open_item: 'CorevistAPI::Builders::OpenItemBuilder',
-          basic_salesdoc: 'CorevistAPI::Builders::BasicSalesdocBuilder'
+          basic_salesdoc: 'CorevistAPI::Builders::BasicSalesdocBuilder',
+          basic_invoice: 'CorevistAPI::Builders::BasicInvoiceBuilder'
         }
       end
     end
