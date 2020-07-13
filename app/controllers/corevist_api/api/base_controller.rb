@@ -49,6 +49,7 @@ module CorevistAPI::API
 
     def set_context
       CorevistAPI::Context.current_user = current_user if current_user
+      CorevistAPI::Context.measures = {}
     end
 
     def check_if_sap_is_down

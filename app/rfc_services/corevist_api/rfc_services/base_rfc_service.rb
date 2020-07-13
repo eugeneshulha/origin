@@ -18,7 +18,6 @@ module CorevistAPI
         @params = params&.dup
         @func_name = get_function_name(function_name)
         @logger = Rails.logger
-        @measures = Hash.new(0.0)
         @sap_return = CorevistAPI::RFCServices::BaseRFC::Return.new
         @retry_attempts = 0
         @max_retries = MAX_RETRIES
@@ -31,35 +30,36 @@ module CorevistAPI
       end
 
       def call
-        @measures[:start_time] = Time.now
-
         with_exception_handling do
-          with_benchmark(:conn_time) do
+          with_benchmark(:sap_set_connection_time) do
             set_connection
           end
 
           with_tagged_logging do
-            with_benchmark(:disc_time) do
+            with_benchmark(:sap_discovery_time) do
               set_function
             end
 
-            with_benchmark(:inp_time) do
+            with_benchmark(:sap_reset_context_time) do
+              reset_server_context
+            end
+
+            with_benchmark(:sap_input_time) do
               input
               truncate_input
               input_encode
               dump_input
             end
 
-            with_benchmark(:res_con_time) do
-              reset_server_context
-            end
-
-            with_benchmark(:call_time) do
+            with_benchmark(:sap_execute_time) do
               execute_function
             end
 
-            with_benchmark(:outp_time) do
+            with_benchmark(:sap_dump_output_time) do
               dump_output
+            end
+
+            with_benchmark(:sap_build_output_time) do
               output
               output_encode
             end

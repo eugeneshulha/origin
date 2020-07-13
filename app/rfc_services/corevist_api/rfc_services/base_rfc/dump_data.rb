@@ -34,9 +34,12 @@ module CorevistAPI
     def dump_array(key, array, indent)
       dump_heading(key, indent, array.size)
 
-      array.each_with_index do |el, index|
-        dump_string(index, nil, indent + NEXT_INDENT)
-        dump_struct(key, el, indent + NEXT_INDENT)
+      # dump if log level debug or a table is not in the list
+      if Rails.logger.debug? || !Settings.sap.do_not_dump_tables.include?(key)
+        array.each_with_index do |el, index|
+          dump_string(index, nil, indent + NEXT_INDENT)
+          dump_struct(key, el, indent + NEXT_INDENT)
+        end
       end
     end
 
@@ -59,7 +62,7 @@ module CorevistAPI
     end
 
     def add_new_line(line = nil)
-      @logger.debug(line)
+      @logger.info(line)
     end
 
     def data_to_log(object, method_chains)

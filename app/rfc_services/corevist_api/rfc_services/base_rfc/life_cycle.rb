@@ -10,8 +10,8 @@ module CorevistAPI
 
     def output
       @sap_return.from_function(@function)
-      @measures[:standard_time] = @sap_return.standard_time
-      @measures[:sap_time] = @sap_return.sap_time
+      CorevistAPI::Context.measures[:standard_time] = @sap_return.standard_time
+      CorevistAPI::Context.measures[:sap_time] = @sap_return.sap_time
 
       if @sap_return.message_type.present?
         raise CorevistAPI::RFCServices::BaseRFC::Error.new(@sap_return)

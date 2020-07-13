@@ -8,7 +8,9 @@ module CorevistAPI
 
     def call(env)
       @status, @headers, @response = @app.call(env)
-      CorevistAPI::Context.clear(:current_user)
+
+      CorevistAPI::Context.print_measures
+      CorevistAPI::Context.clear(:current_user, :measures)
       [@status, @headers, @response]
     end
   end

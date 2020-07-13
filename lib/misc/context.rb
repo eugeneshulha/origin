@@ -22,7 +22,7 @@ module CorevistAPI
       # Default methods will just translate method calls into proper calls to Context::Base.
       # Default calls can be overridden to add additional behavior.
 
-      methods = %i[current_user current_connection]
+      methods = %i[current_user current_connection measures]
 
       methods.each do |method|
         define_method "#{method}=" do |value|
@@ -41,6 +41,10 @@ module CorevistAPI
         keys.each do |k|
           Thread.current[:context].try(:[], k.to_sym).try(:'=', nil)
         end
+      end
+
+      def print_measures
+        puts measures.inject("") { |m, (k,v)| m += "[BENCHMARK] #{k}: #{v}\n" }
       end
 
       private
