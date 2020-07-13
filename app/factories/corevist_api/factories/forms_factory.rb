@@ -89,6 +89,7 @@ module CorevistAPI
         # Carts
         carts_items_create: 'CorevistAPI::Forms::Carts::Items::CreateForm',
         carts_items_update: 'CorevistAPI::Forms::Carts::Items::UpdateForm',
+        carts_items_index: 'CorevistAPI::Forms::Carts::Items::IndexForm',
 
 
         # Accounts

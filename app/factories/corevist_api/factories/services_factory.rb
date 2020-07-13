@@ -122,6 +122,8 @@ module CorevistAPI
         # Carts > Items
         carts_items_create: 'CorevistAPI::Services::Carts::Items::CreateService',
         carts_items_update: 'CorevistAPI::Services::Carts::Items::UpdateService',
+        carts_items_destroy: 'CorevistAPI::Services::Carts::Items::DestroyService',
+        carts_items_index: 'CorevistAPI::Services::Carts::Items::IndexService',
 
 
         # SAP
