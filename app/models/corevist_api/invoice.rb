@@ -13,7 +13,7 @@ module CorevistAPI
 
     delegate :billing_date, :tax, :status, :due_date, :company_code, :doc_number, :doc_type, :doc_category, :sales_area,
              :currency, :net_value, :payment_terms, :payment_terms_text, :sales_order, :payment_status,
-             :due_status, to: :header
+             :due_status, :po_number, to: :header
 
 
     def initialize
