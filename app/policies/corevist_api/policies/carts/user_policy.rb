@@ -1,11 +1,7 @@
 module CorevistAPI
   module Policies::Carts
     class UserPolicy < CorevistAPI::Policies::ApplicationPolicy
-      def simulate?
-        true
-      end
-
-      def create?
+      def get_last_active?
         true
       end
     end
