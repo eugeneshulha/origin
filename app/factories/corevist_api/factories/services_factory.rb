@@ -116,8 +116,13 @@ module CorevistAPI
         refresh_token: 'CorevistAPI::Services::Token::RefreshService',
         user_registration: 'CorevistAPI::Services::User::RegistrationService',
 
-        # Cart
+        # Carts
         carts_get_last_active: 'CorevistAPI::Services::Carts::GetLastActiveService',
+
+        # Carts > Items
+        carts_items_create: 'CorevistAPI::Services::Carts::Items::CreateService',
+        carts_items_update: 'CorevistAPI::Services::Carts::Items::UpdateService',
+
 
         # SAP
         connect_to_sap: 'CorevistAPI::Services::ConnectToSAPService'
