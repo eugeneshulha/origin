@@ -45,6 +45,25 @@ module CorevistAPI::Services::User
         end
         next if partners_to_build.blank?
 
+        #
+        # update assigned partner in case it's changed
+        # ______________________________________________________
+        #
+        builder_params = {
+            parent_partner_id: nil,
+            sales_area: a_p.sales_area,
+            user: current_user,
+            rfc_partner: @rfc_result.data[:partners].find { |x| x.nr == a_p.number },
+            sales_data: partners_sales_data,
+            function: a_p.function,
+            postal_addresses: @rfc_result.data[:postal_addresses].select { |x| x.nr == a_p.number },
+            street_addresses: @rfc_result.data[:street_addresses].select { |x| x.nr == a_p.number },
+            assigned: true
+        }
+
+        p = build_partner(builder_params)
+        p.save if p.changed?
+
         partners_to_build.flatten.each do |p_to_build|
           query = {
             number: p_to_build.nr,
