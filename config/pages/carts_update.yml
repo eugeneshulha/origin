@@ -1,12 +1,16 @@
-title: "<%= _('page title|simulate cart') %>"
+title: "<%= _('page title|update cart') %>"
 components:
-  - uuid: "cart_simulate_form"
-    description: "<%= _('page title|simulate cart') %>"
+  - uuid: "cart_update_form"
+    description: "<%= _('page title|update cart') %>"
     method: POST
-    title: "<%= _('page title|simulate cart') %>"
+    title: "<%= _('page title|update cart') %>"
     type: form
-    url: "/v1/carts/simulate"
+    url: "/v1/carts/<uuid>/update"
     elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+          
       - - atom: hidden
           uuid: "doc_type"
           name: "doc_type"

@@ -4,6 +4,14 @@ module CorevistAPI
       def get_last_active?
         true
       end
+
+      def update?
+        true
+      end
+
+      def destroy?
+        true
+      end
     end
   end
 end
