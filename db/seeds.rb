@@ -169,7 +169,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'b2b') do |user|
     user.active = true
-    user.username = 'b2b'
     user.password = '123123123'
     user.email = 'yury.matusevich@corevist.com'
     user.first_name = 'b2b first name'
@@ -197,7 +196,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_no_view_invoices') do |user|
     user.active = true
-    user.username = 'user_no_view_invoices'
     user.password = '123123123'
     user.email = 'yury.matusevich@corevist.com'
     user.first_name = 'User'
@@ -211,7 +209,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_invoices') do |user|
     user.active = true
-    user.username = 'user_search_for_invoices'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -227,7 +224,6 @@ ActiveRecord::Base.transaction do
   # /api/v1/open_items  error payer  does not exist in allowed comp.codes
   CorevistAPI::User.find_or_initialize_by(username: 'user_open_items') do |user|
     user.active = true
-    user.username = 'user_open_items'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -241,7 +237,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_role_maintenance') do |user|
     user.active = true
-    user.username = 'user_role_maintenance'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -255,7 +250,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_invoices') do |user|
     user.active = true
-    user.username = 'user_search_for_invoices'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -269,7 +263,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_search_for_orders') do |user|
     user.active = true
-    user.username = 'user_search_for_orders'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -283,7 +276,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_translation_maintenance') do |user|
     user.active = true
-    user.username = 'user_translation_maintenance'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -297,7 +289,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_user_maintenance') do |user|
     user.active = true
-    user.username = 'user_user_maintenance'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -311,7 +302,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_view_invoices') do |user|
     user.active = true
-    user.username = 'user_view_invoices'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -325,7 +315,6 @@ ActiveRecord::Base.transaction do
 
   CorevistAPI::User.find_or_initialize_by(username: 'user_view_orders') do |user|
     user.active = true
-    user.username = 'user_view_orders'
     user.password = '123123123'
     user.email = 'andrei.klepets@corevist.com'
     user.first_name = 'User'
@@ -335,6 +324,26 @@ ActiveRecord::Base.transaction do
     user.microsite = CorevistAPI::Microsite.first
     user.created_by = 'seeds'
     user.roles = [@view_orders_role]
+  end.save
+
+  user_0 = CorevistAPI::User.find_or_initialize_by(username: 'user_0') do |user|
+    user.active = true
+    user.password = '123123123'
+    user.email = 'yury.matusevich@corevist.com'
+    user.first_name = 'single'
+    user.last_name = 'sold to'
+    user.user_type = CorevistAPI::UserType.first
+    user.user_classification = CorevistAPI::UserClassification.first
+    user.microsite = CorevistAPI::Microsite.first
+    user.created_by = 'seeds'
+    user.roles = CorevistAPI::Role.all
+  end.save
+
+  CorevistAPI::Partner.find_or_initialize_by(number: '0000003000', sales_area_id: @sales_area_0.id, user_id: user_0.id, function: 'AG') do |payer|
+    payer.state = 'NE'
+    payer.country = 'US'
+    payer.city = 'New York'
+    payer.assigned = true
   end.save
 
   connection_1 = {
