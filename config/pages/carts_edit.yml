@@ -1,0 +1,47 @@
+title: "<%= _('page title|edit cart') %>"
+components:
+  - uuid: "cart_edit_form"
+    description: "<%= _('page title|edit cart') %>"
+    method: get
+    title: "<%= _('page title|edit cart') %>"
+    type: form
+    url: "/v1/carts/<uuid>/config"
+    elements:
+      - thead:
+        - key: true
+          name: "item_number"
+          caption: "<%= _('lbl|permission name') %>"
+          label: null
+          sortable: true
+          hidden: false
+          action: "link"
+        - key: true
+          name: "material"
+          caption: "<%= _('lbl|material') %>"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "description"
+          caption: "<%= _('lbl|description') %>"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "quantity"
+          caption: "<%= _('lbl|quantity') %>"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "net_price"
+          caption: "<%= _('lbl|net price') %>"
+          label: null
+          sortable: true
+          hidden: false
+        - key: true
+          name: "total"
+          caption: "<%= _('lbl|total') %>"
+          label: null
+          sortable: true
+          hidden: false
