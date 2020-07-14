@@ -1,5 +1,7 @@
 module CorevistAPI
   class User < ApplicationRecord
+    include CorevistAPI::Constants::Common
+
     attr_reader :access_exp, :refresh_exp, :token
 
     include CorevistAPI::UserTrackable
@@ -21,17 +23,13 @@ module CorevistAPI
     has_many :carts, dependent: :destroy
 
     before_create :set_uuid
+    before_save :populate_defaults
 
     validates_uniqueness_of :username
 
     KEY_EXP             = 'exp'.freeze
     KEY_JTI             = 'jti'.freeze
     KEY_SUB             = 'sub'.freeze
-    PAYER_FUNCTION      = 'RG'.freeze
-    SHIP_TO_FUNCTION    = 'WE'.freeze
-    SOLD_TO_FUNCTION    = 'AG'.freeze
-    TYPE_CUSTOMER_ADMIN = 'customer_admin'.freeze
-    TYPE_SYSTEM_ADMIN   = 'system_admin'.freeze
 
     def name
       first_name + ' ' + last_name
@@ -42,15 +40,15 @@ module CorevistAPI
     end
 
     def sold_tos
-      partners.where(function: SOLD_TO_FUNCTION, assigned: true)
+      partners.where(function: CorevistAPI::Constants::Common::SOLD_TO_FUNCTION, assigned: true)
     end
 
     def ship_tos
-      partners.where(function: SHIP_TO_FUNCTION, assigned: true)
+      partners.where(function: CorevistAPI::Constants::Common::SHIP_TO_FUNCTION, assigned: true)
     end
 
     def payers
-      partners.where(function: PAYER_FUNCTION, assigned: true)
+      partners.where(function: CorevistAPI::Constants::Common::PAYER_FUNCTION, assigned: true)
     end
 
     alias assigned_sold_tos sold_tos
@@ -59,11 +57,15 @@ module CorevistAPI
 
 
     def customer_admin?
-      user_type.title == TYPE_CUSTOMER_ADMIN
+      user_type.title == CorevistAPI::Constants::Common::USER_TYPE_CUSTOMER_ADMIN
     end
 
     def system_admin?
-      user_type.value == 'S'
+      user_type.title == CorevistAPI::Constants::Common::USER_TYPE_SYSTEM_ADMIN
+    end
+
+    def customer?
+      user_type.title == CorevistAPI::Constants::Common::USER_TYPE_CUSTOMER
     end
 
     # FI-authorization flag: N = none, I = invoices, O = open items, B = both invoices and open items
@@ -161,6 +163,13 @@ module CorevistAPI
 
     def utc_time(timestamp)
       Time.at(timestamp).utc
+    end
+
+    def populate_defaults
+      self.number_format = Settings.number_formats.US if number_format.blank?
+      self.date_format = Settings.date_formats.US if date_format.blank?
+      self.time_format = Settings.time_formats.send("24h") if time_format.blank?
+      self.language = 'en_US' if language.blank?
     end
   end
 end
