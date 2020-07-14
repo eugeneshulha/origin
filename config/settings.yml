@@ -28,7 +28,7 @@ timezones:
 number_formats:
   US: '.,'
   DE: ',.'
-  CH: '.'
+  CH: "'."
 
 time_formats:
   24h: '%H:%M:%S'
