@@ -54,13 +54,13 @@ module CorevistAPI::Services::User
           }
 
           # check if the partner to be build exists
-          partner_from_db = CorevistAPI::Partner.find_by(query)
+          partner_from_db = current_user.partners.find_by(query)
 
           #
           # if it exists then delete it from partners_to_drop array, cause it's valid
           # and go to the next iteration
           #
-          partners_to_drop.delete(partner_from_db) && next if partner_from_db.present?
+          partners_to_drop.delete(partner_from_db) if partner_from_db.present?
 
           rfc_partner_data = @rfc_result.data[:partners].find { |x| x.nr == p_to_build.nr }
           builder_params = {
@@ -81,7 +81,8 @@ module CorevistAPI::Services::User
 
           builder_params[:assigned] = true if assigned_partner_from_sap.present?
           partner = build_partner(builder_params)
-          partner.save!
+
+          partner.save! if partner.new_record? || partner.changed?
         end
       end
 

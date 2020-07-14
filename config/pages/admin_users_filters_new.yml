@@ -34,6 +34,7 @@ components:
       - - atom: button
           text: "<%= _('btn|cancel') %>"
           type: text
+          uuid: "cancel"
           action_type: button
           name: "apply"
 

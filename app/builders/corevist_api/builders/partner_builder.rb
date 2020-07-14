@@ -52,7 +52,8 @@ module CorevistAPI
         CorevistAPI::Partner.find_or_initialize_by(sales_area_id: sales_area.id,
                                                    user: user,
                                                    number: rfc_partner.nr,
-                                                   function: function)
+                                                   function: function,
+                                                   parent_partner_id: parent_partner_id)
       end
     end
   end
