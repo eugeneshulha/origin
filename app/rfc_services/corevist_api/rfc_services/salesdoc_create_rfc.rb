@@ -13,12 +13,12 @@ module CorevistAPI
     def object_to_rfc
       {
         HEADER_IN => {
-          DOC_TYPE => @params[:doc_type],
-          SA => @params[:sales_area],
-          RDD => @params[:rdd],
+          DOC_TYPE => @object.doc_type&.title,
+          SA => @object.sales_area&.title,
+          RDD => @object.rdd,
           VALID_FROM => '00000000',
           VALID_TO => '00000000',
-          PO_NR => @params[:po_number],
+          PO_NR => @params[:po_number].to_s,
           DEL_BLOCK => '',
           FLAGS => 'PU',
           PHONE => '1',
@@ -31,12 +31,12 @@ module CorevistAPI
         },
         PROCESS_TYPE => @params[:create] ? 'CREATION' : 'SIMULATION',
 
-        ITEMS_IN => @params[:items].each_with_index.map do |item, index|
+        ITEMS_IN => @object.items.each_with_index.map do |item, index|
           {
             ITEM_NR => (100_001 + index).to_s,
-            MAT => item[:material],
-            QTY => item[:quantity],
-            RDD => item[:rdd],
+            MAT => item.material,
+            QTY => item.quantity,
+            RDD => item.rdd,
             REFERENCE => '',
             REF_DOC_NR => '',
             REF_DOC_CAT => '',
@@ -46,11 +46,11 @@ module CorevistAPI
           }
         end,
 
-        PARTNERS_IN => @params[:partners].map do |partner|
+        PARTNERS_IN => @object.partners.map do |partner|
           {
             ITEM_NR => '000000',
-            FCT => partner[:function],
-            NR => partner[:number].add_leading_zeros
+            FCT => partner.function,
+            NR => partner.number.add_leading_zeros
           }
         end,
         PRICE_COMPONENTS_IN => []

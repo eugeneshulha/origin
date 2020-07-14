@@ -118,6 +118,9 @@ module CorevistAPI
 
         # Carts
         carts_get_last_active: 'CorevistAPI::Services::Carts::GetLastActiveService',
+        carts_create: 'CorevistAPI::Services::Carts::CreateService',
+        carts_update: 'CorevistAPI::Services::Carts::UpdateService',
+        carts_destroy: 'CorevistAPI::Services::Carts::DestroyService',
 
         # Carts > Items
         carts_items_create: 'CorevistAPI::Services::Carts::Items::CreateService',
