@@ -91,11 +91,11 @@ ActiveRecord::Base.transaction do
   doc_type = CorevistAPI::DocType.find_or_create_by!(
     title: 'TA',
     data: '',
-    created_by: 'seeds'
+    created_by: 'system'
   )
 
   %w[C I H M O P U B A].each do |c|
-    dc = CorevistAPI::DocCategory.find_or_create_by!(id: c, created_by: 'seeds')
+    dc = CorevistAPI::DocCategory.find_or_create_by!(id: c, created_by: 'system')
     dc.sales_areas = [@sales_area_0, @sales_area_1, @sales_area_2, @sales_area_3]
   end
 
@@ -109,7 +109,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = CorevistAPI::Role.all
   end.save
 
@@ -124,7 +124,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.phone = '123456789'
     user.roles = CorevistAPI::Role.all
   end.save
@@ -176,7 +176,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.find_by(value: 'S')
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = CorevistAPI::Role.all
   end.save
 
@@ -190,7 +190,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@view_invoices_role]
   end.save
 
@@ -203,7 +203,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@open_items_role]
   end.save
 
@@ -216,7 +216,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@search_for_invoices_role]
   end.save
 
@@ -231,7 +231,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@open_items_role]
   end.save
 
@@ -244,7 +244,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@role_maintenance_role]
   end.save
 
@@ -257,7 +257,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@search_for_invoices_role]
   end.save
 
@@ -270,7 +270,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@search_for_orders_role]
   end.save
 
@@ -283,7 +283,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@translation_maintenance_role]
   end.save
 
@@ -296,7 +296,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@user_maintenance_role]
   end.save
 
@@ -309,7 +309,7 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@view_invoices_role]
   end.save
 
@@ -322,11 +322,11 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = [@view_orders_role]
   end.save
 
-  user_0 = CorevistAPI::User.find_or_initialize_by(username: 'user_0') do |user|
+  CorevistAPI::User.find_or_initialize_by(username: 'user_0') do |user|
     user.active = true
     user.password = '123123123'
     user.email = 'yury.matusevich@corevist.com'
@@ -335,11 +335,13 @@ ActiveRecord::Base.transaction do
     user.user_type = CorevistAPI::UserType.first
     user.user_classification = CorevistAPI::UserClassification.first
     user.microsite = CorevistAPI::Microsite.first
-    user.created_by = 'seeds'
+    user.created_by = 'system'
     user.roles = CorevistAPI::Role.all
   end.save
 
-  CorevistAPI::Partner.find_or_initialize_by(number: '0000003000', sales_area_id: @sales_area_0.id, user_id: user_0.id, function: 'AG') do |payer|
+  @user_0 = CorevistAPI::User.find_by(username: 'user_0')
+
+  CorevistAPI::Partner.find_or_initialize_by(number: '0000003000', sales_area_id: @sales_area_0.id, user_id: @user_0.id, function: 'AG') do |payer|
     payer.state = 'NE'
     payer.country = 'US'
     payer.city = 'New York'
