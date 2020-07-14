@@ -14,7 +14,8 @@ module CorevistAPI
         salesdoc_display: 'CorevistAPI::RFCServices::SalesdocDisplayRFC',
         salesdoc_list: 'CorevistAPI::RFCServices::SalesdocListRFC',
         payments_list: 'CorevistAPI::RFCServices::PaymentsListRFC',
-        truncate_rfc: 'CorevistAPI::RFCServices::Truncations::RfcService'
+        truncate_rfc: 'CorevistAPI::RFCServices::Truncations::RfcService',
+        materials_availability: 'CorevistAPI::RFCServices::MaterialsAvailabilityRFC'
       }
     end
   end
