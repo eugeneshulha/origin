@@ -161,6 +161,8 @@ CorevistAPI::Engine.routes.draw do
 
         resources :items, param: :uuid, only: %i[index create update destroy], controller: 'carts/items'
       end
+
+      post :materials_availability, to: 'materials_availability#index'
     end
   end
 

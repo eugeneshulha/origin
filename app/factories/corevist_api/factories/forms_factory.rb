@@ -107,6 +107,7 @@ module CorevistAPI
         output_types_index: 'CorevistAPI::Forms::Document::OutputTypesList',
         output_types_show: 'CorevistAPI::Forms::Document::ShowOutputType',
         account_details_show: 'CorevistAPI::Forms::AccountDetails::Show',
+        materials_availability_index: 'CorevistAPI::Forms::MaterialsAvailability::IndexForm'
       }
     end
   end

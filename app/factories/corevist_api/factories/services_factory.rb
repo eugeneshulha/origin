@@ -130,7 +130,9 @@ module CorevistAPI
 
 
         # SAP
-        connect_to_sap: 'CorevistAPI::Services::ConnectToSAPService'
+        connect_to_sap: 'CorevistAPI::Services::ConnectToSAPService',
+
+        materials_availability_index: 'CorevistAPI::Services::MaterialsAvailability::IndexService'
       }
     end
   end
