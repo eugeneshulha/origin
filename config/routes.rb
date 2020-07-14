@@ -157,6 +157,7 @@ CorevistAPI::Engine.routes.draw do
       resources :carts, param: :uuid do
         get :get_last_active, on: :collection, to: 'carts#get_last_active'
         post :submit, on: :member, to: 'carts#submit'
+        get :configs, on: :member, to: 'carts#edit'
 
         resources :items, param: :uuid, only: %i[index create update destroy], controller: 'carts/items'
       end
