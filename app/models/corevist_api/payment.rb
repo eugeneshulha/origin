@@ -17,14 +17,13 @@ module CorevistAPI
       @items = []
     end
 
-    def as_json
+    def as_json(options = nil)
       hash = instance_variables.inject({}) do |memo, var|
         v = var.to_s.tr("@", '')
         memo[v] = self.send(v)
         memo
       end
-
-      hash.except("items").merge({ invoices: items.map(&:invoice_number) })
+      hash
     end
   end
 end
