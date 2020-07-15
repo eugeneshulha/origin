@@ -49,11 +49,14 @@ module CorevistAPI
       end
 
       def obtain_object
-        CorevistAPI::Partner.find_or_initialize_by(sales_area_id: sales_area.id,
-                                                   user: user,
-                                                   number: rfc_partner.nr,
-                                                   function: function,
-                                                   parent_partner_id: parent_partner_id)
+        q = {
+            sales_area_id: sales_area.id,
+            user: user,
+            number: rfc_partner.nr,
+            function: function
+        }
+        q.merge({parent_partner_id: parent_partner_id}) if @params[:parent_partner_id]
+        CorevistAPI::Partner.find_or_initialize_by(q)
       end
     end
   end
