@@ -10,7 +10,7 @@ module CorevistAPI::Services::SiteConfigs
         locales: Settings.locales.inject([]) { |memo, el| memo << { text: _("lbl|locale #{el}"), value: el }},
         sales_areas: CorevistAPI::SalesArea.all.inject([]) { |memo, el| memo << { text: el.title, value: el.title }},
         timezones: Settings.timezones.inject([]) { |memo, el| memo << { text: el[0], value: el[1] }},
-        number_formats: Settings.number_formats.inject([]) { |memo, el| memo << { text: _("lbl|number format #{el[0]}"), value: el[1] }},
+        number_formats: Settings.number_formats.inject([]) { |memo, el| memo << { text: _("lbl|number format #{el[0]}"), format: el[0].to_s.dasherize, value: el[1] }},
         date_formats: Settings.date_formats.inject([]) { |memo, el| memo << { text: _("lbl|date format #{el[0]}"), value: el[1] }},
         time_formats: Settings.time_formats.inject([]) { |memo, el| memo << { text: _("lbl|time format #{el[0]}"), value: el[1] }},
       }
