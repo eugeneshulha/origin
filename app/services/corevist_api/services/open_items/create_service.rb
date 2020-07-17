@@ -6,7 +6,7 @@ module CorevistAPI::Services::OpenItems
       rfc_result = rfc_service_for(:open_items, @form, @params).call
 
       items = rfc_result.data[:open_items].select do |item|
-        @form.invoices.to_a.include?(item.inv)
+        @form.invoices.to_a.include?(item.inv.drop_leading_zeros) || @form.invoices.to_a.include?(item.inv.add_leading_zeros)
       end
 
       raise CorevistAPI::ServiceException.new('open_items.items_to_pay_not_found') if items.blank?
