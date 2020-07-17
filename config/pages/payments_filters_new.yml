@@ -36,6 +36,10 @@ components:
           name: "from_date"
           validation_type: string
           value: ""
+          validations:
+            - message: "<%= _('error|attributes.from_date.blank') %>"
+              type: required
+              value: ""
 
         - atom: date
           uuid: "to_date"
@@ -43,6 +47,10 @@ components:
           name: "to_date"
           validation_type: string
           value: ""
+          validations:
+            - message: "<%= _('error|attributes.to_date.blank') %>"
+              type: required
+              value: ""
 
       - - atom: text
           uuid: "from_amount"
