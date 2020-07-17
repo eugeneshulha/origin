@@ -45,9 +45,9 @@ components:
           value: ""
 
       - - atom: select
-          label: "<%= _('lbl|ship date') %>"
-          uuid: "status"
-          name: "status"
+          label: "<%= _('lbl|ship status') %>"
+          uuid: "ship_status"
+          name: "ship_status"
           value: "ALL"
           options:
             - name: "<%= _('lbl|ship status ALL') %>"
