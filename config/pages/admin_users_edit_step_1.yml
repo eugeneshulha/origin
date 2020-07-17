@@ -139,6 +139,13 @@ components:
               type: required
               value: ""
 
+        - atom: checkbox
+          uuid: "active"
+          label: "<%= _('lbl|active') %>"
+          name: "active"
+          validation_type: string
+          value: ""
+
       - - atom: select
           uuid: "user_type_id"
           label: "<%= _('lbl|user type') %>"
