@@ -44,7 +44,7 @@ module CorevistAPI
       end
 
       def print_measures
-        puts measures.inject("") { |m, (k,v)| m += "[BENCHMARK] #{k}: #{v}\n" }
+        puts measures&.inject("") { |m, (k,v)| m += "[BENCHMARK] #{k}: #{v}\n" }
       end
 
       private

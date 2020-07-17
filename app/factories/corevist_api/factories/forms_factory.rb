@@ -23,6 +23,13 @@ module CorevistAPI
         admin_roles_edit: 'CorevistAPI::Forms::Admin::Roles::EditForm',
         admin_roles_destroy: 'CorevistAPI::Forms::Admin::Roles::DestroyForm',
 
+        # Admin > Roles
+        admin_themes_index: 'CorevistAPI::Forms::Admin::Themes::IndexForm',
+        admin_themes_create: 'CorevistAPI::Forms::Admin::Themes::CreateForm',
+        admin_themes_update: 'CorevistAPI::Forms::Admin::Themes::UpdateForm',
+        admin_themes_edit: 'CorevistAPI::Forms::Admin::Themes::EditForm',
+        admin_themes_destroy: 'CorevistAPI::Forms::Admin::Themes::DestroyForm',
+
         # Admin > Permissions
         admin_permissions_index: 'CorevistAPI::Forms::Admin::Permissions::IndexForm',
 

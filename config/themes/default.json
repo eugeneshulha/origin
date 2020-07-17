@@ -1,0 +1,61 @@
+{
+  "name": "Default Theme",
+  "colors": {
+    "primary": "#11456d",
+    "primaryDark": "#0B2B43",
+    "primaryLight": "#0e5ea0",
+    "Primary100": "#11456D",
+    "Primary90": "#28577B",
+    "Primary80": "#416A8A",
+    "Primary60": "#DDDDDD",
+    "Primary40": "#A0B5C5",
+    "Primary20": "#CFDAE2",
+    "Primary10": "#E7ECF0",
+    "Primary3": "#F6F8F9",
+    "SecondaryDark": "#0B2B43",
+    "NeutralDark": "#4A4A4A",
+    "NeutralMedium": "#9B9B9B",
+    "NeutralMiddleLight": "#adb5bd",
+    "Default": "#cccccc",
+    "NeutralLight": "#D8D8D8",
+    "MiddleLight": "#CDFFE6",
+    "SuccessDark": "#7DC06C",
+    "SuccessLight": "#F2F8F0",
+    "WarningDark": "#CF000F",
+    "Red": "#dc3545",
+    "WarningLight": "#FAE6E7",
+    "AlertInfo": "#E8E959",
+    "AlertWarning": "#F8E71C",
+    "White": "#FFFFFF",
+    "Tan": "#eee",
+    "Black": "#000000",
+    "BottomPatternBackground": "#0a3456",
+    "Transparent": "transparent"
+  },
+  "opacityColors": {
+    "LightGray": "rgba(256, 256, 256, 0.5)",
+    "MiddleGray": "rgba(0, 0, 0, 0.07)",
+    "Gray": "rgba(255, 255, 255, 0.4)",
+    "DarkBlack": "rgba(0, 0, 0, 0.5)",
+    "Black": "rgba(0, 0, 0, 0.4)",
+    "DarkerBlack": "rgba(0, 0, 0, 0.3)",
+    "MiddleDarkBlack": "rgba(0, 0, 0, 0.25)",
+    "LightBlack": "rgba(0, 0, 0, 0.2)",
+    "Transparent": "rgba(17, 69, 109, 0)",
+    "Transparent10": "rgba(50, 50, 93, 0.1)"
+  },
+  "fonts": {
+    "primary": "14px/24px -apple-system, BlinkMacSystemFont, \"Open Sans\", \"Helvetica Neue\", sans-serif",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, \"Open Sans\", \"Helvetica Neue\", sans-serif"
+  },
+  "backgrounds": {
+    "mainBg": {
+      "backgroundImagePrimary": "PrimaryImage",
+      "backgroundImageSecondary": "SecondaryImage"
+    }
+  },
+  "icons": {
+    "dropDownArow": "DropDownArow"
+  },
+  "logo": "/logo-corevist.svg"
+}

@@ -188,9 +188,10 @@ de_DE:
   lbl|cond type &NET: Zwischensumme
   lbl|cond type &TOT: Gesamtsumme
   lbl|sales area: Verkaufsfläche
-  lbl|number format US: "9,999,999.99"
-  lbl|number format DE: "9.999.999,99"
-  lbl|number format CH: "9'999'999.99"
+  lbl|number format en_US: "9,999,999.99"
+  lbl|number format de_DE: "9.999.999,99"
+  lbl|number format ar_EG: "9'999'999.99"
+  lbl|number format fr_FR: "9 999 999.99"
   lbl|time format 24h: "24h hh:mm:ss"
   lbl|time format 12h: "12h hh:mm:ss AM/PM"
   lbl|date format US: "mm/dd/yyyy"
