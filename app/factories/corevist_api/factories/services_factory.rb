@@ -26,6 +26,15 @@ module CorevistAPI
         admin_roles_index_filter: 'CorevistAPI::Services::Admin::Roles::FilterService',
         admin_roles_destroy: 'CorevistAPI::Services::Admin::Roles::DestroyService',
 
+        # Admin > Themes
+        admin_themes_index: 'CorevistAPI::Services::Admin::Themes::IndexService',
+        admin_themes_create: 'CorevistAPI::Services::Admin::Themes::CreateService',
+        admin_themes_show: 'CorevistAPI::Services::Admin::Themes::ShowService',
+        admin_themes_update: 'CorevistAPI::Services::Admin::Themes::UpdateService',
+        admin_themes_edit: 'CorevistAPI::Services::Admin::Themes::EditService',
+        admin_themes_index_filter: 'CorevistAPI::Services::Admin::Themes::FilterService',
+        admin_themes_destroy: 'CorevistAPI::Services::Admin::Themes::DestroyService',
+
         # Admin > Permissions
         admin_permissions_index: 'CorevistAPI::Services::Admin::Permissions::IndexService',
 

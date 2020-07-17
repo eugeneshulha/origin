@@ -1,0 +1,33 @@
+title: "<%= _('page title|create role') %>"
+components:
+  - uuid: "role_create_form"
+    description: "<%= _('page title|create role') %>"
+    method: POST
+    title: "<%= _('page title|create role') %>"
+    type: form
+    url: "/v1/admin/roles/"
+    elements:
+      - - atom: hidden
+          uuid: "uuid"
+          name: "uuid"
+
+      - - atom: hidden
+          uuid: "active"
+          name: "active"
+
+      - - atom: text
+          uuid: "title"
+          label: "<%= _('lbl|role title') %>"
+          name: "title"
+          validation_type: string
+          validations:
+            - message: "<%= _('error|attributes.title.blank') %>"
+              type: required
+              value: ""
+      - - atom: text
+          uuid: "description"
+          label: "<%= _('lbl|role description') %>"
+          name: "description"
+      - - atom: text
+          uuid: "permission_ids"
+          name: "permission_ids"

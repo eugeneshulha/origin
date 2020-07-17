@@ -1,0 +1,53 @@
+{
+  "name": "bioventus",
+  "colors": {
+    "primaryDark": "#311652",
+    "Primary100": "#49176d",
+    "Primary90": "#6b4b96",
+    "Primary80": "#373737",
+    "Primary40": "#a583d1",
+    "Primary20": "#CFDAE2",
+    "Primary10": "#E7ECF0",
+    "Primary3": "#F6F8F9",
+    "SecondaryDark": "#0B2B43",
+    "NeutralDark": "#4A4A4A",
+    "NeutralMedium": "#9B9B9B",
+    "NeutralLight": "#D8D8D8",
+    "SuccessDark": "#308919",
+    "SuccessLight": "#F2F8F0",
+    "WarningDark": "#CF000F",
+    "Red": "#dc3545",
+    "WarningLight": "#FAE6E7",
+    "AlertInfo": "#E8E959",
+    "White": "#FFFFFF",
+    "Tan": "#eee",
+    "BottomPatternBackground": "#260041",
+    "Transparent": "transparent"
+  },
+  "opacityColors": {
+    "LightGray": "rgba(256, 256, 256, 0.5)",
+    "MiddleGray": "rgba(0, 0, 0, 0.07)",
+    "Gray": "rgba(255, 255, 255, 0.4)",
+    "DarkBlack": "rgba(0, 0, 0, 0.5)",
+    "Black": "rgba(0, 0, 0, 0.4)",
+    "DarkerBlack": "rgba(0, 0, 0, 0.3)",
+    "MiddleDarkBlack": "rgba(0, 0, 0, 0.25)",
+    "LightBlack": "rgba(0, 0, 0, 0.2)",
+    "Transparent": "rgba(17, 69, 109, 0)",
+    "Transparent10": "rgba(50, 50, 93, 0.1)"
+  },
+  "fonts": {
+    "primary": "14px/24px -apple-system, BlinkMacSystemFont, \"Times New Roman\", \"Helvetica Neue\", sans-serif",
+    "fontFamily": "-apple-system, BlinkMacSystemFont, \"Times New Roman\", \"Helvetica Neue\", sans-serif"
+  },
+  "backgrounds": {
+    "mainBg": {
+      "backgroundImagePrimary": "PrimaryImage",
+      "backgroundImageSecondary": "SecondaryImage"
+    },
+  },
+  "icons": {
+    "dropDownArow": "DropDownArow"
+  },
+  "logo": "https://www.3acomposites.com/fileadmin/user_upload/logo-3acomposites_white.png"
+}
