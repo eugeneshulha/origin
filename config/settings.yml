@@ -26,9 +26,10 @@ timezones:
   utc: utc
 
 number_formats:
-  US: '.,'
-  DE: ',.'
-  CH: "'."
+  en_US: '.,'
+  de_DE: ',.'
+  ar_EG: ".'"
+  fr_FR: ", "
 
 time_formats:
   24h: '%H:%M:%S'
